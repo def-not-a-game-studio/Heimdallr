@@ -26,6 +26,7 @@ namespace Heimdallr.Core.GameEntity {
         private GameObject HeadFace;
 
         public void SetGameEntityData(GameEntityData data) {
+            transform.localScale = new Vector3(2.3f, 2.3f, 2.3f);
             var oldData = GameEntityData;
             GameEntityData = data;
 

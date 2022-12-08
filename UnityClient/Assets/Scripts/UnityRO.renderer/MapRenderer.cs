@@ -34,6 +34,55 @@ public class MapRenderer {
         get { return worldCompleted && altitudeCompleted && groundCompleted && modelsCompleted; }
     }
 
+    public async static Task<GameMap> RenderMap(AsyncMapLoader.GameMapData gameMapData, string mapName) {
+        var gameMap = new GameObject(mapName).AddComponent<GameMap>();
+        gameMap.tag = "Map";
+        gameMap.SetMapSize((int) gameMapData.Ground.width, (int) gameMapData.Ground.height);
+        gameMap.SetMapAltitude(new Altitude(gameMapData.Altitude));
+
+        var ground = new Ground(gameMapData.CompiledGround, gameMapData.World.water);
+
+        for(int i = 0; i < gameMapData.World.sounds.Count; i++) {
+            gameMapData.World.sounds[i].pos[0] += gameMap.Size.x;
+            gameMapData.World.sounds[i].pos[1] *= -1;
+            gameMapData.World.sounds[i].pos[2] += gameMap.Size.y;
+            //world.sounds[i].pos[2] = tmp;
+            gameMapData.World.sounds[i].range *= 0.3f;
+            gameMapData.World.sounds[i].tick = 0;
+        }
+
+        await new Models(gameMapData.CompiledModels.ToList()).BuildMeshesAsync(null, true, gameMap.Size);
+
+        Sounds sounds = new Sounds();
+        foreach(var sound in gameMapData.World.sounds) {
+            sounds.Add(sound, null);
+        }
+
+        Sky sky;
+        if(WeatherEffect.HasMap(mapName)) {
+            //create sky
+            var skyObject = new GameObject("_sky");
+            skyObject.transform.SetParent(GameObject.FindObjectOfType<GameMap>().transform);
+            sky = skyObject.AddComponent<Sky>();
+            sky.Initialize(mapName);
+        } else {
+            //no weather effects, set sky color to blueish
+            //Camera.main.backgroundColor = new Color(0.4f, 0.6f, 0.8f, 1.0f);
+        }
+
+        GameObject lightsParent = new GameObject("_lights");
+        lightsParent.transform.parent = gameMap.transform;
+
+        foreach(var light in gameMapData.World.lights) {
+            var lightObj = new GameObject(light.name);
+            var lightContainer = lightObj.AddComponent<LightContainer>();
+            lightObj.transform.SetParent(lightsParent.transform);
+            lightContainer.SetLightProps(light, (uint) gameMap.Size.y, (uint) gameMap.Size.x);
+        }
+
+        return gameMap;
+    }
+
     public MapRenderer(AudioMixerGroup audioMixerGroup, Light worldLight) {
         SoundsMixerGroup = audioMixerGroup;
         WorldLight = worldLight;

@@ -200,9 +200,9 @@ public class Models {
     }
 
     private int CreateOriginalModel(int nodeId, RSM.CompiledModel model, GameObject modelObj) {
-        Material material = new Material(Shader.Find("Shader Graphs/ModelShader"));
-        Material materialTwoSided = new Material(Shader.Find("Shader Graphs/ModelShader2Sided"));
-        Material materialTransparent = new Material(Shader.Find("Shader Graphs/TransparentModelShader"));
+        Material material = Resources.Load<Material>("Materials/ModelMaterial");
+        Material materialTwoSided = Resources.Load<Material>("Materials/ModelMaterial2Sided");
+        Material materialTransparent = Resources.Load<Material>("Materials/ModelMaterialTransparent");
 
         foreach(var nodeData in model.nodesData) {
             foreach(var meshesByTexture in nodeData) {

@@ -52,8 +52,8 @@ public class Ground {
             var mr = gameObject.AddComponent<MeshRenderer>();
             mr.sharedMaterial = material;
             mr.sharedMaterial.mainTexture = atlas;
-            mr.sharedMaterial.SetTexture("_Tintmap", tintmap);
-            mr.sharedMaterial.SetTexture("_Lightmap", lightmap);
+            //mr.sharedMaterial.SetTexture("_Tintmap", tintmap);
+            //mr.sharedMaterial.SetTexture("_Lightmap", lightmap);
 
             Vector3 scale = gameObject.transform.localScale;
             scale.Set(1f, -1f, 1f);
