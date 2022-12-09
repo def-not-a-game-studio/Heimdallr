@@ -32,7 +32,7 @@ public class GameMap : MonoBehaviour {
     }
 
     private void InitWorldLight() {
-        if (WorldLight != null)
+        if(WorldLight != null)
             return;
 
         var worldLightGameObject = new GameObject("Light");
@@ -42,7 +42,7 @@ public class GameMap : MonoBehaviour {
     }
 
     private void SetupWorldLight() {
-        if (LightInfo == null) {
+        if(LightInfo == null) {
             return;
         }
 
@@ -54,14 +54,17 @@ public class GameMap : MonoBehaviour {
         Vector3 lightRotation = new Vector3(LightInfo.longitude, LightInfo.latitude, 0);
         WorldLight.transform.rotation = Quaternion.identity;
         WorldLight.transform.Rotate(lightRotation);
+        
+        if(LightInfo.ambient.Length > 0) {
+            Color ambient = new Color(LightInfo.ambient[0], LightInfo.ambient[1], LightInfo.ambient[2]);
+            RenderSettings.ambientLight = ambient * LightInfo.intensity;
+        }
 
-        Color ambient = new Color(LightInfo.ambient[0], LightInfo.ambient[1], LightInfo.ambient[2]);
-        Color diffuse = new Color(LightInfo.diffuse[0], LightInfo.diffuse[1], LightInfo.diffuse[2]);
-
-        RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
-        RenderSettings.ambientLight = ambient * LightInfo.intensity;
-
-        WorldLight.color = diffuse;
+        if(LightInfo.diffuse.Length > 0) {
+            Color diffuse = new Color(LightInfo.diffuse[0], LightInfo.diffuse[1], LightInfo.diffuse[2]);
+            RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Flat;
+            WorldLight.color = diffuse;
+        }
     }
 
     public void SetMapSize(int width, int height) {
@@ -71,7 +74,7 @@ public class GameMap : MonoBehaviour {
     public void SetMapLightInfo(RSW.LightInfo lightInfo) {
         LightInfo = lightInfo;
 
-        if (WorldLight == null) {
+        if(WorldLight == null) {
             InitWorldLight();
         }
 
@@ -84,7 +87,7 @@ public class GameMap : MonoBehaviour {
     }
 
     public PathFinder GetPathFinder() {
-        if (PathFinder == null) {
+        if(PathFinder == null) {
             InitPathFinder();
         }
 

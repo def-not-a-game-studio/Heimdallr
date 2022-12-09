@@ -1,6 +1,6 @@
 using System;
 
-namespace Heimdallr.Core.GameEntity {
+namespace Heimdallr.Core.Game {
 
     public class GameEntityData {
         public int HairColor;

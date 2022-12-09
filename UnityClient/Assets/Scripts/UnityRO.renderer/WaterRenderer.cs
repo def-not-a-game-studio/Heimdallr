@@ -18,7 +18,7 @@ namespace Assets.Scripts.Renderer.Map {
         private int currentTextureId;
         private Texture2D[] textures;
 
-        private async void Start() {
+        private void Start() {
             material = gameObject.GetComponent<MeshRenderer>().material;
 
             material.SetFloat("Wave Height", WaterInfo.waveHeight);
@@ -26,8 +26,8 @@ namespace Assets.Scripts.Renderer.Map {
 
             textures = new Texture2D[32];
             for (int i = 0; i < 32; i++) {
-                var texture = await Addressables.LoadAssetAsync<Texture2D>(Path.ChangeExtension(WaterInfo.images[i], ".png").SanitizeForAddressables()).Task;
-                textures[i] = texture;
+                //var texture = Addressables.LoadAssetAsync<Texture2D>(Path.ChangeExtension(WaterInfo.images[i], ".png").SanitizeForAddressables()).WaitForCompletion();
+                //textures[i] = texture;
             }
         }
 

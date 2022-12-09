@@ -285,7 +285,7 @@ public class ROMapExtractor : EditorWindow {
                 GameObjectUtility.SetStaticEditorFlags(mesh, StaticEditorFlags.BatchingStatic);
                 meshPath = AssetDatabase.GenerateUniqueAssetPath(meshPath + ".prefab");
                 PrefabUtility.SaveAsPrefabAssetAndConnect(mesh, meshPath, InteractionMode.AutomatedAction);
-            } catch(Exception ex) {
+            } catch(Exception) {
                 Debug.LogError($"Failed extracting model {mesh.name}");
             }
         }

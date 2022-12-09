@@ -3,12 +3,15 @@ using Heimdallr.Core.Database.Hair;
 using Heimdallr.Core.Database.HeadFace;
 using UnityEngine;
 
-namespace Heimdallr.Core.GameEntity {
+namespace Heimdallr.Core.Game {
     public class GameEntityViewer : MonoBehaviour {
 
-        public GameEntityData GameEntityData { get; private set; }
-        public GameEntityCustomizableData GameEntityCustomizableData { get; private set; }
+        #region Components
+        private GameEntity GameEntity;
+        private Animator Animator;
+        #endregion
 
+        #region Bones
         [SerializeField]
         private Transform NeckBone;
 
@@ -20,10 +23,54 @@ namespace Heimdallr.Core.GameEntity {
 
         [SerializeField]
         private Transform RightHandBone;
+        #endregion
+
+        #region State
+        public GameEntityData GameEntityData { get; private set; }
+        public GameEntityCustomizableData GameEntityCustomizableData { get; private set; }
+        private GameEntityState LastEntityState;
 
         private GameObject Eye;
         private GameObject Hair;
         private GameObject HeadFace;
+        #endregion
+
+        private void Awake() {
+            GameEntity = GetComponentInParent<GameEntity>();
+            Animator = GetComponent<Animator>();
+        }
+
+        private void Update() {
+            if(LastEntityState != GameEntity.EntityState) {
+                LastEntityState = GameEntity.EntityState;
+
+                string animatorTrigger = "";
+                string parameterName = null;
+                float parameterValue = 1f;
+
+                switch(LastEntityState) {
+                    case GameEntityState.Wait:
+                        animatorTrigger = "wait";
+                        break;
+                    case GameEntityState.Walk:
+                        animatorTrigger = "walk";
+                        parameterName = "walkSpeedMultiplier";
+                        parameterValue = 0.75f;
+                        break;
+                    case GameEntityState.Attack:
+                        animatorTrigger = "attack";
+                        break;
+                    case GameEntityState.Hit:
+                        animatorTrigger = "hit";
+                        break;
+                };
+
+                Animator.SetTrigger(animatorTrigger);
+                if(parameterName != null) {
+                    Animator.SetFloat(parameterName, parameterValue);
+                }
+            }
+        }
 
         public void SetGameEntityData(GameEntityData data) {
             transform.localScale = new Vector3(2.3f, 2.3f, 2.3f);

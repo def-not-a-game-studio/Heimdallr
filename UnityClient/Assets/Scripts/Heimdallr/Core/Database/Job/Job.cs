@@ -1,4 +1,4 @@
-using Heimdallr.Core.GameEntity;
+using Heimdallr.Core.Game;
 using UnityEngine;
 
 namespace Heimdallr.Core.Database.Job {
