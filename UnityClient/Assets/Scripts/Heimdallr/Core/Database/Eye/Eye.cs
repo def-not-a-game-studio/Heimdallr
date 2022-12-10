@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Heimdallr.Core.Database.Eye {
 
-    [CreateAssetMenu]
+    [CreateAssetMenu(menuName = "Heimdallr/Database Entry/Eye")]
     public class Eye : ScriptableObject {
         public GameObject EyeMale;
         public GameObject EyeFemale;

@@ -1,6 +1,8 @@
 ﻿using Heimdallr.Core.Database.Eye;
 using Heimdallr.Core.Database.Hair;
 using Heimdallr.Core.Database.HeadFace;
+using Heimdallr.Core.Database.Job;
+using System;
 using UnityEngine;
 
 namespace Heimdallr.Core.Game {
@@ -23,6 +25,9 @@ namespace Heimdallr.Core.Game {
 
         [SerializeField]
         private Transform RightHandBone;
+
+        [SerializeField]
+        private Renderer ClothesRenderer;
         #endregion
 
         #region State
@@ -33,6 +38,7 @@ namespace Heimdallr.Core.Game {
         private GameObject Eye;
         private GameObject Hair;
         private GameObject HeadFace;
+        private Material ClothesColorMaterial;
         #endregion
 
         private void Awake() {
@@ -74,6 +80,7 @@ namespace Heimdallr.Core.Game {
 
         public void SetGameEntityData(GameEntityData data) {
             transform.localScale = new Vector3(2.3f, 2.3f, 2.3f);
+            transform.localPosition = new Vector3(0, -0.2f, 0);
             var oldData = GameEntityData;
             GameEntityData = data;
 
@@ -86,7 +93,8 @@ namespace Heimdallr.Core.Game {
             GameEntityCustomizableData ??= new GameEntityCustomizableData {
                 Eye = DatabaseManager.GetEyeById(data.Eye),
                 HeadFace = DatabaseManager.GetHeadFaceById(0),
-                Hair = DatabaseManager.GetHairById(data.HairStyle)
+                Hair = DatabaseManager.GetHairById(data.HairStyle),
+                Job = DatabaseManager.GetJobById(data.Job),
             };
 
             if(data.HairStyle != GameEntityData.HairStyle || Hair == null) {
@@ -96,6 +104,10 @@ namespace Heimdallr.Core.Game {
 
             if(data.HairColor != GameEntityData.HairColor && Hair != null) {
                 SetHairColor(data);
+            }
+
+            if(data.ClothesColor != GameEntityData.ClothesColor || ClothesColorMaterial == null) {
+                SetClothesColor(data);
             }
 
             if(data.Eye != GameEntityData.Eye || Eye == null) {
@@ -110,6 +122,12 @@ namespace Heimdallr.Core.Game {
             }
         }
 
+        private void SetClothesColor(GameEntityData data) {
+            var colors = data.IsMale ? GameEntityCustomizableData.Job.ColorsMale : GameEntityCustomizableData.Job.ColorsFemale;
+            ClothesColorMaterial = colors[data.ClothesColor % colors.Count - 1];
+            ClothesRenderer.material = ClothesColorMaterial;
+        }
+
         private void SetHairStyle(GameEntityData data) {
             if(Hair != null)
                 Destroy(Hair);
@@ -118,11 +136,9 @@ namespace Heimdallr.Core.Game {
         }
 
         private void SetHairColor(GameEntityData data) {
-            Renderer meshRenderer = Hair.gameObject.GetComponentInChildren<Renderer>();
+            Renderer renderer = Hair.gameObject.GetComponentInChildren<Renderer>();
             var colors = data.IsMale ? GameEntityCustomizableData.Hair.ColorsMale : GameEntityCustomizableData.Hair.ColorsFemale;
-            if(data.HairColor < colors.Count) {
-                meshRenderer.material = colors[data.HairColor];
-            }
+            renderer.material = colors[data.HairColor % colors.Count - 1];
         }
     }
 
@@ -130,5 +146,6 @@ namespace Heimdallr.Core.Game {
         public Eye Eye;
         public HeadFace HeadFace;
         public Hair Hair;
+        public Job Job;
     }
 }

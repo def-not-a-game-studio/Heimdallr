@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Heimdallr.Core.Database.Hair {
 
-    [CreateAssetMenu]
+    [CreateAssetMenu(menuName = "Heimdallr/Database/Hair")]
     public class HairDatabase : ScriptableObject {
         public List<Hair> Values;
     }

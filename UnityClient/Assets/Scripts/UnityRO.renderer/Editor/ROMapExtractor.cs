@@ -1,7 +1,6 @@
-using Codice.CM.Client.Differences;
+#if UNITY_EDITOR
 using ROIO;
 using ROIO.Loaders;
-using ROIO.Models.FileTypes;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,6 +17,8 @@ public class ROMapExtractor : EditorWindow {
     private List<string> grfPaths = new List<string>();
     private ReorderableList GrfReordableList;
 
+    private GameMap CurrentGameMap;
+
     [MenuItem("Window/ROMapExtractor")]
     public static void ShowWindow() {
         EditorWindow.GetWindow(typeof(ROMapExtractor));
@@ -25,8 +26,7 @@ public class ROMapExtractor : EditorWindow {
 
     async void LoadMap() {
         AsyncMapLoader.GameMapData gameMapData = await new AsyncMapLoader().Load($"{mapName}.rsw");
-        GameMap map = await MapRenderer.RenderMap(gameMapData, mapName);
-        SaveMap(map.gameObject);
+        CurrentGameMap = await MapRenderer.RenderMap(gameMapData, mapName);
     }
 
     public static string GetBasePath() {
@@ -267,7 +267,9 @@ public class ROMapExtractor : EditorWindow {
             try {
                 var nodes = mesh.GetComponentsInChildren<NodeProperties>();
                 foreach(var node in nodes) {
-                    GameObjectUtility.SetStaticEditorFlags(node.gameObject, StaticEditorFlags.BatchingStatic);
+                    if (!node.TryGetComponent<NodeAnimation>(out var anim)) {
+                        GameObjectUtility.SetStaticEditorFlags(node.gameObject, StaticEditorFlags.BatchingStatic);
+                    }
                     var filter = node.GetComponent<MeshFilter>();
                     var material = node.GetComponent<MeshRenderer>().material;
 
@@ -280,9 +282,7 @@ public class ROMapExtractor : EditorWindow {
 
                     AssetDatabase.CreateAsset(filter.mesh, partPath);
                     AssetDatabase.CreateAsset(material, materialPath);
-
                 }
-                GameObjectUtility.SetStaticEditorFlags(mesh, StaticEditorFlags.BatchingStatic);
                 meshPath = AssetDatabase.GenerateUniqueAssetPath(meshPath + ".prefab");
                 PrefabUtility.SaveAsPrefabAssetAndConnect(mesh, meshPath, InteractionMode.AutomatedAction);
             } catch(Exception) {
@@ -360,9 +360,15 @@ public class ROMapExtractor : EditorWindow {
         GUILayout.Space(16);
         GUILayout.Label("Base Settings", EditorStyles.boldLabel);
         mapName = EditorGUILayout.TextField("Map name", mapName);
+        GUILayout.Space(8);
+        EditorGUILayout.BeginHorizontal();
         if(GUILayout.Button("Load Map")) {
             LoadMap();
         }
+        if(GUILayout.Button("Save Map") && CurrentGameMap != null) {
+            SaveMap(CurrentGameMap.gameObject);
+        }
+        EditorGUILayout.EndHorizontal();
     }
 
     private void OnInspectorUpdate() {
@@ -388,3 +394,4 @@ public class ROMapExtractor : EditorWindow {
         return readableText;
     }
 }
+#endif

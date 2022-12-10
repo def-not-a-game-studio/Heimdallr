@@ -5,10 +5,11 @@ using UnityEngine;
 namespace Heimdallr.Core.Game.Controllers {
     public class GameEntityMovementController : MonoBehaviour {
 
+        private const int MoveAnimFPS = 30 / 2;
+
         private LayerMask GroundMask;
         private PathFinder PathFinder;
         private GameEntity GameEntity;
-
 
         #region Behaviour
         [SerializeField]
@@ -18,7 +19,6 @@ namespace Heimdallr.Core.Game.Controllers {
         private bool IsWalking;
         private int NodeIndex;
         private List<Vector3> Nodes;
-        private Vector3 LastPosition;
         #endregion
 
 
@@ -43,8 +43,11 @@ namespace Heimdallr.Core.Game.Controllers {
                 var current = Nodes[NodeIndex];
                 var next = Nodes[NodeIndex + 1];
                 var direction = (next - current).normalized;
-                var rotation = Quaternion.LookRotation(direction, Vector3.up);
-                transform.SetPositionAndRotation(transform.position + (5 * Time.deltaTime * direction), Quaternion.RotateTowards(transform.rotation, rotation, RotateSpeed * Time.deltaTime));
+                
+                var rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(direction, Vector3.up), RotateSpeed * Time.deltaTime);
+                var nextPosition = (GameEntity.EntityData.MoveSpeed / MoveAnimFPS) * Time.deltaTime * direction;
+
+                transform.SetPositionAndRotation(transform.position + nextPosition, rotation);
 
                 if(transform.position.x >= next.x && transform.position.z >= next.z) {
                     NodeIndex++;
@@ -61,6 +64,8 @@ namespace Heimdallr.Core.Game.Controllers {
                     RequestMovement(Mathf.FloorToInt(hit.point.x), Mathf.FloorToInt(hit.point.z));
                 }
             } else if(GetAxisDirection() != Vector3.zero) {
+                // TODO: Implement free movement until we're past 1 unit over current position
+                // Above comment is so we can kinda move freely within the boundaries of a cell
                 var direction = GetAxisDirection();
 
                 RequestMovement(Mathf.FloorToInt(transform.position.x + direction.x), Mathf.FloorToInt(transform.position.z + direction.z));
@@ -107,7 +112,6 @@ namespace Heimdallr.Core.Game.Controllers {
                 IsWalking = true;
                 GameEntity.SetState(GameEntityState.Walk);
             }
-            LastPosition = transform.position;
         }
 
         /// <summary>

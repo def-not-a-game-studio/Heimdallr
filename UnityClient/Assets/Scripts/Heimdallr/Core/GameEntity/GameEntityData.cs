@@ -3,6 +3,7 @@ using System;
 namespace Heimdallr.Core.Game {
 
     public class GameEntityData {
+        #region Style
         public int HairColor;
         public int ClothesColor;
         public int HairStyle;
@@ -10,5 +11,9 @@ namespace Heimdallr.Core.Game {
         public bool IsMale;
         public int Eye;
         public int EyeColor;
+        #endregion
+
+        public int MoveSpeed;
+        public int AttackSpeed;
     }
 }

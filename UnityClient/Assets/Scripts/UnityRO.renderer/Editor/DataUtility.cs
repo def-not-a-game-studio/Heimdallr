@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿#if UNITY_EDITOR
+using System.IO;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
@@ -12,3 +13,4 @@ public class DataUtility {
             .ToArray();
     }
 }
+#endif
