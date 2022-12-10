@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class UtilsManager : MonoBehaviour {
 
+    [SerializeField]
+    private GameEntity PlayerEntity;
+
     private void Start() {
-        var male = new GameObject("novice").AddComponent<GameEntity>();
-        male.Init(new GameEntityData {
+        PlayerEntity.Init(new GameEntityData {
             HairStyle = 0,
             Eye = 0,
             IsMale = true,
@@ -13,6 +15,6 @@ public class UtilsManager : MonoBehaviour {
             Job = 0,
         });
 
-        male.transform.SetPositionAndRotation(new Vector3(150,0,170), Quaternion.identity);
+        PlayerEntity.transform.SetPositionAndRotation(new Vector3(150,0,170), Quaternion.identity);
     }
 }
