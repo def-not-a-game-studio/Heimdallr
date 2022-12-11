@@ -19,7 +19,8 @@ public class UtilsManager : MonoBehaviour {
             HairColor = 3,
             Job = 3,
             ClothesColor = 0,
-            MoveSpeed = 135
+            MoveSpeed = 135,
+            EntityType = EntityType.PC
         });
 
         PlayerEntity.transform.SetPositionAndRotation(new Vector3(150,0,170), Quaternion.identity);

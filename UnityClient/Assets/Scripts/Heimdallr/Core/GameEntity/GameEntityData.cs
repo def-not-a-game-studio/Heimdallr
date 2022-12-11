@@ -13,6 +13,7 @@ namespace Heimdallr.Core.Game {
         public int EyeColor;
         #endregion
 
+        public EntityType EntityType;
         public int MoveSpeed;
         public int AttackSpeed;
     }

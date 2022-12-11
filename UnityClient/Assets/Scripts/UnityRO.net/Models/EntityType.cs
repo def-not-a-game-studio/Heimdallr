@@ -15,34 +15,20 @@
 
 public static class EntityTypeExtension {
     public static EntityType GetEntityType(this int type) {
-        switch (type) {
-            case -3:
-                return EntityType.EFFECT;
-            case -2:
-                return EntityType.UNKNOWN;
-            case -1:
-                return EntityType.WARP;
-            case 0:
-                return EntityType.PC;
-            case 1:
-                return EntityType.DISGUISED;
-            case 5:
-                return EntityType.MOB;
-            case 6:
-            case 12:
-                return EntityType.NPC;
-            case 7:
-                return EntityType.PET;
-            case 8:
-                return EntityType.HOM;
-            case 9:
-                return EntityType.MERC;
-            case 10:
-                return EntityType.ELEM;
-            case 11:
-                return EntityType.ITEM;
-            default:
-                return EntityType.UNKNOWN;
-       }
+        return type switch {
+            -3 => EntityType.EFFECT,
+            -2 => EntityType.UNKNOWN,
+            -1 => EntityType.WARP,
+            0 => EntityType.PC,
+            1 => EntityType.DISGUISED,
+            5 => EntityType.MOB,
+            6 or 12 => EntityType.NPC,
+            7 => EntityType.PET,
+            8 => EntityType.HOM,
+            9 => EntityType.MERC,
+            10 => EntityType.ELEM,
+            11 => EntityType.ITEM,
+            _ => EntityType.UNKNOWN,
+        };
     }
 }
