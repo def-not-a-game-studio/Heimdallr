@@ -106,7 +106,7 @@ namespace Heimdallr.Core.Game {
                 SetHairColor(data);
             }
 
-            if(data.ClothesColor != GameEntityData.ClothesColor || ClothesColorMaterial == null) {
+            if((data.ClothesColor != GameEntityData.ClothesColor || ClothesColorMaterial == null) && data.ClothesColor > 0) {
                 SetClothesColor(data);
             }
 

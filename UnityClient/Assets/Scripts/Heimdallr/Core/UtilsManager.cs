@@ -15,10 +15,10 @@ public class UtilsManager : MonoBehaviour {
         PlayerEntity.Init(new GameEntityData {
             HairStyle = 0,
             Eye = 0,
-            IsMale = true,
+            IsMale = false,
             HairColor = 3,
-            Job = 4073,
-            ClothesColor = 1,
+            Job = 3,
+            ClothesColor = 0,
             MoveSpeed = 135
         });
 
