@@ -14,6 +14,10 @@ namespace Heimdallr.Core.Game {
         public GameEntityData EntityData { get; private set; }
         #endregion
 
+        #region Properties
+        public bool HasAuthority => GetEntityGID() == Session.CurrentSession.Entity?.GetEntityGID();
+        #endregion
+
         public void Init(GameEntityData data) {
             EntityData = data;
 

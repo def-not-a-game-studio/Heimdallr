@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace Heimdallr.Core.Game.Controllers {
     public class GameEntityMovementController : MonoBehaviour {
@@ -10,6 +11,7 @@ namespace Heimdallr.Core.Game.Controllers {
         private LayerMask GroundMask;
         private PathFinder PathFinder;
         private GameEntity GameEntity;
+        private NetworkClient NetworkClient;
 
         #region Behaviour
         [SerializeField]
@@ -25,10 +27,14 @@ namespace Heimdallr.Core.Game.Controllers {
         private void Awake() {
             GroundMask = LayerMask.GetMask("Ground");
             PathFinder = FindObjectOfType<PathFinder>();
+            NetworkClient = FindObjectOfType<NetworkClient>();
             GameEntity = GetComponent<GameEntity>();
+        }
 
-            //TODO check authority of current entity
-            //if it's our player
+        private void Start() {
+            if(GameEntity.HasAuthority) {
+                NetworkClient.HookPacket(ZC.NOTIFY_PLAYERMOVE.HEADER, OnPlayerMovement); //Our movement
+            }
         }
 
         private void Update() {
@@ -43,7 +49,7 @@ namespace Heimdallr.Core.Game.Controllers {
                 var current = Nodes[NodeIndex];
                 var next = Nodes[NodeIndex + 1];
                 var direction = (next - current).normalized;
-                
+
                 var rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(direction, Vector3.up), RotateSpeed * Time.deltaTime);
                 var nextPosition = (GameEntity.EntityData.MoveSpeed / MoveAnimFPS) * Time.deltaTime * direction;
 
@@ -90,7 +96,14 @@ namespace Heimdallr.Core.Game.Controllers {
         /// <param name="x"></param>
         /// <param name="y"></param>
         public void RequestMovement(int x, int y) {
-            StartMoving((int) transform.position.x, (int) transform.position.z, x, y);
+            new CZ.REQUEST_MOVE2(x, y, 0).Send();
+            //StartMoving((int) transform.position.x, (int) transform.position.z, x, y);
+        }
+
+        private void OnPlayerMovement(ushort cmd, int size, InPacket packet) {
+            if(packet is ZC.NOTIFY_PLAYERMOVE pkt) {
+                StartMoving(pkt.startPosition[0], pkt.startPosition[1], pkt.endPosition[0], pkt.endPosition[1]);
+            }
         }
 
         /// <summary>
