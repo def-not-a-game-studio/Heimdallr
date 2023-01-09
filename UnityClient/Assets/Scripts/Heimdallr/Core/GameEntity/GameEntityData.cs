@@ -1,5 +1,3 @@
-using System;
-
 namespace Heimdallr.Core.Game {
 
     public class GameEntityData {
@@ -14,6 +12,10 @@ namespace Heimdallr.Core.Game {
         #endregion
 
         public EntityType EntityType;
+        
+        public int GID;
+        public string Name;
+
         public int MoveSpeed;
         public int AttackSpeed;
     }

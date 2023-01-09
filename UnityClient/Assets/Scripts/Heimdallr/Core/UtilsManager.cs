@@ -27,10 +27,12 @@ public class UtilsManager : MonoBehaviour {
     private string Password = "123456";
     [SerializeField]
     private string ServerHost = "127.0.0.1";
+    [SerializeField]
+    private string ForceMap = "prt_fild08";
 
     private void Start() {
         if(OrchestrateConnect) {
-            gameObject.AddComponent<BurstConnectionOrchestrator>().Init(CharServerIndex, CharIndex, Username, Password, ServerHost);
+            gameObject.AddComponent<BurstConnectionOrchestrator>().Init(CharServerIndex, CharIndex, Username, Password, ServerHost, ForceMap, PlayerEntity);
         } else {
             PlayerEntity.Init(new GameEntityData {
                 HairStyle = 0,

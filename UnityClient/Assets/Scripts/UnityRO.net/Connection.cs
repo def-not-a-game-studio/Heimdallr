@@ -17,7 +17,7 @@ public class Connection {
 
     public bool IsConnected() => TcpClient.Connected;
     public BinaryWriter GetBinaryWriter() => BinaryWriter;
-    public NetworkStream GetStream() => TcpClient.GetStream();
+    public NetworkStream GetStream() => Stream;
 
     public Connection(IPacketHandler packetHandler) {
         TcpClient = new TcpClient();

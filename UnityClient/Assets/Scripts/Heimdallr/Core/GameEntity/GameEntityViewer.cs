@@ -124,7 +124,7 @@ namespace Heimdallr.Core.Game {
 
         private void SetClothesColor(GameEntityData data) {
             var colors = data.IsMale ? GameEntityCustomizableData.Job.ColorsMale : GameEntityCustomizableData.Job.ColorsFemale;
-            ClothesColorMaterial = colors[data.ClothesColor % colors.Count - 1];
+            ClothesColorMaterial = colors[data.ClothesColor % colors.Count];
             ClothesRenderer.material = ClothesColorMaterial;
         }
 
@@ -138,7 +138,7 @@ namespace Heimdallr.Core.Game {
         private void SetHairColor(GameEntityData data) {
             Renderer renderer = Hair.gameObject.GetComponentInChildren<Renderer>();
             var colors = data.IsMale ? GameEntityCustomizableData.Hair.ColorsMale : GameEntityCustomizableData.Hair.ColorsFemale;
-            renderer.material = colors[data.HairColor % colors.Count - 1];
+            renderer.material = colors[data.HairColor % colors.Count];
         }
     }
 

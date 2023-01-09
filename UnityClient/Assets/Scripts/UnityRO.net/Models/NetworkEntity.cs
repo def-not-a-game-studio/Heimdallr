@@ -1,7 +1,7 @@
 ﻿public interface INetworkEntity
 {
     EntityType GetEntityType();
-    uint GetEntityGID();
-    EntityBaseStatus GetBaseStatus();
+    int GetEntityGID();
+    string GetEntityName();
     void UpdateSprites();
 }

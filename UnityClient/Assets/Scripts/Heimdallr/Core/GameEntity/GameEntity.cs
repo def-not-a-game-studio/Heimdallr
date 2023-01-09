@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 
 namespace Heimdallr.Core.Game {
-    public class GameEntity : MonoBehaviour {
+    public class GameEntity : MonoBehaviour, INetworkEntity {
 
         #region Components
         private GameEntityViewer EntityViewer;
@@ -26,6 +26,22 @@ namespace Heimdallr.Core.Game {
 
         public void SetState(GameEntityState state) {
             EntityState = state;
+        }
+
+        public void UpdateSprites() {
+            throw new NotImplementedException();
+        }
+
+        public string GetEntityName() {
+            return EntityData.Name;
+        }
+
+        public int GetEntityGID() {
+            return EntityData.GID;
+        }
+
+        public EntityType GetEntityType() {
+            return EntityData.EntityType;
         }
     }
 }

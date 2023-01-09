@@ -7,7 +7,7 @@
         public string message;
 
         public REQUEST_CHAT(string message) : base(HEADER, -1) {
-            this.message = $"{Session.CurrentSession.Entity.GetBaseStatus().name} : {message}";
+            this.message = $"{Session.CurrentSession.Entity.GetEntityName()} : {message}";
         }
 
         public override void Send() {

@@ -34,7 +34,7 @@ using UnityEngine;
         }
 
         public static Hair GetHairById(int id) {
-            return HairDb.Values[id];
+            return HairDb.Values[id % HairDb.Values.Count];
         }
     }
 //}
