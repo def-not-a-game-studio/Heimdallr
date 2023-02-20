@@ -1,5 +1,5 @@
-﻿using Heimdallr.Core.Game;
-using System;
+﻿using System;
+using Heimdallr.Core.Game;
 using UnityEngine;
 
 namespace Heimdallr.Core.Network {
@@ -10,8 +10,8 @@ namespace Heimdallr.Core.Network {
 
         private HC.NOTIFY_ZONESVR2 CurrentMapInfo;
 
-        private int CharServerIndex = 0;
-        private int CharIndex = 0;
+        private int CharServerIndex;
+        private int CharIndex;
         private string Username = "danilo";
         private string Password = "123456";
         private string Host;
@@ -67,55 +67,49 @@ namespace Heimdallr.Core.Network {
 
         #region Packet Hooks
         private void OnLoginResponse(ushort cmd, int size, InPacket packet) {
-            if(packet is AC.ACCEPT_LOGIN3 pkt) {
-                Debug.Log("Login response received");
-                NetworkClient.State.LoginInfo = pkt;
-                NetworkClient.State.CharServer = pkt.Servers[CharServerIndex];
-                /**
-                 * If using docker for rA, this should point to same host as the login server
-                 * Docker sends the ips internally as 172 whatever
-                 */
-                ConnectToCharServer(pkt, NetworkClient.State.CharServer.IP.ToString(), NetworkClient.State.CharServer);
-            }
+            if (packet is not AC.ACCEPT_LOGIN3 pkt) return;
+            Debug.Log("Login response received");
+            NetworkClient.State.LoginInfo = pkt;
+            NetworkClient.State.CharServer = pkt.Servers[CharServerIndex];
+            
+            // If using docker for rA, this should point to same host as the login server
+            // Docker sends the ips internally as 172 whatever
+            ConnectToCharServer(pkt, NetworkClient.State.CharServer.IP.ToString(), NetworkClient.State.CharServer);
         }
 
         private void OnEnterResponse(ushort cmd, int size, InPacket packet) {
-            if(packet is HC.ACCEPT_ENTER pkt) {
-                Debug.Log("Char server response received");
-                NetworkClient.State.CurrentCharactersInfo = pkt;
+            if (packet is not HC.ACCEPT_ENTER pkt) return;
+            Debug.Log("Char server response received");
+            NetworkClient.State.CurrentCharactersInfo = pkt;
                 
-                // if no character available, create one
-                if (pkt.Chars.Count == 0) {
-                    new CH.MAKE_CHAR2() {
-                        Name = Convert.ToBase64String(Guid.NewGuid().ToByteArray()).Substring(0, 8),
-                        CharNum = 0
-                    }.Send();
-                } else {
-                    NetworkClient.State.SelectedCharacter = pkt.Chars[CharIndex];
-                    SelectCharacter(CharIndex);
-                }
+            // if no character available, create one
+            if (pkt.Chars.Count == 0) {
+                new CH.MAKE_CHAR2 {
+                                      Name = Convert.ToBase64String(Guid.NewGuid().ToByteArray()).Substring(0, 8),
+                                      CharNum = 0
+                                  }.Send();
+            } else {
+                NetworkClient.State.SelectedCharacter = pkt.Chars[CharIndex];
+                SelectCharacter(CharIndex);
             }
         }
 
         private void OnMapServerLoginAccepted(ushort cmd, int size, InPacket packet) {
-            if(packet is ZC.ACCEPT_ENTER2) {
-                Debug.Log("Map server response received");
-
-                var pkt = packet as ZC.ACCEPT_ENTER2;
-                var mapLoginInfo = new MapLoginInfo() {
-                    mapname = CurrentMapInfo.Mapname.Split('.')[0],
-                    PosX = pkt.PosX,
-                    PosY = pkt.PosY,
-                    Dir = pkt.Dir
-                };
-                NetworkClient.State.MapLoginInfo = mapLoginInfo;
-                Session.CurrentSession.SetCurrentMap(mapLoginInfo.mapname);
+            if (packet is not ZC.ACCEPT_ENTER2 pkt) return;
+            Debug.Log("Map server response received");
+            var mapLoginInfo = new MapLoginInfo {
+                                                    mapname = CurrentMapInfo.Mapname.Split('.')[0],
+                                                    PosX = pkt.PosX,
+                                                    PosY = pkt.PosY,
+                                                    Dir = pkt.Dir
+                                                };
+            NetworkClient.State.MapLoginInfo = mapLoginInfo;
+            Session.CurrentSession.SetCurrentMap(mapLoginInfo.mapname);
                 
-                PlayerEntity.transform.SetPositionAndRotation(new Vector3(pkt.PosX, PathFinder.GetCellHeight(pkt.PosX, pkt.PosY), pkt.PosY), Quaternion.identity);
+            PlayerEntity.transform.SetPositionAndRotation(new Vector3(pkt.PosX, PathFinder.GetCellHeight(pkt.PosX, pkt.PosY), pkt.PosY), Quaternion.identity);
 
-                if (mapLoginInfo.mapname != ForceMap) {
-                    new CZ.REQUEST_CHAT($"@warp {ForceMap} 150 150").Send();
-                }
+            if (mapLoginInfo.mapname != ForceMap) {
+                new CZ.REQUEST_CHAT($"@warp {ForceMap} 150 150").Send();
             }
         }
 
@@ -125,11 +119,10 @@ namespace Heimdallr.Core.Network {
          */
         private void OnMakeCharAccepted(ushort cmd, int size, InPacket packet) {
             Debug.Log("Char created");
-            if(packet is HC.ACCEPT_MAKECHAR ACCEPT_MAKECHAR) {
-                NetworkClient.State.SelectedCharacter = ACCEPT_MAKECHAR.characterData;
+            if (packet is not HC.ACCEPT_MAKECHAR ACCEPT_MAKECHAR) return;
+            NetworkClient.State.SelectedCharacter = ACCEPT_MAKECHAR.characterData;
 
-                SelectCharacter(0);
-            }
+            SelectCharacter(0);
         }
 
         private async void OnCharacterSelectionAccepted(ushort cmd, int size, InPacket packet) {
@@ -160,10 +153,9 @@ namespace Heimdallr.Core.Network {
         }
 
         private void OnEntityMoved(ushort cmd, int size, InPacket packet) {
-            if (packet is ZC.NPCACK_MAPMOVE pkt) {
-                PlayerEntity.transform.position = new Vector3(pkt.PosX, PathFinder.GetCellHeight(pkt.PosX, pkt.PosY), pkt.PosY);
-                new CZ.NOTIFY_ACTORINIT().Send();
-            }
+            if (packet is not ZC.NPCACK_MAPMOVE pkt) return;
+            PlayerEntity.transform.position = new Vector3(pkt.PosX, PathFinder.GetCellHeight(pkt.PosX, pkt.PosY), pkt.PosY);
+            new CZ.NOTIFY_ACTORINIT().Send();
         }
         #endregion
     }

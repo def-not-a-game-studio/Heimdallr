@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 
 namespace Heimdallr.Core.Game {
-    public class GameEntity : MonoBehaviour, INetworkEntity {
+    public class GameEntity : CoreGameEntity, INetworkEntity {
 
         #region Components
         private GameEntityViewer EntityViewer;
