@@ -1,0 +1,1813 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0643cc1aecbb28846a4aaeb73cf76e99, type: 3}
+  m_Name: chain_reaction_shot_cast_bottom
+  m_EditorClassIdentifier: 
+  _Atlas: {fileID: 2800000, guid: 4bfbba2bfc5c7674fba72fdd649333c1, type: 3}
+  _AtlasRects:
+  - serializedVersion: 2
+    x: 0.8671875
+    y: 0.23046875
+    width: 0.125
+    height: 0.125
+  - serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0.25
+    height: 0.2265625
+  - serializedVersion: 2
+    x: 0.25390625
+    y: 0
+    width: 0.25
+    height: 0.2265625
+  - serializedVersion: 2
+    x: 0.5078125
+    y: 0
+    width: 0.140625
+    height: 0.125
+  - serializedVersion: 2
+    x: 0.65234375
+    y: 0
+    width: 0.140625
+    height: 0.125
+  - serializedVersion: 2
+    x: 0.796875
+    y: 0
+    width: 0.140625
+    height: 0.125
+  - serializedVersion: 2
+    x: 0
+    y: 0.23046875
+    width: 0.140625
+    height: 0.125
+  - serializedVersion: 2
+    x: 0
+    y: 0.359375
+    width: 0.140625
+    height: 0.125
+  - serializedVersion: 2
+    x: 0
+    y: 0.48828125
+    width: 0.140625
+    height: 0.125
+  - serializedVersion: 2
+    x: 0
+    y: 0.6171875
+    width: 0.140625
+    height: 0.125
+  - serializedVersion: 2
+    x: 0
+    y: 0.74609375
+    width: 0.140625
+    height: 0.125
+  - serializedVersion: 2
+    x: 0
+    y: 0.875
+    width: 0.140625
+    height: 0.125
+  - serializedVersion: 2
+    x: 0.14453125
+    y: 0.23046875
+    width: 0.140625
+    height: 0.125
+  - serializedVersion: 2
+    x: 0.14453125
+    y: 0.359375
+    width: 0.140625
+    height: 0.125
+  - serializedVersion: 2
+    x: 0.14453125
+    y: 0.48828125
+    width: 0.140625
+    height: 0.125
+  - serializedVersion: 2
+    x: 0.14453125
+    y: 0.6171875
+    width: 0.140625
+    height: 0.125
+  - serializedVersion: 2
+    x: 0.14453125
+    y: 0.74609375
+    width: 0.140625
+    height: 0.125
+  - serializedVersion: 2
+    x: 0.14453125
+    y: 0.875
+    width: 0.140625
+    height: 0.125
+  - serializedVersion: 2
+    x: 0.2890625
+    y: 0.23046875
+    width: 0.140625
+    height: 0.125
+  - serializedVersion: 2
+    x: 0.43359375
+    y: 0.23046875
+    width: 0.140625
+    height: 0.125
+  - serializedVersion: 2
+    x: 0.578125
+    y: 0.23046875
+    width: 0.140625
+    height: 0.125
+  - serializedVersion: 2
+    x: 0.72265625
+    y: 0.23046875
+    width: 0.140625
+    height: 0.125
+  - serializedVersion: 2
+    x: 0.2890625
+    y: 0.359375
+    width: 0.140625
+    height: 0.125
+  - serializedVersion: 2
+    x: 0.5078125
+    y: 0.12890625
+    width: 0.00390625
+    height: 0.00390625
+  version: 148
+  fps: 60
+  maxKey: 75
+  layers:
+  - textures: []
+    animations: []
+    texturesIds: 
+  - textures:
+    - {fileID: 0}
+    animations:
+    - frame: 5
+      type: 0
+      position: {x: 320, y: 300}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -16, y: 16}
+      - {x: 16, y: 16}
+      - {x: -16, y: -16}
+      - {x: 16, y: -16}
+      animFrame: 0
+      animType: 3
+      delay: 0
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 1}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    - frame: 5
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -1.6, y: 1.6}
+      - {x: 1.6, y: 1.6}
+      - {x: -1.6, y: -1.6}
+      - {x: 1.6, y: -1.6}
+      animFrame: 0
+      animType: 3
+      delay: 0
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 45
+      type: 0
+      position: {x: 320, y: 300}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -80, y: 80}
+      - {x: 80, y: 80}
+      - {x: -80, y: -80}
+      - {x: 80, y: -80}
+      animFrame: 0
+      animType: 3
+      delay: 0
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 1}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    - frame: 45
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -0.9142807, y: 0.9142807}
+      - {x: 0.9142807, y: 0.9142807}
+      - {x: -0.9142807, y: -0.9142807}
+      - {x: 0.9142807, y: -0.9142807}
+      animFrame: 0
+      animType: 3
+      delay: 0
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 50
+      type: 0
+      position: {x: 320, y: 300}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -84.5714, y: 84.5714}
+      - {x: 84.5714, y: 84.5714}
+      - {x: -84.5714, y: -84.5714}
+      - {x: 84.5714, y: -84.5714}
+      animFrame: 0
+      animType: 3
+      delay: 0
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 1}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    - frame: 50
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -1.0971439, y: 1.0971439}
+      - {x: 1.0971439, y: 1.0971439}
+      - {x: -1.0971439, y: -1.0971439}
+      - {x: 1.0971439, y: -1.0971439}
+      animFrame: 0
+      animType: 3
+      delay: 0
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: -0.04}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 75
+      type: 0
+      position: {x: 320, y: 300}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -112, y: 112}
+      - {x: 112, y: 112}
+      - {x: -112, y: -112}
+      - {x: 112, y: -112}
+      animFrame: 0
+      animType: 3
+      delay: 0
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    texturesIds: 00000000
+  - textures:
+    - {fileID: 0}
+    animations:
+    - frame: 44
+      type: 0
+      position: {x: 320, y: 305}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -67, y: 60.5}
+      - {x: 67, y: 60.5}
+      - {x: -67, y: -60.5}
+      - {x: 67, y: -60.5}
+      animFrame: 0
+      animType: 3
+      delay: 0
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    - frame: 44
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -16, y: 14.5}
+      - {x: 16, y: 14.5}
+      - {x: -16, y: -14.5}
+      - {x: 16, y: -14.5}
+      animFrame: 0
+      animType: 3
+      delay: 0
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0.39215687}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 46
+      type: 0
+      position: {x: 320, y: 305}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -99, y: 89.5}
+      - {x: 99, y: 89.5}
+      - {x: -99, y: -89.5}
+      - {x: 99, y: -89.5}
+      animFrame: 0
+      animType: 3
+      delay: 0
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0.78431374}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    - frame: 46
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: 0, y: -0}
+      - {x: 0, y: -0}
+      - {x: 0, y: -0}
+      - {x: 0, y: -0}
+      animFrame: 0
+      animType: 3
+      delay: 0
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 52
+      type: 0
+      position: {x: 320, y: 305}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -99, y: 89.5}
+      - {x: 99, y: 89.5}
+      - {x: -99, y: -89.5}
+      - {x: 99, y: -89.5}
+      animFrame: 0
+      animType: 3
+      delay: 0
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0.78431374}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    - frame: 52
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -1.1086956, y: 1.0217391}
+      - {x: 1.1086956, y: 1.0217391}
+      - {x: -1.1086956, y: -1.0217391}
+      - {x: 1.1086956, y: -1.0217391}
+      animFrame: 0
+      animType: 3
+      delay: 0
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: -0.017050298}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 75
+      type: 0
+      position: {x: 320, y: 305}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -124.5, y: 113}
+      - {x: 124.5, y: 113}
+      - {x: -124.5, y: -113}
+      - {x: 124.5, y: -113}
+      animFrame: 0
+      animType: 3
+      delay: 0
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0.39215687}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    texturesIds: 01000000
+  - textures:
+    - {fileID: 0}
+    animations:
+    - frame: 44
+      type: 0
+      position: {x: 320, y: 305}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -64, y: 58}
+      - {x: 64, y: 58}
+      - {x: -64, y: -58}
+      - {x: 64, y: -58}
+      animFrame: 0
+      animType: 3
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 44
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -16, y: 14.5}
+      - {x: 16, y: 14.5}
+      - {x: -16, y: -14.5}
+      - {x: 16, y: -14.5}
+      animFrame: 0
+      animType: 3
+      delay: 0
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0.5}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 46
+      type: 0
+      position: {x: 320, y: 305}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -96, y: 87}
+      - {x: 96, y: 87}
+      - {x: -96, y: -87}
+      - {x: 96, y: -87}
+      animFrame: 0
+      animType: 3
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 1}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 46
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: 0, y: -0}
+      - {x: 0, y: -0}
+      - {x: 0, y: -0}
+      - {x: 0, y: -0}
+      animFrame: 0
+      animType: 3
+      delay: 0
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 52
+      type: 0
+      position: {x: 320, y: 305}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -96, y: 87}
+      - {x: 96, y: 87}
+      - {x: -96, y: -87}
+      - {x: 96, y: -87}
+      animFrame: 0
+      animType: 3
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 1}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 52
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -1.3913044, y: 1.2608696}
+      - {x: 1.3913044, y: 1.2608696}
+      - {x: -1.3913044, y: -1.2608696}
+      - {x: 1.3913044, y: -1.2608696}
+      animFrame: 0
+      animType: 3
+      delay: 0
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: -0.04347826}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 75
+      type: 0
+      position: {x: 320, y: 305}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -128, y: 116}
+      - {x: 128, y: 116}
+      - {x: -128, y: -116}
+      - {x: 128, y: -116}
+      animFrame: 0
+      animType: 3
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    texturesIds: 02000000
+  - textures:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    animations:
+    - frame: 1
+      type: 0
+      position: {x: 280, y: 320}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -54, y: 48}
+      - {x: 54, y: 48}
+      - {x: -54, y: -48}
+      - {x: 54, y: -48}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0.78431374}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    - frame: 1
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: 0, y: -0}
+      - {x: 0, y: -0}
+      - {x: 0, y: -0}
+      - {x: 0, y: -0}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 21
+      type: 0
+      position: {x: 280, y: 320}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -54, y: 48}
+      - {x: 54, y: 48}
+      - {x: -54, y: -48}
+      - {x: 54, y: -48}
+      animFrame: 9
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0.78431374}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    texturesIds: 030000000400000005000000060000000700000008000000090000000a0000000b0000000c000000
+  - textures:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    animations:
+    - frame: 6
+      type: 0
+      position: {x: 280, y: 300}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103, y: 65}
+      - {x: 5, y: 65}
+      - {x: -103, y: -31}
+      - {x: 5, y: -31}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 90
+      color: {r: 0, g: 0, b: 0, a: 0.78431374}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    - frame: 6
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: 0.05, y: -0}
+      - {x: 0.05, y: -0}
+      - {x: 0.05, y: -0}
+      - {x: 0.05, y: -0}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 26
+      type: 0
+      position: {x: 280, y: 300}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -102, y: 65}
+      - {x: 6, y: 65}
+      - {x: -102, y: -31}
+      - {x: 6, y: -31}
+      animFrame: 9
+      animType: 3
+      delay: 0.5
+      angle: 90
+      color: {r: 0, g: 0, b: 0, a: 0.78431374}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    texturesIds: 030000000400000005000000060000000700000008000000090000000a0000000b0000000c000000
+  - textures:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    animations:
+    - frame: 11
+      type: 0
+      position: {x: 320, y: 260}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103, y: 65}
+      - {x: 5, y: 65}
+      - {x: -103, y: -31}
+      - {x: 5, y: -31}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 180
+      color: {r: 0, g: 0, b: 0, a: 0.78431374}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    - frame: 11
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: 0.05, y: -0}
+      - {x: 0.05, y: -0}
+      - {x: 0.05, y: -0}
+      - {x: 0.05, y: -0}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 31
+      type: 0
+      position: {x: 320, y: 260}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -102, y: 65}
+      - {x: 6, y: 65}
+      - {x: -102, y: -31}
+      - {x: 6, y: -31}
+      animFrame: 9
+      animType: 3
+      delay: 0.5
+      angle: 180
+      color: {r: 0, g: 0, b: 0, a: 0.78431374}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    texturesIds: 030000000400000005000000060000000700000008000000090000000a0000000b0000000c000000
+  - textures:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    animations:
+    - frame: 16
+      type: 0
+      position: {x: 360, y: 300}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103, y: 65}
+      - {x: 5, y: 65}
+      - {x: -103, y: -31}
+      - {x: 5, y: -31}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 270
+      color: {r: 0, g: 0, b: 0, a: 0.78431374}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    - frame: 16
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: 0.05, y: -0}
+      - {x: 0.05, y: -0}
+      - {x: 0.05, y: -0}
+      - {x: 0.05, y: -0}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 36
+      type: 0
+      position: {x: 360, y: 300}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -102, y: 65}
+      - {x: 6, y: 65}
+      - {x: -102, y: -31}
+      - {x: 6, y: -31}
+      animFrame: 9
+      animType: 3
+      delay: 0.5
+      angle: 270
+      color: {r: 0, g: 0, b: 0, a: 0.78431374}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    texturesIds: 030000000400000005000000060000000700000008000000090000000a0000000b0000000c000000
+  - textures:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    animations:
+    - frame: 0
+      type: 0
+      position: {x: 280, y: 320}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -54, y: 48}
+      - {x: 54, y: 48}
+      - {x: -54, y: -48}
+      - {x: 54, y: -48}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 1}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 0
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: 0, y: -0}
+      - {x: 0, y: -0}
+      - {x: 0, y: -0}
+      - {x: 0, y: -0}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: -0.05}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 20
+      type: 0
+      position: {x: 280, y: 320}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -54, y: 48}
+      - {x: 54, y: 48}
+      - {x: -54, y: -48}
+      - {x: 54, y: -48}
+      animFrame: 9
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    texturesIds: 0d0000000e0000000f00000010000000110000001200000013000000140000001500000016000000
+  - textures:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    animations:
+    - frame: 5
+      type: 0
+      position: {x: 280, y: 300}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103, y: 65}
+      - {x: 5, y: 65}
+      - {x: -103, y: -31}
+      - {x: 5, y: -31}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 90
+      color: {r: 1, g: 1, b: 1, a: 1}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 5
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: 0.05, y: -0}
+      - {x: 0.05, y: -0}
+      - {x: 0.05, y: -0}
+      - {x: 0.05, y: -0}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: -0.05}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 25
+      type: 0
+      position: {x: 280, y: 300}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -102, y: 65}
+      - {x: 6, y: 65}
+      - {x: -102, y: -31}
+      - {x: 6, y: -31}
+      animFrame: 9
+      animType: 3
+      delay: 0.5
+      angle: 90
+      color: {r: 1, g: 1, b: 1, a: 0}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    texturesIds: 0d0000000e0000000f00000010000000110000001200000013000000140000001500000016000000
+  - textures:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    animations:
+    - frame: 10
+      type: 0
+      position: {x: 320, y: 260}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103, y: 65}
+      - {x: 5, y: 65}
+      - {x: -103, y: -31}
+      - {x: 5, y: -31}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 180
+      color: {r: 1, g: 1, b: 1, a: 1}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 10
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: 0.05, y: -0}
+      - {x: 0.05, y: -0}
+      - {x: 0.05, y: -0}
+      - {x: 0.05, y: -0}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: -0.05}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 30
+      type: 0
+      position: {x: 320, y: 260}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -102, y: 65}
+      - {x: 6, y: 65}
+      - {x: -102, y: -31}
+      - {x: 6, y: -31}
+      animFrame: 9
+      animType: 3
+      delay: 0.5
+      angle: 180
+      color: {r: 1, g: 1, b: 1, a: 0}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    texturesIds: 0d0000000e0000000f00000010000000110000001200000013000000140000001500000016000000
+  - textures:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    animations:
+    - frame: 15
+      type: 0
+      position: {x: 360, y: 300}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103, y: 65}
+      - {x: 5, y: 65}
+      - {x: -103, y: -31}
+      - {x: 5, y: -31}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 270
+      color: {r: 1, g: 1, b: 1, a: 1}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 15
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: 0.05, y: -0}
+      - {x: 0.05, y: -0}
+      - {x: 0.05, y: -0}
+      - {x: 0.05, y: -0}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: -0.05}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 35
+      type: 0
+      position: {x: 360, y: 300}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -102, y: 65}
+      - {x: 6, y: 65}
+      - {x: -102, y: -31}
+      - {x: 6, y: -31}
+      animFrame: 9
+      animType: 3
+      delay: 0.5
+      angle: 270
+      color: {r: 1, g: 1, b: 1, a: 0}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    texturesIds: 0d0000000e0000000f00000010000000110000001200000013000000140000001500000016000000
+  - textures:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    animations:
+    - frame: 21
+      type: 0
+      position: {x: 245, y: 275}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -90, y: 80}
+      - {x: 90, y: 80}
+      - {x: -90, y: -80}
+      - {x: 90, y: -80}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 45
+      color: {r: 0, g: 0, b: 0, a: 1}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    - frame: 21
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: 0, y: -0}
+      - {x: 0, y: -0}
+      - {x: 0, y: -0}
+      - {x: 0, y: -0}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 41
+      type: 0
+      position: {x: 245, y: 275}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -90, y: 80}
+      - {x: 90, y: 80}
+      - {x: -90, y: -80}
+      - {x: 90, y: -80}
+      animFrame: 9
+      animType: 3
+      delay: 0.5
+      angle: 45
+      color: {r: 0, g: 0, b: 0, a: 1}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    texturesIds: 030000000400000005000000060000000700000008000000090000000a0000000b0000000c000000
+  - textures:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    animations:
+    - frame: 26
+      type: 0
+      position: {x: 270, y: 255}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -171.6667, y: 108.3333}
+      - {x: 8.3333, y: 108.3333}
+      - {x: -171.6667, y: -51.6667}
+      - {x: 8.3333, y: -51.6667}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 135
+      color: {r: 0, g: 0, b: 0, a: 1}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    - frame: 26
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: 0.08333512, y: -0}
+      - {x: 0.08333502, y: -0}
+      - {x: 0.08333512, y: -0}
+      - {x: 0.08333502, y: -0}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 46
+      type: 0
+      position: {x: 270, y: 255}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -170, y: 108.3333}
+      - {x: 10, y: 108.3333}
+      - {x: -170, y: -51.6667}
+      - {x: 10, y: -51.6667}
+      animFrame: 9
+      animType: 3
+      delay: 0.5
+      angle: 135
+      color: {r: 0, g: 0, b: 0, a: 1}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    texturesIds: 030000000400000005000000060000000700000008000000090000000a0000000b0000000c000000
+  - textures:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    animations:
+    - frame: 31
+      type: 0
+      position: {x: 360, y: 245}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -171.6667, y: 108.3333}
+      - {x: 8.3333, y: 108.3333}
+      - {x: -171.6667, y: -51.6667}
+      - {x: 8.3333, y: -51.6667}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 225
+      color: {r: 0, g: 0, b: 0, a: 1}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    - frame: 31
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: 0.08333512, y: -0}
+      - {x: 0.08333502, y: -0}
+      - {x: 0.08333512, y: -0}
+      - {x: 0.08333502, y: -0}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 51
+      type: 0
+      position: {x: 360, y: 245}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -170, y: 108.3333}
+      - {x: 10, y: 108.3333}
+      - {x: -170, y: -51.6667}
+      - {x: 10, y: -51.6667}
+      animFrame: 9
+      animType: 3
+      delay: 0.5
+      angle: 225
+      color: {r: 0, g: 0, b: 0, a: 1}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    texturesIds: 030000000400000005000000060000000700000008000000090000000a0000000b0000000c000000
+  - textures:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    animations:
+    - frame: 36
+      type: 0
+      position: {x: 375, y: 335}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -171.6667, y: 108.3333}
+      - {x: 8.3333, y: 108.3333}
+      - {x: -171.6667, y: -51.6667}
+      - {x: 8.3333, y: -51.6667}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 315
+      color: {r: 0, g: 0, b: 0, a: 1}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    - frame: 36
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: 0.08333512, y: -0}
+      - {x: 0.08333502, y: -0}
+      - {x: 0.08333512, y: -0}
+      - {x: 0.08333502, y: -0}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 56
+      type: 0
+      position: {x: 375, y: 335}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -170, y: 108.3333}
+      - {x: 10, y: 108.3333}
+      - {x: -170, y: -51.6667}
+      - {x: 10, y: -51.6667}
+      animFrame: 9
+      animType: 3
+      delay: 0.5
+      angle: 315
+      color: {r: 0, g: 0, b: 0, a: 1}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    texturesIds: 030000000400000005000000060000000700000008000000090000000a0000000b0000000c000000
+  - textures:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    animations:
+    - frame: 20
+      type: 0
+      position: {x: 245, y: 275}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -90, y: 80}
+      - {x: 90, y: 80}
+      - {x: -90, y: -80}
+      - {x: 90, y: -80}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 45
+      color: {r: 1, g: 1, b: 1, a: 1}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 20
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: 0, y: -0}
+      - {x: 0, y: -0}
+      - {x: 0, y: -0}
+      - {x: 0, y: -0}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: -0.05}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 40
+      type: 0
+      position: {x: 245, y: 275}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -90, y: 80}
+      - {x: 90, y: 80}
+      - {x: -90, y: -80}
+      - {x: 90, y: -80}
+      animFrame: 9
+      animType: 3
+      delay: 0.5
+      angle: 45
+      color: {r: 1, g: 1, b: 1, a: 0}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    texturesIds: 0d0000000e0000000f00000010000000110000001200000013000000140000001500000016000000
+  - textures:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    animations:
+    - frame: 25
+      type: 0
+      position: {x: 270, y: 255}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -171.6667, y: 108.3333}
+      - {x: 8.3333, y: 108.3333}
+      - {x: -171.6667, y: -51.6667}
+      - {x: 8.3333, y: -51.6667}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 135
+      color: {r: 1, g: 1, b: 1, a: 1}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 25
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: 0.08333512, y: -0}
+      - {x: 0.08333502, y: -0}
+      - {x: 0.08333512, y: -0}
+      - {x: 0.08333502, y: -0}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: -0.05}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 45
+      type: 0
+      position: {x: 270, y: 255}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -170, y: 108.3333}
+      - {x: 10, y: 108.3333}
+      - {x: -170, y: -51.6667}
+      - {x: 10, y: -51.6667}
+      animFrame: 9
+      animType: 3
+      delay: 0.5
+      angle: 135
+      color: {r: 1, g: 1, b: 1, a: 0}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    texturesIds: 0d0000000e0000000f00000010000000110000001200000013000000140000001500000016000000
+  - textures:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    animations:
+    - frame: 30
+      type: 0
+      position: {x: 360, y: 245}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -171.6667, y: 108.3333}
+      - {x: 8.3333, y: 108.3333}
+      - {x: -171.6667, y: -51.6667}
+      - {x: 8.3333, y: -51.6667}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 225
+      color: {r: 1, g: 1, b: 1, a: 1}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 30
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: 0.08333512, y: -0}
+      - {x: 0.08333502, y: -0}
+      - {x: 0.08333512, y: -0}
+      - {x: 0.08333502, y: -0}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: -0.05}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 50
+      type: 0
+      position: {x: 360, y: 245}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -170, y: 108.3333}
+      - {x: 10, y: 108.3333}
+      - {x: -170, y: -51.6667}
+      - {x: 10, y: -51.6667}
+      animFrame: 9
+      animType: 3
+      delay: 0.5
+      angle: 225
+      color: {r: 1, g: 1, b: 1, a: 0}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    texturesIds: 0d0000000e0000000f00000010000000110000001200000013000000140000001500000016000000
+  - textures:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    animations:
+    - frame: 35
+      type: 0
+      position: {x: 375, y: 335}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -171.6667, y: 108.3333}
+      - {x: 8.3333, y: 108.3333}
+      - {x: -171.6667, y: -51.6667}
+      - {x: 8.3333, y: -51.6667}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 315
+      color: {r: 1, g: 1, b: 1, a: 1}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 35
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: 0.08333512, y: -0}
+      - {x: 0.08333502, y: -0}
+      - {x: 0.08333512, y: -0}
+      - {x: 0.08333502, y: -0}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: -0.05}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 55
+      type: 0
+      position: {x: 375, y: 335}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -170, y: 108.3333}
+      - {x: 10, y: 108.3333}
+      - {x: -170, y: -51.6667}
+      - {x: 10, y: -51.6667}
+      animFrame: 9
+      animType: 3
+      delay: 0.5
+      angle: 315
+      color: {r: 1, g: 1, b: 1, a: 0}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    texturesIds: 0d0000000e0000000f00000010000000110000001200000013000000140000001500000016000000
+  name: chain_reaction_shot_cast_bottom

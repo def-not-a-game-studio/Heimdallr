@@ -1,0 +1,4748 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0643cc1aecbb28846a4aaeb73cf76e99, type: 3}
+  m_Name: autocounter
+  m_EditorClassIdentifier: 
+  _Atlas: {fileID: 2800000, guid: 56d05c0238872e84485ef08a0aea6451, type: 3}
+  _AtlasRects:
+  - serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0.5390625
+    height: 0.26953125
+  - serializedVersion: 2
+    x: 0
+    y: 0.52734375
+    width: 0.5
+    height: 0.125
+  - serializedVersion: 2
+    x: 0
+    y: 0.2734375
+    width: 0.5
+    height: 0.25
+  - serializedVersion: 2
+    x: 0.546875
+    y: 0
+    width: 0.25
+    height: 0.125
+  - serializedVersion: 2
+    x: 0.546875
+    y: 0.12890625
+    width: 0.25
+    height: 0.125
+  - serializedVersion: 2
+    x: 0.5078125
+    y: 0.2734375
+    width: 0.25
+    height: 0.125
+  - serializedVersion: 2
+    x: 0.8046875
+    y: 0
+    width: 0.0078125
+    height: 0.00390625
+  version: 148
+  fps: 60
+  maxKey: 40
+  layers:
+  - textures: []
+    animations: []
+    texturesIds: 
+  - textures:
+    - {fileID: 0}
+    animations:
+    - frame: 0
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -20.5, y: 20.5}
+      - {x: 20.5, y: 20.5}
+      - {x: -20.5, y: -20.5}
+      - {x: 20.5, y: -20.5}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.8}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 1
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -33.06417, y: 33.06417}
+      - {x: 33.06417, y: 33.06417}
+      - {x: -33.06417, y: -33.06417}
+      - {x: 33.06417, y: -33.06417}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 1.4999994
+      color: {r: 1, g: 1, b: 1, a: 0.76}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 2
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -44.25467, y: 44.25467}
+      - {x: 44.25467, y: 44.25467}
+      - {x: -44.25467, y: -44.25467}
+      - {x: 44.25467, y: -44.25467}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 2.9999988
+      color: {r: 1, g: 1, b: 1, a: 0.72}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 3
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -54.157784, y: 54.157784}
+      - {x: 54.157784, y: 54.157784}
+      - {x: -54.157784, y: -54.157784}
+      - {x: 54.157784, y: -54.157784}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 4.499998
+      color: {r: 1, g: 1, b: 1, a: 0.67999995}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 4
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -62.858845, y: 62.858845}
+      - {x: 62.858845, y: 62.858845}
+      - {x: -62.858845, y: -62.858845}
+      - {x: 62.858845, y: -62.858845}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 5.9999976
+      color: {r: 1, g: 1, b: 1, a: 0.64}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 5
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -70.442184, y: 70.442184}
+      - {x: 70.442184, y: 70.442184}
+      - {x: -70.442184, y: -70.442184}
+      - {x: 70.442184, y: -70.442184}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 7.4999967
+      color: {r: 1, g: 1, b: 1, a: 0.6}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 6
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -76.9911, y: 76.9911}
+      - {x: 76.9911, y: 76.9911}
+      - {x: -76.9911, y: -76.9911}
+      - {x: 76.9911, y: -76.9911}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 8.999996
+      color: {r: 1, g: 1, b: 1, a: 0.56}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 7
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -82.587746, y: 82.587746}
+      - {x: 82.587746, y: 82.587746}
+      - {x: -82.587746, y: -82.587746}
+      - {x: 82.587746, y: -82.587746}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 10.499996
+      color: {r: 1, g: 1, b: 1, a: 0.52000004}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 8
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -87.313156, y: 87.313156}
+      - {x: 87.313156, y: 87.313156}
+      - {x: -87.313156, y: -87.313156}
+      - {x: 87.313156, y: -87.313156}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 11.999995
+      color: {r: 1, g: 1, b: 1, a: 0.48000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 9
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -91.24711, y: 91.24711}
+      - {x: 91.24711, y: 91.24711}
+      - {x: -91.24711, y: -91.24711}
+      - {x: 91.24711, y: -91.24711}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 13.499995
+      color: {r: 1, g: 1, b: 1, a: 0.44000003}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 10
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -94.46804, y: 94.46804}
+      - {x: 94.46804, y: 94.46804}
+      - {x: -94.46804, y: -94.46804}
+      - {x: 94.46804, y: -94.46804}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 14.999993
+      color: {r: 1, g: 1, b: 1, a: 0.4}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 11
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -97.05299, y: 97.05299}
+      - {x: 97.05299, y: 97.05299}
+      - {x: -97.05299, y: -97.05299}
+      - {x: 97.05299, y: -97.05299}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 16.499992
+      color: {r: 1, g: 1, b: 1, a: 0.36}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 12
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -99.07748, y: 99.07748}
+      - {x: 99.07748, y: 99.07748}
+      - {x: -99.07748, y: -99.07748}
+      - {x: 99.07748, y: -99.07748}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 17.999992
+      color: {r: 1, g: 1, b: 1, a: 0.32000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 13
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -100.61533, y: 100.61533}
+      - {x: 100.61533, y: 100.61533}
+      - {x: -100.61533, y: -100.61533}
+      - {x: 100.61533, y: -100.61533}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 19.499992
+      color: {r: 1, g: 1, b: 1, a: 0.28}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 14
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -101.73856, y: 101.73856}
+      - {x: 101.73856, y: 101.73856}
+      - {x: -101.73856, y: -101.73856}
+      - {x: 101.73856, y: -101.73856}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 20.999992
+      color: {r: 1, g: 1, b: 1, a: 0.24000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 15
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -102.51715, y: 102.51715}
+      - {x: 102.51715, y: 102.51715}
+      - {x: -102.51715, y: -102.51715}
+      - {x: 102.51715, y: -102.51715}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 22.49999
+      color: {r: 1, g: 1, b: 1, a: 0.20000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 16
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.018745, y: 103.018745}
+      - {x: 103.018745, y: 103.018745}
+      - {x: -103.018745, y: -103.018745}
+      - {x: 103.018745, y: -103.018745}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 23.99999
+      color: {r: 1, g: 1, b: 1, a: 0.16000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 17
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.30833, y: 103.30833}
+      - {x: 103.30833, y: 103.30833}
+      - {x: -103.30833, y: -103.30833}
+      - {x: 103.30833, y: -103.30833}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 25.499989
+      color: {r: 1, g: 1, b: 1, a: 0.12000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 18
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.44763, y: 103.44763}
+      - {x: 103.44763, y: 103.44763}
+      - {x: -103.44763, y: -103.44763}
+      - {x: 103.44763, y: -103.44763}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 26.99999
+      color: {r: 1, g: 1, b: 1, a: 0.08000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 19
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.4943, y: 103.4943}
+      - {x: 103.4943, y: 103.4943}
+      - {x: -103.4943, y: -103.4943}
+      - {x: 103.4943, y: -103.4943}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 28.499989
+      color: {r: 1, g: 1, b: 1, a: 0.040000014}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 20
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.5, y: 103.5}
+      - {x: 103.5, y: 103.5}
+      - {x: -103.5, y: -103.5}
+      - {x: 103.5, y: -103.5}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 29.999987
+      color: {r: 1, g: 1, b: 1, a: 0}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    texturesIds: 00000000
+  - textures:
+    - {fileID: 0}
+    animations:
+    - frame: 2
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -20.5, y: 20.5}
+      - {x: 20.5, y: 20.5}
+      - {x: -20.5, y: -20.5}
+      - {x: 20.5, y: -20.5}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.8}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 3
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -33.06417, y: 33.06417}
+      - {x: 33.06417, y: 33.06417}
+      - {x: -33.06417, y: -33.06417}
+      - {x: 33.06417, y: -33.06417}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 2.0000002
+      color: {r: 1, g: 1, b: 1, a: 0.76}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 4
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -44.25467, y: 44.25467}
+      - {x: 44.25467, y: 44.25467}
+      - {x: -44.25467, y: -44.25467}
+      - {x: 44.25467, y: -44.25467}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 4.0000005
+      color: {r: 1, g: 1, b: 1, a: 0.72}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 5
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -54.157784, y: 54.157784}
+      - {x: 54.157784, y: 54.157784}
+      - {x: -54.157784, y: -54.157784}
+      - {x: 54.157784, y: -54.157784}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 6.000001
+      color: {r: 1, g: 1, b: 1, a: 0.67999995}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 6
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -62.858845, y: 62.858845}
+      - {x: 62.858845, y: 62.858845}
+      - {x: -62.858845, y: -62.858845}
+      - {x: 62.858845, y: -62.858845}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 8.000001
+      color: {r: 1, g: 1, b: 1, a: 0.64}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 7
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -70.442184, y: 70.442184}
+      - {x: 70.442184, y: 70.442184}
+      - {x: -70.442184, y: -70.442184}
+      - {x: 70.442184, y: -70.442184}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 10.000002
+      color: {r: 1, g: 1, b: 1, a: 0.6}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 8
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -76.9911, y: 76.9911}
+      - {x: 76.9911, y: 76.9911}
+      - {x: -76.9911, y: -76.9911}
+      - {x: 76.9911, y: -76.9911}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 12.000002
+      color: {r: 1, g: 1, b: 1, a: 0.56}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 9
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -82.587746, y: 82.587746}
+      - {x: 82.587746, y: 82.587746}
+      - {x: -82.587746, y: -82.587746}
+      - {x: 82.587746, y: -82.587746}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 14.000003
+      color: {r: 1, g: 1, b: 1, a: 0.52000004}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 10
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -87.313156, y: 87.313156}
+      - {x: 87.313156, y: 87.313156}
+      - {x: -87.313156, y: -87.313156}
+      - {x: 87.313156, y: -87.313156}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 16.000002
+      color: {r: 1, g: 1, b: 1, a: 0.48000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 11
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -91.24711, y: 91.24711}
+      - {x: 91.24711, y: 91.24711}
+      - {x: -91.24711, y: -91.24711}
+      - {x: 91.24711, y: -91.24711}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 18.000002
+      color: {r: 1, g: 1, b: 1, a: 0.44000003}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 12
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -94.46804, y: 94.46804}
+      - {x: 94.46804, y: 94.46804}
+      - {x: -94.46804, y: -94.46804}
+      - {x: 94.46804, y: -94.46804}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 20.000004
+      color: {r: 1, g: 1, b: 1, a: 0.4}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 13
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -97.05299, y: 97.05299}
+      - {x: 97.05299, y: 97.05299}
+      - {x: -97.05299, y: -97.05299}
+      - {x: 97.05299, y: -97.05299}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 22.000004
+      color: {r: 1, g: 1, b: 1, a: 0.36}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 14
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -99.07748, y: 99.07748}
+      - {x: 99.07748, y: 99.07748}
+      - {x: -99.07748, y: -99.07748}
+      - {x: 99.07748, y: -99.07748}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 24.000004
+      color: {r: 1, g: 1, b: 1, a: 0.32000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 15
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -100.61533, y: 100.61533}
+      - {x: 100.61533, y: 100.61533}
+      - {x: -100.61533, y: -100.61533}
+      - {x: 100.61533, y: -100.61533}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 26.000004
+      color: {r: 1, g: 1, b: 1, a: 0.28}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 16
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -101.73856, y: 101.73856}
+      - {x: 101.73856, y: 101.73856}
+      - {x: -101.73856, y: -101.73856}
+      - {x: 101.73856, y: -101.73856}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 28.000006
+      color: {r: 1, g: 1, b: 1, a: 0.24000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 17
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -102.51715, y: 102.51715}
+      - {x: 102.51715, y: 102.51715}
+      - {x: -102.51715, y: -102.51715}
+      - {x: 102.51715, y: -102.51715}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 30.000006
+      color: {r: 1, g: 1, b: 1, a: 0.20000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 18
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.018745, y: 103.018745}
+      - {x: 103.018745, y: 103.018745}
+      - {x: -103.018745, y: -103.018745}
+      - {x: 103.018745, y: -103.018745}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 32.000004
+      color: {r: 1, g: 1, b: 1, a: 0.16000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 19
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.30833, y: 103.30833}
+      - {x: 103.30833, y: 103.30833}
+      - {x: -103.30833, y: -103.30833}
+      - {x: 103.30833, y: -103.30833}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 34.000004
+      color: {r: 1, g: 1, b: 1, a: 0.12000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 20
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.44763, y: 103.44763}
+      - {x: 103.44763, y: 103.44763}
+      - {x: -103.44763, y: -103.44763}
+      - {x: 103.44763, y: -103.44763}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 36.000004
+      color: {r: 1, g: 1, b: 1, a: 0.08000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 21
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.4943, y: 103.4943}
+      - {x: 103.4943, y: 103.4943}
+      - {x: -103.4943, y: -103.4943}
+      - {x: 103.4943, y: -103.4943}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 38.000008
+      color: {r: 1, g: 1, b: 1, a: 0.040000014}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 22
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.5, y: 103.5}
+      - {x: 103.5, y: 103.5}
+      - {x: -103.5, y: -103.5}
+      - {x: 103.5, y: -103.5}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 40.000008
+      color: {r: 1, g: 1, b: 1, a: 0}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    texturesIds: 00000000
+  - textures:
+    - {fileID: 0}
+    animations:
+    - frame: 5
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -20.5, y: 20.5}
+      - {x: 20.5, y: 20.5}
+      - {x: -20.5, y: -20.5}
+      - {x: 20.5, y: -20.5}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.8}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 6
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -33.06417, y: 33.06417}
+      - {x: 33.06417, y: 33.06417}
+      - {x: -33.06417, y: -33.06417}
+      - {x: 33.06417, y: -33.06417}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 2.0000002
+      color: {r: 1, g: 1, b: 1, a: 0.76}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 7
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -44.25467, y: 44.25467}
+      - {x: 44.25467, y: 44.25467}
+      - {x: -44.25467, y: -44.25467}
+      - {x: 44.25467, y: -44.25467}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 4.0000005
+      color: {r: 1, g: 1, b: 1, a: 0.72}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 8
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -54.157784, y: 54.157784}
+      - {x: 54.157784, y: 54.157784}
+      - {x: -54.157784, y: -54.157784}
+      - {x: 54.157784, y: -54.157784}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 6.000001
+      color: {r: 1, g: 1, b: 1, a: 0.67999995}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 9
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -62.858845, y: 62.858845}
+      - {x: 62.858845, y: 62.858845}
+      - {x: -62.858845, y: -62.858845}
+      - {x: 62.858845, y: -62.858845}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 8.000001
+      color: {r: 1, g: 1, b: 1, a: 0.64}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 10
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -70.442184, y: 70.442184}
+      - {x: 70.442184, y: 70.442184}
+      - {x: -70.442184, y: -70.442184}
+      - {x: 70.442184, y: -70.442184}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 10.000002
+      color: {r: 1, g: 1, b: 1, a: 0.6}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 11
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -76.9911, y: 76.9911}
+      - {x: 76.9911, y: 76.9911}
+      - {x: -76.9911, y: -76.9911}
+      - {x: 76.9911, y: -76.9911}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 12.000002
+      color: {r: 1, g: 1, b: 1, a: 0.56}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 12
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -82.587746, y: 82.587746}
+      - {x: 82.587746, y: 82.587746}
+      - {x: -82.587746, y: -82.587746}
+      - {x: 82.587746, y: -82.587746}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 14.000003
+      color: {r: 1, g: 1, b: 1, a: 0.52000004}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 13
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -87.313156, y: 87.313156}
+      - {x: 87.313156, y: 87.313156}
+      - {x: -87.313156, y: -87.313156}
+      - {x: 87.313156, y: -87.313156}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 16.000002
+      color: {r: 1, g: 1, b: 1, a: 0.48000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 14
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -91.24711, y: 91.24711}
+      - {x: 91.24711, y: 91.24711}
+      - {x: -91.24711, y: -91.24711}
+      - {x: 91.24711, y: -91.24711}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 18.000002
+      color: {r: 1, g: 1, b: 1, a: 0.44000003}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 15
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -94.46804, y: 94.46804}
+      - {x: 94.46804, y: 94.46804}
+      - {x: -94.46804, y: -94.46804}
+      - {x: 94.46804, y: -94.46804}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 20.000004
+      color: {r: 1, g: 1, b: 1, a: 0.4}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 16
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -97.05299, y: 97.05299}
+      - {x: 97.05299, y: 97.05299}
+      - {x: -97.05299, y: -97.05299}
+      - {x: 97.05299, y: -97.05299}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 22.000004
+      color: {r: 1, g: 1, b: 1, a: 0.36}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 17
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -99.07748, y: 99.07748}
+      - {x: 99.07748, y: 99.07748}
+      - {x: -99.07748, y: -99.07748}
+      - {x: 99.07748, y: -99.07748}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 24.000004
+      color: {r: 1, g: 1, b: 1, a: 0.32000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 18
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -100.61533, y: 100.61533}
+      - {x: 100.61533, y: 100.61533}
+      - {x: -100.61533, y: -100.61533}
+      - {x: 100.61533, y: -100.61533}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 26.000004
+      color: {r: 1, g: 1, b: 1, a: 0.28}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 19
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -101.73856, y: 101.73856}
+      - {x: 101.73856, y: 101.73856}
+      - {x: -101.73856, y: -101.73856}
+      - {x: 101.73856, y: -101.73856}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 28.000006
+      color: {r: 1, g: 1, b: 1, a: 0.24000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 20
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -102.51715, y: 102.51715}
+      - {x: 102.51715, y: 102.51715}
+      - {x: -102.51715, y: -102.51715}
+      - {x: 102.51715, y: -102.51715}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 30.000006
+      color: {r: 1, g: 1, b: 1, a: 0.20000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 21
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.018745, y: 103.018745}
+      - {x: 103.018745, y: 103.018745}
+      - {x: -103.018745, y: -103.018745}
+      - {x: 103.018745, y: -103.018745}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 32.000004
+      color: {r: 1, g: 1, b: 1, a: 0.16000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 22
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.30833, y: 103.30833}
+      - {x: 103.30833, y: 103.30833}
+      - {x: -103.30833, y: -103.30833}
+      - {x: 103.30833, y: -103.30833}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 34.000004
+      color: {r: 1, g: 1, b: 1, a: 0.12000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 23
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.44763, y: 103.44763}
+      - {x: 103.44763, y: 103.44763}
+      - {x: -103.44763, y: -103.44763}
+      - {x: 103.44763, y: -103.44763}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 36.000004
+      color: {r: 1, g: 1, b: 1, a: 0.08000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 24
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.4943, y: 103.4943}
+      - {x: 103.4943, y: 103.4943}
+      - {x: -103.4943, y: -103.4943}
+      - {x: 103.4943, y: -103.4943}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 38.000008
+      color: {r: 1, g: 1, b: 1, a: 0.040000014}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 25
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.5, y: 103.5}
+      - {x: 103.5, y: 103.5}
+      - {x: -103.5, y: -103.5}
+      - {x: 103.5, y: -103.5}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 40.000008
+      color: {r: 1, g: 1, b: 1, a: 0}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    texturesIds: 00000000
+  - textures:
+    - {fileID: 0}
+    animations:
+    - frame: 8
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -20.5, y: 20.5}
+      - {x: 20.5, y: 20.5}
+      - {x: -20.5, y: -20.5}
+      - {x: 20.5, y: -20.5}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.8}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 9
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -33.06417, y: 33.06417}
+      - {x: 33.06417, y: 33.06417}
+      - {x: -33.06417, y: -33.06417}
+      - {x: 33.06417, y: -33.06417}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 2.0000002
+      color: {r: 1, g: 1, b: 1, a: 0.76}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 10
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -44.25467, y: 44.25467}
+      - {x: 44.25467, y: 44.25467}
+      - {x: -44.25467, y: -44.25467}
+      - {x: 44.25467, y: -44.25467}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 4.0000005
+      color: {r: 1, g: 1, b: 1, a: 0.72}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 11
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -54.157784, y: 54.157784}
+      - {x: 54.157784, y: 54.157784}
+      - {x: -54.157784, y: -54.157784}
+      - {x: 54.157784, y: -54.157784}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 6.000001
+      color: {r: 1, g: 1, b: 1, a: 0.67999995}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 12
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -62.858845, y: 62.858845}
+      - {x: 62.858845, y: 62.858845}
+      - {x: -62.858845, y: -62.858845}
+      - {x: 62.858845, y: -62.858845}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 8.000001
+      color: {r: 1, g: 1, b: 1, a: 0.64}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 13
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -70.442184, y: 70.442184}
+      - {x: 70.442184, y: 70.442184}
+      - {x: -70.442184, y: -70.442184}
+      - {x: 70.442184, y: -70.442184}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 10.000002
+      color: {r: 1, g: 1, b: 1, a: 0.6}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 14
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -76.9911, y: 76.9911}
+      - {x: 76.9911, y: 76.9911}
+      - {x: -76.9911, y: -76.9911}
+      - {x: 76.9911, y: -76.9911}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 12.000002
+      color: {r: 1, g: 1, b: 1, a: 0.56}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 15
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -82.587746, y: 82.587746}
+      - {x: 82.587746, y: 82.587746}
+      - {x: -82.587746, y: -82.587746}
+      - {x: 82.587746, y: -82.587746}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 14.000003
+      color: {r: 1, g: 1, b: 1, a: 0.52000004}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 16
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -87.313156, y: 87.313156}
+      - {x: 87.313156, y: 87.313156}
+      - {x: -87.313156, y: -87.313156}
+      - {x: 87.313156, y: -87.313156}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 16.000002
+      color: {r: 1, g: 1, b: 1, a: 0.48000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 17
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -91.24711, y: 91.24711}
+      - {x: 91.24711, y: 91.24711}
+      - {x: -91.24711, y: -91.24711}
+      - {x: 91.24711, y: -91.24711}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 18.000002
+      color: {r: 1, g: 1, b: 1, a: 0.44000003}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 18
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -94.46804, y: 94.46804}
+      - {x: 94.46804, y: 94.46804}
+      - {x: -94.46804, y: -94.46804}
+      - {x: 94.46804, y: -94.46804}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 20.000004
+      color: {r: 1, g: 1, b: 1, a: 0.4}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 19
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -97.05299, y: 97.05299}
+      - {x: 97.05299, y: 97.05299}
+      - {x: -97.05299, y: -97.05299}
+      - {x: 97.05299, y: -97.05299}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 22.000004
+      color: {r: 1, g: 1, b: 1, a: 0.36}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 20
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -99.07748, y: 99.07748}
+      - {x: 99.07748, y: 99.07748}
+      - {x: -99.07748, y: -99.07748}
+      - {x: 99.07748, y: -99.07748}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 24.000004
+      color: {r: 1, g: 1, b: 1, a: 0.32000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 21
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -100.61533, y: 100.61533}
+      - {x: 100.61533, y: 100.61533}
+      - {x: -100.61533, y: -100.61533}
+      - {x: 100.61533, y: -100.61533}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 26.000004
+      color: {r: 1, g: 1, b: 1, a: 0.28}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 22
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -101.73856, y: 101.73856}
+      - {x: 101.73856, y: 101.73856}
+      - {x: -101.73856, y: -101.73856}
+      - {x: 101.73856, y: -101.73856}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 28.000006
+      color: {r: 1, g: 1, b: 1, a: 0.24000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 23
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -102.51715, y: 102.51715}
+      - {x: 102.51715, y: 102.51715}
+      - {x: -102.51715, y: -102.51715}
+      - {x: 102.51715, y: -102.51715}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 30.000006
+      color: {r: 1, g: 1, b: 1, a: 0.20000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 24
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.018745, y: 103.018745}
+      - {x: 103.018745, y: 103.018745}
+      - {x: -103.018745, y: -103.018745}
+      - {x: 103.018745, y: -103.018745}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 32.000004
+      color: {r: 1, g: 1, b: 1, a: 0.16000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 25
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.30833, y: 103.30833}
+      - {x: 103.30833, y: 103.30833}
+      - {x: -103.30833, y: -103.30833}
+      - {x: 103.30833, y: -103.30833}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 34.000004
+      color: {r: 1, g: 1, b: 1, a: 0.12000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 26
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.44763, y: 103.44763}
+      - {x: 103.44763, y: 103.44763}
+      - {x: -103.44763, y: -103.44763}
+      - {x: 103.44763, y: -103.44763}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 36.000004
+      color: {r: 1, g: 1, b: 1, a: 0.08000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 27
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.4943, y: 103.4943}
+      - {x: 103.4943, y: 103.4943}
+      - {x: -103.4943, y: -103.4943}
+      - {x: 103.4943, y: -103.4943}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 38.000008
+      color: {r: 1, g: 1, b: 1, a: 0.040000014}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 28
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.5, y: 103.5}
+      - {x: 103.5, y: 103.5}
+      - {x: -103.5, y: -103.5}
+      - {x: 103.5, y: -103.5}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 40.000008
+      color: {r: 1, g: 1, b: 1, a: 0}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    texturesIds: 00000000
+  - textures:
+    - {fileID: 0}
+    animations:
+    - frame: 4
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -20.5, y: 20.5}
+      - {x: 20.5, y: 20.5}
+      - {x: -20.5, y: -20.5}
+      - {x: 20.5, y: -20.5}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.8}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 5
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -33.06417, y: 33.06417}
+      - {x: 33.06417, y: 33.06417}
+      - {x: -33.06417, y: -33.06417}
+      - {x: 33.06417, y: -33.06417}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 3.0000005
+      color: {r: 1, g: 1, b: 1, a: 0.76}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 6
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -44.25467, y: 44.25467}
+      - {x: 44.25467, y: 44.25467}
+      - {x: -44.25467, y: -44.25467}
+      - {x: 44.25467, y: -44.25467}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 6.000001
+      color: {r: 1, g: 1, b: 1, a: 0.72}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 7
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -54.157784, y: 54.157784}
+      - {x: 54.157784, y: 54.157784}
+      - {x: -54.157784, y: -54.157784}
+      - {x: 54.157784, y: -54.157784}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 9.000001
+      color: {r: 1, g: 1, b: 1, a: 0.67999995}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 8
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -62.858845, y: 62.858845}
+      - {x: 62.858845, y: 62.858845}
+      - {x: -62.858845, y: -62.858845}
+      - {x: 62.858845, y: -62.858845}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 12.000002
+      color: {r: 1, g: 1, b: 1, a: 0.64}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 9
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -70.442184, y: 70.442184}
+      - {x: 70.442184, y: 70.442184}
+      - {x: -70.442184, y: -70.442184}
+      - {x: 70.442184, y: -70.442184}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 15.000001
+      color: {r: 1, g: 1, b: 1, a: 0.6}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 10
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -76.9911, y: 76.9911}
+      - {x: 76.9911, y: 76.9911}
+      - {x: -76.9911, y: -76.9911}
+      - {x: 76.9911, y: -76.9911}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 18.000002
+      color: {r: 1, g: 1, b: 1, a: 0.56}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 11
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -82.587746, y: 82.587746}
+      - {x: 82.587746, y: 82.587746}
+      - {x: -82.587746, y: -82.587746}
+      - {x: 82.587746, y: -82.587746}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 21.000004
+      color: {r: 1, g: 1, b: 1, a: 0.52000004}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 12
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -87.313156, y: 87.313156}
+      - {x: 87.313156, y: 87.313156}
+      - {x: -87.313156, y: -87.313156}
+      - {x: 87.313156, y: -87.313156}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 24.000004
+      color: {r: 1, g: 1, b: 1, a: 0.48000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 13
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -91.24711, y: 91.24711}
+      - {x: 91.24711, y: 91.24711}
+      - {x: -91.24711, y: -91.24711}
+      - {x: 91.24711, y: -91.24711}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 27.000004
+      color: {r: 1, g: 1, b: 1, a: 0.44000003}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 14
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -94.46804, y: 94.46804}
+      - {x: 94.46804, y: 94.46804}
+      - {x: -94.46804, y: -94.46804}
+      - {x: 94.46804, y: -94.46804}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 30.000002
+      color: {r: 1, g: 1, b: 1, a: 0.4}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 15
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -97.05299, y: 97.05299}
+      - {x: 97.05299, y: 97.05299}
+      - {x: -97.05299, y: -97.05299}
+      - {x: 97.05299, y: -97.05299}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 33.000004
+      color: {r: 1, g: 1, b: 1, a: 0.36}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 16
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -99.07748, y: 99.07748}
+      - {x: 99.07748, y: 99.07748}
+      - {x: -99.07748, y: -99.07748}
+      - {x: 99.07748, y: -99.07748}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 36.000004
+      color: {r: 1, g: 1, b: 1, a: 0.32000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 17
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -100.61533, y: 100.61533}
+      - {x: 100.61533, y: 100.61533}
+      - {x: -100.61533, y: -100.61533}
+      - {x: 100.61533, y: -100.61533}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 39.000004
+      color: {r: 1, g: 1, b: 1, a: 0.28}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 18
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -101.73856, y: 101.73856}
+      - {x: 101.73856, y: 101.73856}
+      - {x: -101.73856, y: -101.73856}
+      - {x: 101.73856, y: -101.73856}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 42.000008
+      color: {r: 1, g: 1, b: 1, a: 0.24000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 19
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -102.51715, y: 102.51715}
+      - {x: 102.51715, y: 102.51715}
+      - {x: -102.51715, y: -102.51715}
+      - {x: 102.51715, y: -102.51715}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 45.000004
+      color: {r: 1, g: 1, b: 1, a: 0.20000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 20
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.018745, y: 103.018745}
+      - {x: 103.018745, y: 103.018745}
+      - {x: -103.018745, y: -103.018745}
+      - {x: 103.018745, y: -103.018745}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 48.000008
+      color: {r: 1, g: 1, b: 1, a: 0.16000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 21
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.30833, y: 103.30833}
+      - {x: 103.30833, y: 103.30833}
+      - {x: -103.30833, y: -103.30833}
+      - {x: 103.30833, y: -103.30833}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 51.000008
+      color: {r: 1, g: 1, b: 1, a: 0.12000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 22
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.44763, y: 103.44763}
+      - {x: 103.44763, y: 103.44763}
+      - {x: -103.44763, y: -103.44763}
+      - {x: 103.44763, y: -103.44763}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 54.000008
+      color: {r: 1, g: 1, b: 1, a: 0.08000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 23
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.4943, y: 103.4943}
+      - {x: 103.4943, y: 103.4943}
+      - {x: -103.4943, y: -103.4943}
+      - {x: 103.4943, y: -103.4943}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 57.000008
+      color: {r: 1, g: 1, b: 1, a: 0.040000014}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 24
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.5, y: 103.5}
+      - {x: 103.5, y: 103.5}
+      - {x: -103.5, y: -103.5}
+      - {x: 103.5, y: -103.5}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 60.00001
+      color: {r: 1, g: 1, b: 1, a: 0}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    texturesIds: 00000000
+  - textures:
+    - {fileID: 0}
+    animations:
+    - frame: 9
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -20.5, y: 20.5}
+      - {x: 20.5, y: 20.5}
+      - {x: -20.5, y: -20.5}
+      - {x: 20.5, y: -20.5}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.8}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 10
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -33.06417, y: 33.06417}
+      - {x: 33.06417, y: 33.06417}
+      - {x: -33.06417, y: -33.06417}
+      - {x: 33.06417, y: -33.06417}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 4.0000005
+      color: {r: 1, g: 1, b: 1, a: 0.76}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 11
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -44.25467, y: 44.25467}
+      - {x: 44.25467, y: 44.25467}
+      - {x: -44.25467, y: -44.25467}
+      - {x: 44.25467, y: -44.25467}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 8.000001
+      color: {r: 1, g: 1, b: 1, a: 0.72}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 12
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -54.157784, y: 54.157784}
+      - {x: 54.157784, y: 54.157784}
+      - {x: -54.157784, y: -54.157784}
+      - {x: 54.157784, y: -54.157784}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 12.000002
+      color: {r: 1, g: 1, b: 1, a: 0.67999995}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 13
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -62.858845, y: 62.858845}
+      - {x: 62.858845, y: 62.858845}
+      - {x: -62.858845, y: -62.858845}
+      - {x: 62.858845, y: -62.858845}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 16.000002
+      color: {r: 1, g: 1, b: 1, a: 0.64}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 14
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -70.442184, y: 70.442184}
+      - {x: 70.442184, y: 70.442184}
+      - {x: -70.442184, y: -70.442184}
+      - {x: 70.442184, y: -70.442184}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 20.000004
+      color: {r: 1, g: 1, b: 1, a: 0.6}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 15
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -76.9911, y: 76.9911}
+      - {x: 76.9911, y: 76.9911}
+      - {x: -76.9911, y: -76.9911}
+      - {x: 76.9911, y: -76.9911}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 24.000004
+      color: {r: 1, g: 1, b: 1, a: 0.56}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 16
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -82.587746, y: 82.587746}
+      - {x: 82.587746, y: 82.587746}
+      - {x: -82.587746, y: -82.587746}
+      - {x: 82.587746, y: -82.587746}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 28.000006
+      color: {r: 1, g: 1, b: 1, a: 0.52000004}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 17
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -87.313156, y: 87.313156}
+      - {x: 87.313156, y: 87.313156}
+      - {x: -87.313156, y: -87.313156}
+      - {x: 87.313156, y: -87.313156}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 32.000004
+      color: {r: 1, g: 1, b: 1, a: 0.48000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 18
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -91.24711, y: 91.24711}
+      - {x: 91.24711, y: 91.24711}
+      - {x: -91.24711, y: -91.24711}
+      - {x: 91.24711, y: -91.24711}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 36.000004
+      color: {r: 1, g: 1, b: 1, a: 0.44000003}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 19
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -94.46804, y: 94.46804}
+      - {x: 94.46804, y: 94.46804}
+      - {x: -94.46804, y: -94.46804}
+      - {x: 94.46804, y: -94.46804}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 40.000008
+      color: {r: 1, g: 1, b: 1, a: 0.4}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 20
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -97.05299, y: 97.05299}
+      - {x: 97.05299, y: 97.05299}
+      - {x: -97.05299, y: -97.05299}
+      - {x: 97.05299, y: -97.05299}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 44.000008
+      color: {r: 1, g: 1, b: 1, a: 0.36}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 21
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -99.07748, y: 99.07748}
+      - {x: 99.07748, y: 99.07748}
+      - {x: -99.07748, y: -99.07748}
+      - {x: 99.07748, y: -99.07748}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 48.000008
+      color: {r: 1, g: 1, b: 1, a: 0.32000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 22
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -100.61533, y: 100.61533}
+      - {x: 100.61533, y: 100.61533}
+      - {x: -100.61533, y: -100.61533}
+      - {x: 100.61533, y: -100.61533}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 52.000008
+      color: {r: 1, g: 1, b: 1, a: 0.28}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 23
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -101.73856, y: 101.73856}
+      - {x: 101.73856, y: 101.73856}
+      - {x: -101.73856, y: -101.73856}
+      - {x: 101.73856, y: -101.73856}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 56.00001
+      color: {r: 1, g: 1, b: 1, a: 0.24000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 24
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -102.51715, y: 102.51715}
+      - {x: 102.51715, y: 102.51715}
+      - {x: -102.51715, y: -102.51715}
+      - {x: 102.51715, y: -102.51715}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 60.00001
+      color: {r: 1, g: 1, b: 1, a: 0.20000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 25
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.018745, y: 103.018745}
+      - {x: 103.018745, y: 103.018745}
+      - {x: -103.018745, y: -103.018745}
+      - {x: 103.018745, y: -103.018745}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 64.00001
+      color: {r: 1, g: 1, b: 1, a: 0.16000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 26
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.30833, y: 103.30833}
+      - {x: 103.30833, y: 103.30833}
+      - {x: -103.30833, y: -103.30833}
+      - {x: 103.30833, y: -103.30833}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 68.00001
+      color: {r: 1, g: 1, b: 1, a: 0.12000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 27
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.44763, y: 103.44763}
+      - {x: 103.44763, y: 103.44763}
+      - {x: -103.44763, y: -103.44763}
+      - {x: 103.44763, y: -103.44763}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 72.00001
+      color: {r: 1, g: 1, b: 1, a: 0.08000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 28
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.4943, y: 103.4943}
+      - {x: 103.4943, y: 103.4943}
+      - {x: -103.4943, y: -103.4943}
+      - {x: 103.4943, y: -103.4943}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 76.000015
+      color: {r: 1, g: 1, b: 1, a: 0.040000014}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 29
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -103.5, y: 103.5}
+      - {x: 103.5, y: 103.5}
+      - {x: -103.5, y: -103.5}
+      - {x: 103.5, y: -103.5}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 80.000015
+      color: {r: 1, g: 1, b: 1, a: 0}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    texturesIds: 00000000
+  - textures:
+    - {fileID: 0}
+    animations:
+    - frame: 0
+      type: 0
+      position: {x: 320, y: 260}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -64, y: 7}
+      - {x: 64, y: 7}
+      - {x: -64, y: -7}
+      - {x: 64, y: -7}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.6}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    - frame: 0
+      type: 1
+      position: {x: 0, y: -3.8}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: 0, y: 3.2}
+      - {x: 0, y: 3.2}
+      - {x: 0, y: -3.2}
+      - {x: 0, y: -3.2}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 10
+      type: 0
+      position: {x: 320, y: 222}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -64, y: 39}
+      - {x: 64, y: 39}
+      - {x: -64, y: -39}
+      - {x: 64, y: -39}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.6}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    - frame: 10
+      type: 1
+      position: {x: 0, y: 1.7}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: 0, y: -1.3}
+      - {x: 0, y: -1.3}
+      - {x: 0, y: 1.3}
+      - {x: 0, y: 1.3}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 20
+      type: 0
+      position: {x: 320, y: 239}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -64, y: 26}
+      - {x: 64, y: 26}
+      - {x: -64, y: -26}
+      - {x: 64, y: -26}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.6}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    - frame: 20
+      type: 1
+      position: {x: 0, y: -2.2}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: 0, y: 0.8}
+      - {x: 0, y: 0.8}
+      - {x: 0, y: -0.8}
+      - {x: 0, y: -0.8}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 25
+      type: 0
+      position: {x: 320, y: 228}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -64, y: 30}
+      - {x: 64, y: 30}
+      - {x: -64, y: -30}
+      - {x: 64, y: -30}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.6}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    - frame: 25
+      type: 1
+      position: {x: 0, y: 0.6}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: 0, y: 0.4}
+      - {x: 0, y: 0.4}
+      - {x: 0, y: -0.4}
+      - {x: 0, y: -0.4}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: 0}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 30
+      type: 0
+      position: {x: 320, y: 231}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -64, y: 32}
+      - {x: 64, y: 32}
+      - {x: -64, y: -32}
+      - {x: 64, y: -32}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.6}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    - frame: 30
+      type: 1
+      position: {x: 0, y: 0}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: 0, y: -0}
+      - {x: 0, y: -0}
+      - {x: 0, y: -0}
+      - {x: 0, y: -0}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0, g: 0, b: 0, a: -0.060000002}
+      srcAlpha: 0
+      destAlpha: 0
+      mtPreset: 0
+    - frame: 40
+      type: 0
+      position: {x: 320, y: 231}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -64, y: 32}
+      - {x: 64, y: 32}
+      - {x: -64, y: -32}
+      - {x: 64, y: -32}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0}
+      srcAlpha: 5
+      destAlpha: 6
+      mtPreset: 0
+    texturesIds: 01000000
+  - textures:
+    - {fileID: 0}
+    animations:
+    - frame: 0
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -38, y: 38}
+      - {x: 38, y: 38}
+      - {x: -38, y: -38}
+      - {x: 38, y: -38}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0.5137255, g: 0.9529412, b: 0.93333334, a: 0.8}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 1
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -50.04058, y: 50.04058}
+      - {x: 50.04058, y: 50.04058}
+      - {x: -50.04058, y: -50.04058}
+      - {x: 50.04058, y: -50.04058}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0.5380392, g: 0.95529413, b: 0.93666667, a: 0.76}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 2
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -60.99279, y: 60.99279}
+      - {x: 60.99279, y: 60.99279}
+      - {x: -60.99279, y: -60.99279}
+      - {x: 60.99279, y: -60.99279}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0.5623529, g: 0.957647, b: 0.94, a: 0.72}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 3
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -70.90271, y: 70.90271}
+      - {x: 70.90271, y: 70.90271}
+      - {x: -70.90271, y: -70.90271}
+      - {x: 70.90271, y: -70.90271}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0.5866667, g: 0.96000004, b: 0.9433333, a: 0.67999995}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 4
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -79.81693, y: 79.81693}
+      - {x: 79.81693, y: 79.81693}
+      - {x: -79.81693, y: -79.81693}
+      - {x: 79.81693, y: -79.81693}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0.6109804, g: 0.96235293, b: 0.94666666, a: 0.64}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 5
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -87.78259, y: 87.78259}
+      - {x: 87.78259, y: 87.78259}
+      - {x: -87.78259, y: -87.78259}
+      - {x: 87.78259, y: -87.78259}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0.63529414, g: 0.9647059, b: 0.95, a: 0.6}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 6
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -94.84744, y: 94.84744}
+      - {x: 94.84744, y: 94.84744}
+      - {x: -94.84744, y: -94.84744}
+      - {x: 94.84744, y: -94.84744}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0.6596078, g: 0.96705884, b: 0.9533334, a: 0.56}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 7
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -101.05985, y: 101.05985}
+      - {x: 101.05985, y: 101.05985}
+      - {x: -101.05985, y: -101.05985}
+      - {x: 101.05985, y: -101.05985}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0.6839215, g: 0.96941173, b: 0.95666665, a: 0.52000004}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 8
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -106.46891, y: 106.46891}
+      - {x: 106.46891, y: 106.46891}
+      - {x: -106.46891, y: -106.46891}
+      - {x: 106.46891, y: -106.46891}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0.7082353, g: 0.97176474, b: 0.96000004, a: 0.48000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 9
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -111.12444, y: 111.12444}
+      - {x: 111.12444, y: 111.12444}
+      - {x: -111.12444, y: -111.12444}
+      - {x: 111.12444, y: -111.12444}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0.732549, g: 0.97411764, b: 0.9633333, a: 0.44000003}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 10
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -115.07714, y: 115.07714}
+      - {x: 115.07714, y: 115.07714}
+      - {x: -115.07714, y: -115.07714}
+      - {x: 115.07714, y: -115.07714}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0.75686276, g: 0.9764706, b: 0.96666664, a: 0.4}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 11
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -118.37862, y: 118.37862}
+      - {x: 118.37862, y: 118.37862}
+      - {x: -118.37862, y: -118.37862}
+      - {x: 118.37862, y: -118.37862}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0.78117645, g: 0.97882354, b: 0.97, a: 0.36}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 12
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -121.08152, y: 121.08152}
+      - {x: 121.08152, y: 121.08152}
+      - {x: -121.08152, y: -121.08152}
+      - {x: 121.08152, y: -121.08152}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0.8054902, g: 0.98117644, b: 0.9733333, a: 0.32000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 13
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -123.239716, y: 123.239716}
+      - {x: 123.239716, y: 123.239716}
+      - {x: -123.239716, y: -123.239716}
+      - {x: 123.239716, y: -123.239716}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0.8298039, g: 0.98352945, b: 0.9766667, a: 0.28}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 14
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -124.90841, y: 124.90841}
+      - {x: 124.90841, y: 124.90841}
+      - {x: -124.90841, y: -124.90841}
+      - {x: 124.90841, y: -124.90841}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0.85411763, g: 0.98588234, b: 0.97999996, a: 0.24000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 15
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -126.14444, y: 126.14444}
+      - {x: 126.14444, y: 126.14444}
+      - {x: -126.14444, y: -126.14444}
+      - {x: 126.14444, y: -126.14444}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0.8784314, g: 0.9882353, b: 0.98333335, a: 0.20000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 16
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -127.00659, y: 127.00659}
+      - {x: 127.00659, y: 127.00659}
+      - {x: -127.00659, y: -127.00659}
+      - {x: 127.00659, y: -127.00659}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0.90274507, g: 0.99058825, b: 0.9866667, a: 0.16000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 17
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -127.55608, y: 127.55608}
+      - {x: 127.55608, y: 127.55608}
+      - {x: -127.55608, y: -127.55608}
+      - {x: 127.55608, y: -127.55608}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0.9270588, g: 0.99294114, b: 0.99, a: 0.12000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 18
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -127.85736, y: 127.85736}
+      - {x: 127.85736, y: 127.85736}
+      - {x: -127.85736, y: -127.85736}
+      - {x: 127.85736, y: -127.85736}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0.9513725, g: 0.99529415, b: 0.99333334, a: 0.08000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 19
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -127.979515, y: 127.979515}
+      - {x: 127.979515, y: 127.979515}
+      - {x: -127.979515, y: -127.979515}
+      - {x: 127.979515, y: -127.979515}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 0.9756863, g: 0.99764705, b: 0.99666667, a: 0.040000014}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 20
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -128, y: 128}
+      - {x: 128, y: 128}
+      - {x: -128, y: -128}
+      - {x: 128, y: -128}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    texturesIds: 02000000
+  - textures:
+    - {fileID: 0}
+    animations:
+    - frame: 10
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -38, y: 38}
+      - {x: 38, y: 38}
+      - {x: -38, y: -38}
+      - {x: 38, y: -38}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 0, a: 0.8}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 11
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -58.359715, y: 58.359715}
+      - {x: 58.359715, y: 58.359715}
+      - {x: -58.359715, y: -58.359715}
+      - {x: 58.359715, y: -58.359715}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 0.05, a: 0.76}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 12
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -74.8559, y: 74.8559}
+      - {x: 74.8559, y: 74.8559}
+      - {x: -74.8559, y: -74.8559}
+      - {x: 74.8559, y: -74.8559}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 0.1, a: 0.72}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 13
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -88.06652, y: 88.06652}
+      - {x: 88.06652, y: 88.06652}
+      - {x: -88.06652, y: -88.06652}
+      - {x: 88.06652, y: -88.06652}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 0.15, a: 0.67999995}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 14
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -98.5088, y: 98.5088}
+      - {x: 98.5088, y: 98.5088}
+      - {x: -98.5088, y: -98.5088}
+      - {x: 98.5088, y: -98.5088}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 0.2, a: 0.64}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 15
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -106.64258, y: 106.64258}
+      - {x: 106.64258, y: 106.64258}
+      - {x: -106.64258, y: -106.64258}
+      - {x: 106.64258, y: -106.64258}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 0.25, a: 0.6}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 16
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -112.8737, y: 112.8737}
+      - {x: 112.8737, y: 112.8737}
+      - {x: -112.8737, y: -112.8737}
+      - {x: 112.8737, y: -112.8737}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 0.3, a: 0.56}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 17
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -117.55738, y: 117.55738}
+      - {x: 117.55738, y: 117.55738}
+      - {x: -117.55738, y: -117.55738}
+      - {x: 117.55738, y: -117.55738}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 0.35, a: 0.52000004}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 18
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -121.0016, y: 121.0016}
+      - {x: 121.0016, y: 121.0016}
+      - {x: -121.0016, y: -121.0016}
+      - {x: 121.0016, y: -121.0016}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 0.4, a: 0.48000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 19
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -123.47044, y: 123.47044}
+      - {x: 123.47044, y: 123.47044}
+      - {x: -123.47044, y: -123.47044}
+      - {x: 123.47044, y: -123.47044}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 0.45, a: 0.44000003}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 20
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -125.1875, y: 125.1875}
+      - {x: 125.1875, y: 125.1875}
+      - {x: -125.1875, y: -125.1875}
+      - {x: 125.1875, y: -125.1875}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 0.5, a: 0.4}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 21
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -126.33925, y: 126.33925}
+      - {x: 126.33925, y: 126.33925}
+      - {x: -126.33925, y: -126.33925}
+      - {x: 126.33925, y: -126.33925}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 0.55, a: 0.36}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 22
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -127.0784, y: 127.0784}
+      - {x: 127.0784, y: 127.0784}
+      - {x: -127.0784, y: -127.0784}
+      - {x: 127.0784, y: -127.0784}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 0.6, a: 0.32000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 23
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -127.527306, y: 127.527306}
+      - {x: 127.527306, y: 127.527306}
+      - {x: -127.527306, y: -127.527306}
+      - {x: 127.527306, y: -127.527306}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 0.65, a: 0.28}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 24
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -127.7813, y: 127.7813}
+      - {x: 127.7813, y: 127.7813}
+      - {x: -127.7813, y: -127.7813}
+      - {x: 127.7813, y: -127.7813}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 0.7, a: 0.24000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 25
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -127.91211, y: 127.91211}
+      - {x: 127.91211, y: 127.91211}
+      - {x: -127.91211, y: -127.91211}
+      - {x: 127.91211, y: -127.91211}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 0.75, a: 0.20000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 26
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -127.9712, y: 127.9712}
+      - {x: 127.9712, y: 127.9712}
+      - {x: -127.9712, y: -127.9712}
+      - {x: 127.9712, y: -127.9712}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 0.8, a: 0.16000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 27
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -127.993164, y: 127.993164}
+      - {x: 127.993164, y: 127.993164}
+      - {x: -127.993164, y: -127.993164}
+      - {x: 127.993164, y: -127.993164}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 0.85, a: 0.12000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 28
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -127.9991, y: 127.9991}
+      - {x: 127.9991, y: 127.9991}
+      - {x: -127.9991, y: -127.9991}
+      - {x: 127.9991, y: -127.9991}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 0.9, a: 0.08000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 29
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -127.99997, y: 127.99997}
+      - {x: 127.99997, y: 127.99997}
+      - {x: -127.99997, y: -127.99997}
+      - {x: 127.99997, y: -127.99997}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 0.95, a: 0.040000014}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 30
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -128, y: 128}
+      - {x: 128, y: 128}
+      - {x: -128, y: -128}
+      - {x: 128, y: -128}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    texturesIds: 02000000
+  - textures:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    animations:
+    - frame: 0
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -9.5, y: 9.5}
+      - {x: 9.5, y: 9.5}
+      - {x: -9.5, y: -9.5}
+      - {x: 9.5, y: -9.5}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.8}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 1
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -19.151678, y: 19.151678}
+      - {x: 19.151678, y: 19.151678}
+      - {x: -19.151678, y: -19.151678}
+      - {x: 19.151678, y: -19.151678}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.76}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 2
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -27.48107, y: 27.48107}
+      - {x: 27.48107, y: 27.48107}
+      - {x: -27.48107, y: -27.48107}
+      - {x: 27.48107, y: -27.48107}
+      animFrame: 1
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.72}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 3
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -34.610756, y: 34.610756}
+      - {x: 34.610756, y: 34.610756}
+      - {x: -34.610756, y: -34.610756}
+      - {x: 34.610756, y: -34.610756}
+      animFrame: 1
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.67999995}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 4
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -40.657978, y: 40.657978}
+      - {x: 40.657978, y: 40.657978}
+      - {x: -40.657978, y: -40.657978}
+      - {x: 40.657978, y: -40.657978}
+      animFrame: 2
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.64}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 5
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -45.734596, y: 45.734596}
+      - {x: 45.734596, y: 45.734596}
+      - {x: -45.734596, y: -45.734596}
+      - {x: 45.734596, y: -45.734596}
+      animFrame: 2
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.6}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 6
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -49.947, y: 49.947}
+      - {x: 49.947, y: 49.947}
+      - {x: -49.947, y: -49.947}
+      - {x: 49.947, y: -49.947}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.56}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 7
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -53.39606, y: 53.39606}
+      - {x: 53.39606, y: 53.39606}
+      - {x: -53.39606, y: -53.39606}
+      - {x: 53.39606, y: -53.39606}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.52000004}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 8
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -56.177036, y: 56.177036}
+      - {x: 56.177036, y: 56.177036}
+      - {x: -56.177036, y: -56.177036}
+      - {x: 56.177036, y: -56.177036}
+      animFrame: 1
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.48000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 9
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -58.3795, y: 58.3795}
+      - {x: 58.3795, y: 58.3795}
+      - {x: -58.3795, y: -58.3795}
+      - {x: 58.3795, y: -58.3795}
+      animFrame: 1
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.44000003}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 10
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -60.087246, y: 60.087246}
+      - {x: 60.087246, y: 60.087246}
+      - {x: -60.087246, y: -60.087246}
+      - {x: 60.087246, y: -60.087246}
+      animFrame: 2
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.4}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 11
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -61.378174, y: 61.378174}
+      - {x: 61.378174, y: 61.378174}
+      - {x: -61.378174, y: -61.378174}
+      - {x: 61.378174, y: -61.378174}
+      animFrame: 2
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.36}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 12
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -62.324192, y: 62.324192}
+      - {x: 62.324192, y: 62.324192}
+      - {x: -62.324192, y: -62.324192}
+      - {x: 62.324192, y: -62.324192}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.32000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 13
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -62.991085, y: 62.991085}
+      - {x: 62.991085, y: 62.991085}
+      - {x: -62.991085, y: -62.991085}
+      - {x: 62.991085, y: -62.991085}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.28}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 14
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -63.438362, y: 63.438362}
+      - {x: 63.438362, y: 63.438362}
+      - {x: -63.438362, y: -63.438362}
+      - {x: 63.438362, y: -63.438362}
+      animFrame: 1
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.24000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 15
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -63.71909, y: 63.71909}
+      - {x: 63.71909, y: 63.71909}
+      - {x: -63.71909, y: -63.71909}
+      - {x: 63.71909, y: -63.71909}
+      animFrame: 1
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.20000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 16
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -63.87969, y: 63.87969}
+      - {x: 63.87969, y: 63.87969}
+      - {x: -63.87969, y: -63.87969}
+      - {x: 63.87969, y: -63.87969}
+      animFrame: 2
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.16000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 17
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -63.95968, y: 63.95968}
+      - {x: 63.95968, y: 63.95968}
+      - {x: -63.95968, y: -63.95968}
+      - {x: 63.95968, y: -63.95968}
+      animFrame: 2
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.12000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 18
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -63.991364, y: 63.991364}
+      - {x: 63.991364, y: 63.991364}
+      - {x: -63.991364, y: -63.991364}
+      - {x: 63.991364, y: -63.991364}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.08000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 19
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -63.99938, y: 63.99938}
+      - {x: 63.99938, y: 63.99938}
+      - {x: -63.99938, y: -63.99938}
+      - {x: 63.99938, y: -63.99938}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.040000014}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 20
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -64, y: 64}
+      - {x: 64, y: 64}
+      - {x: -64, y: -64}
+      - {x: 64, y: -64}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    texturesIds: 030000000400000005000000
+  - textures:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    animations:
+    - frame: 4
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -9.5, y: 9.5}
+      - {x: 9.5, y: 9.5}
+      - {x: -9.5, y: -9.5}
+      - {x: 9.5, y: -9.5}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.8}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 5
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -19.151678, y: 19.151678}
+      - {x: 19.151678, y: 19.151678}
+      - {x: -19.151678, y: -19.151678}
+      - {x: 19.151678, y: -19.151678}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.76}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 6
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -27.48107, y: 27.48107}
+      - {x: 27.48107, y: 27.48107}
+      - {x: -27.48107, y: -27.48107}
+      - {x: 27.48107, y: -27.48107}
+      animFrame: 1
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.72}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 7
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -34.610756, y: 34.610756}
+      - {x: 34.610756, y: 34.610756}
+      - {x: -34.610756, y: -34.610756}
+      - {x: 34.610756, y: -34.610756}
+      animFrame: 1
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.67999995}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 8
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -40.657978, y: 40.657978}
+      - {x: 40.657978, y: 40.657978}
+      - {x: -40.657978, y: -40.657978}
+      - {x: 40.657978, y: -40.657978}
+      animFrame: 2
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.64}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 9
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -45.734596, y: 45.734596}
+      - {x: 45.734596, y: 45.734596}
+      - {x: -45.734596, y: -45.734596}
+      - {x: 45.734596, y: -45.734596}
+      animFrame: 2
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.6}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 10
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -49.947, y: 49.947}
+      - {x: 49.947, y: 49.947}
+      - {x: -49.947, y: -49.947}
+      - {x: 49.947, y: -49.947}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.56}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 11
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -53.39606, y: 53.39606}
+      - {x: 53.39606, y: 53.39606}
+      - {x: -53.39606, y: -53.39606}
+      - {x: 53.39606, y: -53.39606}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.52000004}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 12
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -56.177036, y: 56.177036}
+      - {x: 56.177036, y: 56.177036}
+      - {x: -56.177036, y: -56.177036}
+      - {x: 56.177036, y: -56.177036}
+      animFrame: 1
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.48000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 13
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -58.3795, y: 58.3795}
+      - {x: 58.3795, y: 58.3795}
+      - {x: -58.3795, y: -58.3795}
+      - {x: 58.3795, y: -58.3795}
+      animFrame: 1
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.44000003}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 14
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -60.087246, y: 60.087246}
+      - {x: 60.087246, y: 60.087246}
+      - {x: -60.087246, y: -60.087246}
+      - {x: 60.087246, y: -60.087246}
+      animFrame: 2
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.4}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 15
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -61.378174, y: 61.378174}
+      - {x: 61.378174, y: 61.378174}
+      - {x: -61.378174, y: -61.378174}
+      - {x: 61.378174, y: -61.378174}
+      animFrame: 2
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.36}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 16
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -62.324192, y: 62.324192}
+      - {x: 62.324192, y: 62.324192}
+      - {x: -62.324192, y: -62.324192}
+      - {x: 62.324192, y: -62.324192}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.32000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 17
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -62.991085, y: 62.991085}
+      - {x: 62.991085, y: 62.991085}
+      - {x: -62.991085, y: -62.991085}
+      - {x: 62.991085, y: -62.991085}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.28}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 18
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -63.438362, y: 63.438362}
+      - {x: 63.438362, y: 63.438362}
+      - {x: -63.438362, y: -63.438362}
+      - {x: 63.438362, y: -63.438362}
+      animFrame: 1
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.24000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 19
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -63.71909, y: 63.71909}
+      - {x: 63.71909, y: 63.71909}
+      - {x: -63.71909, y: -63.71909}
+      - {x: 63.71909, y: -63.71909}
+      animFrame: 1
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.20000002}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 20
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -63.87969, y: 63.87969}
+      - {x: 63.87969, y: 63.87969}
+      - {x: -63.87969, y: -63.87969}
+      - {x: 63.87969, y: -63.87969}
+      animFrame: 2
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.16000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 21
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -63.95968, y: 63.95968}
+      - {x: 63.95968, y: 63.95968}
+      - {x: -63.95968, y: -63.95968}
+      - {x: 63.95968, y: -63.95968}
+      animFrame: 2
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.12000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 22
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -63.991364, y: 63.991364}
+      - {x: 63.991364, y: 63.991364}
+      - {x: -63.991364, y: -63.991364}
+      - {x: 63.991364, y: -63.991364}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.08000001}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 23
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -63.99938, y: 63.99938}
+      - {x: 63.99938, y: 63.99938}
+      - {x: -63.99938, y: -63.99938}
+      - {x: 63.99938, y: -63.99938}
+      animFrame: 0
+      animType: 3
+      delay: 0.5
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0.040000014}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    - frame: 24
+      type: 0
+      position: {x: 320, y: 277}
+      uv:
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      xy:
+      - {x: -64, y: 64}
+      - {x: 64, y: 64}
+      - {x: -64, y: -64}
+      - {x: 64, y: -64}
+      animFrame: 0
+      animType: 0
+      delay: 0
+      angle: 0
+      color: {r: 1, g: 1, b: 1, a: 0}
+      srcAlpha: 5
+      destAlpha: 7
+      mtPreset: 0
+    texturesIds: 030000000400000005000000
+  name: autocounter
