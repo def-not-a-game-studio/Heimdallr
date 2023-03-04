@@ -1,5 +1,6 @@
 ﻿using Heimdallr.Core.Game.Controllers;
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Heimdallr.Core.Game {
@@ -46,6 +47,24 @@ namespace Heimdallr.Core.Game {
 
         public EntityType GetEntityType() {
             return EntityData.EntityType;
+        }
+
+        public override int Direction { get; }
+        public override int CameraDirection { get; }
+        public override int HeadDir { get; }
+        public override bool IsMonster { get; }
+        public override GameEntityBaseStatus Status { get; }
+
+        public override void ChangeMotion(MotionRequest request) {
+            throw new NotImplementedException();
+        }
+
+        public override void StopCoroutine(Coroutine coroutine) {
+            throw new NotImplementedException();
+        }
+
+        public override Coroutine StartCoroutine(IEnumerator coroutine) {
+            throw new NotImplementedException();
         }
     }
 }
