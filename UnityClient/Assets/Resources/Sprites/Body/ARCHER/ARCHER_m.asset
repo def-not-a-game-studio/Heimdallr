@@ -1,0 +1,6275 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be357408d6b5848a4b6ab6d1548c966c, type: 3}
+  m_Name: ARCHER_m
+  m_EditorClassIdentifier: 
+  act:
+    filename: 
+    version: 2.4
+    sounds:
+    - attack_bow.wav
+    - attack_short_sword.wav
+    - player_clothes.wav
+    actions:
+    - frames:
+      - layers:
+        - pos: {x: -1, y: -24}
+          index: 0
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 0, y: -56}
+      - layers:
+        - pos: {x: -1, y: -24}
+          index: 0
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -4, y: -57}
+      - layers:
+        - pos: {x: -1, y: -24}
+          index: 0
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 4, y: -57}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -1, y: -24}
+          index: 1
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -57}
+      - layers:
+        - pos: {x: -1, y: -24}
+          index: 1
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -6, y: -57}
+      - layers:
+        - pos: {x: -1, y: -24}
+          index: 1
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -2, y: -56}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -4, y: -25}
+          index: 2
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -58}
+      - layers:
+        - pos: {x: -4, y: -25}
+          index: 2
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 10, y: -74}
+      - layers:
+        - pos: {x: -4, y: -25}
+          index: 2
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -58}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -3, y: -28}
+          index: 3
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 10, y: -75}
+      - layers:
+        - pos: {x: -3, y: -28}
+          index: 3
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -75}
+      - layers:
+        - pos: {x: -3, y: -28}
+          index: 3
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -6, y: -58}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 0, y: -25}
+          index: 4
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -73}
+      - layers:
+        - pos: {x: 0, y: -25}
+          index: 4
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -74}
+      - layers:
+        - pos: {x: 0, y: -25}
+          index: 4
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -74}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 4, y: -28}
+          index: 3
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -76}
+      - layers:
+        - pos: {x: 4, y: -28}
+          index: 3
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -59}
+      - layers:
+        - pos: {x: 4, y: -28}
+          index: 3
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -75}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 5, y: -25}
+          index: 2
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -58}
+      - layers:
+        - pos: {x: 5, y: -25}
+          index: 2
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -58}
+      - layers:
+        - pos: {x: 5, y: -25}
+          index: 2
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -9, y: -75}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 1, y: -24}
+          index: 1
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -57}
+      - layers:
+        - pos: {x: 1, y: -24}
+          index: 1
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 3, y: -56}
+      - layers:
+        - pos: {x: 1, y: -24}
+          index: 1
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 7, y: -57}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 0, y: -24}
+          index: 5
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 0, y: -56}
+      - layers:
+        - pos: {x: 1, y: -23}
+          index: 6
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 0, y: -55}
+      - layers:
+        - pos: {x: 1, y: -21}
+          index: 7
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 0, y: -53}
+      - layers:
+        - pos: {x: 1, y: -21}
+          index: 8
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 0, y: -54}
+      - layers:
+        - pos: {x: 0, y: -24}
+          index: 9
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 0, y: -56}
+      - layers:
+        - pos: {x: 0, y: -24}
+          index: 10
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 0, y: -55}
+      - layers:
+        - pos: {x: 0, y: -21}
+          index: 11
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 0, y: -53}
+      - layers:
+        - pos: {x: 0, y: -21}
+          index: 12
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 0, y: -54}
+      delay: 75
+    - frames:
+      - layers:
+        - pos: {x: 0, y: -25}
+          index: 13
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -57}
+      - layers:
+        - pos: {x: -2, y: -25}
+          index: 14
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -56}
+      - layers:
+        - pos: {x: -4, y: -24}
+          index: 15
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -54}
+      - layers:
+        - pos: {x: -2, y: -24}
+          index: 16
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -55}
+      - layers:
+        - pos: {x: -2, y: -26}
+          index: 17
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -57}
+      - layers:
+        - pos: {x: -1, y: -25}
+          index: 18
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -56}
+      - layers:
+        - pos: {x: -2, y: -23}
+          index: 19
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -54}
+      - layers:
+        - pos: {x: 0, y: -22}
+          index: 20
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -55}
+      delay: 75
+    - frames:
+      - layers:
+        - pos: {x: -2, y: -24}
+          index: 21
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -6, y: -58}
+      - layers:
+        - pos: {x: -5, y: -24}
+          index: 22
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -6, y: -57}
+      - layers:
+        - pos: {x: -4, y: -23}
+          index: 23
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -6, y: -55}
+      - layers:
+        - pos: {x: -2, y: -23}
+          index: 24
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -6, y: -56}
+      - layers:
+        - pos: {x: -2, y: -26}
+          index: 25
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -6, y: -58}
+      - layers:
+        - pos: {x: -4, y: -25}
+          index: 26
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -6, y: -57}
+      - layers:
+        - pos: {x: -4, y: -23}
+          index: 27
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -6, y: -55}
+      - layers:
+        - pos: {x: -2, y: -23}
+          index: 28
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -6, y: -56}
+      delay: 75
+    - frames:
+      - layers:
+        - pos: {x: -2, y: -26}
+          index: 29
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -74}
+      - layers:
+        - pos: {x: -2, y: -25}
+          index: 30
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -73}
+      - layers:
+        - pos: {x: -1, y: -23}
+          index: 31
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -71}
+      - layers:
+        - pos: {x: -2, y: -25}
+          index: 32
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -72}
+      - layers:
+        - pos: {x: -2, y: -29}
+          index: 33
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -74}
+      - layers:
+        - pos: {x: -5, y: -28}
+          index: 34
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -73}
+      - layers:
+        - pos: {x: -4, y: -26}
+          index: 35
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -71}
+      - layers:
+        - pos: {x: -2, y: -25}
+          index: 36
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -72}
+      delay: 75
+    - frames:
+      - layers:
+        - pos: {x: 1, y: -25}
+          index: 37
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -73}
+      - layers:
+        - pos: {x: 1, y: -22}
+          index: 38
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -72}
+      - layers:
+        - pos: {x: 1, y: -21}
+          index: 39
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -70}
+      - layers:
+        - pos: {x: 1, y: -22}
+          index: 40
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -71}
+      - layers:
+        - pos: {x: 1, y: -25}
+          index: 41
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -73}
+      - layers:
+        - pos: {x: 0, y: -22}
+          index: 42
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -72}
+      - layers:
+        - pos: {x: 0, y: -21}
+          index: 43
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -70}
+      - layers:
+        - pos: {x: 0, y: -22}
+          index: 44
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -71}
+      delay: 75
+    - frames:
+      - layers:
+        - pos: {x: 2, y: -26}
+          index: 29
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -74}
+      - layers:
+        - pos: {x: 3, y: -25}
+          index: 30
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -73}
+      - layers:
+        - pos: {x: 2, y: -23}
+          index: 31
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -71}
+      - layers:
+        - pos: {x: 2, y: -25}
+          index: 32
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -72}
+      - layers:
+        - pos: {x: 2, y: -29}
+          index: 33
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -74}
+      - layers:
+        - pos: {x: 5, y: -28}
+          index: 34
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -73}
+      - layers:
+        - pos: {x: 5, y: -26}
+          index: 35
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -71}
+      - layers:
+        - pos: {x: 3, y: -25}
+          index: 36
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -72}
+      delay: 75
+    - frames:
+      - layers:
+        - pos: {x: 2, y: -24}
+          index: 21
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 7, y: -58}
+      - layers:
+        - pos: {x: 5, y: -24}
+          index: 22
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 7, y: -57}
+      - layers:
+        - pos: {x: 4, y: -23}
+          index: 23
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 7, y: -55}
+      - layers:
+        - pos: {x: 2, y: -23}
+          index: 24
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 7, y: -56}
+      - layers:
+        - pos: {x: 2, y: -26}
+          index: 25
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 7, y: -58}
+      - layers:
+        - pos: {x: 5, y: -25}
+          index: 26
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 7, y: -57}
+      - layers:
+        - pos: {x: 4, y: -23}
+          index: 27
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 7, y: -55}
+      - layers:
+        - pos: {x: 3, y: -23}
+          index: 28
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 7, y: -56}
+      delay: 75
+    - frames:
+      - layers:
+        - pos: {x: 1, y: -25}
+          index: 13
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -57}
+      - layers:
+        - pos: {x: 2, y: -25}
+          index: 14
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -56}
+      - layers:
+        - pos: {x: 5, y: -24}
+          index: 15
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -54}
+      - layers:
+        - pos: {x: 3, y: -24}
+          index: 16
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -55}
+      - layers:
+        - pos: {x: 2, y: -26}
+          index: 17
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -57}
+      - layers:
+        - pos: {x: 1, y: -25}
+          index: 18
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -56}
+      - layers:
+        - pos: {x: 2, y: -23}
+          index: 19
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -54}
+      - layers:
+        - pos: {x: 1, y: -22}
+          index: 20
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -55}
+      delay: 75
+    - frames:
+      - layers:
+        - pos: {x: 0, y: -12}
+          index: 45
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 0, y: -36}
+      - layers:
+        - pos: {x: 0, y: -12}
+          index: 45
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -4, y: -37}
+      - layers:
+        - pos: {x: 0, y: -12}
+          index: 45
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 4, y: -37}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -1, y: -14}
+          index: 46
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -39}
+      - layers:
+        - pos: {x: -1, y: -14}
+          index: 46
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -6, y: -39}
+      - layers:
+        - pos: {x: -1, y: -14}
+          index: 46
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -1, y: -38}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -1, y: -15}
+          index: 47
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -40}
+      - layers:
+        - pos: {x: -1, y: -15}
+          index: 47
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 10, y: -56}
+      - layers:
+        - pos: {x: -1, y: -15}
+          index: 47
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -4, y: -40}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 0, y: -14}
+          index: 48
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -55}
+      - layers:
+        - pos: {x: 0, y: -14}
+          index: 48
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 12, y: -55}
+      - layers:
+        - pos: {x: 0, y: -14}
+          index: 48
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -39}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -1, y: -12}
+          index: 49
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -54}
+      - layers:
+        - pos: {x: -1, y: -12}
+          index: 49
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -9, y: -54}
+      - layers:
+        - pos: {x: -1, y: -12}
+          index: 49
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -54}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 0, y: -14}
+          index: 48
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -55}
+      - layers:
+        - pos: {x: 0, y: -14}
+          index: 48
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -39}
+      - layers:
+        - pos: {x: 0, y: -14}
+          index: 48
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -54}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 2, y: -15}
+          index: 47
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -39}
+      - layers:
+        - pos: {x: 2, y: -15}
+          index: 47
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 5, y: -39}
+      - layers:
+        - pos: {x: 2, y: -15}
+          index: 47
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -9, y: -56}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 2, y: -14}
+          index: 46
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 5, y: -39}
+      - layers:
+        - pos: {x: 2, y: -14}
+          index: 46
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 2, y: -38}
+      - layers:
+        - pos: {x: 2, y: -14}
+          index: 46
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -39}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 1, y: -18}
+          index: 50
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -8, y: -56}
+      - layers:
+        - pos: {x: 2, y: -15}
+          index: 51
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -12, y: -42}
+      - layers:
+        - pos: {x: 1, y: -18}
+          index: 50
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -8, y: -53}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 1, y: -18}
+          index: 50
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -8, y: -56}
+      - layers:
+        - pos: {x: 2, y: -15}
+          index: 51
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -12, y: -42}
+      - layers:
+        - pos: {x: 1, y: -18}
+          index: 50
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -8, y: -53}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 0, y: -16}
+          index: 52
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -9, y: -50}
+      - layers:
+        - pos: {x: -1, y: -13}
+          index: 53
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -8, y: -41}
+      - layers:
+        - pos: {x: 0, y: -16}
+          index: 52
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -9, y: -50}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 0, y: -16}
+          index: 52
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -9, y: -50}
+      - layers:
+        - pos: {x: -1, y: -13}
+          index: 53
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -8, y: -41}
+      - layers:
+        - pos: {x: 0, y: -16}
+          index: 52
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -9, y: -50}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 1, y: -16}
+          index: 52
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 10, y: -50}
+      - layers:
+        - pos: {x: 2, y: -13}
+          index: 53
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 9, y: -41}
+      - layers:
+        - pos: {x: 1, y: -16}
+          index: 52
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 10, y: -50}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 1, y: -16}
+          index: 52
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 10, y: -50}
+      - layers:
+        - pos: {x: 2, y: -13}
+          index: 53
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 9, y: -41}
+      - layers:
+        - pos: {x: 1, y: -16}
+          index: 52
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 10, y: -50}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 0, y: -18}
+          index: 50
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 9, y: -56}
+      - layers:
+        - pos: {x: -1, y: -15}
+          index: 51
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 13, y: -42}
+      - layers:
+        - pos: {x: 0, y: -18}
+          index: 50
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 9, y: -53}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 0, y: -18}
+          index: 50
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 9, y: -56}
+      - layers:
+        - pos: {x: -1, y: -15}
+          index: 51
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 13, y: -42}
+      - layers:
+        - pos: {x: 0, y: -18}
+          index: 50
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 9, y: -53}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 2, y: -26}
+          index: 54
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -57}
+      - layers:
+        - pos: {x: 2, y: -28}
+          index: 55
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -60}
+      - layers:
+        - pos: {x: 1, y: -28}
+          index: 56
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -61}
+      - layers:
+        - pos: {x: 1, y: -28}
+          index: 57
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -61}
+      - layers:
+        - pos: {x: 0, y: -28}
+          index: 58
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -60}
+      - layers:
+        - pos: {x: 1, y: -27}
+          index: 59
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -58}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 2, y: -26}
+          index: 54
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -57}
+      - layers:
+        - pos: {x: 2, y: -28}
+          index: 55
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -60}
+      - layers:
+        - pos: {x: 1, y: -28}
+          index: 56
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -61}
+      - layers:
+        - pos: {x: 1, y: -28}
+          index: 57
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -61}
+      - layers:
+        - pos: {x: 0, y: -28}
+          index: 58
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -60}
+      - layers:
+        - pos: {x: 1, y: -27}
+          index: 59
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -58}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -2, y: -27}
+          index: 60
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -74}
+      - layers:
+        - pos: {x: -2, y: -29}
+          index: 61
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -77}
+      - layers:
+        - pos: {x: -1, y: -29}
+          index: 62
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -78}
+      - layers:
+        - pos: {x: -1, y: -29}
+          index: 63
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -78}
+      - layers:
+        - pos: {x: -1, y: -29}
+          index: 64
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -77}
+      - layers:
+        - pos: {x: -2, y: -28}
+          index: 65
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -75}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -2, y: -27}
+          index: 60
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -74}
+      - layers:
+        - pos: {x: -2, y: -29}
+          index: 61
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -77}
+      - layers:
+        - pos: {x: -1, y: -29}
+          index: 62
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -78}
+      - layers:
+        - pos: {x: -1, y: -29}
+          index: 63
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -78}
+      - layers:
+        - pos: {x: -1, y: -29}
+          index: 64
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -77}
+      - layers:
+        - pos: {x: -2, y: -28}
+          index: 65
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -75}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 3, y: -27}
+          index: 60
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -74}
+      - layers:
+        - pos: {x: 2, y: -29}
+          index: 61
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -77}
+      - layers:
+        - pos: {x: 2, y: -29}
+          index: 62
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -78}
+      - layers:
+        - pos: {x: 1, y: -29}
+          index: 63
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -78}
+      - layers:
+        - pos: {x: 1, y: -29}
+          index: 64
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -77}
+      - layers:
+        - pos: {x: 2, y: -28}
+          index: 65
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -75}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 3, y: -27}
+          index: 60
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -74}
+      - layers:
+        - pos: {x: 2, y: -29}
+          index: 61
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -77}
+      - layers:
+        - pos: {x: 2, y: -29}
+          index: 62
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -78}
+      - layers:
+        - pos: {x: 1, y: -29}
+          index: 63
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -78}
+      - layers:
+        - pos: {x: 1, y: -29}
+          index: 64
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -77}
+      - layers:
+        - pos: {x: 2, y: -28}
+          index: 65
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -75}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -1, y: -26}
+          index: 54
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -57}
+      - layers:
+        - pos: {x: -1, y: -28}
+          index: 55
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -60}
+      - layers:
+        - pos: {x: -1, y: -28}
+          index: 56
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -61}
+      - layers:
+        - pos: {x: 0, y: -28}
+          index: 57
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -61}
+      - layers:
+        - pos: {x: 0, y: -28}
+          index: 58
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -60}
+      - layers:
+        - pos: {x: -1, y: -27}
+          index: 59
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -58}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -1, y: -26}
+          index: 54
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -57}
+      - layers:
+        - pos: {x: -1, y: -28}
+          index: 55
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -60}
+      - layers:
+        - pos: {x: -1, y: -28}
+          index: 56
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -61}
+      - layers:
+        - pos: {x: 0, y: -28}
+          index: 57
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -61}
+      - layers:
+        - pos: {x: 0, y: -28}
+          index: 58
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -60}
+      - layers:
+        - pos: {x: -1, y: -27}
+          index: 59
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -58}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 3, y: -24}
+          index: 66
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -54}
+      - layers:
+        - pos: {x: -1, y: -28}
+          index: 67
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -6, y: -53}
+      - layers:
+        - pos: {x: -10, y: -17}
+          index: 68
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -26, y: -42}
+      - layers:
+        - pos: {x: -11, y: -17}
+          index: 69
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -27, y: -40}
+      - layers:
+        - pos: {x: -11, y: -17}
+          index: 69
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -28, y: -39}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 3, y: -24}
+          index: 66
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -54}
+      - layers:
+        - pos: {x: -1, y: -28}
+          index: 67
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -6, y: -53}
+      - layers:
+        - pos: {x: -10, y: -17}
+          index: 68
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -26, y: -42}
+      - layers:
+        - pos: {x: -11, y: -17}
+          index: 69
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -27, y: -40}
+      - layers:
+        - pos: {x: -11, y: -17}
+          index: 69
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -28, y: -39}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -5, y: -24}
+          index: 70
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -70}
+      - layers:
+        - pos: {x: -5, y: -24}
+          index: 71
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 10, y: -70}
+      - layers:
+        - pos: {x: -9, y: -25}
+          index: 72
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -69}
+      - layers:
+        - pos: {x: -10, y: -24}
+          index: 73
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -6, y: -67}
+      - layers:
+        - pos: {x: -10, y: -24}
+          index: 73
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -6, y: -66}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -5, y: -24}
+          index: 70
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -70}
+      - layers:
+        - pos: {x: -5, y: -24}
+          index: 71
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 10, y: -70}
+      - layers:
+        - pos: {x: -9, y: -25}
+          index: 72
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -69}
+      - layers:
+        - pos: {x: -10, y: -24}
+          index: 73
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -6, y: -67}
+      - layers:
+        - pos: {x: -10, y: -24}
+          index: 73
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -6, y: -66}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 5, y: -24}
+          index: 70
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -70}
+      - layers:
+        - pos: {x: 6, y: -24}
+          index: 71
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -9, y: -70}
+      - layers:
+        - pos: {x: 10, y: -25}
+          index: 72
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -69}
+      - layers:
+        - pos: {x: 10, y: -24}
+          index: 73
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 7, y: -67}
+      - layers:
+        - pos: {x: 10, y: -24}
+          index: 73
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 7, y: -66}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 5, y: -24}
+          index: 70
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -70}
+      - layers:
+        - pos: {x: 6, y: -24}
+          index: 71
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -9, y: -70}
+      - layers:
+        - pos: {x: 10, y: -25}
+          index: 72
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -69}
+      - layers:
+        - pos: {x: 10, y: -24}
+          index: 73
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 7, y: -67}
+      - layers:
+        - pos: {x: 10, y: -24}
+          index: 73
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 7, y: -66}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -2, y: -24}
+          index: 66
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -54}
+      - layers:
+        - pos: {x: 1, y: -28}
+          index: 67
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 7, y: -53}
+      - layers:
+        - pos: {x: 11, y: -17}
+          index: 68
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 27, y: -42}
+      - layers:
+        - pos: {x: 11, y: -17}
+          index: 69
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 28, y: -40}
+      - layers:
+        - pos: {x: 11, y: -17}
+          index: 69
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 29, y: -39}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -2, y: -24}
+          index: 66
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -54}
+      - layers:
+        - pos: {x: 1, y: -28}
+          index: 67
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 7, y: -53}
+      - layers:
+        - pos: {x: 11, y: -17}
+          index: 68
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 27, y: -42}
+      - layers:
+        - pos: {x: 11, y: -17}
+          index: 69
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 28, y: -40}
+      - layers:
+        - pos: {x: 11, y: -17}
+          index: 69
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 29, y: -39}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 3, y: -28}
+          index: 74
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 10, y: -69}
+      - layers:
+        - pos: {x: 6, y: -32}
+          index: 75
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: 2
+        pos:
+        - {x: 15, y: -73}
+      - layers:
+        - pos: {x: 3, y: -28}
+          index: 74
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 10, y: -69}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 3, y: -28}
+          index: 74
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 10, y: -69}
+      - layers:
+        - pos: {x: 6, y: -32}
+          index: 75
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: 2
+        pos:
+        - {x: 15, y: -73}
+      - layers:
+        - pos: {x: 3, y: -28}
+          index: 74
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 10, y: -69}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -6, y: -24}
+          index: 76
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 0, y: -72}
+      - layers:
+        - pos: {x: -3, y: -22}
+          index: 77
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: 2
+        pos:
+        - {x: 5, y: -70}
+      - layers:
+        - pos: {x: -6, y: -24}
+          index: 76
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 0, y: -72}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -6, y: -24}
+          index: 76
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 0, y: -72}
+      - layers:
+        - pos: {x: -3, y: -22}
+          index: 77
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: 2
+        pos:
+        - {x: 5, y: -70}
+      - layers:
+        - pos: {x: -6, y: -24}
+          index: 76
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 0, y: -72}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 6, y: -24}
+          index: 76
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 1, y: -72}
+      - layers:
+        - pos: {x: 3, y: -22}
+          index: 77
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: 2
+        pos:
+        - {x: -4, y: -70}
+      - layers:
+        - pos: {x: 6, y: -24}
+          index: 76
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 1, y: -72}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 6, y: -24}
+          index: 76
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 1, y: -72}
+      - layers:
+        - pos: {x: 3, y: -22}
+          index: 77
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: 2
+        pos:
+        - {x: -4, y: -70}
+      - layers:
+        - pos: {x: 6, y: -24}
+          index: 76
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 1, y: -72}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -3, y: -28}
+          index: 74
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -9, y: -69}
+      - layers:
+        - pos: {x: -5, y: -32}
+          index: 75
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: 2
+        pos:
+        - {x: -14, y: -73}
+      - layers:
+        - pos: {x: -3, y: -28}
+          index: 74
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -9, y: -69}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -3, y: -28}
+          index: 74
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -9, y: -69}
+      - layers:
+        - pos: {x: -5, y: -32}
+          index: 75
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: 2
+        pos:
+        - {x: -14, y: -73}
+      - layers:
+        - pos: {x: -3, y: -28}
+          index: 74
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -9, y: -69}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 7, y: -33}
+          index: 78
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 22, y: -71}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 7, y: -33}
+          index: 78
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 22, y: -71}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 1, y: -24}
+          index: 79
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 12, y: -73}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 1, y: -24}
+          index: 79
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 12, y: -73}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 0, y: -24}
+          index: 79
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -11, y: -73}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 0, y: -24}
+          index: 79
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -11, y: -73}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -6, y: -33}
+          index: 78
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -21, y: -71}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -6, y: -33}
+          index: 78
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -21, y: -71}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 5, y: -9}
+          index: 80
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 43, y: -22}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 5, y: -9}
+          index: 80
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 43, y: -22}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 5, y: -11}
+          index: 81
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 46, y: 12}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 5, y: -11}
+          index: 81
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 46, y: 12}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -5, y: -11}
+          index: 81
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -45, y: 12}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -5, y: -11}
+          index: 81
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -45, y: 12}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -5, y: -9}
+          index: 80
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -42, y: -22}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -5, y: -9}
+          index: 80
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -42, y: -22}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -4, y: -26}
+          index: 82
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 2, y: -57}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -4, y: -26}
+          index: 82
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 2, y: -57}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -4, y: -26}
+          index: 82
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 2, y: -57}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -4, y: -26}
+          index: 82
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 2, y: -57}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -4, y: -26}
+          index: 82
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 2, y: -57}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -4, y: -26}
+          index: 82
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 2, y: -57}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -4, y: -26}
+          index: 82
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 2, y: -57}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -4, y: -26}
+          index: 82
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 2, y: -57}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -6, y: -26}
+          index: 83
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -9, y: -56}
+      - layers:
+        - pos: {x: -8, y: -25}
+          index: 84
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: 0
+        pos:
+        - {x: -5, y: -56}
+      - layers:
+        - pos: {x: -7, y: -29}
+          index: 85
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -4, y: -55}
+      - layers:
+        - pos: {x: -5, y: -23}
+          index: 86
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -3, y: -53}
+      - layers:
+        - pos: {x: -2, y: -23}
+          index: 87
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -2, y: -53}
+      - layers:
+        - pos: {x: -2, y: -23}
+          index: 87
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -2, y: -53}
+      - layers:
+        - pos: {x: -2, y: -23}
+          index: 87
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -2, y: -53}
+      - layers:
+        - pos: {x: 0, y: -24}
+          index: 88
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 1, y: -54}
+      - layers:
+        - pos: {x: 0, y: -24}
+          index: 88
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 0, y: -54}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -6, y: -26}
+          index: 83
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -9, y: -56}
+      - layers:
+        - pos: {x: -8, y: -25}
+          index: 84
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: 0
+        pos:
+        - {x: -5, y: -56}
+      - layers:
+        - pos: {x: -7, y: -29}
+          index: 85
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -4, y: -55}
+      - layers:
+        - pos: {x: -5, y: -23}
+          index: 86
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -3, y: -53}
+      - layers:
+        - pos: {x: -2, y: -23}
+          index: 87
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -2, y: -53}
+      - layers:
+        - pos: {x: -2, y: -23}
+          index: 87
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -2, y: -53}
+      - layers:
+        - pos: {x: -2, y: -23}
+          index: 87
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -2, y: -53}
+      - layers:
+        - pos: {x: 0, y: -24}
+          index: 88
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 1, y: -54}
+      - layers:
+        - pos: {x: 0, y: -24}
+          index: 88
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 0, y: -54}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -7, y: -26}
+          index: 89
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 9, y: -72}
+      - layers:
+        - pos: {x: -7, y: -28}
+          index: 90
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: 0
+        pos:
+        - {x: 10, y: -72}
+      - layers:
+        - pos: {x: -4, y: -33}
+          index: 91
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 10, y: -70}
+      - layers:
+        - pos: {x: -7, y: -30}
+          index: 92
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -69}
+      - layers:
+        - pos: {x: -7, y: -28}
+          index: 93
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 12, y: -69}
+      - layers:
+        - pos: {x: -7, y: -28}
+          index: 93
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 12, y: -69}
+      - layers:
+        - pos: {x: -7, y: -28}
+          index: 93
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 12, y: -69}
+      - layers:
+        - pos: {x: -5, y: -26}
+          index: 94
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 14, y: -68}
+      - layers:
+        - pos: {x: -5, y: -26}
+          index: 94
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 13, y: -68}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -7, y: -26}
+          index: 89
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 9, y: -72}
+      - layers:
+        - pos: {x: -7, y: -28}
+          index: 90
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: 0
+        pos:
+        - {x: 10, y: -72}
+      - layers:
+        - pos: {x: -4, y: -33}
+          index: 91
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 10, y: -70}
+      - layers:
+        - pos: {x: -7, y: -30}
+          index: 92
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -69}
+      - layers:
+        - pos: {x: -7, y: -28}
+          index: 93
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 12, y: -69}
+      - layers:
+        - pos: {x: -7, y: -28}
+          index: 93
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 12, y: -69}
+      - layers:
+        - pos: {x: -7, y: -28}
+          index: 93
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 12, y: -69}
+      - layers:
+        - pos: {x: -5, y: -26}
+          index: 94
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 14, y: -68}
+      - layers:
+        - pos: {x: -5, y: -26}
+          index: 94
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 13, y: -68}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 8, y: -26}
+          index: 89
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -8, y: -72}
+      - layers:
+        - pos: {x: 7, y: -28}
+          index: 90
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: 0
+        pos:
+        - {x: -9, y: -72}
+      - layers:
+        - pos: {x: 5, y: -33}
+          index: 91
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -9, y: -70}
+      - layers:
+        - pos: {x: 8, y: -30}
+          index: 92
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -69}
+      - layers:
+        - pos: {x: 8, y: -28}
+          index: 93
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -11, y: -69}
+      - layers:
+        - pos: {x: 8, y: -28}
+          index: 93
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -11, y: -69}
+      - layers:
+        - pos: {x: 8, y: -28}
+          index: 93
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -11, y: -69}
+      - layers:
+        - pos: {x: 5, y: -26}
+          index: 94
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -13, y: -68}
+      - layers:
+        - pos: {x: 5, y: -26}
+          index: 94
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -12, y: -68}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 8, y: -26}
+          index: 89
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -8, y: -72}
+      - layers:
+        - pos: {x: 7, y: -28}
+          index: 90
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: 0
+        pos:
+        - {x: -9, y: -72}
+      - layers:
+        - pos: {x: 5, y: -33}
+          index: 91
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -9, y: -70}
+      - layers:
+        - pos: {x: 8, y: -30}
+          index: 92
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -69}
+      - layers:
+        - pos: {x: 8, y: -28}
+          index: 93
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -11, y: -69}
+      - layers:
+        - pos: {x: 8, y: -28}
+          index: 93
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -11, y: -69}
+      - layers:
+        - pos: {x: 8, y: -28}
+          index: 93
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -11, y: -69}
+      - layers:
+        - pos: {x: 5, y: -26}
+          index: 94
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -13, y: -68}
+      - layers:
+        - pos: {x: 5, y: -26}
+          index: 94
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -12, y: -68}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 6, y: -26}
+          index: 83
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 10, y: -56}
+      - layers:
+        - pos: {x: 9, y: -25}
+          index: 84
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: 0
+        pos:
+        - {x: 6, y: -56}
+      - layers:
+        - pos: {x: 7, y: -29}
+          index: 85
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 5, y: -55}
+      - layers:
+        - pos: {x: 5, y: -23}
+          index: 86
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 4, y: -53}
+      - layers:
+        - pos: {x: 3, y: -23}
+          index: 87
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 3, y: -53}
+      - layers:
+        - pos: {x: 3, y: -23}
+          index: 87
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 3, y: -53}
+      - layers:
+        - pos: {x: 3, y: -23}
+          index: 87
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 3, y: -53}
+      - layers:
+        - pos: {x: 1, y: -24}
+          index: 88
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 0, y: -54}
+      - layers:
+        - pos: {x: 1, y: -24}
+          index: 88
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 1, y: -54}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 6, y: -26}
+          index: 83
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 10, y: -56}
+      - layers:
+        - pos: {x: 9, y: -25}
+          index: 84
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: 0
+        pos:
+        - {x: 6, y: -56}
+      - layers:
+        - pos: {x: 7, y: -29}
+          index: 85
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 5, y: -55}
+      - layers:
+        - pos: {x: 5, y: -23}
+          index: 86
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 4, y: -53}
+      - layers:
+        - pos: {x: 3, y: -23}
+          index: 87
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 3, y: -53}
+      - layers:
+        - pos: {x: 3, y: -23}
+          index: 87
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 3, y: -53}
+      - layers:
+        - pos: {x: 3, y: -23}
+          index: 87
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 3, y: -53}
+      - layers:
+        - pos: {x: 1, y: -24}
+          index: 88
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 0, y: -54}
+      - layers:
+        - pos: {x: 1, y: -24}
+          index: 88
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 1, y: -54}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 4, y: -26}
+          index: 82
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -1, y: -57}
+      - layers:
+        - pos: {x: 6, y: -29}
+          index: 95
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -1, y: -56}
+      - layers:
+        - pos: {x: 6, y: -31}
+          index: 96
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 0, y: -55}
+      - layers:
+        - pos: {x: 6, y: -31}
+          index: 96
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 1, y: -55}
+      - layers:
+        - pos: {x: -7, y: -19}
+          index: 97
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: 1
+        pos:
+        - {x: -25, y: -39}
+      - layers:
+        - pos: {x: -8, y: -18}
+          index: 98
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -26, y: -37}
+      - layers:
+        - pos: {x: -8, y: -18}
+          index: 98
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -26, y: -36}
+      - layers:
+        - pos: {x: -8, y: -18}
+          index: 98
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -26, y: -36}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 4, y: -26}
+          index: 82
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -1, y: -57}
+      - layers:
+        - pos: {x: 6, y: -29}
+          index: 95
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -1, y: -56}
+      - layers:
+        - pos: {x: 6, y: -31}
+          index: 96
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 0, y: -55}
+      - layers:
+        - pos: {x: 6, y: -31}
+          index: 96
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 1, y: -55}
+      - layers:
+        - pos: {x: -7, y: -19}
+          index: 97
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: 1
+        pos:
+        - {x: -25, y: -39}
+      - layers:
+        - pos: {x: -8, y: -18}
+          index: 98
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -26, y: -37}
+      - layers:
+        - pos: {x: -8, y: -18}
+          index: 98
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -26, y: -36}
+      - layers:
+        - pos: {x: -8, y: -18}
+          index: 98
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -26, y: -36}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -1, y: -27}
+          index: 99
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -72}
+      - layers:
+        - pos: {x: 1, y: -26}
+          index: 100
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 12, y: -69}
+      - layers:
+        - pos: {x: 2, y: -26}
+          index: 101
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 14, y: -69}
+      - layers:
+        - pos: {x: 2, y: -26}
+          index: 101
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 15, y: -69}
+      - layers:
+        - pos: {x: -17, y: -23}
+          index: 102
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: 1
+        pos:
+        - {x: -9, y: -63}
+      - layers:
+        - pos: {x: -16, y: -22}
+          index: 103
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -61}
+      - layers:
+        - pos: {x: -16, y: -22}
+          index: 103
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -60}
+      - layers:
+        - pos: {x: -16, y: -22}
+          index: 103
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -60}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -1, y: -27}
+          index: 99
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -72}
+      - layers:
+        - pos: {x: 1, y: -26}
+          index: 100
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 12, y: -69}
+      - layers:
+        - pos: {x: 2, y: -26}
+          index: 101
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 14, y: -69}
+      - layers:
+        - pos: {x: 2, y: -26}
+          index: 101
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 15, y: -69}
+      - layers:
+        - pos: {x: -17, y: -23}
+          index: 102
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: 1
+        pos:
+        - {x: -9, y: -63}
+      - layers:
+        - pos: {x: -16, y: -22}
+          index: 103
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -61}
+      - layers:
+        - pos: {x: -16, y: -22}
+          index: 103
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -60}
+      - layers:
+        - pos: {x: -16, y: -22}
+          index: 103
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -60}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 1, y: -27}
+          index: 99
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -72}
+      - layers:
+        - pos: {x: 0, y: -26}
+          index: 100
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -11, y: -69}
+      - layers:
+        - pos: {x: -1, y: -26}
+          index: 101
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -13, y: -69}
+      - layers:
+        - pos: {x: -1, y: -26}
+          index: 101
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -14, y: -69}
+      - layers:
+        - pos: {x: 17, y: -23}
+          index: 102
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: 1
+        pos:
+        - {x: 10, y: -63}
+      - layers:
+        - pos: {x: 17, y: -22}
+          index: 103
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -61}
+      - layers:
+        - pos: {x: 17, y: -22}
+          index: 103
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -60}
+      - layers:
+        - pos: {x: 17, y: -22}
+          index: 103
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -60}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 1, y: -27}
+          index: 99
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -10, y: -72}
+      - layers:
+        - pos: {x: 0, y: -26}
+          index: 100
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -11, y: -69}
+      - layers:
+        - pos: {x: -1, y: -26}
+          index: 101
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -13, y: -69}
+      - layers:
+        - pos: {x: -1, y: -26}
+          index: 101
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -14, y: -69}
+      - layers:
+        - pos: {x: 17, y: -23}
+          index: 102
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: 1
+        pos:
+        - {x: 10, y: -63}
+      - layers:
+        - pos: {x: 17, y: -22}
+          index: 103
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -61}
+      - layers:
+        - pos: {x: 17, y: -22}
+          index: 103
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -60}
+      - layers:
+        - pos: {x: 17, y: -22}
+          index: 103
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 11, y: -60}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -4, y: -26}
+          index: 82
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 2, y: -57}
+      - layers:
+        - pos: {x: -5, y: -29}
+          index: 95
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 2, y: -56}
+      - layers:
+        - pos: {x: -6, y: -31}
+          index: 96
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 1, y: -55}
+      - layers:
+        - pos: {x: -6, y: -31}
+          index: 96
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 0, y: -55}
+      - layers:
+        - pos: {x: 8, y: -19}
+          index: 97
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: 1
+        pos:
+        - {x: 26, y: -39}
+      - layers:
+        - pos: {x: 8, y: -18}
+          index: 98
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 27, y: -37}
+      - layers:
+        - pos: {x: 8, y: -18}
+          index: 98
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 27, y: -36}
+      - layers:
+        - pos: {x: 8, y: -18}
+          index: 98
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 27, y: -36}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -4, y: -26}
+          index: 82
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 2, y: -57}
+      - layers:
+        - pos: {x: -5, y: -29}
+          index: 95
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 2, y: -56}
+      - layers:
+        - pos: {x: -6, y: -31}
+          index: 96
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 1, y: -55}
+      - layers:
+        - pos: {x: -6, y: -31}
+          index: 96
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 0, y: -55}
+      - layers:
+        - pos: {x: 8, y: -19}
+          index: 97
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: 1
+        pos:
+        - {x: 26, y: -39}
+      - layers:
+        - pos: {x: 8, y: -18}
+          index: 98
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 27, y: -37}
+      - layers:
+        - pos: {x: 8, y: -18}
+          index: 98
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 27, y: -36}
+      - layers:
+        - pos: {x: 8, y: -18}
+          index: 98
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 27, y: -36}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 2, y: -26}
+          index: 104
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -4, y: -57}
+      - layers:
+        - pos: {x: 2, y: -28}
+          index: 105
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -4, y: -60}
+      - layers:
+        - pos: {x: 1, y: -28}
+          index: 106
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -4, y: -61}
+      - layers:
+        - pos: {x: 1, y: -28}
+          index: 107
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -4, y: -61}
+      - layers:
+        - pos: {x: 0, y: -26}
+          index: 108
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -4, y: -56}
+      - layers:
+        - pos: {x: 0, y: -25}
+          index: 109
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -54}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 2, y: -26}
+          index: 104
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -4, y: -57}
+      - layers:
+        - pos: {x: 2, y: -28}
+          index: 105
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -4, y: -60}
+      - layers:
+        - pos: {x: 1, y: -28}
+          index: 106
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -4, y: -61}
+      - layers:
+        - pos: {x: 1, y: -28}
+          index: 107
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -4, y: -61}
+      - layers:
+        - pos: {x: 0, y: -26}
+          index: 108
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -4, y: -56}
+      - layers:
+        - pos: {x: 0, y: -25}
+          index: 109
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -5, y: -54}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -2, y: -27}
+          index: 110
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 12, y: -74}
+      - layers:
+        - pos: {x: -2, y: -29}
+          index: 111
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 12, y: -77}
+      - layers:
+        - pos: {x: -1, y: -30}
+          index: 112
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 12, y: -78}
+      - layers:
+        - pos: {x: -1, y: -30}
+          index: 113
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 12, y: -78}
+      - layers:
+        - pos: {x: 0, y: -27}
+          index: 114
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 12, y: -73}
+      - layers:
+        - pos: {x: -1, y: -25}
+          index: 115
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 12, y: -70}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -2, y: -27}
+          index: 110
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 12, y: -74}
+      - layers:
+        - pos: {x: -2, y: -29}
+          index: 111
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 12, y: -77}
+      - layers:
+        - pos: {x: -1, y: -30}
+          index: 112
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 12, y: -78}
+      - layers:
+        - pos: {x: -1, y: -30}
+          index: 113
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 12, y: -78}
+      - layers:
+        - pos: {x: 0, y: -27}
+          index: 114
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 12, y: -73}
+      - layers:
+        - pos: {x: -1, y: -25}
+          index: 115
+          isMirror: 0
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 12, y: -70}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 3, y: -27}
+          index: 110
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -11, y: -74}
+      - layers:
+        - pos: {x: 2, y: -29}
+          index: 111
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -11, y: -77}
+      - layers:
+        - pos: {x: 2, y: -30}
+          index: 112
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -11, y: -78}
+      - layers:
+        - pos: {x: 1, y: -30}
+          index: 113
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -11, y: -78}
+      - layers:
+        - pos: {x: 1, y: -27}
+          index: 114
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -11, y: -73}
+      - layers:
+        - pos: {x: 2, y: -25}
+          index: 115
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -11, y: -70}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: 3, y: -27}
+          index: 110
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -11, y: -74}
+      - layers:
+        - pos: {x: 2, y: -29}
+          index: 111
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -11, y: -77}
+      - layers:
+        - pos: {x: 2, y: -30}
+          index: 112
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -11, y: -78}
+      - layers:
+        - pos: {x: 1, y: -30}
+          index: 113
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -11, y: -78}
+      - layers:
+        - pos: {x: 1, y: -27}
+          index: 114
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -11, y: -73}
+      - layers:
+        - pos: {x: 2, y: -25}
+          index: 115
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: -11, y: -70}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -1, y: -26}
+          index: 104
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 5, y: -57}
+      - layers:
+        - pos: {x: -1, y: -28}
+          index: 105
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 5, y: -60}
+      - layers:
+        - pos: {x: -1, y: -28}
+          index: 106
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 5, y: -61}
+      - layers:
+        - pos: {x: 0, y: -28}
+          index: 107
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 5, y: -61}
+      - layers:
+        - pos: {x: 0, y: -26}
+          index: 108
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 5, y: -56}
+      - layers:
+        - pos: {x: 0, y: -25}
+          index: 109
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -54}
+      delay: 100
+    - frames:
+      - layers:
+        - pos: {x: -1, y: -26}
+          index: 104
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 5, y: -57}
+      - layers:
+        - pos: {x: -1, y: -28}
+          index: 105
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 5, y: -60}
+      - layers:
+        - pos: {x: -1, y: -28}
+          index: 106
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 5, y: -61}
+      - layers:
+        - pos: {x: 0, y: -28}
+          index: 107
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 5, y: -61}
+      - layers:
+        - pos: {x: 0, y: -26}
+          index: 108
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 5, y: -56}
+      - layers:
+        - pos: {x: 0, y: -25}
+          index: 109
+          isMirror: 1
+          scale: {x: 1, y: 1}
+          color: {r: 1, g: 1, b: 1, a: 1}
+          angle: 0
+          sprType: 0
+          width: 0
+          height: 0
+        soundId: -1
+        pos:
+        - {x: 6, y: -54}
+      delay: 100
+  sprites:
+  - {fileID: -631098747701697731, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -2699879131908398056, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -227469413426401571, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 8932574437514453859, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 3883002584904538270, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -4725395697618481380, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -2107645440865542056, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 2402481875894353338, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -6233118005331415760, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -3484674738310833928, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -887642154068108985, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 7835275909177321572, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -3722104175570703005, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 5268122728184343095, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -2073285511074859979, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 7737100050018943335, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 143031792504477602, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -3663613870359925197, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -1428661035316969710, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 2142182344424748726, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 1060511763901046875, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -8663148608091903107, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 8734711335981900495, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -2216705235889224759, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -2999910405245519294, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 579873850106479461, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 2988977015685709761, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 734215997892881239, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 5602569722954525469, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -7711901829055282682, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 2746969785280825571, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 6467122457681014409, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -8698102840848928128, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 4893077960322437180, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 8556313851760642132, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -7603652710120339283, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -3214008982948534813, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -5734110903738026686, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -8360940410061544546, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 4524457662870130347, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 3033607544565162285, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 7153715034436672423, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 9030465564357562515, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 7847623432589526066, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -7009715563962322786, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 5026076562951129562, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 1911845858416299469, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -5552341592679738954, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -3204796827159162735, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -4951440942093003463, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -1500727639918140228, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 6914654541950300634, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 7608747310661910410, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -8345857095730230172, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 6275761555606135327, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -8361045215606164530, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 2308839391264286864, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 2419107089189633605, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -4816222382731428769, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -3116207384389882877, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 3318264838984668525, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 2464890572736513095, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 6902049822834101530, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 7920597721635525910, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 3392348788390401368, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -4752664900365103881, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 3859160632343163428, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -6350806183362719109, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 2645070893583251339, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 4644357105749072143, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 6934623463948663539, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -3956082659369435409, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 5560317006216439647, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 7152536161725783455, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -8108867579997485415, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 1710234689907634193, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 170596772748090211, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -2879503562216119339, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -8009889764635387031, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -7841839485082099522, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 3746344097045714249, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -3452999431060501763, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 5395379169573082823, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -585853039140021799, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 5773180827610346588, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -4104416095520773499, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -3151545135345815893, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 5687074453421320784, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 5010056984088641368, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -988843645370082018, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 5158978438991053965, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 8717421894744169589, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 5584429297466755181, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -141829273699462450, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -193816687689529089, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -597186674504129119, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 1257110332316753799, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -1739201412976939986, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 8656570081918410733, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 7822777197008125137, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 1585593734778066358, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -4447835600984589071, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -6539535694031118154, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -4261273897970055173, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -3503148173251826372, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 1867575163114278568, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 5080146771973192085, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -8795893889331915354, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 4879061234938428685, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -1187577445864095554, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 7676742082115094665, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 7649387943182496707, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: -6881680771403311770, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 7522824452020913374, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 8268544326728802981, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
+  - {fileID: 5159234744650967067, guid: 69ddbd0ac5e796841a043824e58367bb, type: 3}
