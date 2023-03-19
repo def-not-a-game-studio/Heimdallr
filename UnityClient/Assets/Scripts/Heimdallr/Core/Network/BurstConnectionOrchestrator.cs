@@ -16,7 +16,7 @@ namespace Heimdallr.Core.Network {
         private string Password = "123456";
         private string Host;
         private string ForceMap;
-        private GameEntity PlayerEntity;
+        private CoreGameEntity PlayerEntity;
 
         private void Start() {
             NetworkClient = FindObjectOfType<NetworkClient>();
@@ -32,7 +32,7 @@ namespace Heimdallr.Core.Network {
             Connect();
         }
 
-        public void Init(int charServerIndex, int charIndex, string username, string password, string host, string forceMap, GameEntity playerEntity) {
+        public void Init(int charServerIndex, int charIndex, string username, string password, string host, string forceMap, CoreGameEntity playerEntity) {
             CharServerIndex = charServerIndex;
             CharIndex = charIndex;
             Username = username;
@@ -132,7 +132,7 @@ namespace Heimdallr.Core.Network {
 
                 await NetworkClient.ChangeServer(Host, currentMapInfo.Port);
 
-                PlayerEntity.Init(new GameEntityData {
+                PlayerEntity.Init(new GameEntityBaseStatus() {
                     GID = NetworkClient.State.SelectedCharacter.GID,
                     HairStyle = NetworkClient.State.SelectedCharacter.Head,
                     Eye = 0,
@@ -145,7 +145,7 @@ namespace Heimdallr.Core.Network {
                     Name = NetworkClient.State.SelectedCharacter.Name,
                 });
 
-                Session.StartSession(new Session(PlayerEntity, NetworkClient.State.LoginInfo.AccountID));
+                Session.StartSession(new Session(new NetworkEntity(0, PlayerEntity.Status.GID, NetworkClient.State.SelectedCharacter.Name), NetworkClient.State.LoginInfo.AccountID));
 
                 var loginInfo = NetworkClient.State.LoginInfo;
                 new CZ.ENTER2(loginInfo.AccountID, NetworkClient.State.SelectedCharacter.GID, loginInfo.LoginID1, new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds(), loginInfo.Sex).Send();

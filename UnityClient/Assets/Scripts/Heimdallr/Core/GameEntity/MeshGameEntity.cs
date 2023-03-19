@@ -2,26 +2,26 @@
 using System;
 
 namespace Heimdallr.Core.Game {
-    public class GameEntity : CoreMeshGameEntity, INetworkEntity {
+    public class MeshGameEntity : CoreMeshGameEntity {
 
         #region Components
-        private GameEntityViewer EntityViewer;
+        private MeshGameEntityViewer EntityViewer;
         #endregion
 
         #region State
         public GameEntityState EntityState { get; private set; }
-        public GameEntityData EntityData { get; private set; }
+        public GameEntityBaseStatus EntityData { get; private set; }
         #endregion
 
         #region Properties
-        public bool HasAuthority => GetEntityGID() == Session.CurrentSession.Entity?.GetEntityGID();
+        public bool HasAuthority => GetEntityGID() == Session.CurrentSession.Entity?.GID;
         #endregion
 
-        public void Init(GameEntityData data) {
+        public override void Init(GameEntityBaseStatus data) {
             EntityData = data;
 
             var job = DatabaseManager.GetJobById(data.Job);
-            EntityViewer = Instantiate<GameEntityViewer>(data.IsMale ? job.Male : job.Female, transform);
+            EntityViewer = Instantiate<MeshGameEntityViewer>(data.IsMale ? job.Male : job.Female, transform);
             EntityViewer.SetGameEntityData(data);
 
             gameObject.AddComponent<GameEntityMovementController>();

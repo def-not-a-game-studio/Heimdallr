@@ -10,7 +10,7 @@ namespace Heimdallr.Core.Game.Controllers {
 
         private LayerMask GroundMask;
         private PathFinder PathFinder;
-        private GameEntity GameEntity;
+        private MeshGameEntity meshGameEntity;
         private NetworkClient NetworkClient;
 
         #region Behaviour
@@ -28,11 +28,11 @@ namespace Heimdallr.Core.Game.Controllers {
             GroundMask = LayerMask.GetMask("Ground");
             PathFinder = FindObjectOfType<PathFinder>();
             NetworkClient = FindObjectOfType<NetworkClient>();
-            GameEntity = GetComponent<GameEntity>();
+            meshGameEntity = GetComponent<MeshGameEntity>();
         }
 
         private void Start() {
-            if(GameEntity.HasAuthority) {
+            if(meshGameEntity.HasAuthority) {
                 NetworkClient.HookPacket(ZC.NOTIFY_PLAYERMOVE.HEADER, OnPlayerMovement); //Our movement
             }
         }
@@ -51,7 +51,7 @@ namespace Heimdallr.Core.Game.Controllers {
                 var direction = (next - current).normalized;
 
                 var rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(direction, Vector3.up), RotateSpeed * Time.deltaTime);
-                var nextPosition = (GameEntity.EntityData.MoveSpeed / MoveAnimFPS) * Time.deltaTime * direction;
+                var nextPosition = (meshGameEntity.EntityData.MoveSpeed / MoveAnimFPS) * Time.deltaTime * direction;
 
                 transform.SetPositionAndRotation(transform.position + nextPosition, rotation);
 
@@ -123,7 +123,7 @@ namespace Heimdallr.Core.Game.Controllers {
 
             if(Nodes.Count > 0) {
                 IsWalking = true;
-                GameEntity.SetState(GameEntityState.Walk);
+                meshGameEntity.SetState(GameEntityState.Walk);
             }
         }
 
@@ -135,7 +135,7 @@ namespace Heimdallr.Core.Game.Controllers {
             IsWalking = false;
             IsMovementFromClick = false;
             Nodes.Clear();
-            GameEntity.SetState(GameEntityState.Wait);
+            meshGameEntity.SetState(GameEntityState.Wait);
             return;
         }
     }

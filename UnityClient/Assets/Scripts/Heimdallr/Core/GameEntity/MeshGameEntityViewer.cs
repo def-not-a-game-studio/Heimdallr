@@ -6,10 +6,10 @@ using System;
 using UnityEngine;
 
 namespace Heimdallr.Core.Game {
-    public class GameEntityViewer : MonoBehaviour {
+    public class MeshGameEntityViewer : MonoBehaviour {
 
         #region Components
-        private GameEntity GameEntity;
+        private MeshGameEntity meshGameEntity;
         private Animator Animator;
         #endregion
 
@@ -31,7 +31,7 @@ namespace Heimdallr.Core.Game {
         #endregion
 
         #region State
-        public GameEntityData GameEntityData { get; private set; }
+        public GameEntityBaseStatus GameEntityData { get; private set; }
         public GameEntityCustomizableData GameEntityCustomizableData { get; private set; }
         private GameEntityState LastEntityState;
 
@@ -42,13 +42,13 @@ namespace Heimdallr.Core.Game {
         #endregion
 
         private void Awake() {
-            GameEntity = GetComponentInParent<GameEntity>();
+            meshGameEntity = GetComponentInParent<MeshGameEntity>();
             Animator = GetComponent<Animator>();
         }
 
         private void Update() {
-            if(LastEntityState != GameEntity.EntityState) {
-                LastEntityState = GameEntity.EntityState;
+            if(LastEntityState != meshGameEntity.EntityState) {
+                LastEntityState = meshGameEntity.EntityState;
 
                 string animatorTrigger = "";
                 string parameterName = null;
@@ -78,7 +78,7 @@ namespace Heimdallr.Core.Game {
             }
         }
 
-        public void SetGameEntityData(GameEntityData data) {
+        public void SetGameEntityData(GameEntityBaseStatus data) {
             transform.localScale = new Vector3(2.3f, 2.3f, 2.3f);
             transform.localPosition = new Vector3(0, -0.2f, 0);
             var oldData = GameEntityData;
@@ -89,7 +89,7 @@ namespace Heimdallr.Core.Game {
             }
         }
 
-        private void UpdateCustomizableData(GameEntityData data) {
+        private void UpdateCustomizableData(GameEntityBaseStatus data) {
             GameEntityCustomizableData ??= new GameEntityCustomizableData {
                 Eye = DatabaseManager.GetEyeById(data.Eye),
                 HeadFace = DatabaseManager.GetHeadFaceById(0),
@@ -122,20 +122,20 @@ namespace Heimdallr.Core.Game {
             }
         }
 
-        private void SetClothesColor(GameEntityData data) {
+        private void SetClothesColor(GameEntityBaseStatus data) {
             var colors = data.IsMale ? GameEntityCustomizableData.Job.ColorsMale : GameEntityCustomizableData.Job.ColorsFemale;
             ClothesColorMaterial = colors[data.ClothesColor % colors.Count];
             ClothesRenderer.material = ClothesColorMaterial;
         }
 
-        private void SetHairStyle(GameEntityData data) {
+        private void SetHairStyle(GameEntityBaseStatus data) {
             if(Hair != null)
                 Destroy(Hair);
 
             Hair = Instantiate(data.IsMale ? GameEntityCustomizableData.Hair.HairMale : GameEntityCustomizableData.Hair.HairFemale, NeckBone);
         }
 
-        private void SetHairColor(GameEntityData data) {
+        private void SetHairColor(GameEntityBaseStatus data) {
             Renderer renderer = Hair.gameObject.GetComponentInChildren<Renderer>();
             var colors = data.IsMale ? GameEntityCustomizableData.Hair.ColorsMale : GameEntityCustomizableData.Hair.ColorsFemale;
             renderer.material = colors[data.HairColor % colors.Count];
