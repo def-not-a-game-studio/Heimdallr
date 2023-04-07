@@ -22,21 +22,25 @@ public class UtilsManager : MonoBehaviour {
     [SerializeField] private string ServerHost = "127.0.0.1";
     [SerializeField] private string ForceMap = "prt_fild08";
 
+    [SerializeField] private GameEntityBaseStatus OfflineEntity = new() {
+        HairStyle = 0,
+        IsMale = false,
+        HairColor = 3,
+        Job = 3,
+        ClothesColor = 0,
+        MoveSpeed = 135,
+        EntityType = EntityType.PC,
+        Name = "Entity",
+        GID = 0,
+        AttackSpeed = 435,
+    };
+
     private void Start() {
         if (OrchestrateConnect) {
             gameObject.AddComponent<BurstConnectionOrchestrator>()
                       .Init(CharServerIndex, CharIndex, Username, Password, ServerHost, ForceMap, PlayerEntity);
         } else {
-            PlayerEntity.Init(new GameEntityBaseStatus {
-                                                           HairStyle = 0,
-                                                           Eye = 0,
-                                                           IsMale = false,
-                                                           HairColor = 3,
-                                                           Job = 3,
-                                                           ClothesColor = 0,
-                                                           MoveSpeed = 135,
-                                                           EntityType = EntityType.PC
-                                                       });
+            PlayerEntity.Init(OfflineEntity);
 
             PlayerEntity.transform.SetPositionAndRotation(new Vector3(150, 0, 170), Quaternion.identity);
         }

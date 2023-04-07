@@ -118,38 +118,36 @@ namespace Heimdallr.Core.Network {
          * So we create a new one and as we're orchestrating, just connect with it.
          */
         private void OnMakeCharAccepted(ushort cmd, int size, InPacket packet) {
-            Debug.Log("Char created");
             if (packet is not HC.ACCEPT_MAKECHAR ACCEPT_MAKECHAR) return;
+            Debug.Log("Char created");
             NetworkClient.State.SelectedCharacter = ACCEPT_MAKECHAR.characterData;
 
             SelectCharacter(0);
         }
 
         private async void OnCharacterSelectionAccepted(ushort cmd, int size, InPacket packet) {
-            if(packet is HC.NOTIFY_ZONESVR2 currentMapInfo) {
-                Debug.Log("Char selection accepted");
-                CurrentMapInfo = currentMapInfo;
+            if (packet is not HC.NOTIFY_ZONESVR2 currentMapInfo) return;
+            Debug.Log("Char selection accepted");
+            CurrentMapInfo = currentMapInfo;
 
-                await NetworkClient.ChangeServer(Host, currentMapInfo.Port);
+            await NetworkClient.ChangeServer(Host, currentMapInfo.Port);
 
-                PlayerEntity.Init(new GameEntityBaseStatus() {
-                    GID = NetworkClient.State.SelectedCharacter.GID,
-                    HairStyle = NetworkClient.State.SelectedCharacter.Head,
-                    Eye = 0,
-                    IsMale = NetworkClient.State.SelectedCharacter.Sex == 0,
-                    HairColor = NetworkClient.State.SelectedCharacter.HeadPalette,
-                    Job = NetworkClient.State.SelectedCharacter.Job,
-                    ClothesColor = NetworkClient.State.SelectedCharacter.BodyPalette,
-                    MoveSpeed = NetworkClient.State.SelectedCharacter.Speed,
-                    EntityType = EntityType.PC,
-                    Name = NetworkClient.State.SelectedCharacter.Name,
-                });
+            PlayerEntity.Init(new GameEntityBaseStatus {
+                GID = NetworkClient.State.SelectedCharacter.GID,
+                HairStyle = NetworkClient.State.SelectedCharacter.Head,
+                IsMale = NetworkClient.State.SelectedCharacter.Sex == 0,
+                HairColor = NetworkClient.State.SelectedCharacter.HeadPalette,
+                Job = NetworkClient.State.SelectedCharacter.Job,
+                ClothesColor = NetworkClient.State.SelectedCharacter.BodyPalette,
+                MoveSpeed = NetworkClient.State.SelectedCharacter.Speed,
+                EntityType = EntityType.PC,
+                Name = NetworkClient.State.SelectedCharacter.Name,
+            });
 
-                Session.StartSession(new Session(new NetworkEntity(0, PlayerEntity.Status.GID, NetworkClient.State.SelectedCharacter.Name), NetworkClient.State.LoginInfo.AccountID));
+            Session.StartSession(new Session(new NetworkEntity(0, PlayerEntity.Status.GID, NetworkClient.State.SelectedCharacter.Name), NetworkClient.State.LoginInfo.AccountID));
 
-                var loginInfo = NetworkClient.State.LoginInfo;
-                new CZ.ENTER2(loginInfo.AccountID, NetworkClient.State.SelectedCharacter.GID, loginInfo.LoginID1, new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds(), loginInfo.Sex).Send();
-            }
+            var loginInfo = NetworkClient.State.LoginInfo;
+            new CZ.ENTER2(loginInfo.AccountID, NetworkClient.State.SelectedCharacter.GID, loginInfo.LoginID1, new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds(), loginInfo.Sex).Send();
         }
 
         private void OnEntityMoved(ushort cmd, int size, InPacket packet) {

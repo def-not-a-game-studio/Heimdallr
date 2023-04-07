@@ -91,7 +91,7 @@ namespace Heimdallr.Core.Game {
 
         private void UpdateCustomizableData(GameEntityBaseStatus data) {
             GameEntityCustomizableData ??= new GameEntityCustomizableData {
-                Eye = DatabaseManager.GetEyeById(data.Eye),
+                // Eye = DatabaseManager.GetEyeById(data.Eye),
                 HeadFace = DatabaseManager.GetHeadFaceById(0),
                 Hair = DatabaseManager.GetHairById(data.HairStyle),
                 Job = DatabaseManager.GetJobById(data.Job),
@@ -110,12 +110,12 @@ namespace Heimdallr.Core.Game {
                 SetClothesColor(data);
             }
 
-            if(data.Eye != GameEntityData.Eye || Eye == null) {
-                if(Eye != null)
-                    Destroy(Eye);
-
-                Eye = Instantiate(data.IsMale ? GameEntityCustomizableData.Eye.EyeMale : GameEntityCustomizableData.Eye.EyeFemale, EyeBone);
-            }
+            // if(data.Eye != GameEntityData.Eye || Eye == null) {
+            //     if(Eye != null)
+            //         Destroy(Eye);
+            //
+            //     Eye = Instantiate(data.IsMale ? GameEntityCustomizableData.Eye.EyeMale : GameEntityCustomizableData.Eye.EyeFemale, EyeBone);
+            // }
 
             if(HeadFace == null) {
                 HeadFace = Instantiate(data.IsMale ? GameEntityCustomizableData.HeadFace.Male : GameEntityCustomizableData.HeadFace.Female, NeckBone);
