@@ -1,5 +1,4 @@
 ﻿using System;
-using Heimdallr.Core.Game;
 using UnityEngine;
 
 namespace Heimdallr.Core.Network {

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 namespace Heimdallr.Core.Game.Controllers {
     public class GameEntityMovementController : MonoBehaviour {

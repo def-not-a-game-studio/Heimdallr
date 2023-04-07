@@ -2,7 +2,6 @@
 using Heimdallr.Core.Database.Hair;
 using Heimdallr.Core.Database.HeadFace;
 using Heimdallr.Core.Database.Job;
-using System;
 using UnityEngine;
 
 namespace Heimdallr.Core.Game {
