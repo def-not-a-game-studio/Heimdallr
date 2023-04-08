@@ -1,5 +1,6 @@
 ﻿using Heimdallr.Core.Game.Controllers;
 using System;
+using Heimdallr.Core.Database.Job;
 
 namespace Heimdallr.Core.Game {
     public class MeshGameEntity : CoreMeshGameEntity {
@@ -20,7 +21,7 @@ namespace Heimdallr.Core.Game {
         public override void Init(GameEntityBaseStatus data) {
             EntityData = data;
 
-            var job = DatabaseManager.GetJobById(data.Job);
+            var job = DatabaseManager.GetJobById(data.Job) as MeshJob;
             EntityViewer = Instantiate<MeshGameEntityViewer>(data.IsMale ? job.Male : job.Female, transform);
             EntityViewer.SetGameEntityData(data);
 

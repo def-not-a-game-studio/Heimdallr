@@ -93,7 +93,7 @@ namespace Heimdallr.Core.Game {
                 // Eye = DatabaseManager.GetEyeById(data.Eye),
                 HeadFace = DatabaseManager.GetHeadFaceById(0),
                 Hair = DatabaseManager.GetHairById(data.HairStyle),
-                Job = DatabaseManager.GetJobById(data.Job),
+                Job = DatabaseManager.GetJobById(data.Job) as MeshJob,
             };
 
             if(data.HairStyle != GameEntityData.HairStyle || Hair == null) {
@@ -145,6 +145,6 @@ namespace Heimdallr.Core.Game {
         public Eye Eye;
         public HeadFace HeadFace;
         public Hair Hair;
-        public Job Job;
+        public MeshJob Job;
     }
 }
