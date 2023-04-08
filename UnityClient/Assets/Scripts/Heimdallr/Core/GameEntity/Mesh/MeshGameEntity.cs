@@ -48,6 +48,7 @@ namespace Heimdallr.Core.Game {
             return EntityData.EntityType;
         }
 
+        public override GameEntityBaseStatus Status { get; }
 
         public override void ChangeMotion(MotionRequest request)
         {

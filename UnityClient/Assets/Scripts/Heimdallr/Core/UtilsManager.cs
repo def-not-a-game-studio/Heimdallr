@@ -1,11 +1,12 @@
 using Heimdallr.Core.Game;
+using Heimdallr.Core.Game.Sprite;
 using Heimdallr.Core.Network;
 using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(NetworkClient), typeof(ThreadManager))]
 public class UtilsManager : MonoBehaviour {
-    [SerializeField] private MeshGameEntity PlayerEntity;
+    [SerializeField] private SpriteGameEntity PlayerEntity;
 
     [SerializeField] private TextMeshProUGUI FpsLabel;
     private float _deltaTime;
