@@ -6,7 +6,12 @@ using UnityEngine;
 
 [RequireComponent(typeof(NetworkClient), typeof(ThreadManager))]
 public class UtilsManager : MonoBehaviour {
-    [SerializeField] private SpriteGameEntity PlayerEntity;
+    [Header(":: Offline settings")] [SerializeField]
+    private bool UseMeshEntity = false;
+
+    [SerializeField] private SpriteGameEntity SpritePlayerEntity;
+    [SerializeField] private MeshGameEntity MeshPlayerEntity;
+
 
     [SerializeField] private TextMeshProUGUI FpsLabel;
     private float _deltaTime;
@@ -38,12 +43,21 @@ public class UtilsManager : MonoBehaviour {
 
     private void Start() {
         if (OrchestrateConnect) {
+            SpritePlayerEntity.gameObject.SetActive(false);
+            MeshPlayerEntity.gameObject.SetActive(false);
+            
             gameObject.AddComponent<BurstConnectionOrchestrator>()
-                      .Init(CharServerIndex, CharIndex, Username, Password, ServerHost, ForceMap, PlayerEntity);
+                .Init(CharServerIndex, CharIndex, Username, Password, ServerHost, ForceMap, UseMeshEntity ? MeshPlayerEntity : SpritePlayerEntity);
         } else {
-            PlayerEntity.Init(OfflineEntity);
-
-            PlayerEntity.transform.SetPositionAndRotation(new Vector3(150, 0, 170), Quaternion.identity);
+            if (UseMeshEntity) {
+                SpritePlayerEntity.gameObject.SetActive(false);
+                MeshPlayerEntity.Init(OfflineEntity);
+                MeshPlayerEntity.transform.SetPositionAndRotation(new Vector3(140, 0, 195), Quaternion.identity);
+            } else {
+                MeshPlayerEntity.gameObject.SetActive(false);
+                SpritePlayerEntity.Init(OfflineEntity);
+                SpritePlayerEntity.transform.SetPositionAndRotation(new Vector3(140, 0, 195), Quaternion.identity);
+            }
         }
     }
 
@@ -51,5 +65,13 @@ public class UtilsManager : MonoBehaviour {
         _deltaTime += (Time.deltaTime - _deltaTime) * 0.1f;
         float fps = 1.0f / _deltaTime;
         FpsLabel.text = $"{Mathf.Ceil(fps)} FPS";
+        
+        var horizontal = Input.GetAxis("Horizontal");
+        var vertical = Input.GetAxis("Vertical");
+
+        var x = horizontal != 0 ? Mathf.Max(horizontal, 2f) * Mathf.Sign(horizontal) : 0;
+        var y = vertical != 0 ? Mathf.Max(vertical, 2f) * Mathf.Sign(vertical) : 0;
+
+        FpsLabel.text += $"\nDirection: {new Vector3Int((int)x, 0, (int)y)}";
     }
 }

@@ -21,10 +21,12 @@ namespace Heimdallr.Core.Game {
         public override void Init(GameEntityBaseStatus data) {
             EntityData = data;
 
-            var job = DatabaseManager.GetJobById(data.Job) as MeshJob;
-            EntityViewer = Instantiate<MeshGameEntityViewer>(data.IsMale ? job.Male : job.Female, transform);
-            EntityViewer.SetGameEntityData(data);
+            //var job = DatabaseManager.GetJobById(data.Job) as MeshJob;
+            //EntityViewer = Instantiate<MeshGameEntityViewer>(data.IsMale ? job.Male : job.Female, transform);
+            //EntityViewer.SetGameEntityData(data);
+        }
 
+        private void Start() {
             gameObject.AddComponent<GameEntityMovementController>();
         }
 
@@ -48,7 +50,7 @@ namespace Heimdallr.Core.Game {
             return EntityData.EntityType;
         }
 
-        public override GameEntityBaseStatus Status { get; }
+        public override GameEntityBaseStatus Status => EntityData;
 
         public override void ChangeMotion(MotionRequest request)
         {

@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Heimdallr.Core.Network {
     public class BurstConnectionOrchestrator : MonoBehaviour {
-
         private NetworkClient NetworkClient;
         private PathFinder PathFinder;
 
@@ -31,7 +30,13 @@ namespace Heimdallr.Core.Network {
             Connect();
         }
 
-        public void Init(int charServerIndex, int charIndex, string username, string password, string host, string forceMap, CoreGameEntity playerEntity) {
+        public void Init(int charServerIndex,
+            int charIndex,
+            string username,
+            string password,
+            string host,
+            string forceMap,
+            CoreGameEntity playerEntity) {
             CharServerIndex = charServerIndex;
             CharIndex = charIndex;
             Username = username;
@@ -51,7 +56,9 @@ namespace Heimdallr.Core.Network {
             new CA.LOGIN(username, password, 10, 10).Send();
         }
 
-        private async void ConnectToCharServer(AC.ACCEPT_LOGIN3 loginInfo, string charIp, CharServerInfo charServerInfo) {
+        private async void ConnectToCharServer(AC.ACCEPT_LOGIN3 loginInfo,
+            string charIp,
+            CharServerInfo charServerInfo) {
             Debug.Log("Connecting to char server");
             await NetworkClient.ChangeServer(Host, charServerInfo.Port);
             NetworkClient.SkipBytes(4);
@@ -65,12 +72,13 @@ namespace Heimdallr.Core.Network {
         }
 
         #region Packet Hooks
+
         private void OnLoginResponse(ushort cmd, int size, InPacket packet) {
             if (packet is not AC.ACCEPT_LOGIN3 pkt) return;
             Debug.Log("Login response received");
             NetworkClient.State.LoginInfo = pkt;
             NetworkClient.State.CharServer = pkt.Servers[CharServerIndex];
-            
+
             // If using docker for rA, this should point to same host as the login server
             // Docker sends the ips internally as 172 whatever
             ConnectToCharServer(pkt, NetworkClient.State.CharServer.IP.ToString(), NetworkClient.State.CharServer);
@@ -80,13 +88,13 @@ namespace Heimdallr.Core.Network {
             if (packet is not HC.ACCEPT_ENTER pkt) return;
             Debug.Log("Char server response received");
             NetworkClient.State.CurrentCharactersInfo = pkt;
-                
+
             // if no character available, create one
             if (pkt.Chars.Count == 0) {
                 new CH.MAKE_CHAR2 {
-                                      Name = Convert.ToBase64String(Guid.NewGuid().ToByteArray()).Substring(0, 8),
-                                      CharNum = 0
-                                  }.Send();
+                    Name = Convert.ToBase64String(Guid.NewGuid().ToByteArray()).Substring(0, 8),
+                    CharNum = 0
+                }.Send();
             } else {
                 NetworkClient.State.SelectedCharacter = pkt.Chars[CharIndex];
                 SelectCharacter(CharIndex);
@@ -97,18 +105,24 @@ namespace Heimdallr.Core.Network {
             if (packet is not ZC.ACCEPT_ENTER2 pkt) return;
             Debug.Log("Map server response received");
             var mapLoginInfo = new MapLoginInfo {
-                                                    mapname = CurrentMapInfo.Mapname.Split('.')[0],
-                                                    PosX = pkt.PosX,
-                                                    PosY = pkt.PosY,
-                                                    Dir = pkt.Dir
-                                                };
+                mapname = CurrentMapInfo.Mapname.Split('.')[0],
+                PosX = pkt.PosX,
+                PosY = pkt.PosY,
+                Dir = pkt.Dir
+            };
             NetworkClient.State.MapLoginInfo = mapLoginInfo;
             Session.CurrentSession.SetCurrentMap(mapLoginInfo.mapname);
-                
-            PlayerEntity.transform.SetPositionAndRotation(new Vector3(pkt.PosX, PathFinder.GetCellHeight(pkt.PosX, pkt.PosY), pkt.PosY), Quaternion.identity);
+
+            PlayerEntity.gameObject.SetActive(true);
+            try {
+                PlayerEntity.transform.SetPositionAndRotation(
+                    new Vector3(pkt.PosX, PathFinder.GetCellHeight(pkt.PosX, pkt.PosY), pkt.PosY), Quaternion.identity);
+            } catch {
+                Debug.LogError("Error while trying to set position");
+            }
 
             if (mapLoginInfo.mapname != ForceMap) {
-                new CZ.REQUEST_CHAT($"@warp {ForceMap} 150 150").Send();
+                new CZ.REQUEST_CHAT($"@warp {ForceMap}").Send();
             }
         }
 
@@ -143,17 +157,22 @@ namespace Heimdallr.Core.Network {
                 Name = NetworkClient.State.SelectedCharacter.Name,
             });
 
-            Session.StartSession(new Session(new NetworkEntity(0, PlayerEntity.Status.GID, NetworkClient.State.SelectedCharacter.Name), NetworkClient.State.LoginInfo.AccountID));
+            Session.StartSession(new Session(
+                new NetworkEntity(0, PlayerEntity.Status.GID, NetworkClient.State.SelectedCharacter.Name),
+                NetworkClient.State.LoginInfo.AccountID));
 
             var loginInfo = NetworkClient.State.LoginInfo;
-            new CZ.ENTER2(loginInfo.AccountID, NetworkClient.State.SelectedCharacter.GID, loginInfo.LoginID1, new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds(), loginInfo.Sex).Send();
+            new CZ.ENTER2(loginInfo.AccountID, NetworkClient.State.SelectedCharacter.GID, loginInfo.LoginID1,
+                new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds(), loginInfo.Sex).Send();
         }
 
         private void OnEntityMoved(ushort cmd, int size, InPacket packet) {
             if (packet is not ZC.NPCACK_MAPMOVE pkt) return;
-            PlayerEntity.transform.position = new Vector3(pkt.PosX, PathFinder.GetCellHeight(pkt.PosX, pkt.PosY), pkt.PosY);
+            PlayerEntity.transform.position =
+                new Vector3(pkt.PosX, PathFinder.GetCellHeight(pkt.PosX, pkt.PosY), pkt.PosY);
             new CZ.NOTIFY_ACTORINIT().Send();
         }
+
         #endregion
     }
 }
