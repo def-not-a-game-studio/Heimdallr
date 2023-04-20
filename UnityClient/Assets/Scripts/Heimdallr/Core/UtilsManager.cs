@@ -52,11 +52,11 @@ public class UtilsManager : MonoBehaviour {
             if (UseMeshEntity) {
                 SpritePlayerEntity.gameObject.SetActive(false);
                 MeshPlayerEntity.Init(OfflineEntity);
-                MeshPlayerEntity.transform.SetPositionAndRotation(new Vector3(140, 0, 195), Quaternion.identity);
+                MeshPlayerEntity.transform.SetPositionAndRotation(new Vector3(157, 0, 210), Quaternion.identity);
             } else {
                 MeshPlayerEntity.gameObject.SetActive(false);
                 SpritePlayerEntity.Init(OfflineEntity);
-                SpritePlayerEntity.transform.SetPositionAndRotation(new Vector3(140, 0, 195), Quaternion.identity);
+                SpritePlayerEntity.transform.SetPositionAndRotation(new Vector3(157, 0, 210), Quaternion.identity);
             }
         }
     }

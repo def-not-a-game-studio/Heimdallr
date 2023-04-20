@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Effect: {fileID: 11400000, guid: 5da8df62c7485d641806cbb17befc4fc, type: 2}
+  autoStart: 0
 --- !u!4 &62172960
 Transform:
   m_ObjectHideFlags: 0
@@ -266,6 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Effect: {fileID: 11400000, guid: c66197dac4fe2f4419a187584cf0cc26, type: 2}
+  autoStart: 0
 --- !u!4 &450896113
 Transform:
   m_ObjectHideFlags: 0
@@ -311,6 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Effect: {fileID: 11400000, guid: 430ae61c54fe46741b2dbdc54eace13d, type: 2}
+  autoStart: 0
 --- !u!4 &533854650
 Transform:
   m_ObjectHideFlags: 0
@@ -448,7 +451,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &777214353
 Transform:
   m_ObjectHideFlags: 0
@@ -516,8 +519,8 @@ MonoBehaviour:
   <Entity>k__BackingField: {fileID: 2086908704}
   <ViewerType>k__BackingField: 1
   <State>k__BackingField: 0
-  SpriteData: {fileID: 11400000, guid: 55da0db3aeb86294783111482cec32e8, type: 2}
-  Atlas: {fileID: 2800000, guid: aff7720855b488b41903c3d5298655a9, type: 3}
+  SpriteData: {fileID: 11400000, guid: 422a7b0e6d1b3424f8d7fd20f5a47f3d, type: 2}
+  Atlas: {fileID: 2800000, guid: d308ac5bd4aed454383d2b66e91d1fe9, type: 3}
   Children:
   - {fileID: 1560493088}
   Parent: {fileID: 0}
@@ -679,7 +682,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.28978413, y: 0.000000016468091, z: -0.0000000049861364, w: 0.95709205}
-  m_LocalPosition: {x: 145.08679, y: 9.006462, z: 182.49165}
+  m_LocalPosition: {x: 0, y: 10, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -783,7 +786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4402192823448521270, guid: 81ef16a9809ed9d4984f409349eb6c21, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -820,6 +823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Effect: {fileID: 11400000, guid: bf373e168eeac974fad13d2d123806d7, type: 2}
+  autoStart: 0
 --- !u!4 &1154524598
 Transform:
   m_ObjectHideFlags: 0
@@ -1008,6 +1012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Effect: {fileID: 11400000, guid: 65d8960ad6f32ea4986a878cd16bafbf, type: 2}
+  autoStart: 0
 --- !u!4 &1354141785
 Transform:
   m_ObjectHideFlags: 0
@@ -1054,7 +1059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ae85bd8094854a4f97ae4e46c371dcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseMeshEntity: 1
+  UseMeshEntity: 0
   SpritePlayerEntity: {fileID: 2086908704}
   MeshPlayerEntity: {fileID: 2001523935}
   FpsLabel: {fileID: 1486632010}
@@ -1285,8 +1290,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 1796949917}
-  m_Follow: {fileID: 1796949917}
+  m_LookAt: {fileID: 2086908703}
+  m_Follow: {fileID: 2086908703}
   m_Lens:
     FieldOfView: 50
     OrthographicSize: 10
@@ -1313,7 +1318,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546163644}
   m_LocalRotation: {x: 0.28978413, y: 0.000000016468091, z: -0.0000000049861364, w: 0.95709205}
-  m_LocalPosition: {x: 145.08679, y: 9.006462, z: 182.49165}
+  m_LocalPosition: {x: 0, y: 10, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
