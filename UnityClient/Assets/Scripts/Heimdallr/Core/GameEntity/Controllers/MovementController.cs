@@ -64,17 +64,18 @@ namespace Heimdallr.Core.Game.Controllers {
                 var prevPos = transform.position;
 
                 var serverDirection = 0;
-                var serverDirection2 = 0;
                 var nextCellPosition = Vector3.zero;
-                var previousCellPosition = Vector3.zero;
                 var nextCellTime = serverTime;
+                
+                var previousServerDirection = 0;
+                var previousCellPosition = Vector3.zero;
                 var prevTime = 0L;
 
                 pathStartCellIndex = pathInfo.GetNextCellInfo(serverTime, ref nextCellTime, ref nextCellPosition,
                     ref serverDirection, PathFinder.GetCellHeight);
 
                 var pathPreviousCellIndex = pathInfo.GetPrevCellInfo(serverTime, ref prevTime, ref previousCellPosition,
-                    ref serverDirection2, PathFinder.GetCellHeight);
+                    ref previousServerDirection, PathFinder.GetCellHeight);
 
                 var passedTime = serverTime - prevTime;
                 var cellTime = nextCellTime - prevTime;
