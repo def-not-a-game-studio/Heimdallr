@@ -15,6 +15,7 @@ namespace Heimdallr.Core.Game.Sprite {
 
         public override void Init(GameEntityBaseStatus gameEntityBaseStatus) {
             _Status = gameEntityBaseStatus;
+            gameObject.SetActive(true);
         }
     }
 }

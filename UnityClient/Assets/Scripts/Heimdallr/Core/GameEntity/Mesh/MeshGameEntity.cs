@@ -4,22 +4,28 @@ using Heimdallr.Core.Database.Job;
 
 namespace Heimdallr.Core.Game {
     public class MeshGameEntity : CoreMeshGameEntity {
-
         #region Components
+
         private MeshGameEntityViewer EntityViewer;
+
         #endregion
 
         #region State
+
         public GameEntityState EntityState { get; private set; }
         public GameEntityBaseStatus EntityData { get; private set; }
+
         #endregion
 
         #region Properties
-        public bool HasAuthority => GetEntityGID() == Session.CurrentSession.Entity?.GID;
+
+        public bool HasAuthority => GameManager.IsOffline || GetEntityGID() == Session.CurrentSession.Entity?.GID;
+
         #endregion
 
         public override void Init(GameEntityBaseStatus data) {
             EntityData = data;
+            gameObject.SetActive(true);
 
             //var job = DatabaseManager.GetJobById(data.Job) as MeshJob;
             //EntityViewer = Instantiate<MeshGameEntityViewer>(data.IsMale ? job.Male : job.Female, transform);
@@ -52,8 +58,7 @@ namespace Heimdallr.Core.Game {
 
         public override GameEntityBaseStatus Status => EntityData;
 
-        public override void ChangeMotion(MotionRequest request)
-        {
+        public override void ChangeMotion(MotionRequest request) {
             throw new NotImplementedException();
         }
     }

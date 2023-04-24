@@ -1,10 +1,13 @@
 ﻿using System;
+using Core.Path;
 using UnityEngine;
 
 namespace Heimdallr.Core.Network {
     public class BurstConnectionOrchestrator : MonoBehaviour {
+        
         private NetworkClient NetworkClient;
         private PathFinder PathFinder;
+        private GameManager GameManager;
 
         private HC.NOTIFY_ZONESVR2 CurrentMapInfo;
 
@@ -16,10 +19,13 @@ namespace Heimdallr.Core.Network {
         private string ForceMap;
         private CoreGameEntity PlayerEntity;
 
-        private void Start() {
+        private void Awake() {
             NetworkClient = FindObjectOfType<NetworkClient>();
             PathFinder = FindObjectOfType<PathFinder>();
+            GameManager = FindObjectOfType<GameManager>();
+        }
 
+        private void Start() {
             NetworkClient.HookPacket(AC.ACCEPT_LOGIN3.HEADER, OnLoginResponse);
             NetworkClient.HookPacket(HC.ACCEPT_ENTER.HEADER, OnEnterResponse);
             NetworkClient.HookPacket(HC.NOTIFY_ZONESVR2.HEADER, OnCharacterSelectionAccepted);
@@ -112,6 +118,7 @@ namespace Heimdallr.Core.Network {
             };
             NetworkClient.State.MapLoginInfo = mapLoginInfo;
             Session.CurrentSession.SetCurrentMap(mapLoginInfo.mapname);
+            GameManager.SetServerTick(pkt.Tick);
 
             PlayerEntity.gameObject.SetActive(true);
             try {
