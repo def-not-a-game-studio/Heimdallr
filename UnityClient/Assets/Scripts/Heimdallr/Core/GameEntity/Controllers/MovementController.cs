@@ -22,13 +22,16 @@ namespace Heimdallr.Core.Game.Controllers {
         #region PathFinding
 
         private CPathInfo pathInfo;
-        private int pathStartCell;
+        private int pathStartCellIndex;
         private Direction direction;
         private long m_lastProcessStateTime;
         private long m_lastServerTime;
+
         private bool m_isNeverAnimation;
-        private float m_MoveStartClientX;
-        private float m_MoveStartClientY;
+
+        //private float m_MoveStartClientX;
+        //private float m_MoveStartClientY;
+        private Vector3 MoveStartPosition;
 
         #endregion
 
@@ -56,32 +59,28 @@ namespace Heimdallr.Core.Game.Controllers {
 
         private void ProcessState() {
             var serverTime = GameManager.Tick;
-            var posChanged = false;
 
             if (IsWalking) {
                 var prevPos = transform.position;
 
-                int serverDirection = 0;
-                int serverDirection2 = 0;
-                float nextCellX = 0, nextCellY = 0;
-
+                var serverDirection = 0;
+                var serverDirection2 = 0;
+                var nextCellPosition = Vector3.zero;
+                var previousCellPosition = Vector3.zero;
                 var nextCellTime = serverTime;
-                pathStartCell = pathInfo.GetNextCellInfo(serverTime, ref nextCellTime, ref nextCellX, ref nextCellY,
-                    ref serverDirection);
+                var prevTime = 0L;
 
-                float previousCellX = 0, previousCellY = 0;
-                long PrevTime = 0;
-                int r1 = pathInfo.GetPrevCellInfo(serverTime, ref PrevTime, ref previousCellX, ref previousCellY, ref serverDirection2);
+                pathStartCellIndex = pathInfo.GetNextCellInfo(serverTime, ref nextCellTime, ref nextCellPosition,
+                    ref serverDirection, PathFinder.GetCellHeight);
 
-                float nBX = nextCellX, nBY = nextCellY;
-                float nBX2 = previousCellX, nBY2 = previousCellY;
+                var pathPreviousCellIndex = pathInfo.GetPrevCellInfo(serverTime, ref prevTime, ref previousCellPosition,
+                    ref serverDirection2, PathFinder.GetCellHeight);
 
-                var passedTime = serverTime - PrevTime;
-                var cellTime = nextCellTime - PrevTime;
+                var passedTime = serverTime - prevTime;
+                var cellTime = nextCellTime - prevTime;
 
-                if (r1 == 0) {
-                    nBX2 = (m_MoveStartClientX);
-                    nBY2 = (m_MoveStartClientY);
+                if (pathPreviousCellIndex == 0) {
+                    previousCellPosition = MoveStartPosition;
                 }
 
                 if (passedTime > cellTime) {
@@ -89,20 +88,9 @@ namespace Heimdallr.Core.Game.Controllers {
                 }
 
                 if (passedTime >= 0 && cellTime > 0) {
-                    var dx = nBX - nBX2;
-                    var dy = nBY - nBY2;
-
-                    var x = nBX2 + dx * passedTime / cellTime;
-                    var z = nBY2 + dy * passedTime / cellTime;
-
-                    var nextCellHeight = PathFinder.GetCellHeight((int)nBX, (int)nBY);
-                    var previousCellHeight = PathFinder.GetCellHeight((int)nBX2, (int)nBY2);
-                    var diffHeight = nextCellHeight - previousCellHeight;
-                    var y = previousCellHeight + diffHeight * passedTime / cellTime;
-
-                    //Debug.Log($"{dHeight}");
-
-                    transform.position = new Vector3(x, y, z);
+                    var distance = nextCellPosition - previousCellPosition;
+                    var position = previousCellPosition + distance * passedTime / cellTime;
+                    transform.position = position;
                 }
 
                 if (!m_isNeverAnimation) {
@@ -118,8 +106,8 @@ namespace Heimdallr.Core.Game.Controllers {
                 //     SpriteAnimator.Direction = direction;
                 // }
 
-                if (pathStartCell == -1 && serverTime >= nextCellTime) {
-                    transform.position = new Vector3(nBX, transform.position.y, nBY);
+                if (pathStartCellIndex == -1 && serverTime >= nextCellTime) {
+                    transform.position = nextCellPosition;
 
                     StopMoving();
                 }
@@ -156,9 +144,8 @@ namespace Heimdallr.Core.Game.Controllers {
             var hasValidPath = FindPath(startX, startY, endX, endY);
 
             if (hasValidPath) {
-                m_MoveStartClientX = startX;
-                m_MoveStartClientY = startY;
-                pathStartCell = 0;
+                MoveStartPosition = new Vector3(startX, PathFinder.GetCellHeight(startX, startY), startY);
+                pathStartCellIndex = 0;
                 IsWalking = true;
                 Entity.SetState(GameEntityState.Walk);
             }
