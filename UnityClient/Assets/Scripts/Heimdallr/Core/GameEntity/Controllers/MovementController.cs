@@ -26,16 +26,11 @@ namespace Heimdallr.Core.Game.Controllers {
         private Direction direction;
         private long m_lastProcessStateTime;
         private long m_lastServerTime;
-
         private bool m_isNeverAnimation;
-
-        //private float m_MoveStartClientX;
-        //private float m_MoveStartClientY;
         private Vector3 MoveStartPosition;
 
         #endregion
-
-
+        
         private void Awake() {
             GroundMask = LayerMask.GetMask("Ground");
             PathFinder = FindObjectOfType<PathFinder>();
