@@ -46,35 +46,35 @@ namespace Heimdallr.Core.Game {
         }
 
         private void Update() {
-            if(LastEntityState != meshGameEntity.EntityState) {
-                LastEntityState = meshGameEntity.EntityState;
-
-                string animatorTrigger = "";
-                string parameterName = null;
-                float parameterValue = 1f;
-
-                switch(LastEntityState) {
-                    case GameEntityState.Wait:
-                        animatorTrigger = "wait";
-                        break;
-                    case GameEntityState.Walk:
-                        animatorTrigger = "walk";
-                        parameterName = "walkSpeedMultiplier";
-                        parameterValue = 0.75f;
-                        break;
-                    case GameEntityState.Attack:
-                        animatorTrigger = "attack";
-                        break;
-                    case GameEntityState.Hit:
-                        animatorTrigger = "hit";
-                        break;
-                };
-
-                Animator.SetTrigger(animatorTrigger);
-                if(parameterName != null) {
-                    Animator.SetFloat(parameterName, parameterValue);
-                }
-            }
+            // if(LastEntityState != meshGameEntity.EntityState) {
+            //     LastEntityState = meshGameEntity.EntityState;
+            //
+            //     string animatorTrigger = "";
+            //     string parameterName = null;
+            //     float parameterValue = 1f;
+            //
+            //     switch(LastEntityState) {
+            //         case GameEntityState.Wait:
+            //             animatorTrigger = "wait";
+            //             break;
+            //         case GameEntityState.Walk:
+            //             animatorTrigger = "walk";
+            //             parameterName = "walkSpeedMultiplier";
+            //             parameterValue = 0.75f;
+            //             break;
+            //         case GameEntityState.Attack:
+            //             animatorTrigger = "attack";
+            //             break;
+            //         case GameEntityState.Hit:
+            //             animatorTrigger = "hit";
+            //             break;
+            //     };
+            //
+            //     Animator.SetTrigger(animatorTrigger);
+            //     if(parameterName != null) {
+            //         Animator.SetFloat(parameterName, parameterValue);
+            //     }
+            // }
         }
 
         public void SetGameEntityData(GameEntityBaseStatus data) {

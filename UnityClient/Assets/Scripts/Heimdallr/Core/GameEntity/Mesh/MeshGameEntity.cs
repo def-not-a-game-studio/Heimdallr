@@ -7,24 +7,18 @@ namespace Heimdallr.Core.Game {
         #region Components
 
         private MeshGameEntityViewer EntityViewer;
-
+        private GameEntityMovementController MovementController;
+        
         #endregion
 
         #region State
 
-        public GameEntityState EntityState { get; private set; }
-        public GameEntityBaseStatus EntityData { get; private set; }
-
-        #endregion
-
-        #region Properties
-
-        public bool HasAuthority => GameManager.IsOffline || GetEntityGID() == Session.CurrentSession.Entity?.GID;
-
+        private GameEntityBaseStatus _Status;
+        
         #endregion
 
         public override void Init(GameEntityBaseStatus data) {
-            EntityData = data;
+            _Status = data;
             gameObject.SetActive(true);
 
             //var job = DatabaseManager.GetJobById(data.Job) as MeshJob;
@@ -32,31 +26,20 @@ namespace Heimdallr.Core.Game {
             //EntityViewer.SetGameEntityData(data);
         }
 
+        public override bool HasAuthority() =>
+            GameManager.IsOffline || GetEntityGID() == Session.CurrentSession.Entity?.GID;
+
+        public override int GetEntityGID() => _Status.GID;
+        public override GameEntityBaseStatus Status => _Status;
+
+
         private void Start() {
-            gameObject.AddComponent<GameEntityMovementController>();
+            MovementController = gameObject.AddComponent<GameEntityMovementController>();
+            MovementController.SetEntity(this);
         }
 
-        public void SetState(GameEntityState state) {
-            EntityState = state;
-        }
-
-        public void UpdateSprites() {
-            throw new NotImplementedException();
-        }
-
-        public string GetEntityName() {
-            return EntityData.Name;
-        }
-
-        public int GetEntityGID() {
-            return EntityData.GID;
-        }
-
-        public EntityType GetEntityType() {
-            return EntityData.EntityType;
-        }
-
-        public override GameEntityBaseStatus Status => EntityData;
+        public string GetEntityName() => _Status.Name;
+        public EntityType GetEntityType() => _Status.EntityType;
 
         public override void ChangeMotion(MotionRequest request) {
             throw new NotImplementedException();

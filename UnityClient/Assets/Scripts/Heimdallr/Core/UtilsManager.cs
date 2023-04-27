@@ -41,7 +41,7 @@ public class UtilsManager : MonoBehaviour {
         IsMale = false,
         HairColor = 3,
         Job = 3,
-        ClothesColor = 0,
+        ClothesColor = 2,
         MoveSpeed = 135,
         EntityType = EntityType.PC,
         Name = "Entity",

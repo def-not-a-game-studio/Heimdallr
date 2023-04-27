@@ -1,7 +1,15 @@
+using System;
+using Heimdallr.Core.Game.Controllers;
+using UnityEngine;
+
 namespace Heimdallr.Core.Game.Sprite {
     public class SpriteGameEntity : CoreSpriteGameEntity {
+        [SerializeField] private SpriteViewer SpriteViewer;
 
-        public override int Direction { get; }
+        private GameEntityMovementController MovementController;
+
+        public override Direction Direction { get; set; }
+
         public override int HeadDirection { get; }
         public override bool IsMonster { get; }
 
@@ -9,8 +17,18 @@ namespace Heimdallr.Core.Game.Sprite {
 
         public override GameEntityBaseStatus Status => _Status;
 
+        public override bool HasAuthority() =>
+            GameManager.IsOffline || GetEntityGID() == Session.CurrentSession.Entity?.GID;
+
+        public override int GetEntityGID() => _Status.GID;
+
+        private void Start() {
+            MovementController = gameObject.AddComponent<GameEntityMovementController>();
+            MovementController.SetEntity(this);
+        }
+
         public override void ChangeMotion(MotionRequest request) {
-            throw new System.NotImplementedException();
+            SpriteViewer.ChangeMotion(request);
         }
 
         public override void Init(GameEntityBaseStatus gameEntityBaseStatus) {

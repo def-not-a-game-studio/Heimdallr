@@ -1,17 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Core.Path;
+using Heimdallr.Core.Game.Sprite;
 using UnityEngine;
 
 namespace Heimdallr.Core.Game.Controllers {
     public class GameEntityMovementController : MonoBehaviour {
         private LayerMask GroundMask;
         private PathFinder PathFinder;
-        private MeshGameEntity Entity;
         private NetworkClient NetworkClient;
         private GameManager GameManager;
 
         #region Behaviour
 
+        [SerializeField] private CoreGameEntity Entity;
         [SerializeField] private float RotateSpeed = 600f;
 
         private bool IsMovementFromClick;
@@ -30,7 +32,7 @@ namespace Heimdallr.Core.Game.Controllers {
         private Vector3 MoveStartPosition;
 
         #endregion
-        
+
         private void Awake() {
             GroundMask = LayerMask.GetMask("Ground");
             PathFinder = FindObjectOfType<PathFinder>();
@@ -40,7 +42,7 @@ namespace Heimdallr.Core.Game.Controllers {
         }
 
         private void Start() {
-            if (Entity.HasAuthority) {
+            if (Entity.HasAuthority()) {
                 NetworkClient.HookPacket(ZC.NOTIFY_PLAYERMOVE.HEADER, OnPlayerMovement); //Our movement
             }
 
@@ -61,7 +63,7 @@ namespace Heimdallr.Core.Game.Controllers {
                 var serverDirection = 0;
                 var nextCellPosition = Vector3.zero;
                 var nextCellTime = serverTime;
-                
+
                 var previousServerDirection = 0;
                 var previousCellPosition = Vector3.zero;
                 var prevTime = 0L;
@@ -86,21 +88,10 @@ namespace Heimdallr.Core.Game.Controllers {
                 if (passedTime >= 0 && cellTime > 0) {
                     var distance = nextCellPosition - previousCellPosition;
                     var position = previousCellPosition + distance * passedTime / cellTime;
+                    CheckDirection(nextCellPosition, previousCellPosition);
+
                     transform.position = position;
                 }
-
-                if (!m_isNeverAnimation) {
-                    var dir = (Vector2)(transform.position - prevPos).normalized;
-
-                    if (dir != Vector2.zero) {
-                        direction = PathFinder.GetDirectionForOffset(dir);
-                        //SpriteAnimator.Direction = PathFinder.GetDirectionForOffset(dir);
-                    }
-                }
-
-                // if (!m_isNeverAnimation) {
-                //     SpriteAnimator.Direction = direction;
-                // }
 
                 if (pathStartCellIndex == -1 && serverTime >= nextCellTime) {
                     transform.position = nextCellPosition;
@@ -111,6 +102,20 @@ namespace Heimdallr.Core.Game.Controllers {
 
             m_lastProcessStateTime = GameManager.Tick;
             m_lastServerTime = serverTime;
+        }
+
+        private void CheckDirection(Vector3 position, Vector3 prevPos) {
+            var direction = PathFinder.GetDirectionForOffset(position, prevPos);
+            if (this.direction != direction) {
+                this.direction = direction;
+                if (Entity is SpriteGameEntity spriteGameEntity) {
+                    spriteGameEntity.Direction = direction;
+                }
+            }
+        }
+
+        public void SetEntity(CoreGameEntity entity) {
+            Entity = entity;
         }
 
         /// <summary>
@@ -143,7 +148,7 @@ namespace Heimdallr.Core.Game.Controllers {
                 MoveStartPosition = new Vector3(startX, PathFinder.GetCellHeight(startX, startY), startY);
                 pathStartCellIndex = 0;
                 IsWalking = true;
-                Entity.SetState(GameEntityState.Walk);
+                Entity.ChangeMotion(new MotionRequest { Motion = SpriteMotion.Walk });
             }
         }
 
@@ -164,7 +169,8 @@ namespace Heimdallr.Core.Game.Controllers {
         public void StopMoving() {
             IsWalking = false;
             IsMovementFromClick = false;
-            Entity.SetState(GameEntityState.Wait);
+            m_isNeverAnimation = true;
+            Entity.ChangeMotion(new MotionRequest { Motion = SpriteMotion.Idle });
         }
 
         private void ProcessInputAsync() {
