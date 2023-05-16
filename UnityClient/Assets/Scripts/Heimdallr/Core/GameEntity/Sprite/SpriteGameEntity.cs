@@ -44,5 +44,9 @@ namespace Heimdallr.Core.Game.Sprite {
             _Status = gameEntityBaseStatus;
             gameObject.SetActive(true);
         }
+
+        public override void ManagedUpdate() {
+            // do nothing
+        }
     }
 }

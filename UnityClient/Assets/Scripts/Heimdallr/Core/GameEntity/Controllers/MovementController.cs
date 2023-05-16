@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using Core.Path;
 using Heimdallr.Core.Game.Sprite;
 using UnityEngine;
+using UnityRO.Core;
 
 namespace Heimdallr.Core.Game.Controllers {
-    public class GameEntityMovementController : MonoBehaviour {
+    public class GameEntityMovementController : ManagedMonoBehaviour {
         private LayerMask GroundMask;
         private PathFinder PathFinder;
         private NetworkClient NetworkClient;
@@ -49,7 +50,7 @@ namespace Heimdallr.Core.Game.Controllers {
             pathInfo = new CPathInfo();
         }
 
-        private void LateUpdate() {
+        public override void ManagedUpdate() {
             ProcessInputAsync();
             ProcessState();
         }

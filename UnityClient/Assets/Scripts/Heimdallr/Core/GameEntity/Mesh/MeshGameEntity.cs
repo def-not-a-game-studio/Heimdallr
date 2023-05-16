@@ -55,5 +55,9 @@ namespace Heimdallr.Core.Game {
         public override void ChangeMotion(MotionRequest request) {
             throw new NotImplementedException();
         }
+
+        public override void ManagedUpdate() {
+            // do nothing
+        }
     }
 }
