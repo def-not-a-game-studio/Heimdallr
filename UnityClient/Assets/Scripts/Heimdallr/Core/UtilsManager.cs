@@ -1,7 +1,7 @@
 using System;
 using Heimdallr.Core.Game;
 using Heimdallr.Core.Game.Sprite;
-using Heimdallr.Core.Network;
+using Core.Network;
 using TMPro;
 using UnityEngine;
 using Cinemachine;

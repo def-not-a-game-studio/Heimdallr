@@ -21,6 +21,15 @@ namespace Heimdallr.Core.Game.Sprite {
             GameManager.IsOffline || GetEntityGID() == Session.CurrentSession.Entity?.GID;
 
         public override int GetEntityGID() => _Status.GID;
+        
+        public override void RequestOffsetMovement(Vector2 destination) {
+            var position = transform.position;
+            MovementController.RequestMovement((int)(position.x + destination.x), (int)(position.z + destination.y));
+        }
+
+        public override void RequestMovement(Vector2 destination) {
+            MovementController.RequestMovement((int)destination.x, (int)destination.y);
+        }
 
         private void Start() {
             MovementController = gameObject.AddComponent<GameEntityMovementController>();

@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Heimdallr.Core.Network {
+namespace Core.Network {
 
     [CustomEditor(typeof(BurstConnectionOrchestrator))]
     public class BurstConnectionOrchestratorEditor : Editor {

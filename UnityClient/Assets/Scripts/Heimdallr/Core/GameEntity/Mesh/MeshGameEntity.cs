@@ -1,6 +1,7 @@
 ﻿using Heimdallr.Core.Game.Controllers;
 using System;
 using Heimdallr.Core.Database.Job;
+using UnityEngine;
 
 namespace Heimdallr.Core.Game {
     public class MeshGameEntity : CoreMeshGameEntity {
@@ -30,6 +31,16 @@ namespace Heimdallr.Core.Game {
             GameManager.IsOffline || GetEntityGID() == Session.CurrentSession.Entity?.GID;
 
         public override int GetEntityGID() => _Status.GID;
+        
+        public override void RequestOffsetMovement(Vector2 destination) {
+            var position = transform.position;
+            MovementController.RequestMovement((int)(position.x + destination.x), (int)(position.z + destination.y));
+        }
+
+        public override void RequestMovement(Vector2 destination) {
+            MovementController.RequestMovement((int)destination.x, (int)destination.y);
+        }
+
         public override GameEntityBaseStatus Status => _Status;
 
 

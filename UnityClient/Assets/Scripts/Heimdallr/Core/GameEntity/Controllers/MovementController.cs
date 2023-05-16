@@ -43,7 +43,7 @@ namespace Heimdallr.Core.Game.Controllers {
 
         private void Start() {
             if (Entity.HasAuthority()) {
-                NetworkClient.HookPacket(ZC.NOTIFY_PLAYERMOVE.HEADER, OnPlayerMovement); //Our movement
+                NetworkClient.HookPacket<ZC.NOTIFY_PLAYERMOVE>(ZC.NOTIFY_PLAYERMOVE.HEADER, OnPlayerMovement); //Our movement
             }
 
             pathInfo = new CPathInfo();
