@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Core.Path;
+﻿using Core.Path;
 using Heimdallr.Core.Game.Sprite;
 using UnityEngine;
 using UnityRO.Core;
@@ -48,6 +46,10 @@ namespace Heimdallr.Core.Game.Controllers {
             }
 
             pathInfo = new CPathInfo();
+        }
+
+        private void OnDestroy() {
+            NetworkClient.UnhookPacket<ZC.NOTIFY_PLAYERMOVE>(ZC.NOTIFY_PLAYERMOVE.HEADER, OnPlayerMovement);
         }
 
         public override void ManagedUpdate() {
