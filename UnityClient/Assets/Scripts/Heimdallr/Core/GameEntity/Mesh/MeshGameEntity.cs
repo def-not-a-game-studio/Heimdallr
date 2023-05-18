@@ -1,60 +1,63 @@
 ﻿using Heimdallr.Core.Game.Controllers;
 using System;
 using Heimdallr.Core.Database.Job;
+using UnityEngine;
 
 namespace Heimdallr.Core.Game {
     public class MeshGameEntity : CoreMeshGameEntity {
-
         #region Components
+
         private MeshGameEntityViewer EntityViewer;
+        private GameEntityMovementController MovementController;
+        
         #endregion
 
         #region State
-        public GameEntityState EntityState { get; private set; }
-        public GameEntityBaseStatus EntityData { get; private set; }
-        #endregion
 
-        #region Properties
-        public bool HasAuthority => GetEntityGID() == Session.CurrentSession.Entity?.GID;
+        private GameEntityBaseStatus _Status;
+        
         #endregion
 
         public override void Init(GameEntityBaseStatus data) {
-            EntityData = data;
+            _Status = data;
+            gameObject.SetActive(true);
 
             //var job = DatabaseManager.GetJobById(data.Job) as MeshJob;
             //EntityViewer = Instantiate<MeshGameEntityViewer>(data.IsMale ? job.Male : job.Female, transform);
             //EntityViewer.SetGameEntityData(data);
         }
 
+        public override bool HasAuthority() =>
+            GameManager.IsOffline || GetEntityGID() == Session.CurrentSession.Entity?.GID;
+
+        public override int GetEntityGID() => _Status.GID;
+        
+        public override void RequestOffsetMovement(Vector2 destination) {
+            var position = transform.position;
+            MovementController.RequestMovement((int)(position.x + destination.x), (int)(position.z + destination.y));
+        }
+
+        public override void RequestMovement(Vector2 destination) {
+            MovementController.RequestMovement((int)destination.x, (int)destination.y);
+        }
+
+        public override GameEntityBaseStatus Status => _Status;
+
+
         private void Start() {
-            gameObject.AddComponent<GameEntityMovementController>();
+            MovementController = gameObject.AddComponent<GameEntityMovementController>();
+            MovementController.SetEntity(this);
         }
 
-        public void SetState(GameEntityState state) {
-            EntityState = state;
-        }
+        public string GetEntityName() => _Status.Name;
+        public EntityType GetEntityType() => _Status.EntityType;
 
-        public void UpdateSprites() {
+        public override void ChangeMotion(MotionRequest request) {
             throw new NotImplementedException();
         }
 
-        public string GetEntityName() {
-            return EntityData.Name;
-        }
-
-        public int GetEntityGID() {
-            return EntityData.GID;
-        }
-
-        public EntityType GetEntityType() {
-            return EntityData.EntityType;
-        }
-
-        public override GameEntityBaseStatus Status => EntityData;
-
-        public override void ChangeMotion(MotionRequest request)
-        {
-            throw new NotImplementedException();
+        public override void ManagedUpdate() {
+            // do nothing
         }
     }
 }
