@@ -1,8 +1,8 @@
 ﻿using Heimdallr.Core.Database.Eye;
 using Heimdallr.Core.Database.Hair;
 using Heimdallr.Core.Database.HeadFace;
-using Heimdallr.Core.Database.Job;
 using UnityEngine;
+using UnityRO.Core.Database;
 
 namespace Heimdallr.Core.Game {
     public class MeshGameEntityViewer : MonoBehaviour {

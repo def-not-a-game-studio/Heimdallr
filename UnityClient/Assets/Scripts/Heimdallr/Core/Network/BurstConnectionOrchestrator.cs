@@ -1,12 +1,13 @@
 ﻿using System;
 using Core.Path;
 using UnityEngine;
+using UnityRO.Net;
 
 namespace Core.Network {
     public class BurstConnectionOrchestrator : MonoBehaviour {
-
         private NetworkClient NetworkClient;
         private PathFinder PathFinder;
+        private SessionManager SessionManager;
 
         private HC.NOTIFY_ZONESVR2 CurrentMapInfo;
 
@@ -21,6 +22,7 @@ namespace Core.Network {
         private void Start() {
             NetworkClient = FindObjectOfType<NetworkClient>();
             PathFinder = FindObjectOfType<PathFinder>();
+            SessionManager = FindObjectOfType<SessionManager>();
 
             NetworkClient.HookPacket<AC.ACCEPT_LOGIN3>(AC.ACCEPT_LOGIN3.HEADER, OnLoginResponse);
             NetworkClient.HookPacket<HC.ACCEPT_ENTER>(HC.ACCEPT_ENTER.HEADER, OnEnterResponse);
@@ -32,7 +34,13 @@ namespace Core.Network {
             Connect();
         }
 
-        public void Init(int charServerIndex, int charIndex, string username, string password, string host, string forceMap, CoreGameEntity playerEntity) {
+        public void Init(int charServerIndex,
+            int charIndex,
+            string username,
+            string password,
+            string host,
+            string forceMap,
+            CoreGameEntity playerEntity) {
             CharServerIndex = charServerIndex;
             CharIndex = charIndex;
             Username = username;
@@ -66,11 +74,12 @@ namespace Core.Network {
         }
 
         #region Packet Hooks
+
         private void OnLoginResponse(ushort cmd, int size, AC.ACCEPT_LOGIN3 packet) {
             Debug.Log("Login response received");
             NetworkClient.State.LoginInfo = packet;
             NetworkClient.State.CharServer = packet.Servers[CharServerIndex];
-            
+
             // If using docker for rA, this should point to same host as the login server
             // Docker sends the ips internally as 172 whatever
             ConnectToCharServer(packet, NetworkClient.State.CharServer.IP.ToString(), NetworkClient.State.CharServer);
@@ -79,35 +88,55 @@ namespace Core.Network {
         private void OnEnterResponse(ushort cmd, int size, HC.ACCEPT_ENTER pkt) {
             Debug.Log("Char server response received");
             NetworkClient.State.CurrentCharactersInfo = pkt;
-                
+
             // if no character available, create one
             if (pkt.Chars.Count == 0) {
                 new CH.MAKE_CHAR2 {
-                                      Name = Convert.ToBase64String(Guid.NewGuid().ToByteArray())[..8],
-                                      CharNum = 0
-                                  }.Send();
+                    Name = Convert.ToBase64String(Guid.NewGuid().ToByteArray())[..8],
+                    CharNum = 0
+                }.Send();
             } else {
                 NetworkClient.State.SelectedCharacter = pkt.Chars[CharIndex];
                 SelectCharacter(CharIndex);
             }
         }
 
-        private void OnMapServerLoginAccepted(ushort cmd, int size, ZC.ACCEPT_ENTER2 pkt) {
+        private async void OnMapServerLoginAccepted(ushort cmd, int size, ZC.ACCEPT_ENTER2 pkt) {
             Debug.Log("Map server response received");
+            NetworkClient.PausePacketHandling();
+            
             var mapLoginInfo = new MapLoginInfo {
-                                                    mapname = CurrentMapInfo.Mapname.Split('.')[0],
-                                                    PosX = pkt.PosX,
-                                                    PosY = pkt.PosY,
-                                                    Dir = pkt.Dir
-                                                };
+                mapname = CurrentMapInfo.Mapname.Split('.')[0],
+                PosX = pkt.PosX,
+                PosY = pkt.PosY,
+                Dir = pkt.Dir
+            };
             NetworkClient.State.MapLoginInfo = mapLoginInfo;
             NetworkClient.StartHeatBeat();
-            Session.CurrentSession.SetCurrentMap(mapLoginInfo.mapname);
-                
+            
+            PlayerEntity.Init(new GameEntityBaseStatus() {
+                GID = NetworkClient.State.SelectedCharacter.GID,
+                HairStyle = NetworkClient.State.SelectedCharacter.Head,
+                IsMale = NetworkClient.State.SelectedCharacter.Sex == 0,
+                HairColor = NetworkClient.State.SelectedCharacter.HeadPalette,
+                Job = NetworkClient.State.SelectedCharacter.Job,
+                ClothesColor = NetworkClient.State.SelectedCharacter.BodyPalette,
+                MoveSpeed = NetworkClient.State.SelectedCharacter.Speed,
+                EntityType = EntityType.PC,
+                Name = NetworkClient.State.SelectedCharacter.Name,
+            });
+
+            SessionManager.StartSession(new NetworkEntity((int)EntityType.PC, PlayerEntity.Status.GID, NetworkClient.State.SelectedCharacter.Name),
+                NetworkClient.State.LoginInfo.AccountID);
+            
+            await SessionManager.SetCurrentMap(mapLoginInfo.mapname);
+            PathFinder = FindObjectOfType<PathFinder>();
+
             PlayerEntity.transform.SetPositionAndRotation(new Vector3(pkt.PosX, PathFinder.GetCellHeight(pkt.PosX, pkt.PosY), pkt.PosY), Quaternion.identity);
+            NetworkClient.ResumePacketHandling();
 
             if (mapLoginInfo.mapname != ForceMap) {
-                new CZ.REQUEST_CHAT($"@warp {ForceMap} 150 150").Send();
+                //new CZ.REQUEST_CHAT($"@warp {ForceMap} 150 150").Send();
             }
         }
 
@@ -128,28 +157,16 @@ namespace Core.Network {
 
             await NetworkClient.ChangeServer(Host, currentMapInfo.Port);
 
-            PlayerEntity.Init(new GameEntityBaseStatus() {
-                GID = NetworkClient.State.SelectedCharacter.GID,
-                HairStyle = NetworkClient.State.SelectedCharacter.Head,
-                IsMale = NetworkClient.State.SelectedCharacter.Sex == 0,
-                HairColor = NetworkClient.State.SelectedCharacter.HeadPalette,
-                Job = NetworkClient.State.SelectedCharacter.Job,
-                ClothesColor = NetworkClient.State.SelectedCharacter.BodyPalette,
-                MoveSpeed = NetworkClient.State.SelectedCharacter.Speed,
-                EntityType = EntityType.PC,
-                Name = NetworkClient.State.SelectedCharacter.Name,
-            });
-
-            Session.StartSession(new Session(new NetworkEntity(0, PlayerEntity.Status.GID, NetworkClient.State.SelectedCharacter.Name), NetworkClient.State.LoginInfo.AccountID));
-
             var loginInfo = NetworkClient.State.LoginInfo;
-            new CZ.ENTER2(loginInfo.AccountID, NetworkClient.State.SelectedCharacter.GID, loginInfo.LoginID1, new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds(), loginInfo.Sex).Send();
+            new CZ.ENTER2(loginInfo.AccountID, NetworkClient.State.SelectedCharacter.GID, loginInfo.LoginID1,
+                new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds(), loginInfo.Sex).Send();
         }
 
         private void OnEntityMoved(ushort cmd, int size, ZC.NPCACK_MAPMOVE pkt) {
             PlayerEntity.transform.position = new Vector3(pkt.PosX, PathFinder.GetCellHeight(pkt.PosX, pkt.PosY), pkt.PosY);
             new CZ.NOTIFY_ACTORINIT().Send();
         }
+
         #endregion
     }
 }
