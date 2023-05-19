@@ -1,10 +1,9 @@
 ﻿using Core.Path;
 using Heimdallr.Core.Game.Sprite;
 using UnityEngine;
-using UnityRO.Core;
 
 namespace Heimdallr.Core.Game.Controllers {
-    public class GameEntityMovementController : ManagedMonoBehaviour {
+    public class GameEntityMovementController : MonoBehaviour {
         private LayerMask GroundMask;
         private PathFinder PathFinder;
         private NetworkClient NetworkClient;
@@ -54,7 +53,7 @@ namespace Heimdallr.Core.Game.Controllers {
             NetworkClient.UnhookPacket<ZC.NOTIFY_PLAYERMOVE>(ZC.NOTIFY_PLAYERMOVE.HEADER, OnPlayerMovement);
         }
 
-        public override void ManagedUpdate() {
+        void Update() {
             ProcessInputAsync();
             ProcessState();
         }

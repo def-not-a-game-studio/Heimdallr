@@ -62,7 +62,6 @@ namespace Heimdallr.Core.Game.Sprite {
             transform.position = new Vector3(pos.x, PathFinder.GetCellHeight((int)pos.x, (int)pos.y), pos.y);
             Direction = direction;
 
-            Debug.Log($"Spawning {spawnData.Name} - {spawnData.Job}");
             var body = DatabaseManager.GetJobById(spawnData.Job) as SpriteJob;
             var bodySprite = (spawnData.EntityType != EntityType.PC || spawnData.IsMale) ? body.Male : body.Female;
 
