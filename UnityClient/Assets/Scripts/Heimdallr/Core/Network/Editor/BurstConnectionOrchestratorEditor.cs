@@ -11,8 +11,8 @@ namespace Core.Network {
         public override void OnInspectorGUI() {
             command = EditorGUILayout.TextField("Map command", command);
             if(GUILayout.Button("Send")) {
-                var pkt = new CZ.REQUEST_CHAT(command);
-                pkt.Send();
+                //var pkt = new CZ.REQUEST_CHAT(command);
+                //pkt.Send();
             }
         }
     }

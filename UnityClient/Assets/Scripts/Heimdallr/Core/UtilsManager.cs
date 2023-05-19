@@ -1,11 +1,10 @@
-using System;
+using Cinemachine;
+using Core.Network;
 using Heimdallr.Core.Game;
 using Heimdallr.Core.Game.Sprite;
-using Core.Network;
 using TMPro;
 using UnityEngine;
-using Cinemachine;
-using UnityEngine.Serialization;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(NetworkClient), typeof(ThreadManager))]
 public class UtilsManager : MonoBehaviour {
@@ -67,6 +66,7 @@ public class UtilsManager : MonoBehaviour {
             gameObject.AddComponent<BurstConnectionOrchestrator>()
                 .Init(CharServerIndex, CharIndex, Username, Password, ServerHost, ForceMap, entity);
         } else {
+            SceneManager.LoadSceneAsync(ForceMap, LoadSceneMode.Additive);
             if (UseMeshEntity) {
                 SpritePlayerEntity.gameObject.SetActive(false);
                 MeshPlayerEntity.Init(OfflineEntity);

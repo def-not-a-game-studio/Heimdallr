@@ -1,10 +1,9 @@
 ﻿using Core.Path;
 using Heimdallr.Core.Game.Sprite;
 using UnityEngine;
-using UnityRO.Core;
 
 namespace Heimdallr.Core.Game.Controllers {
-    public class GameEntityMovementController : ManagedMonoBehaviour {
+    public class GameEntityMovementController : MonoBehaviour {
         private LayerMask GroundMask;
         private PathFinder PathFinder;
         private NetworkClient NetworkClient;
@@ -43,6 +42,8 @@ namespace Heimdallr.Core.Game.Controllers {
         private void Start() {
             if (Entity.HasAuthority()) {
                 NetworkClient.HookPacket<ZC.NOTIFY_PLAYERMOVE>(ZC.NOTIFY_PLAYERMOVE.HEADER, OnPlayerMovement); //Our movement
+            } else {
+                NetworkClient.HookPacket<ZC.NOTIFY_MOVE>(ZC.NOTIFY_MOVE.HEADER, OnEntityMovement);
             }
 
             pathInfo = new CPathInfo();
@@ -52,7 +53,7 @@ namespace Heimdallr.Core.Game.Controllers {
             NetworkClient.UnhookPacket<ZC.NOTIFY_PLAYERMOVE>(ZC.NOTIFY_PLAYERMOVE.HEADER, OnPlayerMovement);
         }
 
-        public override void ManagedUpdate() {
+        void Update() {
             ProcessInputAsync();
             ProcessState();
         }
@@ -128,7 +129,7 @@ namespace Heimdallr.Core.Game.Controllers {
         /// <param name="y"></param>
         public void RequestMovement(int x, int y) {
             if (GameManager.IsOffline) {
-                StartMoving(Mathf.FloorToInt(transform.position.x), Mathf.FloorToInt(transform.position.z), x, y);
+                StartMoving(Mathf.FloorToInt(transform.position.x), Mathf.FloorToInt(transform.position.z), x, y, GameManager.Tick);
             } else {
                 new CZ.REQUEST_MOVE2(x, y, 0).Send();
             }
@@ -142,10 +143,10 @@ namespace Heimdallr.Core.Game.Controllers {
         /// <param name="startY"></param>
         /// <param name="endX"></param>
         /// <param name="endY"></param>
-        public void StartMoving(int startX, int startY, int endX, int endY) {
+        public void StartMoving(int startX, int startY, int endX, int endY, long tick) {
             //Debug.Log($"Moving\n Start:{startX},{startY}\nDest:{endX},{endY}");
 
-            var hasValidPath = FindPath(startX, startY, endX, endY);
+            var hasValidPath = FindPath(startX, startY, endX, endY, tick);
 
             if (hasValidPath) {
                 MoveStartPosition = new Vector3(startX, PathFinder.GetCellHeight(startX, startY), startY);
@@ -155,9 +156,13 @@ namespace Heimdallr.Core.Game.Controllers {
             }
         }
 
-        private bool FindPath(int startX, int startY, int endX, int endY) {
+        private bool FindPath(int startX, int startY, int endX, int endY, long tick) {
+            if (PathFinder == null) {
+                PathFinder = FindObjectOfType<PathFinder>();
+            }
+
             return PathFinder.FindPath(
-                GameManager.Tick,
+                tick,
                 startX, startY,
                 endX, endY,
                 Entity.Status.MoveSpeed,
@@ -210,15 +215,13 @@ namespace Heimdallr.Core.Game.Controllers {
             return new Vector3Int((int)x, 0, (int)y);
         }
 
-        private void OnPlayerMovement(ushort cmd, int size, InPacket packet) {
-            if (packet is not ZC.NOTIFY_PLAYERMOVE pkt) return;
+        private void OnEntityMovement(ushort cmd, int size, ZC.NOTIFY_MOVE packet) {
+            if (packet.AID != Entity.Status.AID) return;
+            StartMoving(packet.StartPosition[0], packet.StartPosition[1], packet.EndPosition[0], packet.EndPosition[1], GameManager.Tick);
+        }
 
-            // Debug.Log(
-            //     $"We're at {transform.position}\n" +
-            //     $"Server answered from {new Vector2(pkt.startPosition[0], pkt.startPosition[1])} to {new Vector2(pkt.endPosition[0], pkt.endPosition[1])}"
-            // );
-
-            StartMoving(pkt.startPosition[0], pkt.startPosition[1], pkt.endPosition[0], pkt.endPosition[1]);
+        private void OnPlayerMovement(ushort cmd, int size, ZC.NOTIFY_PLAYERMOVE packet) {
+            StartMoving(packet.StartPosition[0], packet.StartPosition[1], packet.EndPosition[0], packet.EndPosition[1], GameManager.Tick);
         }
     }
 }

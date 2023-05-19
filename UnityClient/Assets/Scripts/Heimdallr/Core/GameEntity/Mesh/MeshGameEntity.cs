@@ -1,7 +1,7 @@
-﻿using Heimdallr.Core.Game.Controllers;
-using System;
-using Heimdallr.Core.Database.Job;
+﻿using System;
+using Heimdallr.Core.Game.Controllers;
 using UnityEngine;
+using UnityRO.Net;
 
 namespace Heimdallr.Core.Game {
     public class MeshGameEntity : CoreMeshGameEntity {
@@ -9,6 +9,7 @@ namespace Heimdallr.Core.Game {
 
         private MeshGameEntityViewer EntityViewer;
         private GameEntityMovementController MovementController;
+        private SessionManager SessionManager;
         
         #endregion
 
@@ -17,6 +18,10 @@ namespace Heimdallr.Core.Game {
         private GameEntityBaseStatus _Status;
         
         #endregion
+
+        private void Awake() {
+            SessionManager = FindObjectOfType<SessionManager>();
+        }
 
         public override void Init(GameEntityBaseStatus data) {
             _Status = data;
@@ -28,7 +33,7 @@ namespace Heimdallr.Core.Game {
         }
 
         public override bool HasAuthority() =>
-            GameManager.IsOffline || GetEntityGID() == Session.CurrentSession.Entity?.GID;
+            GameManager.IsOffline || GetEntityGID() == SessionManager.CurrentSession.Entity?.GID;
 
         public override int GetEntityGID() => _Status.GID;
         
@@ -39,6 +44,14 @@ namespace Heimdallr.Core.Game {
 
         public override void RequestMovement(Vector2 destination) {
             MovementController.RequestMovement((int)destination.x, (int)destination.y);
+        }
+        
+        public override void Spawn(GameEntityBaseStatus spawnData, Vector2 pos, Direction direction) {
+            throw new NotImplementedException();
+        }
+
+        public override void Vanish(ZC.NOTIFY_VANISH.VanishType vanishType) {
+            throw new NotImplementedException();
         }
 
         public override GameEntityBaseStatus Status => _Status;
