@@ -1,6 +1,7 @@
 ﻿using System;
 using Core.Path;
 using UnityEngine;
+using UnityRO.Core.GameEntity;
 using UnityRO.Net;
 
 namespace Core.Network {

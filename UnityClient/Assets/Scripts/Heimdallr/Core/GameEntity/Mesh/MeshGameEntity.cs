@@ -1,6 +1,7 @@
 ﻿using System;
 using Heimdallr.Core.Game.Controllers;
 using UnityEngine;
+using UnityRO.Core.GameEntity;
 using UnityRO.Net;
 
 namespace Heimdallr.Core.Game {
@@ -50,7 +51,7 @@ namespace Heimdallr.Core.Game {
             throw new NotImplementedException();
         }
 
-        public override void Vanish(ZC.NOTIFY_VANISH.VanishType vanishType) {
+        public override void Vanish(VanishType vanishType) {
             throw new NotImplementedException();
         }
 

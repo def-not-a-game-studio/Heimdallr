@@ -2,6 +2,8 @@ using Core.Path;
 using Heimdallr.Core.Game.Controllers;
 using UnityEngine;
 using UnityRO.Core.Database;
+using UnityRO.Core.GameEntity;
+using UnityRO.Core.Sprite;
 using UnityRO.Net;
 
 namespace Heimdallr.Core.Game.Sprite {
@@ -39,8 +41,12 @@ namespace Heimdallr.Core.Game.Sprite {
             MovementController.RequestMovement((int)destination.x, (int)destination.y);
         }
 
-        public override void Vanish(ZC.NOTIFY_VANISH.VanishType vanishType) {
-            Debug.Log($"Vanish {vanishType}");
+        public override void Vanish(VanishType vanishType) {
+            switch (vanishType) {
+                case VanishType.DIED:
+                    ChangeMotion(new MotionRequest { Motion = SpriteMotion.Dead });
+                    break;
+            }
         }
 
         private void Start() {

@@ -1,6 +1,8 @@
 ﻿using Core.Path;
 using Heimdallr.Core.Game.Sprite;
 using UnityEngine;
+using UnityRO.Core.GameEntity;
+using UnityRO.Core.Sprite;
 
 namespace Heimdallr.Core.Game.Controllers {
     public class GameEntityMovementController : MonoBehaviour {

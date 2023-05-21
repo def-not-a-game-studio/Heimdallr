@@ -5,6 +5,7 @@ using Heimdallr.Core.Game.Sprite;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityRO.Core.GameEntity;
 
 [RequireComponent(typeof(NetworkClient), typeof(ThreadManager))]
 public class UtilsManager : MonoBehaviour {
