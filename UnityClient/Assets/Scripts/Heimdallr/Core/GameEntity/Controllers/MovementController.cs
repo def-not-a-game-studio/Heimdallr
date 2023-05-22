@@ -1,11 +1,12 @@
 ﻿using Core.Path;
 using Heimdallr.Core.Game.Sprite;
 using UnityEngine;
+using UnityRO.Core;
 using UnityRO.Core.GameEntity;
 using UnityRO.Core.Sprite;
 
 namespace Heimdallr.Core.Game.Controllers {
-    public class GameEntityMovementController : MonoBehaviour {
+    public class GameEntityMovementController : ManagedMonoBehaviour {
         private LayerMask GroundMask;
         private PathFinder PathFinder;
         private NetworkClient NetworkClient;
@@ -48,14 +49,14 @@ namespace Heimdallr.Core.Game.Controllers {
                 NetworkClient.HookPacket<ZC.NOTIFY_MOVE>(ZC.NOTIFY_MOVE.HEADER, OnEntityMovement);
             }
 
-            pathInfo = new CPathInfo();
+            pathInfo ??= new CPathInfo();
         }
 
         private void OnDestroy() {
             NetworkClient.UnhookPacket<ZC.NOTIFY_PLAYERMOVE>(ZC.NOTIFY_PLAYERMOVE.HEADER, OnPlayerMovement);
         }
 
-        void Update() {
+        public override void ManagedUpdate() {
             ProcessInputAsync();
             ProcessState();
         }
@@ -64,8 +65,6 @@ namespace Heimdallr.Core.Game.Controllers {
             var serverTime = GameManager.Tick;
 
             if (IsWalking) {
-                var prevPos = transform.position;
-
                 var serverDirection = 0;
                 var nextCellPosition = Vector3.zero;
                 var nextCellTime = serverTime;
@@ -74,11 +73,21 @@ namespace Heimdallr.Core.Game.Controllers {
                 var previousCellPosition = Vector3.zero;
                 var prevTime = 0L;
 
-                pathStartCellIndex = pathInfo.GetNextCellInfo(serverTime, ref nextCellTime, ref nextCellPosition,
-                    ref serverDirection, PathFinder.GetCellHeight);
+                pathStartCellIndex = pathInfo.GetNextCellInfo(
+                    serverTime,
+                    ref nextCellTime,
+                    ref nextCellPosition,
+                    ref serverDirection,
+                    PathFinder.GetCellHeight
+                );
 
-                var pathPreviousCellIndex = pathInfo.GetPrevCellInfo(serverTime, ref prevTime, ref previousCellPosition,
-                    ref previousServerDirection, PathFinder.GetCellHeight);
+                var pathPreviousCellIndex = pathInfo.GetPrevCellInfo(
+                    serverTime,
+                    ref prevTime,
+                    ref previousCellPosition,
+                    ref previousServerDirection,
+                    PathFinder.GetCellHeight
+                );
 
                 var passedTime = serverTime - prevTime;
                 var cellTime = nextCellTime - prevTime;
