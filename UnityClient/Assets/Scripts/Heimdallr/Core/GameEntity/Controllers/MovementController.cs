@@ -148,6 +148,7 @@ namespace Heimdallr.Core.Game.Controllers {
         public void StartMoving(int startX, int startY, int endX, int endY, long tick) {
             //Debug.Log($"Moving\n Start:{startX},{startY}\nDest:{endX},{endY}");
 
+            pathInfo ??= new CPathInfo();
             var hasValidPath = FindPath(startX, startY, endX, endY, tick);
 
             if (hasValidPath) {

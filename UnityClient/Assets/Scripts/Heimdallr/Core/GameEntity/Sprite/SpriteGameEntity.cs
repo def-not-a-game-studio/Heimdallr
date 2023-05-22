@@ -1,6 +1,8 @@
+using System.Collections;
 using Core.Path;
 using Heimdallr.Core.Game.Controllers;
 using UnityEngine;
+using UnityRO.Core;
 using UnityRO.Core.Database;
 using UnityRO.Core.GameEntity;
 using UnityRO.Core.Sprite;
@@ -8,11 +10,16 @@ using UnityRO.Net;
 
 namespace Heimdallr.Core.Game.Sprite {
     public class SpriteGameEntity : CoreSpriteGameEntity {
+        private const int VANISH_DESTROY_AFTER_SECONDS = 2;
+
         private SessionManager SessionManager;
         private PathFinder PathFinder;
+        private EntityManager EntityManager;
 
         [SerializeField] private SpriteViewer SpriteViewer;
         private GameEntityMovementController MovementController;
+
+        private Vector4 _pendingMove;
 
         public override Direction Direction { get; set; }
 
@@ -25,6 +32,7 @@ namespace Heimdallr.Core.Game.Sprite {
         private void Awake() {
             SessionManager = FindObjectOfType<SessionManager>();
             PathFinder = FindObjectOfType<PathFinder>();
+            EntityManager = FindObjectOfType<EntityManager>();
         }
 
         public override bool HasAuthority() =>
@@ -45,6 +53,10 @@ namespace Heimdallr.Core.Game.Sprite {
             switch (vanishType) {
                 case VanishType.DIED:
                     ChangeMotion(new MotionRequest { Motion = SpriteMotion.Dead });
+                    StartCoroutine(DestroyAfterSeconds(VANISH_DESTROY_AFTER_SECONDS));
+                    break;
+                case VanishType.LOGGED_OUT:
+                    StartCoroutine(DestroyAfterSeconds(VANISH_DESTROY_AFTER_SECONDS));
                     break;
             }
         }
@@ -52,10 +64,18 @@ namespace Heimdallr.Core.Game.Sprite {
         private void Start() {
             MovementController = gameObject.AddComponent<GameEntityMovementController>();
             MovementController.SetEntity(this);
+
+            if (_pendingMove != Vector4.zero) {
+                StartMoving((int)_pendingMove.x, (int)_pendingMove.y, (int)_pendingMove.z, (int)_pendingMove.w);
+            }
         }
 
         public override void ChangeMotion(MotionRequest request) {
             SpriteViewer.ChangeMotion(request);
+        }
+
+        public override void ChangeDirection(Direction direction) {
+            Direction = direction;
         }
 
         public override void Init(GameEntityBaseStatus gameEntityBaseStatus) {
@@ -63,10 +83,23 @@ namespace Heimdallr.Core.Game.Sprite {
             gameObject.SetActive(true);
         }
 
-        public override void Spawn(GameEntityBaseStatus spawnData, Vector2 pos, Direction direction) {
+        public override void Spawn(GameEntityBaseStatus spawnData, int[] posDir, bool forceNorthDirection) {
             _Status = spawnData;
-            transform.position = new Vector3(pos.x, PathFinder.GetCellHeight((int)pos.x, (int)pos.y), pos.y);
-            Direction = direction;
+
+            var x = posDir[0];
+            var y = posDir[1];
+
+            transform.position = new Vector3(x, PathFinder.GetCellHeight(x, y), y);
+            if (posDir.Length == 3) { // standing/idle entry
+                var npcDirection = (NpcDirection)posDir[2];
+                Direction = forceNorthDirection ? Direction.North : npcDirection.ToDirection();
+            } else if (posDir.Length == 5) { //moving entry
+                var x1 = posDir[2];
+                var y1 = posDir[3];
+                var npcDirection = (NpcDirection)posDir[4];
+                Direction = npcDirection.ToDirection();
+                _pendingMove = new Vector4(x, y, x1, y1);
+            }
 
             var body = DatabaseManager.GetJobById(spawnData.Job) as SpriteJob;
             var bodySprite = (spawnData.EntityType != EntityType.PC || spawnData.IsMale) ? body.Male : body.Female;
@@ -77,7 +110,7 @@ namespace Heimdallr.Core.Game.Sprite {
             var spriteViewer = bodyGO.AddComponent<SpriteViewer>();
             SpriteViewer = spriteViewer;
 
-            bodyGO.transform.localPosition = new Vector3(0, 0.25f, 0);
+            bodyGO.transform.localPosition = new Vector3(0.5f, 0.25f, 0.5f);
             bodyGO.transform.SetParent(transform, false);
             spriteViewer.Init(bodySprite, ViewerType.Body, this);
 
@@ -98,8 +131,17 @@ namespace Heimdallr.Core.Game.Sprite {
             bodyGO.SetActiveRecursively(true);
         }
 
+        private void StartMoving(int x, int y, int x1, int y2) {
+            MovementController.StartMoving(x, y, x1, y2, GameManager.Tick);
+        }
+
         public override void ManagedUpdate() {
             // do nothing
+        }
+
+        private IEnumerator DestroyAfterSeconds(int seconds) {
+            yield return new WaitForSeconds(seconds);
+            EntityManager.RemoveEntity((uint)Status.AID);
         }
     }
 }

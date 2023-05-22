@@ -47,7 +47,7 @@ namespace Heimdallr.Core.Game {
             MovementController.RequestMovement((int)destination.x, (int)destination.y);
         }
         
-        public override void Spawn(GameEntityBaseStatus spawnData, Vector2 pos, Direction direction) {
+        public override void Spawn(GameEntityBaseStatus spawnData, int[] posDir, bool forceNorthDirection) {
             throw new NotImplementedException();
         }
 
@@ -67,6 +67,10 @@ namespace Heimdallr.Core.Game {
         public EntityType GetEntityType() => _Status.EntityType;
 
         public override void ChangeMotion(MotionRequest request) {
+            throw new NotImplementedException();
+        }
+
+        public override void ChangeDirection(Direction direction) {
             throw new NotImplementedException();
         }
 
