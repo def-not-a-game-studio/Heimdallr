@@ -124,7 +124,7 @@ namespace Core.Network {
             PlayerEntity.Init(new GameEntityBaseStatus() {
                 GID = NetworkClient.State.SelectedCharacter.GID,
                 HairStyle = NetworkClient.State.SelectedCharacter.Head,
-                IsMale = NetworkClient.State.SelectedCharacter.Sex == 0,
+                IsMale = NetworkClient.State.SelectedCharacter.Sex == 1,
                 HairColor = NetworkClient.State.SelectedCharacter
                     .HeadPalette,
                 Job = NetworkClient.State.SelectedCharacter.Job,
