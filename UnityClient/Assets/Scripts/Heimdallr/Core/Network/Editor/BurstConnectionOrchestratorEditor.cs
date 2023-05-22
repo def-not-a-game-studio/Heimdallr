@@ -9,10 +9,12 @@ namespace Core.Network {
         string command = "";
 
         public override void OnInspectorGUI() {
+            var component = (BurstConnectionOrchestrator)target;
+            base.OnInspectorGUI();
+            
             command = EditorGUILayout.TextField("Map command", command);
             if(GUILayout.Button("Send")) {
-                //var pkt = new CZ.REQUEST_CHAT(command);
-                //pkt.Send();
+                component.SendCommand(command);
             }
         }
     }

@@ -35,13 +35,15 @@ namespace Core.Network {
             Connect();
         }
 
-        public void Init(int charServerIndex,
+        public void Init(
+            int charServerIndex,
             int charIndex,
             string username,
             string password,
             string host,
             string forceMap,
-            CoreGameEntity playerEntity) {
+            CoreGameEntity playerEntity
+        ) {
             CharServerIndex = charServerIndex;
             CharIndex = charIndex;
             Username = username;
@@ -61,7 +63,9 @@ namespace Core.Network {
             new CA.LOGIN(username, password, 10, 10).Send();
         }
 
-        private async void ConnectToCharServer(AC.ACCEPT_LOGIN3 loginInfo, string charIp, CharServerInfo charServerInfo) {
+        private async void ConnectToCharServer(
+            AC.ACCEPT_LOGIN3 loginInfo, string charIp, CharServerInfo charServerInfo
+        ) {
             Debug.Log("Connecting to char server");
             await NetworkClient.ChangeServer(Host, charServerInfo.Port);
             NetworkClient.SkipBytes(4);
@@ -93,9 +97,9 @@ namespace Core.Network {
             // if no character available, create one
             if (pkt.Chars.Count == 0) {
                 new CH.MAKE_CHAR2 {
-                    Name = Convert.ToBase64String(Guid.NewGuid().ToByteArray())[..8],
-                    CharNum = 0
-                }.Send();
+                                      Name = Convert.ToBase64String(Guid.NewGuid().ToByteArray())[..8],
+                                      CharNum = 0
+                                  }.Send();
             } else {
                 NetworkClient.State.SelectedCharacter = pkt.Chars[CharIndex];
                 SelectCharacter(CharIndex);
@@ -105,35 +109,40 @@ namespace Core.Network {
         private async void OnMapServerLoginAccepted(ushort cmd, int size, ZC.ACCEPT_ENTER2 pkt) {
             Debug.Log("Map server response received");
             NetworkClient.PausePacketHandling();
-            
+
             var mapLoginInfo = new MapLoginInfo {
-                mapname = CurrentMapInfo.Mapname.Split('.')[0],
-                PosX = pkt.PosX,
-                PosY = pkt.PosY,
-                Dir = pkt.Dir
-            };
+                                                    mapname = CurrentMapInfo.Mapname.Split('.')[0],
+                                                    PosX = pkt.PosX,
+                                                    PosY = pkt.PosY,
+                                                    Dir = pkt.Dir
+                                                };
             NetworkClient.State.MapLoginInfo = mapLoginInfo;
             NetworkClient.StartHeatBeat();
-            
-            PlayerEntity.Init(new GameEntityBaseStatus() {
-                GID = NetworkClient.State.SelectedCharacter.GID,
-                HairStyle = NetworkClient.State.SelectedCharacter.Head,
-                IsMale = NetworkClient.State.SelectedCharacter.Sex == 0,
-                HairColor = NetworkClient.State.SelectedCharacter.HeadPalette,
-                Job = NetworkClient.State.SelectedCharacter.Job,
-                ClothesColor = NetworkClient.State.SelectedCharacter.BodyPalette,
-                MoveSpeed = NetworkClient.State.SelectedCharacter.Speed,
-                EntityType = EntityType.PC,
-                Name = NetworkClient.State.SelectedCharacter.Name,
-            });
 
-            SessionManager.StartSession(new NetworkEntity((int)EntityType.PC, PlayerEntity.Status.GID, NetworkClient.State.SelectedCharacter.Name),
-                NetworkClient.State.LoginInfo.AccountID);
-            
+            PlayerEntity.Init(new GameEntityBaseStatus() {
+                                                             GID = NetworkClient.State.SelectedCharacter.GID,
+                                                             HairStyle = NetworkClient.State.SelectedCharacter.Head,
+                                                             IsMale = NetworkClient.State.SelectedCharacter.Sex == 0,
+                                                             HairColor = NetworkClient.State.SelectedCharacter
+                                                                 .HeadPalette,
+                                                             Job = NetworkClient.State.SelectedCharacter.Job,
+                                                             ClothesColor = NetworkClient.State.SelectedCharacter
+                                                                 .BodyPalette,
+                                                             MoveSpeed = NetworkClient.State.SelectedCharacter.Speed,
+                                                             EntityType = EntityType.PC,
+                                                             Name = NetworkClient.State.SelectedCharacter.Name,
+                                                         });
+
+            SessionManager
+                .StartSession(new NetworkEntity((int)EntityType.PC, PlayerEntity.Status.GID, NetworkClient.State.SelectedCharacter.Name),
+                              NetworkClient.State.LoginInfo.AccountID);
+
             await SessionManager.SetCurrentMap(mapLoginInfo.mapname);
             PathFinder = FindObjectOfType<PathFinder>();
 
-            PlayerEntity.transform.SetPositionAndRotation(new Vector3(pkt.PosX, PathFinder.GetCellHeight(pkt.PosX, pkt.PosY), pkt.PosY), Quaternion.identity);
+            PlayerEntity.transform
+                        .SetPositionAndRotation(new Vector3(pkt.PosX, PathFinder.GetCellHeight(pkt.PosX, pkt.PosY), pkt.PosY),
+                                                Quaternion.identity);
             NetworkClient.ResumePacketHandling();
 
             if (mapLoginInfo.mapname != ForceMap) {
@@ -160,14 +169,19 @@ namespace Core.Network {
 
             var loginInfo = NetworkClient.State.LoginInfo;
             new CZ.ENTER2(loginInfo.AccountID, NetworkClient.State.SelectedCharacter.GID, loginInfo.LoginID1,
-                new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds(), loginInfo.Sex).Send();
+                          new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds(), loginInfo.Sex).Send();
         }
 
         private void OnEntityMoved(ushort cmd, int size, ZC.NPCACK_MAPMOVE pkt) {
-            PlayerEntity.transform.position = new Vector3(pkt.PosX, PathFinder.GetCellHeight(pkt.PosX, pkt.PosY), pkt.PosY);
+            PlayerEntity.transform.position =
+                new Vector3(pkt.PosX, PathFinder.GetCellHeight(pkt.PosX, pkt.PosY), pkt.PosY);
             new CZ.NOTIFY_ACTORINIT().Send();
         }
 
         #endregion
+
+        public void SendCommand(string command) {
+            new CZ.REQUEST_CHAT(SessionManager.CurrentSession.Entity.Name, command).Send();
+        }
     }
 }
