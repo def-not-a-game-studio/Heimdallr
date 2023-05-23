@@ -30,7 +30,6 @@ namespace Core.Network {
             NetworkClient.HookPacket<HC.NOTIFY_ZONESVR2>(HC.NOTIFY_ZONESVR2.HEADER, OnCharacterSelectionAccepted);
             NetworkClient.HookPacket<HC.ACCEPT_MAKECHAR>(HC.ACCEPT_MAKECHAR.HEADER, OnMakeCharAccepted);
             NetworkClient.HookPacket<ZC.ACCEPT_ENTER2>(ZC.ACCEPT_ENTER2.HEADER, OnMapServerLoginAccepted);
-            NetworkClient.HookPacket<ZC.NPCACK_MAPMOVE>(ZC.NPCACK_MAPMOVE.HEADER, OnEntityMoved);
 
             Connect();
         }
@@ -136,7 +135,7 @@ namespace Core.Network {
             });
 
             SessionManager
-                .StartSession(new NetworkEntity((int)EntityType.PC, PlayerEntity.Status.GID, NetworkClient.State.SelectedCharacter.Name),
+                .StartSession(PlayerEntity,
                     NetworkClient.State.LoginInfo.AccountID);
 
             await SessionManager.SetCurrentMap(mapLoginInfo.mapname);
@@ -174,22 +173,10 @@ namespace Core.Network {
             new CZ.ENTER2(loginInfo.AccountID, NetworkClient.State.SelectedCharacter.GID, loginInfo.LoginID1,
                 new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds(), loginInfo.Sex).Send();
         }
-
-        private void OnEntityMoved(ushort cmd, int size, ZC.NPCACK_MAPMOVE pkt) {
-            if (PathFinder == null) {
-                PathFinder = FindObjectOfType<PathFinder>();
-            }
-
-            var height = PathFinder?.GetCellHeight(pkt.PosX, pkt.PosY) ?? 0f;
-            PlayerEntity.transform.position =
-                new Vector3(pkt.PosX, height, pkt.PosY);
-            new CZ.NOTIFY_ACTORINIT().Send();
-        }
-
         #endregion
 
         public void SendCommand(string command) {
-            new CZ.REQUEST_CHAT(SessionManager.CurrentSession.Entity.Name, command).Send();
+            new CZ.REQUEST_CHAT(SessionManager.CurrentSession.Entity.GetEntityName(), command).Send();
         }
     }
 }

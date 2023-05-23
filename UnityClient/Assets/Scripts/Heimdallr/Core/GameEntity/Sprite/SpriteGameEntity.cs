@@ -25,7 +25,7 @@ namespace Heimdallr.Core.Game.Sprite {
 
         public override int HeadDirection { get; }
 
-        private GameEntityBaseStatus _Status;
+        [SerializeField] private GameEntityBaseStatus _Status;
 
         public override GameEntityBaseStatus Status => _Status;
 
@@ -36,7 +36,7 @@ namespace Heimdallr.Core.Game.Sprite {
         }
 
         public override bool HasAuthority() =>
-            GameManager.IsOffline || GetEntityGID() == SessionManager.CurrentSession.Entity?.GID;
+            GameManager.IsOffline || GetEntityGID() == SessionManager.CurrentSession.Entity?.GetEntityGID();
 
         public override int GetEntityGID() => _Status.GID;
 
@@ -64,7 +64,7 @@ namespace Heimdallr.Core.Game.Sprite {
         private void Start() {
             MovementController = gameObject.AddComponent<GameEntityMovementController>();
             MovementController.SetEntity(this);
-            
+
             if (_pendingMove != Vector4.zero) {
                 StartMoving((int)_pendingMove.x, (int)_pendingMove.y, (int)_pendingMove.z, (int)_pendingMove.w);
             }
@@ -80,15 +80,15 @@ namespace Heimdallr.Core.Game.Sprite {
 
         public override void Init(GameEntityBaseStatus gameEntityBaseStatus) {
             _Status = gameEntityBaseStatus;
-            
+
             var body = DatabaseManager.GetJobById(gameEntityBaseStatus.Job) as SpriteJob;
             var bodySprite = (gameEntityBaseStatus.EntityType != EntityType.PC || gameEntityBaseStatus.IsMale) ? body.Male : body.Female;
             SpriteViewer.Init(bodySprite, ViewerType.Body, this);
-            
+
             var head = DatabaseManager.GetHeadById(gameEntityBaseStatus.HairStyle);
             var headSprite = gameEntityBaseStatus.IsMale ? head.Male : head.Female;
             SpriteViewer.FindChild(ViewerType.Head)?.Init(headSprite, ViewerType.Head, this);
-            
+
             gameObject.SetActive(true);
         }
 
@@ -146,8 +146,7 @@ namespace Heimdallr.Core.Game.Sprite {
             MovementController.StartMoving(x, y, x1, y2, GameManager.Tick);
         }
 
-        public override void ManagedUpdate() {
-        }
+        public override void ManagedUpdate() { }
 
         private IEnumerator DestroyAfterSeconds(int seconds) {
             yield return new WaitForSeconds(seconds);

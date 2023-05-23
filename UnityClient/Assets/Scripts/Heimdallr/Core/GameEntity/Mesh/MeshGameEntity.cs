@@ -34,7 +34,7 @@ namespace Heimdallr.Core.Game {
         }
 
         public override bool HasAuthority() =>
-            GameManager.IsOffline || GetEntityGID() == SessionManager.CurrentSession.Entity?.GID;
+            GameManager.IsOffline || GetEntityGID() == SessionManager.CurrentSession.Entity?.GetEntityGID();
 
         public override int GetEntityGID() => _Status.GID;
         
