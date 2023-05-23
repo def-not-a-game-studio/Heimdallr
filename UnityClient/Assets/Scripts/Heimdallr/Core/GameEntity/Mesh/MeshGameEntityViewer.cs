@@ -7,6 +7,8 @@ using UnityRO.Core.Database;
 namespace Heimdallr.Core.Game {
     public class MeshGameEntityViewer : MonoBehaviour {
 
+        private DatabaseManager DatabaseManager;
+
         #region Components
         private MeshGameEntity meshGameEntity;
         private Animator Animator;
@@ -43,6 +45,7 @@ namespace Heimdallr.Core.Game {
         private void Awake() {
             meshGameEntity = GetComponentInParent<MeshGameEntity>();
             Animator = GetComponent<Animator>();
+            DatabaseManager = FindObjectOfType<DatabaseManager>();
         }
 
         private void Update() {
