@@ -10,7 +10,7 @@ using UnityRO.Net;
 
 namespace Heimdallr.Core.Game.Sprite {
     public class SpriteGameEntity : CoreSpriteGameEntity {
-        private const int VANISH_DESTROY_AFTER_SECONDS = 2;
+        private const float VANISH_DESTROY_AFTER_SECONDS = 0.4f;
 
         private SessionManager SessionManager;
         private PathFinder PathFinder;
@@ -52,12 +52,22 @@ namespace Heimdallr.Core.Game.Sprite {
         }
 
         public override void Vanish(VanishType vanishType) {
+            MovementController.StopMoving();
+
             switch (vanishType) {
                 case VanishType.DIED:
                     ChangeMotion(new MotionRequest { Motion = SpriteMotion.Dead });
-                    StartCoroutine(DestroyAfterSeconds(VANISH_DESTROY_AFTER_SECONDS));
+                    if (Status.EntityType != EntityType.PC) {
+                        SpriteViewer.FadeOut();
+                    }
+
+                    StartCoroutine(DestroyAfterSeconds(5));
+                    break;
+                case VanishType.OUT_OF_SIGHT:
+                    EntityManager.HideEntity((uint)Status.AID);
                     break;
                 case VanishType.LOGGED_OUT:
+                case VanishType.TELEPORT:
                     StartCoroutine(DestroyAfterSeconds(VANISH_DESTROY_AFTER_SECONDS));
                     break;
             }
@@ -87,8 +97,8 @@ namespace Heimdallr.Core.Game.Sprite {
 
             var body = DatabaseManager.GetJobById(gameEntityBaseStatus.Job) as SpriteJob;
             var bodySprite = (gameEntityBaseStatus.EntityType != EntityType.PC || gameEntityBaseStatus.IsMale)
-                                 ? body.Male
-                                 : body.Female;
+                ? body.Male
+                : body.Female;
             SpriteViewer.Init(bodySprite, ViewerType.Body, this);
 
             var head = DatabaseManager.GetHeadById(gameEntityBaseStatus.HairStyle);
@@ -150,7 +160,9 @@ namespace Heimdallr.Core.Game.Sprite {
         }
 
         private void StartMoving(
-            int x, int y, int x1,
+            int x,
+            int y,
+            int x1,
             int y2
         ) {
             MovementController.StartMoving(x, y, x1, y2, GameManager.Tick);
@@ -158,9 +170,9 @@ namespace Heimdallr.Core.Game.Sprite {
 
         public override void ManagedUpdate() { }
 
-        private IEnumerator DestroyAfterSeconds(int seconds) {
+        private IEnumerator DestroyAfterSeconds(float seconds) {
             yield return new WaitForSeconds(seconds);
-            EntityManager.RemoveEntity((uint)Status.AID);
+            EntityManager.HideEntity((uint)Status.AID);
         }
     }
 }
