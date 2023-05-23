@@ -15,6 +15,7 @@ namespace Heimdallr.Core.Game.Sprite {
         private SessionManager SessionManager;
         private PathFinder PathFinder;
         private EntityManager EntityManager;
+        private DatabaseManager DatabaseManager;
 
         [SerializeField] private SpriteViewer SpriteViewer;
         private GameEntityMovementController MovementController;
@@ -33,6 +34,7 @@ namespace Heimdallr.Core.Game.Sprite {
             SessionManager = FindObjectOfType<SessionManager>();
             PathFinder = FindObjectOfType<PathFinder>();
             EntityManager = FindObjectOfType<EntityManager>();
+            DatabaseManager = FindObjectOfType<DatabaseManager>();
         }
 
         public override bool HasAuthority() =>
@@ -64,7 +66,7 @@ namespace Heimdallr.Core.Game.Sprite {
         private void Start() {
             MovementController = gameObject.AddComponent<GameEntityMovementController>();
             MovementController.SetEntity(this);
-            
+
             if (_pendingMove != Vector4.zero) {
                 StartMoving((int)_pendingMove.x, (int)_pendingMove.y, (int)_pendingMove.z, (int)_pendingMove.w);
             }
@@ -79,23 +81,26 @@ namespace Heimdallr.Core.Game.Sprite {
         }
 
         public override void Init(GameEntityBaseStatus gameEntityBaseStatus) {
+            DatabaseManager = FindObjectOfType<DatabaseManager>();
+
             _Status = gameEntityBaseStatus;
-            
+
             var body = DatabaseManager.GetJobById(gameEntityBaseStatus.Job) as SpriteJob;
-            var bodySprite = (gameEntityBaseStatus.EntityType != EntityType.PC || gameEntityBaseStatus.IsMale) ? body.Male : body.Female;
+            var bodySprite = (gameEntityBaseStatus.EntityType != EntityType.PC || gameEntityBaseStatus.IsMale)
+                                 ? body.Male
+                                 : body.Female;
             SpriteViewer.Init(bodySprite, ViewerType.Body, this);
-            
+
             var head = DatabaseManager.GetHeadById(gameEntityBaseStatus.HairStyle);
             var headSprite = gameEntityBaseStatus.IsMale ? head.Male : head.Female;
             SpriteViewer.FindChild(ViewerType.Head)?.Init(headSprite, ViewerType.Head, this);
-            
+
             gameObject.SetActive(true);
         }
 
         public override void Spawn(GameEntityBaseStatus spawnData, int[] posDir, bool forceNorthDirection) {
-            if (PathFinder == null) {
-                PathFinder = FindObjectOfType<PathFinder>();
-            }
+            PathFinder = FindObjectOfType<PathFinder>();
+            DatabaseManager = FindObjectOfType<DatabaseManager>();
 
             _Status = spawnData;
 
@@ -104,10 +109,12 @@ namespace Heimdallr.Core.Game.Sprite {
 
             var pos = new Vector3(x, PathFinder.GetCellHeight(x, y), y);
             transform.position = pos;
-            if (posDir.Length == 3) { // standing/idle entry
+            if (posDir.Length == 3) {
+                // standing/idle entry
                 var npcDirection = (NpcDirection)posDir[2];
                 Direction = forceNorthDirection ? Direction.North : npcDirection.ToDirection();
-            } else if (posDir.Length == 5) { //moving entry
+            } else if (posDir.Length == 5) {
+                //moving entry
                 var x1 = posDir[2];
                 var y1 = posDir[3];
                 var npcDirection = (NpcDirection)posDir[4];
@@ -142,12 +149,14 @@ namespace Heimdallr.Core.Game.Sprite {
             gameObject.SetActive(true);
         }
 
-        private void StartMoving(int x, int y, int x1, int y2) {
+        private void StartMoving(
+            int x, int y, int x1,
+            int y2
+        ) {
             MovementController.StartMoving(x, y, x1, y2, GameManager.Tick);
         }
 
-        public override void ManagedUpdate() {
-        }
+        public override void ManagedUpdate() { }
 
         private IEnumerator DestroyAfterSeconds(int seconds) {
             yield return new WaitForSeconds(seconds);
