@@ -52,7 +52,7 @@ namespace Core.Network {
             PlayerEntity = playerEntity;
         }
 
-        private void Connect() {
+        public void Connect() {
             TryConnectAndLogin(Host, Username, Password);
         }
 

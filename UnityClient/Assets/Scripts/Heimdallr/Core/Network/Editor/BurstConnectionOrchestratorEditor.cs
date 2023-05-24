@@ -16,6 +16,10 @@ namespace Core.Network {
             if(GUILayout.Button("Send")) {
                 component.SendCommand(command);
             }
+            
+            if(GUILayout.Button("Connect")) {
+                component.Connect();
+            }
         }
     }
 }
