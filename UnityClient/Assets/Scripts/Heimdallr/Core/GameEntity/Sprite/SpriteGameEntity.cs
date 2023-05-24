@@ -73,6 +73,48 @@ namespace Heimdallr.Core.Game.Sprite {
             }
         }
 
+        public override void SetAttackSpeed(ushort actionRequestSourceSpeed) {
+            Status.AttackSpeed = actionRequestSourceSpeed;
+        }
+
+        public override void SetAction(ActionRequestType actionRequestAction) {
+            switch (actionRequestAction) {
+                case ActionRequestType.SIT:
+                    ChangeMotion(new MotionRequest { Motion = SpriteMotion.Sit });
+                    break;
+                case ActionRequestType.ATTACK:
+                    ChangeMotion(new MotionRequest { Motion = SpriteMotion.Attack, forced = true});
+                    break;
+                case ActionRequestType.ITEMPICKUP:
+                    ChangeMotion(new MotionRequest { Motion = SpriteMotion.PickUp });
+                    break;
+                case ActionRequestType.STAND:
+                    ChangeMotion(new MotionRequest { Motion = SpriteMotion.Idle });
+                    break;
+                case ActionRequestType.SKILL:
+                    ChangeMotion(new MotionRequest { Motion = SpriteMotion.Casting });
+                    break;
+                case ActionRequestType.SPLASH:
+                    break;
+                case ActionRequestType.ATTACK_NOMOTION:
+                    break;
+                case ActionRequestType.ATTACK_REPEAT:
+                    break;
+                case ActionRequestType.ATTACK_MULTIPLE:
+                    break;
+                case ActionRequestType.ATTACK_MULTIPLE_NOMOTION:
+                    break;
+                case ActionRequestType.ATTACK_CRITICAL:
+                    break;
+                case ActionRequestType.ATTACK_LUCKY:
+                    break;
+                case ActionRequestType.TOUCHSKILL:
+                    break;
+                default:
+                    break;
+            }
+        }
+
         private void Start() {
             MovementController = gameObject.AddComponent<GameEntityMovementController>();
             MovementController.SetEntity(this);

@@ -54,6 +54,14 @@ namespace Heimdallr.Core.Game {
         public override void Vanish(VanishType vanishType) {
             throw new NotImplementedException();
         }
+        
+        public override void SetAttackSpeed(ushort actionRequestSourceSpeed) {
+            Status.AttackSpeed = actionRequestSourceSpeed;
+        }
+
+        public override void SetAction(ActionRequestType actionRequestAction) {
+            throw new NotImplementedException();
+        }
 
         public override GameEntityBaseStatus Status => _Status;
 
