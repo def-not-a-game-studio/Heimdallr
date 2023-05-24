@@ -74,7 +74,7 @@ namespace Heimdallr.Core.Game {
         public string GetEntityName() => _Status.Name;
         public EntityType GetEntityType() => _Status.EntityType;
 
-        public override void ChangeMotion(MotionRequest request) {
+        public override void ChangeMotion(MotionRequest request, MotionRequest? nextRequest = null) {
             throw new NotImplementedException();
         }
 

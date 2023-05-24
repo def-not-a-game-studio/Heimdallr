@@ -82,8 +82,17 @@ namespace Heimdallr.Core.Game.Sprite {
                 case ActionRequestType.SIT:
                     ChangeMotion(new MotionRequest { Motion = SpriteMotion.Sit });
                     break;
+                case ActionRequestType.ATTACK_MULTIPLE_NOMOTION:
+                case ActionRequestType.ATTACK_MULTIPLE:
+                case ActionRequestType.ATTACK_NOMOTION:
+                case ActionRequestType.ATTACK_REPEAT:
+                case ActionRequestType.ATTACK_CRITICAL:
+                case ActionRequestType.ATTACK_LUCKY:
                 case ActionRequestType.ATTACK:
-                    ChangeMotion(new MotionRequest { Motion = SpriteMotion.Attack, forced = true});
+                    ChangeMotion(
+                        new MotionRequest { Motion = SpriteMotion.Attack1, forced = true },
+                        new MotionRequest { Motion = SpriteMotion.Standby }
+                    );
                     break;
                 case ActionRequestType.ITEMPICKUP:
                     ChangeMotion(new MotionRequest { Motion = SpriteMotion.PickUp });
@@ -95,18 +104,6 @@ namespace Heimdallr.Core.Game.Sprite {
                     ChangeMotion(new MotionRequest { Motion = SpriteMotion.Casting });
                     break;
                 case ActionRequestType.SPLASH:
-                    break;
-                case ActionRequestType.ATTACK_NOMOTION:
-                    break;
-                case ActionRequestType.ATTACK_REPEAT:
-                    break;
-                case ActionRequestType.ATTACK_MULTIPLE:
-                    break;
-                case ActionRequestType.ATTACK_MULTIPLE_NOMOTION:
-                    break;
-                case ActionRequestType.ATTACK_CRITICAL:
-                    break;
-                case ActionRequestType.ATTACK_LUCKY:
                     break;
                 case ActionRequestType.TOUCHSKILL:
                     break;
@@ -124,8 +121,8 @@ namespace Heimdallr.Core.Game.Sprite {
             }
         }
 
-        public override void ChangeMotion(MotionRequest request) {
-            SpriteViewer.ChangeMotion(request);
+        public override void ChangeMotion(MotionRequest request, MotionRequest? nextRequest = null) {
+            SpriteViewer.ChangeMotion(request, nextRequest);
         }
 
         public override void ChangeDirection(Direction direction) {

@@ -48,6 +48,7 @@ namespace Heimdallr.Core.Game.Controllers {
             } else {
                 NetworkClient.HookPacket<ZC.NOTIFY_MOVE>(ZC.NOTIFY_MOVE.HEADER, OnEntityMovement);
             }
+            NetworkClient.HookPacket<ZC.STOPMOVE>(ZC.STOPMOVE.HEADER, OnEntityStop);
 
             pathInfo ??= new CPathInfo();
         }
@@ -234,6 +235,11 @@ namespace Heimdallr.Core.Game.Controllers {
 
         private void OnPlayerMovement(ushort cmd, int size, ZC.NOTIFY_PLAYERMOVE packet) {
             StartMoving(packet.StartPosition[0], packet.StartPosition[1], packet.EndPosition[0], packet.EndPosition[1], GameManager.Tick);
+        }
+        
+        private void OnEntityStop(ushort cmd, int size, ZC.STOPMOVE packet) {
+            if (packet.AID != Entity.Status.AID) return;
+            StopMoving();
         }
     }
 }
