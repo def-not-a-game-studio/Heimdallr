@@ -90,7 +90,7 @@ namespace Heimdallr.Core.Game.Sprite {
                 case ActionRequestType.ATTACK_CRITICAL:
                 case ActionRequestType.ATTACK_LUCKY:
                 case ActionRequestType.ATTACK:
-                    
+
                     ChangeMotion(
                         new MotionRequest { Motion = SpriteMotion.Attack2, forced = true },
                         new MotionRequest { Motion = SpriteMotion.Standby }
@@ -201,12 +201,7 @@ namespace Heimdallr.Core.Game.Sprite {
             gameObject.SetActive(true);
         }
 
-        private void StartMoving(
-            int x,
-            int y,
-            int x1,
-            int y2
-        ) {
+        private void StartMoving(int x, int y, int x1, int y2) {
             MovementController.StartMoving(x, y, x1, y2, GameManager.Tick);
         }
 
