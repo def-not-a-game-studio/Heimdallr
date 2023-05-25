@@ -1,5 +1,4 @@
 ﻿using Core.Path;
-using Heimdallr.Core.Game.Sprite;
 using UnityEngine;
 using UnityRO.Core;
 using UnityRO.Core.GameEntity;
@@ -124,9 +123,7 @@ namespace Heimdallr.Core.Game.Controllers {
             var direction = PathFinder.GetDirectionForOffset(position, prevPos);
             if (this.direction != direction) {
                 this.direction = direction;
-                if (Entity is SpriteGameEntity spriteGameEntity) {
-                    spriteGameEntity.Direction = direction;
-                }
+                Entity.ChangeDirection(direction);
             }
         }
 

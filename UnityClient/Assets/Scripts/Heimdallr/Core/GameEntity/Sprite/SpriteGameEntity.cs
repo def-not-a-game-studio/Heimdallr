@@ -27,6 +27,7 @@ namespace Heimdallr.Core.Game.Sprite {
         public override int HeadDirection { get; }
 
         [SerializeField] private GameEntityBaseStatus _Status;
+        [SerializeField] private Direction EntityDirection;
 
         public override GameEntityBaseStatus Status => _Status;
 
@@ -89,8 +90,9 @@ namespace Heimdallr.Core.Game.Sprite {
                 case ActionRequestType.ATTACK_CRITICAL:
                 case ActionRequestType.ATTACK_LUCKY:
                 case ActionRequestType.ATTACK:
+                    
                     ChangeMotion(
-                        new MotionRequest { Motion = SpriteMotion.Attack1, forced = true },
+                        new MotionRequest { Motion = SpriteMotion.Attack2, forced = true },
                         new MotionRequest { Motion = SpriteMotion.Standby }
                     );
                     break;
@@ -127,6 +129,7 @@ namespace Heimdallr.Core.Game.Sprite {
 
         public override void ChangeDirection(Direction direction) {
             Direction = direction;
+            EntityDirection = Direction;
         }
 
         public override void Init(GameEntityBaseStatus gameEntityBaseStatus) {
