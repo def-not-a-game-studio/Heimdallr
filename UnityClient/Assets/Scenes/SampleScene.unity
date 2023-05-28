@@ -483,7 +483,7 @@ MonoBehaviour:
   MeshPlayerEntity: {fileID: 2001523935}
   DebugInfo: {fileID: 1486632010}
   CinemachineVirtualCamera: {fileID: 1546163645}
-  OrchestrateConnect: 1
+  OrchestrateConnect: 0
   CharServerIndex: 0
   CharIndex: 0
   Username: danilo3
@@ -494,7 +494,7 @@ MonoBehaviour:
     HairColor: 3
     ClothesColor: 0
     HairStyle: 0
-    Job: 0
+    Job: 3
     IsMale: 1
     EntityType: 3
     GID: 0
@@ -503,6 +503,9 @@ MonoBehaviour:
     Name: Entity
     MoveSpeed: 135
     AttackSpeed: 435
+    Weapon: 0
+    Shield: 0
+    attackMotion: 6
 --- !u!4 &1416319844
 Transform:
   m_ObjectHideFlags: 0
@@ -1777,6 +1780,10 @@ PrefabInstance:
     - target: {fileID: 8524416375214306454, guid: bd6cc631c52591f4a800966b78557382, type: 3}
       propertyPath: m_Name
       value: PC
+      objectReference: {fileID: 0}
+    - target: {fileID: 8524416375214306475, guid: bd6cc631c52591f4a800966b78557382, type: 3}
+      propertyPath: _Status.IsMale
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

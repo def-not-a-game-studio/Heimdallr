@@ -69,7 +69,7 @@ namespace Heimdallr.Core.Game.Sprite {
                     break;
                 case VanishType.LOGGED_OUT:
                 case VanishType.TELEPORT:
-                    StartCoroutine(DestroyAfterSeconds(VANISH_DESTROY_AFTER_SECONDS));
+                    EntityManager.DestroyEntity((uint)Status.AID);
                     break;
             }
         }
@@ -92,7 +92,7 @@ namespace Heimdallr.Core.Game.Sprite {
                 case ActionRequestType.ATTACK:
 
                     ChangeMotion(
-                        new MotionRequest { Motion = SpriteMotion.Attack2, forced = true },
+                        new MotionRequest { Motion = SpriteMotion.Attack, forced = true },
                         new MotionRequest { Motion = SpriteMotion.Standby }
                     );
                     break;
