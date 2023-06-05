@@ -59,12 +59,15 @@ namespace Heimdallr.Core.Game {
             Status.AttackSpeed = actionRequestSourceSpeed;
         }
 
-        public override void SetAction(ActionRequestType actionRequestAction) {
+        public override void SetAction(EntityActionRequest actionRequestAction, bool isSource) {
+            throw new NotImplementedException();
+        }
+
+        public override void LookTo(Vector3 position) {
             throw new NotImplementedException();
         }
 
         public override GameEntityBaseStatus Status => _Status;
-
 
         private void Start() {
             MovementController = gameObject.AddComponent<GameEntityMovementController>();

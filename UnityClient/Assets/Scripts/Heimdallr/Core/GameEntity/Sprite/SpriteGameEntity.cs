@@ -78,8 +78,8 @@ namespace Heimdallr.Core.Game.Sprite {
             Status.AttackSpeed = actionRequestSourceSpeed;
         }
 
-        public override void SetAction(ActionRequestType actionRequestAction) {
-            switch (actionRequestAction) {
+        public override void SetAction(EntityActionRequest actionRequest, bool isSource) {
+            switch (actionRequest.action) {
                 case ActionRequestType.SIT:
                     ChangeMotion(new MotionRequest { Motion = SpriteMotion.Sit });
                     break;
@@ -90,11 +90,7 @@ namespace Heimdallr.Core.Game.Sprite {
                 case ActionRequestType.ATTACK_CRITICAL:
                 case ActionRequestType.ATTACK_LUCKY:
                 case ActionRequestType.ATTACK:
-
-                    ChangeMotion(
-                        new MotionRequest { Motion = SpriteMotion.Attack, forced = true },
-                        new MotionRequest { Motion = SpriteMotion.Standby }
-                    );
+                    ProcessAttack(actionRequest, isSource);
                     break;
                 case ActionRequestType.ITEMPICKUP:
                     ChangeMotion(new MotionRequest { Motion = SpriteMotion.PickUp });
@@ -114,6 +110,28 @@ namespace Heimdallr.Core.Game.Sprite {
             }
         }
 
+        private void ProcessAttack(EntityActionRequest actionRequest, bool isSource) {
+            if (isSource) ProcessAttacker(actionRequest);
+            else ProcessAttacked(actionRequest);
+        }
+
+        private void ProcessAttacked(EntityActionRequest actionRequest) {
+            if (actionRequest.damage > 0 &&
+                actionRequest.action is not (ActionRequestType.ATTACK_MULTIPLE_NOMOTION or ActionRequestType.ATTACK_NOMOTION)) {
+                ChangeMotion(
+                    new MotionRequest { Motion = SpriteMotion.Hit, forced = true },
+                    new MotionRequest { Motion = SpriteMotion.Standby, delay = GameManager.Tick + actionRequest.sourceSpeed * 2 }
+                );
+            }
+        }
+
+        private void ProcessAttacker(EntityActionRequest actionRequest) {
+            ChangeMotion(
+                new MotionRequest { Motion = SpriteMotion.Attack, forced = true },
+                new MotionRequest { Motion = SpriteMotion.Standby, delay = GameManager.Tick + actionRequest.sourceSpeed }
+            );
+        }
+
         private void Start() {
             MovementController = gameObject.AddComponent<GameEntityMovementController>();
             MovementController.SetEntity(this);
@@ -125,6 +143,12 @@ namespace Heimdallr.Core.Game.Sprite {
 
         public override void ChangeMotion(MotionRequest request, MotionRequest? nextRequest = null) {
             SpriteViewer.ChangeMotion(request, nextRequest);
+        }
+
+        public override void LookTo(Vector3 position) {
+            var offset = new Vector2Int((int)position.x, (int)position.z) - new Vector2Int((int)transform.position.x, (int)transform.position.z);
+            Direction = PathFinder.GetDirectionForOffset(offset);
+            EntityDirection = Direction;
         }
 
         public override void ChangeDirection(Direction direction) {
