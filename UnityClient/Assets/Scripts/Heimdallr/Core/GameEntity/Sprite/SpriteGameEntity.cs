@@ -53,8 +53,6 @@ namespace Heimdallr.Core.Game.Sprite {
         }
 
         public override void Vanish(VanishType vanishType) {
-            MovementController.StopMoving();
-
             switch (vanishType) {
                 case VanishType.DIED:
                     ChangeMotion(new MotionRequest { Motion = SpriteMotion.Dead });
