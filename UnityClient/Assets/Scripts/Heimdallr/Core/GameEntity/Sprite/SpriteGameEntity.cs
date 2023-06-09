@@ -15,12 +15,13 @@ namespace Heimdallr.Core.Game.Sprite {
         private SessionManager SessionManager;
         private PathFinder PathFinder;
         private EntityManager EntityManager;
-        private DatabaseManager DatabaseManager;
+        private CustomDatabaseManager DatabaseManager;
 
         [SerializeField] private SpriteViewer SpriteViewer;
         private GameEntityMovementController MovementController;
 
         private Vector4 _pendingMove;
+        private SpawnData _spawnData;
 
         public override Direction Direction { get; set; }
 
@@ -31,12 +32,89 @@ namespace Heimdallr.Core.Game.Sprite {
 
         public override GameEntityBaseStatus Status => _Status;
 
+
+        #region Initialization
+
         private void Awake() {
             SessionManager = FindObjectOfType<SessionManager>();
             PathFinder = FindObjectOfType<PathFinder>();
             EntityManager = FindObjectOfType<EntityManager>();
-            DatabaseManager = FindObjectOfType<DatabaseManager>();
+            DatabaseManager = FindObjectOfType<CustomDatabaseManager>();
         }
+
+        private void Start() {
+            MovementController = gameObject.AddComponent<GameEntityMovementController>();
+            MovementController.SetEntity(this);
+
+            if (_pendingMove != Vector4.zero) {
+                StartMoving((int)_pendingMove.x, (int)_pendingMove.y, (int)_pendingMove.z, (int)_pendingMove.w);
+                _pendingMove = Vector4.zero;
+            }
+        }
+
+        private void HandleSpawnData() {
+            if (_spawnData == null) return;
+
+            var x = _spawnData.posDir[0];
+            var y = _spawnData.posDir[1];
+
+            var pos = new Vector3(x, PathFinder.GetCellHeight(x, y), y);
+            transform.position = pos;
+            if (_spawnData.posDir.Length == 3) {
+                // standing/idle entry
+                var npcDirection = (NpcDirection)_spawnData.posDir[2];
+                Direction = _spawnData.forceNorthDirection ? Direction.North : npcDirection.ToDirection();
+            } else if (_spawnData.posDir.Length == 5) {
+                //moving entry
+                var x1 = _spawnData.posDir[2];
+                var y1 = _spawnData.posDir[3];
+                var npcDirection = (NpcDirection)_spawnData.posDir[4];
+                Direction = npcDirection.ToDirection();
+                _pendingMove = new Vector4(x, y, x1, y1);
+            }
+
+            var body = DatabaseManager.GetJobById(_Status.Job) as SpriteJob;
+            var bodySprite = (_Status.EntityType != EntityType.PC || _Status.IsMale) ? body.Male : body.Female;
+            SpriteViewer.Init(bodySprite, ViewerType.Body, this);
+
+            if (_Status.EntityType == EntityType.PC) {
+                var head = DatabaseManager.GetHeadById(_Status.HairStyle);
+                var headSprite = _Status.IsMale ? head.Male : head.Female;
+
+                SpriteViewer.FindChild(ViewerType.Head)?.Init(headSprite, ViewerType.Head, this);
+            }
+
+            _spawnData = null;
+        }
+
+        public override void Init(GameEntityBaseStatus gameEntityBaseStatus) {
+            DatabaseManager = FindObjectOfType<CustomDatabaseManager>();
+
+            _Status = gameEntityBaseStatus;
+
+            var body = DatabaseManager.GetJobById(gameEntityBaseStatus.Job) as SpriteJob;
+            var bodySprite = (gameEntityBaseStatus.EntityType != EntityType.PC || gameEntityBaseStatus.IsMale)
+                ? body.Male
+                : body.Female;
+            SpriteViewer.Init(bodySprite, ViewerType.Body, this);
+
+            var head = DatabaseManager.GetHeadById(gameEntityBaseStatus.HairStyle);
+            var headSprite = gameEntityBaseStatus.IsMale ? head.Male : head.Female;
+            SpriteViewer.FindChild(ViewerType.Head)?.Init(headSprite, ViewerType.Head, this);
+
+            gameObject.SetActive(true);
+        }
+
+        public override void Spawn(GameEntityBaseStatus spawnData, int[] posDir, bool forceNorthDirection) {
+            _Status = spawnData;
+            _spawnData = new SpawnData {
+                posDir = posDir,
+                forceNorthDirection = forceNorthDirection
+            };
+            gameObject.SetActive(true);
+        }
+
+        #endregion
 
         public override bool HasAuthority() =>
             GameManager.IsOffline || GetEntityGID() == SessionManager.CurrentSession.Entity?.GetEntityGID();
@@ -53,17 +131,21 @@ namespace Heimdallr.Core.Game.Sprite {
         }
 
         public override void Vanish(VanishType vanishType) {
+            MovementController.StopMoving();
             switch (vanishType) {
                 case VanishType.DIED:
                     ChangeMotion(new MotionRequest { Motion = SpriteMotion.Dead });
+                    
                     if (Status.EntityType != EntityType.PC) {
-                        SpriteViewer.FadeOut();
+                        EntityManager.UnlinkEntity((uint)Status.AID);
+                        SpriteViewer.FadeOut(5f);
+                        StartCoroutine(DestroyAfterSeconds(5));
                     }
 
-                    StartCoroutine(DestroyAfterSeconds(5));
                     break;
                 case VanishType.OUT_OF_SIGHT:
-                    EntityManager.HideEntity((uint)Status.AID);
+                    EntityManager.UnlinkEntity((uint)Status.AID);
+                    StartCoroutine(HideAfterSeconds(2f));
                     break;
                 case VanishType.LOGGED_OUT:
                 case VanishType.TELEPORT:
@@ -130,15 +212,6 @@ namespace Heimdallr.Core.Game.Sprite {
             );
         }
 
-        private void Start() {
-            MovementController = gameObject.AddComponent<GameEntityMovementController>();
-            MovementController.SetEntity(this);
-
-            if (_pendingMove != Vector4.zero) {
-                StartMoving((int)_pendingMove.x, (int)_pendingMove.y, (int)_pendingMove.z, (int)_pendingMove.w);
-            }
-        }
-
         public override void ChangeMotion(MotionRequest request, MotionRequest? nextRequest = null) {
             SpriteViewer.ChangeMotion(request, nextRequest);
         }
@@ -154,84 +227,27 @@ namespace Heimdallr.Core.Game.Sprite {
             EntityDirection = Direction;
         }
 
-        public override void Init(GameEntityBaseStatus gameEntityBaseStatus) {
-            DatabaseManager = FindObjectOfType<DatabaseManager>();
-
-            _Status = gameEntityBaseStatus;
-
-            var body = DatabaseManager.GetJobById(gameEntityBaseStatus.Job) as SpriteJob;
-            var bodySprite = (gameEntityBaseStatus.EntityType != EntityType.PC || gameEntityBaseStatus.IsMale)
-                ? body.Male
-                : body.Female;
-            SpriteViewer.Init(bodySprite, ViewerType.Body, this);
-
-            var head = DatabaseManager.GetHeadById(gameEntityBaseStatus.HairStyle);
-            var headSprite = gameEntityBaseStatus.IsMale ? head.Male : head.Female;
-            SpriteViewer.FindChild(ViewerType.Head)?.Init(headSprite, ViewerType.Head, this);
-
-            gameObject.SetActive(true);
-        }
-
-        public override void Spawn(GameEntityBaseStatus spawnData, int[] posDir, bool forceNorthDirection) {
-            PathFinder = FindObjectOfType<PathFinder>();
-            DatabaseManager = FindObjectOfType<DatabaseManager>();
-
-            _Status = spawnData;
-
-            var x = posDir[0];
-            var y = posDir[1];
-
-            var pos = new Vector3(x, PathFinder.GetCellHeight(x, y), y);
-            transform.position = pos;
-            if (posDir.Length == 3) {
-                // standing/idle entry
-                var npcDirection = (NpcDirection)posDir[2];
-                Direction = forceNorthDirection ? Direction.North : npcDirection.ToDirection();
-            } else if (posDir.Length == 5) {
-                //moving entry
-                var x1 = posDir[2];
-                var y1 = posDir[3];
-                var npcDirection = (NpcDirection)posDir[4];
-                Direction = npcDirection.ToDirection();
-                _pendingMove = new Vector4(x, y, x1, y1);
-            }
-
-            var body = DatabaseManager.GetJobById(spawnData.Job) as SpriteJob;
-            var bodySprite = (spawnData.EntityType != EntityType.PC || spawnData.IsMale) ? body.Male : body.Female;
-
-            var bodyGO = new GameObject("Body");
-            var spriteViewer = bodyGO.AddComponent<SpriteViewer>();
-            SpriteViewer = spriteViewer;
-
-            bodyGO.transform.localPosition = new Vector3(0, 0.25f, 0);
-            bodyGO.transform.SetParent(transform, false);
-            spriteViewer.Init(bodySprite, ViewerType.Body, this);
-
-            if (spawnData.EntityType == EntityType.PC) {
-                var head = DatabaseManager.GetHeadById(spawnData.HairStyle);
-                var headSprite = spawnData.IsMale ? head.Male : head.Female;
-                var headGO = new GameObject("Head");
-
-                var headViewer = headGO.AddComponent<SpriteViewer>();
-                headGO.transform.SetParent(bodyGO.transform, false);
-                headViewer.Init(headSprite, ViewerType.Head, this);
-                headViewer.SetParent(spriteViewer);
-
-                spriteViewer.AddChildren(headViewer);
-            }
-
-            gameObject.SetActive(true);
-        }
-
         private void StartMoving(int x, int y, int x1, int y2) {
             MovementController.StartMoving(x, y, x1, y2, GameManager.Tick);
         }
 
-        public override void ManagedUpdate() { }
+        public override void ManagedUpdate() {
+            HandleSpawnData();
+        }
+
+        private IEnumerator HideAfterSeconds(float seconds) {
+            yield return SpriteViewer.FadeOutRenderer(0, seconds);
+            EntityManager.DestroyEntityObject(this);
+        }
 
         private IEnumerator DestroyAfterSeconds(float seconds) {
             yield return new WaitForSeconds(seconds);
-            EntityManager.HideEntity((uint)Status.AID);
+            EntityManager.DestroyEntityObject(this);
+        }
+
+        private class SpawnData {
+            public int[] posDir;
+            public bool forceNorthDirection;
         }
     }
 }

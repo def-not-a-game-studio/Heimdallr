@@ -7,7 +7,7 @@ using UnityRO.Core.Database;
 namespace Heimdallr.Core.Game {
     public class MeshGameEntityViewer : MonoBehaviour {
 
-        private DatabaseManager DatabaseManager;
+        private CustomDatabaseManager _customDatabaseManager;
 
         #region Components
         private MeshGameEntity meshGameEntity;
@@ -45,7 +45,7 @@ namespace Heimdallr.Core.Game {
         private void Awake() {
             meshGameEntity = GetComponentInParent<MeshGameEntity>();
             Animator = GetComponent<Animator>();
-            DatabaseManager = FindObjectOfType<DatabaseManager>();
+            _customDatabaseManager = FindObjectOfType<CustomDatabaseManager>();
         }
 
         private void Update() {
@@ -94,9 +94,9 @@ namespace Heimdallr.Core.Game {
         private void UpdateCustomizableData(GameEntityBaseStatus data) {
             GameEntityCustomizableData ??= new GameEntityCustomizableData {
                 // Eye = DatabaseManager.GetEyeById(data.Eye),
-                HeadFace = DatabaseManager.GetHeadFaceById(0),
-                Hair = DatabaseManager.GetHairById(data.HairStyle),
-                Job = DatabaseManager.GetJobById(data.Job) as MeshJob,
+                HeadFace = CustomDatabaseManager.GetHeadFaceById(0),
+                Hair = CustomDatabaseManager.GetHairById(data.HairStyle),
+                Job = _customDatabaseManager.GetJobById(data.Job) as MeshJob,
             };
 
             if(data.HairStyle != GameEntityData.HairStyle || Hair == null) {

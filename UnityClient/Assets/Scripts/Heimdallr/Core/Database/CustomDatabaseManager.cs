@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Heimdallr.Core.Database.Eye;
+﻿using Heimdallr.Core.Database.Eye;
 using Heimdallr.Core.Database.Hair;
 using Heimdallr.Core.Database.HeadFace;
 using UnityEngine;
@@ -9,9 +6,7 @@ using UnityRO.Core.Database;
 
 // Commenting for now, otherwise eye/job etc will error
 //namespace Heimdallr.Core.Database {
-public class DatabaseManager : MonoBehaviour {
-    [SerializeField] private JobDatabase JobDb;
-    [SerializeField] private SpriteHeadDatabase HeadDb;
+public class CustomDatabaseManager : DatabaseManager {
 
     private static EyeDatabase EyeDb;
     private static HeadFaceDatabase HeadFaceDb;
@@ -25,14 +20,6 @@ public class DatabaseManager : MonoBehaviour {
 
     public static Eye GetEyeById(int id) {
         return EyeDb.Human[id];
-    }
-
-    public Job GetJobById(int id) {
-        return JobDb.Values.FirstOrDefault(it => it.JobId == id) ?? throw new Exception($"Job not found {id}");
-    }
-
-    public SpriteHead GetHeadById(int id) {
-        return HeadDb.Values.FirstOrDefault(it => it.Id == id) ?? HeadDb.Values.First();
     }
 
     public static HeadFace GetHeadFaceById(int id) {

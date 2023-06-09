@@ -53,7 +53,12 @@ namespace Heimdallr.Core.Game.Controllers {
         }
 
         private void OnDestroy() {
-            NetworkClient.UnhookPacket<ZC.NOTIFY_PLAYERMOVE>(ZC.NOTIFY_PLAYERMOVE.HEADER, OnPlayerMovement);
+            if (Entity.HasAuthority()) {
+                NetworkClient.UnhookPacket<ZC.NOTIFY_PLAYERMOVE>(ZC.NOTIFY_PLAYERMOVE.HEADER, OnPlayerMovement); //Our movement
+            } else {
+                NetworkClient.UnhookPacket<ZC.NOTIFY_MOVE>(ZC.NOTIFY_MOVE.HEADER, OnEntityMovement);
+            }
+            NetworkClient.UnhookPacket<ZC.STOPMOVE>(ZC.STOPMOVE.HEADER, OnEntityStop);
         }
 
         public override void ManagedUpdate() {
@@ -236,7 +241,7 @@ namespace Heimdallr.Core.Game.Controllers {
         
         private void OnEntityStop(ushort cmd, int size, ZC.STOPMOVE packet) {
             if (packet.AID != Entity.Status.AID) return;
-            StopMoving();
+            StartMoving((int)transform.position.x, (int)transform.position.z, packet.PosX, packet.PosY, GameManager.Tick);
         }
     }
 }
