@@ -2,6 +2,7 @@ using System.Collections;
 using Core.Path;
 using Heimdallr.Core.Game.Controllers;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityRO.Core;
 using UnityRO.Core.Database;
 using UnityRO.Core.GameEntity;
@@ -10,7 +11,6 @@ using UnityRO.Net;
 
 namespace Heimdallr.Core.Game.Sprite {
     public class SpriteGameEntity : CoreSpriteGameEntity {
-        private const float VANISH_DESTROY_AFTER_SECONDS = 0.4f;
 
         private SessionManager SessionManager;
         private PathFinder PathFinder;
@@ -27,11 +27,12 @@ namespace Heimdallr.Core.Game.Sprite {
 
         public override int HeadDirection { get; }
 
-        [SerializeField] private GameEntityBaseStatus _Status;
+        [FormerlySerializedAs("_Status")] [SerializeField]
+        private GameEntityBaseStatus _status;
+
         [SerializeField] private Direction EntityDirection;
 
-        public override GameEntityBaseStatus Status => _Status;
-
+        public override GameEntityBaseStatus Status => _status;
 
         #region Initialization
 
@@ -43,17 +44,17 @@ namespace Heimdallr.Core.Game.Sprite {
         }
 
         private void Start() {
-            MovementController = gameObject.AddComponent<GameEntityMovementController>();
+            MovementController = gameObject.GetOrAddComponent<GameEntityMovementController>();
             MovementController.SetEntity(this);
-
-            if (_pendingMove != Vector4.zero) {
-                StartMoving((int)_pendingMove.x, (int)_pendingMove.y, (int)_pendingMove.z, (int)_pendingMove.w);
-                _pendingMove = Vector4.zero;
-            }
         }
 
         private void HandleSpawnData() {
             if (_spawnData == null) return;
+            if (MovementController == null) {
+                MovementController = gameObject.GetOrAddComponent<GameEntityMovementController>();
+            }
+
+            MovementController.SetEntity(this);
 
             var x = _spawnData.posDir[0];
             var y = _spawnData.posDir[1];
@@ -73,15 +74,20 @@ namespace Heimdallr.Core.Game.Sprite {
                 _pendingMove = new Vector4(x, y, x1, y1);
             }
 
-            var body = DatabaseManager.GetJobById(_Status.Job) as SpriteJob;
-            var bodySprite = (_Status.EntityType != EntityType.PC || _Status.IsMale) ? body.Male : body.Female;
+            var body = DatabaseManager.GetJobById(_status.Job) as SpriteJob;
+            var bodySprite = (_status.EntityType != EntityType.PC || _status.IsMale) ? body.Male : body.Female;
             SpriteViewer.Init(bodySprite, ViewerType.Body, this);
 
-            if (_Status.EntityType == EntityType.PC) {
-                var head = DatabaseManager.GetHeadById(_Status.HairStyle);
-                var headSprite = _Status.IsMale ? head.Male : head.Female;
+            if (_status.EntityType == EntityType.PC) {
+                var head = DatabaseManager.GetHeadById(_status.HairStyle);
+                var headSprite = _status.IsMale ? head.Male : head.Female;
 
                 SpriteViewer.FindChild(ViewerType.Head)?.Init(headSprite, ViewerType.Head, this);
+            }
+
+            if (_pendingMove != Vector4.zero) {
+                StartMoving((int)_pendingMove.x, (int)_pendingMove.y, (int)_pendingMove.z, (int)_pendingMove.w);
+                _pendingMove = Vector4.zero;
             }
 
             _spawnData = null;
@@ -90,12 +96,12 @@ namespace Heimdallr.Core.Game.Sprite {
         public override void Init(GameEntityBaseStatus gameEntityBaseStatus) {
             DatabaseManager = FindObjectOfType<CustomDatabaseManager>();
 
-            _Status = gameEntityBaseStatus;
+            _status = gameEntityBaseStatus;
 
             var body = DatabaseManager.GetJobById(gameEntityBaseStatus.Job) as SpriteJob;
             var bodySprite = (gameEntityBaseStatus.EntityType != EntityType.PC || gameEntityBaseStatus.IsMale)
-                ? body.Male
-                : body.Female;
+                                 ? body.Male
+                                 : body.Female;
             SpriteViewer.Init(bodySprite, ViewerType.Body, this);
 
             var head = DatabaseManager.GetHeadById(gameEntityBaseStatus.HairStyle);
@@ -105,8 +111,8 @@ namespace Heimdallr.Core.Game.Sprite {
             gameObject.SetActive(true);
         }
 
-        public override void Spawn(GameEntityBaseStatus spawnData, int[] posDir, bool forceNorthDirection) {
-            _Status = spawnData;
+        public override void Spawn(GameEntityBaseStatus status, int[] posDir, bool forceNorthDirection) {
+            _status = status;
             _spawnData = new SpawnData {
                 posDir = posDir,
                 forceNorthDirection = forceNorthDirection
@@ -119,7 +125,7 @@ namespace Heimdallr.Core.Game.Sprite {
         public override bool HasAuthority() =>
             GameManager.IsOffline || GetEntityGID() == SessionManager.CurrentSession.Entity?.GetEntityGID();
 
-        public override int GetEntityGID() => _Status.GID;
+        public override int GetEntityGID() => _status.GID;
 
         public override void RequestOffsetMovement(Vector2 destination) {
             var position = transform.position;
@@ -131,14 +137,18 @@ namespace Heimdallr.Core.Game.Sprite {
         }
 
         public override void Vanish(VanishType vanishType) {
+            if (MovementController == null) {
+                MovementController = gameObject.GetOrAddComponent<GameEntityMovementController>();
+            }
+            
             MovementController.StopMoving();
             switch (vanishType) {
                 case VanishType.DIED:
                     ChangeMotion(new MotionRequest { Motion = SpriteMotion.Dead });
-                    
+
                     if (Status.EntityType != EntityType.PC) {
                         EntityManager.UnlinkEntity((uint)Status.AID);
-                        SpriteViewer.FadeOut(5f);
+                        SpriteViewer.FadeOut(2f, 5f);
                         StartCoroutine(DestroyAfterSeconds(5));
                     }
 
@@ -237,12 +247,14 @@ namespace Heimdallr.Core.Game.Sprite {
 
         private IEnumerator HideAfterSeconds(float seconds) {
             yield return SpriteViewer.FadeOutRenderer(0, seconds);
-            EntityManager.DestroyEntityObject(this);
+            SpriteViewer.Teardown();
+            EntityManager.RecycleEntity(this);
         }
 
         private IEnumerator DestroyAfterSeconds(float seconds) {
             yield return new WaitForSeconds(seconds);
-            EntityManager.DestroyEntityObject(this);
+            SpriteViewer.Teardown();
+            EntityManager.RecycleEntity(this);
         }
 
         private class SpawnData {
