@@ -174,10 +174,38 @@ namespace Heimdallr.Core.Game.Sprite {
             request.completed += (op) => {
                 var emotionViewer = new GameObject("emotion").AddComponent<SpriteEffectViewer>();
                 emotionViewer.transform.SetParent(SpriteViewer.transform, false);
-                emotionViewer.transform.localPosition = new Vector3(0.5f, 2, 0.5f);
+                emotionViewer.transform.localPosition = new Vector3(0, 2, 0);
                 emotionViewer.Init(request.asset as SpriteData, ViewerType.Emotion, this);
                 emotionViewer.SetActionIndex(emotionIndex);
             };
+        }
+
+        public override void ChangeLook(LookType lookType, short packetValue, short packetValue2) {
+            switch (lookType) {
+                case LookType.LOOK_BASE:
+                    _status.Job = packetValue;
+                    var job = DatabaseManager.GetJobById(packetValue) as SpriteJob;
+                    SpriteViewer.Init((_status.EntityType != EntityType.PC || _status.IsMale) ? job.Male : job.Female,
+                                      ViewerType.Body, this);
+                    break;
+                case LookType.LOOK_HAIR:
+                    _status.HairStyle = packetValue;
+                    var head = DatabaseManager.GetHeadById(packetValue);
+                    SpriteViewer.FindChild(ViewerType.Head)
+                                ?.Init((_status.EntityType != EntityType.PC || _status.IsMale) ? head.Male : head.Female,
+                                       ViewerType.Head, this);
+                    break;
+                case LookType.LOOK_CLOTHES_COLOR:
+                    _status.ClothesColor = packetValue;
+                    SpriteViewer.UpdatePalette();
+                    break;
+                case LookType.LOOK_HAIR_COLOR:
+                    _status.HairColor = packetValue;
+                    SpriteViewer.FindChild(ViewerType.Head)?.UpdatePalette();
+                    break;
+                default:
+                    break;
+            }
         }
 
         public override void SetAction(EntityActionRequest actionRequest, bool isSource) {

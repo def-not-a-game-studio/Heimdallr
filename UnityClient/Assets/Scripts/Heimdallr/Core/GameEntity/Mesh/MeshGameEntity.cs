@@ -63,6 +63,10 @@ namespace Heimdallr.Core.Game {
             throw new NotImplementedException();
         }
 
+        public override void ChangeLook(LookType lookType, short packetValue, short packetValue2) {
+            throw new NotImplementedException();
+        }
+
         public override void SetAction(EntityActionRequest actionRequestAction, bool isSource) {
             throw new NotImplementedException();
         }
