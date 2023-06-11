@@ -9,6 +9,7 @@ namespace Core.Network {
         private NetworkClient NetworkClient;
         private PathFinder PathFinder;
         private SessionManager SessionManager;
+        private GameManager GameManager;
 
         private HC.NOTIFY_ZONESVR2 CurrentMapInfo;
 
@@ -24,6 +25,7 @@ namespace Core.Network {
             NetworkClient = FindObjectOfType<NetworkClient>();
             PathFinder = FindObjectOfType<PathFinder>();
             SessionManager = FindObjectOfType<SessionManager>();
+            GameManager = FindObjectOfType<GameManager>();
 
             NetworkClient.HookPacket<AC.ACCEPT_LOGIN3>(AC.ACCEPT_LOGIN3.HEADER, OnLoginResponse);
             NetworkClient.HookPacket<HC.ACCEPT_ENTER>(HC.ACCEPT_ENTER.HEADER, OnEnterResponse);
@@ -118,7 +120,7 @@ namespace Core.Network {
                 Dir = (int)((NpcDirection)pkt.Dir).ToDirection()
             };
             NetworkClient.State.MapLoginInfo = mapLoginInfo;
-            NetworkClient.StartHeatBeat();
+            GameManager.SetServerTick(pkt.Tick);
 
             PlayerEntity.Init(new GameEntityBaseStatus() {
                 GID = NetworkClient.State.SelectedCharacter.GID,
