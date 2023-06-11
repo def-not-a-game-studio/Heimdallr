@@ -62,7 +62,7 @@ namespace Heimdallr.Core.Game.Controllers {
         }
 
         public override void ManagedUpdate() {
-            ProcessInputAsync();
+            //ProcessInputAsync();
             ProcessState();
         }
 
@@ -194,40 +194,6 @@ namespace Heimdallr.Core.Game.Controllers {
             IsMovementFromClick = false;
             m_isNeverAnimation = true;
             Entity.ChangeMotion(new MotionRequest { Motion = SpriteMotion.Idle });
-        }
-
-        private void ProcessInputAsync() {
-            var direction = GetAxisDirection();
-
-            if (Input.GetKeyDown(KeyCode.Mouse0)) {
-                IsMovementFromClick = true;
-                var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-                if (Physics.Raycast(ray, out var hit, 500, GroundMask)) {
-                    RequestMovement(Mathf.FloorToInt(hit.point.x), Mathf.FloorToInt(hit.point.z));
-                }
-            } else if (direction != Vector3.zero) {
-                var currentX = direction.x < 0
-                    ? Mathf.FloorToInt(transform.position.x + direction.x)
-                    : Mathf.CeilToInt(transform.position.x + direction.x);
-                var currentZ = direction.z < 0
-                    ? Mathf.FloorToInt(transform.position.z + direction.z)
-                    : Mathf.CeilToInt(transform.position.z + direction.z);
-
-                var destX = currentX;
-                var destY = currentZ;
-                RequestMovement(destX, destY);
-            }
-        }
-
-        private Vector3Int GetAxisDirection() {
-            var horizontal = Input.GetAxis("Horizontal");
-            var vertical = Input.GetAxis("Vertical");
-
-            var x = horizontal != 0 ? Mathf.Max(horizontal, 2f) * Mathf.Sign(horizontal) : 0;
-            var y = vertical != 0 ? Mathf.Max(vertical, 2f) * Mathf.Sign(vertical) : 0;
-
-            return new Vector3Int((int)x, 0, (int)y);
         }
 
         private void OnEntityMovement(ushort cmd, int size, ZC.NOTIFY_MOVE packet) {

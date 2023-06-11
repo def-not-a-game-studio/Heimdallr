@@ -85,14 +85,15 @@ public class UtilsManager : MonoBehaviour {
         float fps = 1.0f / _deltaTime;
         DebugInfo.text = $"{Mathf.Ceil(fps)} FPS";
         
-        var horizontal = Input.GetAxis("Horizontal");
-        var vertical = Input.GetAxis("Vertical");
-
-        var x = horizontal != 0 ? Mathf.Max(horizontal, 2f) * Mathf.Sign(horizontal) : 0;
-        var y = vertical != 0 ? Mathf.Max(vertical, 2f) * Mathf.Sign(vertical) : 0;
-
-        DebugInfo.text += $"\nDirection: {new Vector3Int((int)x, 0, (int)y)}";
+        // var horizontal = Input.GetAxis("Horizontal");
+        // var vertical = Input.GetAxis("Vertical");
+        //
+        // var x = horizontal != 0 ? Mathf.Max(horizontal, 2f) * Mathf.Sign(horizontal) : 0;
+        // var y = vertical != 0 ? Mathf.Max(vertical, 2f) * Mathf.Sign(vertical) : 0;
+        //
+        // DebugInfo.text += $"\nDirection: {new Vector3Int((int)x, 0, (int)y)}";
 
         DebugInfo.text += $"\nTick: {GameManager.Tick}";
+        DebugInfo.text += $"\nPing: {GameManager.Ping} ms";
     }
 }
