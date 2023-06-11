@@ -59,6 +59,10 @@ namespace Heimdallr.Core.Game {
             Status.AttackSpeed = actionRequestSourceSpeed;
         }
 
+        public override void ShowEmotion(byte emotionType) {
+            throw new NotImplementedException();
+        }
+
         public override void SetAction(EntityActionRequest actionRequestAction, bool isSource) {
             throw new NotImplementedException();
         }

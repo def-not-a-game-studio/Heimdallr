@@ -5,13 +5,13 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityRO.Core;
 using UnityRO.Core.Database;
+using UnityRO.Core.Database.Emotion;
 using UnityRO.Core.GameEntity;
 using UnityRO.Core.Sprite;
 using UnityRO.Net;
 
 namespace Heimdallr.Core.Game.Sprite {
     public class SpriteGameEntity : CoreSpriteGameEntity {
-
         private SessionManager SessionManager;
         private PathFinder PathFinder;
         private EntityManager EntityManager;
@@ -114,9 +114,9 @@ namespace Heimdallr.Core.Game.Sprite {
         public override void Spawn(GameEntityBaseStatus status, int[] posDir, bool forceNorthDirection) {
             _status = status;
             _spawnData = new SpawnData {
-                posDir = posDir,
-                forceNorthDirection = forceNorthDirection
-            };
+                                           posDir = posDir,
+                                           forceNorthDirection = forceNorthDirection
+                                       };
             gameObject.SetActive(true);
         }
 
@@ -140,7 +140,7 @@ namespace Heimdallr.Core.Game.Sprite {
             if (MovementController == null) {
                 MovementController = gameObject.GetOrAddComponent<GameEntityMovementController>();
             }
-            
+
             MovementController.StopMoving();
             switch (vanishType) {
                 case VanishType.DIED:
@@ -166,6 +166,18 @@ namespace Heimdallr.Core.Game.Sprite {
 
         public override void SetAttackSpeed(ushort actionRequestSourceSpeed) {
             Status.AttackSpeed = actionRequestSourceSpeed;
+        }
+
+        public override void ShowEmotion(byte emotionType) {
+            var emotionIndex = DatabaseManager.GetEmotionIndex((EmotionType)emotionType);
+            var request = Resources.LoadAsync("Sprites/emotions");
+            request.completed += (op) => {
+                var emotionViewer = new GameObject("emotion").AddComponent<SpriteEffectViewer>();
+                emotionViewer.transform.SetParent(SpriteViewer.transform, false);
+                emotionViewer.transform.localPosition = new Vector3(0.5f, 2, 0.5f);
+                emotionViewer.Init(request.asset as SpriteData, ViewerType.Emotion, this);
+                emotionViewer.SetActionIndex(emotionIndex);
+            };
         }
 
         public override void SetAction(EntityActionRequest actionRequest, bool isSource) {
@@ -207,19 +219,22 @@ namespace Heimdallr.Core.Game.Sprite {
 
         private void ProcessAttacked(EntityActionRequest actionRequest) {
             if (actionRequest.damage > 0 &&
-                actionRequest.action is not (ActionRequestType.ATTACK_MULTIPLE_NOMOTION or ActionRequestType.ATTACK_NOMOTION)) {
+                actionRequest.action is not (ActionRequestType.ATTACK_MULTIPLE_NOMOTION
+                    or ActionRequestType.ATTACK_NOMOTION)) {
                 ChangeMotion(
-                    new MotionRequest { Motion = SpriteMotion.Hit, forced = true },
-                    new MotionRequest { Motion = SpriteMotion.Standby, delay = GameManager.Tick + actionRequest.sourceSpeed * 2 }
-                );
+                             new MotionRequest { Motion = SpriteMotion.Hit, forced = true },
+                             new MotionRequest
+                             { Motion = SpriteMotion.Standby, delay = GameManager.Tick + actionRequest.sourceSpeed * 2 }
+                            );
             }
         }
 
         private void ProcessAttacker(EntityActionRequest actionRequest) {
             ChangeMotion(
-                new MotionRequest { Motion = SpriteMotion.Attack, forced = true },
-                new MotionRequest { Motion = SpriteMotion.Standby, delay = GameManager.Tick + actionRequest.sourceSpeed }
-            );
+                         new MotionRequest { Motion = SpriteMotion.Attack, forced = true },
+                         new MotionRequest
+                         { Motion = SpriteMotion.Standby, delay = GameManager.Tick + actionRequest.sourceSpeed }
+                        );
         }
 
         public override void ChangeMotion(MotionRequest request, MotionRequest? nextRequest = null) {
@@ -227,7 +242,8 @@ namespace Heimdallr.Core.Game.Sprite {
         }
 
         public override void LookTo(Vector3 position) {
-            var offset = new Vector2Int((int)position.x, (int)position.z) - new Vector2Int((int)transform.position.x, (int)transform.position.z);
+            var offset = new Vector2Int((int)position.x, (int)position.z) -
+                         new Vector2Int((int)transform.position.x, (int)transform.position.z);
             Direction = PathFinder.GetDirectionForOffset(offset);
             EntityDirection = Direction;
         }
@@ -237,7 +253,10 @@ namespace Heimdallr.Core.Game.Sprite {
             EntityDirection = Direction;
         }
 
-        private void StartMoving(int x, int y, int x1, int y2) {
+        private void StartMoving(
+            int x, int y, int x1,
+            int y2
+        ) {
             MovementController.StartMoving(x, y, x1, y2, GameManager.Tick);
         }
 
