@@ -120,6 +120,11 @@ namespace Heimdallr.Core.Game.Sprite {
             gameObject.SetActive(true);
         }
 
+        public override void UpdateStatus(GameEntityBaseStatus status) {
+            _status = status;
+            gameObject.SetActive(true);
+        }
+
         #endregion
 
         public override bool HasAuthority() =>

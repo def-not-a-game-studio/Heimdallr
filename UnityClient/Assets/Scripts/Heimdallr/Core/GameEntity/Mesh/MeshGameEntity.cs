@@ -67,6 +67,10 @@ namespace Heimdallr.Core.Game {
             throw new NotImplementedException();
         }
 
+        public override void UpdateStatus(GameEntityBaseStatus getBaseStatus) {
+            throw new NotImplementedException();
+        }
+
         public override void SetAction(EntityActionRequest actionRequestAction, bool isSource) {
             throw new NotImplementedException();
         }
