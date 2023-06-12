@@ -1,4 +1,6 @@
 using System.Collections;
+using Core.Effects;
+using Core.Effects.EffectParts;
 using Core.Path;
 using Heimdallr.Core.Game.Controllers;
 using UnityEngine;
@@ -18,6 +20,7 @@ namespace Heimdallr.Core.Game.Sprite {
         private CustomDatabaseManager DatabaseManager;
 
         [SerializeField] private SpriteViewer SpriteViewer;
+        private EffectRenderer EffectRenderer;
         private GameEntityMovementController MovementController;
 
         private Vector4 _pendingMove;
@@ -50,17 +53,33 @@ namespace Heimdallr.Core.Game.Sprite {
 
         private void HandleSpawnData() {
             if (_spawnData == null) return;
-            if (MovementController == null) {
-                MovementController = gameObject.GetOrAddComponent<GameEntityMovementController>();
-            }
-
-            MovementController.SetEntity(this);
 
             var x = _spawnData.posDir[0];
             var y = _spawnData.posDir[1];
 
             var pos = new Vector3(x, PathFinder.GetCellHeight(x, y), y);
             transform.position = pos;
+
+            if ((JobType)_status.Job == JobType.JT_WARPNPC) {
+                SpriteViewer.gameObject.SetActive(false);
+                EffectRenderer = new GameObject("Renderer").AddComponent<EffectRenderer>();
+                EffectRenderer.transform.SetParent(gameObject.transform, false);
+                EffectRenderer.transform.localPosition = new Vector3(0.5f, 0, 0.5f);
+                var resourceRequest = Resources.LoadAsync<Effect>("Database/Effects/WarpZone2");
+                resourceRequest.completed += (op) => {
+                    EffectRenderer.Effect = resourceRequest.asset as Effect;
+                    EffectRenderer.InitEffects();
+                };
+                _spawnData = null;
+                return;
+            }
+
+            if (MovementController == null) {
+                MovementController = gameObject.GetOrAddComponent<GameEntityMovementController>();
+            }
+
+            MovementController.SetEntity(this);
+
             if (_spawnData.posDir.Length == 3) {
                 // standing/idle entry
                 var npcDirection = (NpcDirection)_spawnData.posDir[2];
@@ -118,6 +137,7 @@ namespace Heimdallr.Core.Game.Sprite {
                                            forceNorthDirection = forceNorthDirection
                                        };
             gameObject.SetActive(true);
+            SpriteViewer.gameObject.SetActive(true);
         }
 
         public override void UpdateStatus(GameEntityBaseStatus status) {
@@ -159,6 +179,10 @@ namespace Heimdallr.Core.Game.Sprite {
 
                     break;
                 case VanishType.OUT_OF_SIGHT:
+                    if (EffectRenderer != null) {
+                        EffectRenderer.Vanish();
+                        EffectRenderer = null;
+                    }
                     EntityManager.UnlinkEntity((uint)Status.AID);
                     StartCoroutine(HideAfterSeconds(2f));
                     break;
