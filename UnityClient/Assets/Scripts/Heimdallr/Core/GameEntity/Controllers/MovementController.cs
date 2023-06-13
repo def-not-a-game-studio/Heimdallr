@@ -191,6 +191,8 @@ namespace Heimdallr.Core.Game.Controllers {
         /// Clear the path finder nodes and set state back to Wait
         /// </summary>
         public void StopMoving() {
+            if (!IsWalking) return;
+            
             IsWalking = false;
             IsMovementFromClick = false;
             m_isNeverAnimation = true;
@@ -207,7 +209,7 @@ namespace Heimdallr.Core.Game.Controllers {
         }
         
         private void OnEntityStop(ushort cmd, int size, ZC.STOPMOVE packet) {
-            if (packet.AID != Entity.Status.AID) return;
+            if (packet.AID != Entity.Status.AID || packet.AID != Entity.Status.GID) return;
             StartMoving((int)transform.position.x, (int)transform.position.z, packet.PosX, packet.PosY, GameManager.Tick);
         }
         

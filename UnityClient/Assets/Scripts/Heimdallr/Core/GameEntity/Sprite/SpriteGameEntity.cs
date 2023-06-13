@@ -38,7 +38,6 @@ namespace Heimdallr.Core.Game.Sprite {
         public override GameEntityBaseStatus Status => _status;
 
         #region Initialization
-
         private void Awake() {
             SessionManager = FindObjectOfType<SessionManager>();
             PathFinder = FindObjectOfType<PathFinder>();
@@ -63,6 +62,7 @@ namespace Heimdallr.Core.Game.Sprite {
             if ((JobType)_status.Job == JobType.JT_WARPNPC) {
                 SpriteViewer.gameObject.SetActive(false);
                 EffectRenderer = new GameObject("Renderer").AddComponent<EffectRenderer>();
+                EffectRenderer.gameObject.layer = LayerMask.NameToLayer("Portal");
                 EffectRenderer.transform.SetParent(gameObject.transform, false);
                 EffectRenderer.transform.localPosition = new Vector3(0.5f, 0, 0.5f);
                 var resourceRequest = Resources.LoadAsync<Effect>("Database/Effects/WarpZone2");
@@ -72,6 +72,23 @@ namespace Heimdallr.Core.Game.Sprite {
                 };
                 _spawnData = null;
                 return;
+            } else {
+                switch (_status.EntityType) {
+                    case EntityType.MOB:
+                        SpriteViewer.gameObject.layer = LayerMask.NameToLayer("Monster");
+                        break;
+                    case EntityType.NPC:
+                        SpriteViewer.gameObject.layer = LayerMask.NameToLayer("NPC");
+                        break;
+                    case EntityType.PC:
+                        SpriteViewer.gameObject.layer = LayerMask.NameToLayer("Player");
+                        break;
+                    case EntityType.ITEM:
+                        SpriteViewer.gameObject.layer = LayerMask.NameToLayer("Item");
+                        break;
+                    default:
+                        break;
+                }
             }
 
             if (MovementController == null) {
@@ -101,7 +118,10 @@ namespace Heimdallr.Core.Game.Sprite {
                 var head = DatabaseManager.GetHeadById(_status.HairStyle);
                 var headSprite = _status.IsMale ? head.Male : head.Female;
 
-                SpriteViewer.FindChild(ViewerType.Head)?.Init(headSprite, ViewerType.Head, this);
+                var headViewer = SpriteViewer.FindChild(ViewerType.Head);
+                if (headViewer == null) return;
+                headViewer.Init(headSprite, ViewerType.Head, this);
+                headViewer.gameObject.layer = LayerMask.NameToLayer("Player");
             }
 
             if (_pendingMove != Vector4.zero) {
@@ -119,8 +139,8 @@ namespace Heimdallr.Core.Game.Sprite {
 
             var body = DatabaseManager.GetJobById(gameEntityBaseStatus.Job) as SpriteJob;
             var bodySprite = (gameEntityBaseStatus.EntityType != EntityType.PC || gameEntityBaseStatus.IsMale)
-                                 ? body.Male
-                                 : body.Female;
+                ? body.Male
+                : body.Female;
             SpriteViewer.Init(bodySprite, ViewerType.Body, this);
 
             var head = DatabaseManager.GetHeadById(gameEntityBaseStatus.HairStyle);
@@ -133,9 +153,9 @@ namespace Heimdallr.Core.Game.Sprite {
         public override void Spawn(GameEntityBaseStatus status, int[] posDir, bool forceNorthDirection) {
             _status = status;
             _spawnData = new SpawnData {
-                                           posDir = posDir,
-                                           forceNorthDirection = forceNorthDirection
-                                       };
+                posDir = posDir,
+                forceNorthDirection = forceNorthDirection
+            };
             gameObject.SetActive(true);
             SpriteViewer.gameObject.SetActive(true);
         }
@@ -144,7 +164,6 @@ namespace Heimdallr.Core.Game.Sprite {
             _status = status;
             gameObject.SetActive(true);
         }
-
         #endregion
 
         public override bool HasAuthority() =>
@@ -183,6 +202,7 @@ namespace Heimdallr.Core.Game.Sprite {
                         EffectRenderer.Vanish();
                         EffectRenderer = null;
                     }
+
                     EntityManager.UnlinkEntity((uint)Status.AID);
                     StartCoroutine(HideAfterSeconds(2f));
                     break;
@@ -195,6 +215,10 @@ namespace Heimdallr.Core.Game.Sprite {
 
         public override void SetAttackSpeed(ushort actionRequestSourceSpeed) {
             Status.AttackSpeed = actionRequestSourceSpeed;
+        }
+
+        public override void SetAttackedSpeed(ushort actionRequestTargetSpeed) {
+            Status.AttackedSpeed = actionRequestTargetSpeed;
         }
 
         public override void ShowEmotion(byte emotionType) {
@@ -215,14 +239,14 @@ namespace Heimdallr.Core.Game.Sprite {
                     _status.Job = packetValue;
                     var job = DatabaseManager.GetJobById(packetValue) as SpriteJob;
                     SpriteViewer.Init((_status.EntityType != EntityType.PC || _status.IsMale) ? job.Male : job.Female,
-                                      ViewerType.Body, this);
+                        ViewerType.Body, this);
                     break;
                 case LookType.LOOK_HAIR:
                     _status.HairStyle = packetValue;
                     var head = DatabaseManager.GetHeadById(packetValue);
                     SpriteViewer.FindChild(ViewerType.Head)
-                                ?.Init((_status.EntityType != EntityType.PC || _status.IsMale) ? head.Male : head.Female,
-                                       ViewerType.Head, this);
+                        ?.Init((_status.EntityType != EntityType.PC || _status.IsMale) ? head.Male : head.Female,
+                            ViewerType.Head, this);
                     break;
                 case LookType.LOOK_CLOTHES_COLOR:
                     _status.ClothesColor = packetValue;
@@ -237,7 +261,7 @@ namespace Heimdallr.Core.Game.Sprite {
             }
         }
 
-        public override void SetAction(EntityActionRequest actionRequest, bool isSource) {
+        public override void SetAction(EntityActionRequest actionRequest, bool isSource, float delay = 0f) {
             switch (actionRequest.action) {
                 case ActionRequestType.SIT:
                     ChangeMotion(new MotionRequest { Motion = SpriteMotion.Sit });
@@ -249,7 +273,7 @@ namespace Heimdallr.Core.Game.Sprite {
                 case ActionRequestType.ATTACK_CRITICAL:
                 case ActionRequestType.ATTACK_LUCKY:
                 case ActionRequestType.ATTACK:
-                    ProcessAttack(actionRequest, isSource);
+                    ProcessAttack(actionRequest, isSource, delay);
                     break;
                 case ActionRequestType.ITEMPICKUP:
                     ChangeMotion(new MotionRequest { Motion = SpriteMotion.PickUp });
@@ -269,29 +293,46 @@ namespace Heimdallr.Core.Game.Sprite {
             }
         }
 
-        private void ProcessAttack(EntityActionRequest actionRequest, bool isSource) {
-            if (isSource) ProcessAttacker(actionRequest);
-            else ProcessAttacked(actionRequest);
+        public override float GetActionDelay(EntityActionRequest actionRequest) {
+            switch (actionRequest.action) {
+                case ActionRequestType.ATTACK_MULTIPLE_NOMOTION:
+                case ActionRequestType.ATTACK_MULTIPLE:
+                case ActionRequestType.ATTACK_NOMOTION:
+                case ActionRequestType.ATTACK_REPEAT:
+                case ActionRequestType.ATTACK_CRITICAL:
+                case ActionRequestType.ATTACK_LUCKY:
+                case ActionRequestType.ATTACK:
+                    return SpriteViewer.GetAttackDelay();
+                default:
+                    return SpriteViewer.GetDelay();
+            }
         }
 
-        private void ProcessAttacked(EntityActionRequest actionRequest) {
+        private void ProcessAttack(EntityActionRequest actionRequest, bool isSource, float delay) {
+            if (isSource) ProcessAttacker(actionRequest);
+            else ProcessAttacked(actionRequest, delay);
+        }
+
+        private void ProcessAttacked(EntityActionRequest actionRequest, float delay) {
             if (actionRequest.damage > 0 &&
-                actionRequest.action is not (ActionRequestType.ATTACK_MULTIPLE_NOMOTION
-                    or ActionRequestType.ATTACK_NOMOTION)) {
+                actionRequest.action is not (ActionRequestType.ATTACK_MULTIPLE_NOMOTION or ActionRequestType.ATTACK_NOMOTION)) {
+                MovementController.StopMoving();
                 ChangeMotion(
-                             new MotionRequest { Motion = SpriteMotion.Hit, forced = true },
-                             new MotionRequest
-                             { Motion = SpriteMotion.Standby, delay = GameManager.Tick + actionRequest.sourceSpeed * 2 }
-                            );
+                    new MotionRequest {
+                        Motion = SpriteMotion.Hit,
+                        forced = true,
+                        delay = delay
+                    },
+                    new MotionRequest { Motion = Status.EntityType == EntityType.PC ? SpriteMotion.Standby : SpriteMotion.Idle }
+                );
             }
         }
 
         private void ProcessAttacker(EntityActionRequest actionRequest) {
             ChangeMotion(
-                         new MotionRequest { Motion = SpriteMotion.Attack, forced = true },
-                         new MotionRequest
-                         { Motion = SpriteMotion.Standby, delay = GameManager.Tick + actionRequest.sourceSpeed }
-                        );
+                new MotionRequest { Motion = SpriteMotion.Attack, forced = true },
+                new MotionRequest { Motion = Status.EntityType == EntityType.PC ? SpriteMotion.Standby : SpriteMotion.Idle }
+            );
         }
 
         public override void ChangeMotion(MotionRequest request, MotionRequest? nextRequest = null) {
@@ -315,6 +356,21 @@ namespace Heimdallr.Core.Game.Sprite {
             int y2
         ) {
             MovementController.StartMoving(x, y, x1, y2, GameManager.Tick);
+        }
+
+        public override void RequestAction(CoreGameEntity target) {
+            var actionPacket = new CZ.REQUEST_ACT2 {
+                TargetID = (uint)target.GetEntityAID(),
+                action = EntityActionType.CONTINUOUS_ATTACK
+            };
+            actionPacket.Send();
+        }
+
+        public override void TalkToNpc(CoreSpriteGameEntity target) {
+            new CZ.CONTACTNPC {
+                NAID = (uint)target.GetEntityAID(),
+                Type = 1
+            }.Send();
         }
 
         public override void ManagedUpdate() {

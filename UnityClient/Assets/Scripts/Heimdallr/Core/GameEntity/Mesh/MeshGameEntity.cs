@@ -54,7 +54,21 @@ namespace Heimdallr.Core.Game {
         public override void Vanish(VanishType vanishType) {
             throw new NotImplementedException();
         }
-        
+
+        public override float GetActionDelay(EntityActionRequest actionRequest) {
+            throw new NotImplementedException();
+        }
+
+        public override void RequestAction(CoreGameEntity target) {
+            throw new NotImplementedException();
+        }
+        public override void TalkToNpc(CoreSpriteGameEntity target) {
+            throw new NotImplementedException();
+        }
+        public override void SetAttackedSpeed(ushort actionRequestTargetSpeed) {
+            throw new NotImplementedException();
+        }
+
         public override void SetAttackSpeed(ushort actionRequestSourceSpeed) {
             Status.AttackSpeed = actionRequestSourceSpeed;
         }
@@ -71,7 +85,7 @@ namespace Heimdallr.Core.Game {
             throw new NotImplementedException();
         }
 
-        public override void SetAction(EntityActionRequest actionRequestAction, bool isSource) {
+        public override void SetAction(EntityActionRequest actionRequestAction, bool isSource, float delay = 0f) {
             throw new NotImplementedException();
         }
 

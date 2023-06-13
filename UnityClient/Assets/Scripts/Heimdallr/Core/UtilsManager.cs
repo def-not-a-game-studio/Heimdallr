@@ -1,4 +1,6 @@
+using System;
 using Cinemachine;
+using Core.Input;
 using Core.Network;
 using Heimdallr.Core.Game;
 using Heimdallr.Core.Game.Sprite;
@@ -6,6 +8,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityRO.Core.GameEntity;
+using UnityRO.Net;
 
 [RequireComponent(typeof(NetworkClient), typeof(ThreadManager))]
 public class UtilsManager : MonoBehaviour {
@@ -17,9 +20,11 @@ public class UtilsManager : MonoBehaviour {
     [SerializeField] private MeshGameEntity MeshPlayerEntity;
 
     private GameManager GameManager;
-
-
+    private PlayerInputController InputController;
+    private SessionManager SessionManager;
+    
     [SerializeField] private TextMeshProUGUI DebugInfo;
+    [SerializeField] private TMP_InputField InputField;
     private float _deltaTime;
 
     [Header(":: Test Server Only")] [SerializeField]
@@ -51,6 +56,16 @@ public class UtilsManager : MonoBehaviour {
 
     private void Awake() {
         GameManager = FindObjectOfType<GameManager>();
+        InputController = FindObjectOfType<PlayerInputController>();
+        SessionManager = FindObjectOfType<SessionManager>();
+    }
+
+    public void OnEnterPressed(string o) {
+        var text = InputField.text;
+        if (text.Length > 0) {
+            new CZ.REQUEST_CHAT(SessionManager.CurrentSession.Entity.GetEntityName(), text).Send();
+            InputField.text = "";
+        }
     }
 
     private void Start() {
