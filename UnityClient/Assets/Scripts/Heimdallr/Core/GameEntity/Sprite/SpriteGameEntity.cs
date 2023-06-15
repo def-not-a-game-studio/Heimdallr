@@ -321,7 +321,7 @@ namespace Heimdallr.Core.Game.Sprite {
                     new MotionRequest {
                         Motion = SpriteMotion.Hit,
                         forced = true,
-                        delay = delay
+                        startTime = delay
                     },
                     new MotionRequest { Motion = Status.EntityType == EntityType.PC ? SpriteMotion.Standby : SpriteMotion.Idle }
                 );
