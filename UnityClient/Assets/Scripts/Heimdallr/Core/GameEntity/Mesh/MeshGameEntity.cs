@@ -85,7 +85,7 @@ namespace Heimdallr.Core.Game {
             throw new NotImplementedException();
         }
 
-        public override void SetAction(EntityActionRequest actionRequestAction, bool isSource, float delay = 0f) {
+        public override void SetAction(EntityActionRequest actionRequestAction, bool isSource, long delay = 0) {
             throw new NotImplementedException();
         }
 

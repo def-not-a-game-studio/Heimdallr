@@ -261,7 +261,7 @@ namespace Heimdallr.Core.Game.Sprite {
             }
         }
 
-        public override void SetAction(EntityActionRequest actionRequest, bool isSource, float delay = 0f) {
+        public override void SetAction(EntityActionRequest actionRequest, bool isSource, long delay = 0) {
             switch (actionRequest.action) {
                 case ActionRequestType.SIT:
                     ChangeMotion(new MotionRequest { Motion = SpriteMotion.Sit });
@@ -308,12 +308,12 @@ namespace Heimdallr.Core.Game.Sprite {
             }
         }
 
-        private void ProcessAttack(EntityActionRequest actionRequest, bool isSource, float delay) {
+        private void ProcessAttack(EntityActionRequest actionRequest, bool isSource, long delay) {
             if (isSource) ProcessAttacker(actionRequest);
             else ProcessAttacked(actionRequest, delay);
         }
 
-        private void ProcessAttacked(EntityActionRequest actionRequest, float delay) {
+        private void ProcessAttacked(EntityActionRequest actionRequest, long delay) {
             if (actionRequest.damage > 0 &&
                 actionRequest.action is not (ActionRequestType.ATTACK_MULTIPLE_NOMOTION or ActionRequestType.ATTACK_NOMOTION)) {
                 MovementController.StopMoving();
