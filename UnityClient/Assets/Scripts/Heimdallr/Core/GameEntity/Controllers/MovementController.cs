@@ -15,9 +15,7 @@ namespace Heimdallr.Core.Game.Controllers {
 
         [SerializeField] private CoreGameEntity Entity;
         [SerializeField] private float RotateSpeed = 600f;
-
-        private bool IsMovementFromClick;
-        private bool IsWalking;
+        
 
         #endregion
 
@@ -63,14 +61,13 @@ namespace Heimdallr.Core.Game.Controllers {
         }
 
         public override void ManagedUpdate() {
-            //ProcessInputAsync();
             ProcessState();
         }
 
         private void ProcessState() {
             var serverTime = GameManager.Tick;
 
-            if (IsWalking) {
+            if (Entity.State == EntityState.Walk) {
                 var serverDirection = 0;
                 var nextCellPosition = Vector3.zero;
                 var nextCellTime = serverTime;
@@ -167,7 +164,6 @@ namespace Heimdallr.Core.Game.Controllers {
             if (hasValidPath) {
                 MoveStartPosition = new Vector3(startX, PathFinder.GetCellHeight(startX, startY), startY);
                 pathStartCellIndex = 0;
-                IsWalking = true;
                 Entity.ChangeMotion(new MotionRequest { Motion = SpriteMotion.Walk });
             }
         }
@@ -191,10 +187,6 @@ namespace Heimdallr.Core.Game.Controllers {
         /// Clear the path finder nodes and set state back to Wait
         /// </summary>
         public void StopMoving() {
-            if (!IsWalking) return;
-            
-            IsWalking = false;
-            IsMovementFromClick = false;
             m_isNeverAnimation = true;
             Entity.ChangeMotion(new MotionRequest { Motion = SpriteMotion.Idle });
         }
@@ -215,6 +207,13 @@ namespace Heimdallr.Core.Game.Controllers {
         
         private void OnEntityMoved(ushort cmd, int size, ZC.NPCACK_MAPMOVE packet) {
             StopMoving();
+
+            PathFinder ??= FindObjectOfType<PathFinder>();
+            
+            var position = new Vector3(packet.PosX, PathFinder.GetCellHeight(packet.PosX, packet.PosY), packet.PosY);
+            transform.position = position;
+            
+            new CZ.NOTIFY_ACTORINIT().Send();
         }
     }
 }
