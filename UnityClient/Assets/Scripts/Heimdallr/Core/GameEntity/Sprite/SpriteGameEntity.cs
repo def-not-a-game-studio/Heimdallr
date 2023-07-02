@@ -185,11 +185,7 @@ namespace Heimdallr.Core.Game.Sprite {
         }
 
         public override void Vanish(VanishType vanishType) {
-            if (MovementController == null) {
-                MovementController = gameObject.GetOrAddComponent<GameEntityMovementController>();
-            }
-
-            MovementController.StopMoving();
+            _state = EntityState.Vanish;
             switch (vanishType) {
                 case VanishType.DIED:
                     ChangeMotion(new MotionRequest { Motion = SpriteMotion.Dead });
@@ -325,20 +321,18 @@ namespace Heimdallr.Core.Game.Sprite {
                         Motion = SpriteMotion.Hit,
                         forced = true,
                         startTime = delay
-                    },
-                    new MotionRequest { Motion = Status.EntityType == EntityType.PC ? SpriteMotion.Standby : SpriteMotion.Idle }
+                    }
                 );
             }
         }
 
         private void ProcessAttacker(EntityActionRequest actionRequest) {
             ChangeMotion(
-                new MotionRequest { Motion = SpriteMotion.Attack, forced = true },
-                new MotionRequest { Motion = Status.EntityType == EntityType.PC ? SpriteMotion.Standby : SpriteMotion.Idle }
+                new MotionRequest { Motion = SpriteMotion.Attack, forced = true }
             );
         }
 
-        public override void ChangeMotion(MotionRequest request, MotionRequest? nextRequest = null) {
+        public override void ChangeMotion(MotionRequest request) {
             var state = request.Motion switch {
                             SpriteMotion.Idle => EntityState.Idle,
                             SpriteMotion.Standby => EntityState.Standby,
@@ -361,7 +355,7 @@ namespace Heimdallr.Core.Game.Sprite {
                 return;
             }
             _state = state;
-            SpriteViewer.ChangeMotion(request, nextRequest);
+            SpriteViewer.ChangeMotion(request);
         }
 
         public override void LookTo(Vector3 position) {
