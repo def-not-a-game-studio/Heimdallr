@@ -7,17 +7,14 @@ using UnityRO.Net;
 namespace Heimdallr.Core.Game {
     public class MeshGameEntity : CoreMeshGameEntity {
         #region Components
-
         private MeshGameEntityViewer EntityViewer;
         private GameEntityMovementController MovementController;
         private SessionManager SessionManager;
-        
         #endregion
 
         #region State
-
-        private GameEntityBaseStatus _Status;
-        
+        private GameEntityBaseStatus _status;
+        private EntityState _state;
         #endregion
 
         private void Awake() {
@@ -25,7 +22,7 @@ namespace Heimdallr.Core.Game {
         }
 
         public override void Init(GameEntityBaseStatus data) {
-            _Status = data;
+            _status = data;
             gameObject.SetActive(true);
 
             //var job = DatabaseManager.GetJobById(data.Job) as MeshJob;
@@ -36,8 +33,8 @@ namespace Heimdallr.Core.Game {
         public override bool HasAuthority() =>
             GameManager.IsOffline || GetEntityGID() == SessionManager.CurrentSession.Entity?.GetEntityGID();
 
-        public override int GetEntityGID() => _Status.GID;
-        
+        public override int GetEntityGID() => _status.GID;
+
         public override void RequestOffsetMovement(Vector2 destination) {
             var position = transform.position;
             MovementController.RequestMovement((int)(position.x + destination.x), (int)(position.z + destination.y));
@@ -46,7 +43,7 @@ namespace Heimdallr.Core.Game {
         public override void RequestMovement(Vector2 destination) {
             MovementController.RequestMovement((int)destination.x, (int)destination.y);
         }
-        
+
         public override void Spawn(GameEntityBaseStatus spawnData, int[] posDir, bool forceNorthDirection) {
             throw new NotImplementedException();
         }
@@ -68,6 +65,9 @@ namespace Heimdallr.Core.Game {
         public override void SetAttackedSpeed(ushort actionRequestTargetSpeed) {
             throw new NotImplementedException();
         }
+        public override void SetState(EntityState state) {
+            _state = state;
+        }
 
         public override void SetAttackSpeed(ushort actionRequestSourceSpeed) {
             Status.AttackSpeed = actionRequestSourceSpeed;
@@ -85,7 +85,7 @@ namespace Heimdallr.Core.Game {
             throw new NotImplementedException();
         }
 
-        public override void SetAction(EntityActionRequest actionRequestAction, bool isSource, float delay = 0f) {
+        public override void SetAction(EntityActionRequest actionRequestAction, bool isSource, long delay = 0) {
             throw new NotImplementedException();
         }
 
@@ -93,15 +93,16 @@ namespace Heimdallr.Core.Game {
             throw new NotImplementedException();
         }
 
-        public override GameEntityBaseStatus Status => _Status;
+        public override GameEntityBaseStatus Status => _status;
+        public override EntityState State => _state;
 
         private void Start() {
             MovementController = gameObject.AddComponent<GameEntityMovementController>();
             MovementController.SetEntity(this);
         }
 
-        public string GetEntityName() => _Status.Name;
-        public EntityType GetEntityType() => _Status.EntityType;
+        public string GetEntityName() => _status.Name;
+        public EntityType GetEntityType() => _status.EntityType;
 
         public override void ChangeMotion(MotionRequest request, MotionRequest? nextRequest = null) {
             throw new NotImplementedException();

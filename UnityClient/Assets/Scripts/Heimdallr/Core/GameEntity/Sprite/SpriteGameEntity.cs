@@ -33,9 +33,12 @@ namespace Heimdallr.Core.Game.Sprite {
         [FormerlySerializedAs("_Status")] [SerializeField]
         private GameEntityBaseStatus _status;
 
+        [SerializeField] private EntityState _state;
+
         [SerializeField] private Direction EntityDirection;
 
         public override GameEntityBaseStatus Status => _status;
+        public override EntityState State => _state;
 
         #region Initialization
         private void Awake() {
@@ -48,6 +51,7 @@ namespace Heimdallr.Core.Game.Sprite {
         private void Start() {
             MovementController = gameObject.GetOrAddComponent<GameEntityMovementController>();
             MovementController.SetEntity(this);
+            _state = EntityState.Idle;
         }
 
         private void HandleSpawnData() {
@@ -261,7 +265,7 @@ namespace Heimdallr.Core.Game.Sprite {
             }
         }
 
-        public override void SetAction(EntityActionRequest actionRequest, bool isSource, float delay = 0f) {
+        public override void SetAction(EntityActionRequest actionRequest, bool isSource, long delay = 0) {
             switch (actionRequest.action) {
                 case ActionRequestType.SIT:
                     ChangeMotion(new MotionRequest { Motion = SpriteMotion.Sit });
@@ -308,15 +312,14 @@ namespace Heimdallr.Core.Game.Sprite {
             }
         }
 
-        private void ProcessAttack(EntityActionRequest actionRequest, bool isSource, float delay) {
+        private void ProcessAttack(EntityActionRequest actionRequest, bool isSource, long delay) {
             if (isSource) ProcessAttacker(actionRequest);
             else ProcessAttacked(actionRequest, delay);
         }
 
-        private void ProcessAttacked(EntityActionRequest actionRequest, float delay) {
+        private void ProcessAttacked(EntityActionRequest actionRequest, long delay) {
             if (actionRequest.damage > 0 &&
                 actionRequest.action is not (ActionRequestType.ATTACK_MULTIPLE_NOMOTION or ActionRequestType.ATTACK_NOMOTION)) {
-                MovementController.StopMoving();
                 ChangeMotion(
                     new MotionRequest {
                         Motion = SpriteMotion.Hit,
@@ -336,6 +339,28 @@ namespace Heimdallr.Core.Game.Sprite {
         }
 
         public override void ChangeMotion(MotionRequest request, MotionRequest? nextRequest = null) {
+            var state = request.Motion switch {
+                            SpriteMotion.Idle => EntityState.Idle,
+                            SpriteMotion.Standby => EntityState.Standby,
+                            SpriteMotion.Walk => EntityState.Walk,
+                            SpriteMotion.Attack => EntityState.Attack,
+                            SpriteMotion.Attack1 => EntityState.Attack,
+                            SpriteMotion.Attack2 => EntityState.Attack,
+                            SpriteMotion.Attack3 => EntityState.Attack,
+                            SpriteMotion.Dead => EntityState.Dead,
+                            SpriteMotion.Hit => EntityState.Hit,
+                            SpriteMotion.Casting => EntityState.Cast,
+                            SpriteMotion.PickUp => EntityState.PickUp,
+                            SpriteMotion.Freeze1 => EntityState.Freeze,
+                            SpriteMotion.Freeze2 => EntityState.Freeze,
+                            SpriteMotion.Sit => EntityState.Sit,
+                            _ => EntityState.Idle
+                        };
+
+            if (state == State && !request.forced) {
+                return;
+            }
+            _state = state;
             SpriteViewer.ChangeMotion(request, nextRequest);
         }
 
@@ -371,6 +396,10 @@ namespace Heimdallr.Core.Game.Sprite {
                 NAID = (uint)target.GetEntityAID(),
                 Type = 1
             }.Send();
+        }
+
+        public override void SetState(EntityState state) {
+            _state = state;
         }
 
         public override void ManagedUpdate() {
