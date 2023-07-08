@@ -672,7 +672,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1416319844}
   - component: {fileID: 1416319843}
-  - component: {fileID: 1416319846}
   - component: {fileID: 1416319845}
   - component: {fileID: 1416319847}
   - component: {fileID: 1416319849}
@@ -715,7 +714,7 @@ MonoBehaviour:
     HairColor: 3
     ClothesColor: 0
     HairStyle: 0
-    Job: 0
+    Job: 3
     IsMale: 1
     EntityType: 3
     GID: 0
@@ -727,7 +726,11 @@ MonoBehaviour:
     AttackedSpeed: 0
     Weapon: 0
     Shield: 0
-    attackMotion: 6
+    HP: 0
+    MaxHP: 0
+    SP: 0
+    MaxSP: 0
+    Money: 0
 --- !u!4 &1416319844
 Transform:
   m_ObjectHideFlags: 0
@@ -753,18 +756,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3979aa886cf3f41c5933859006bfd91b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1416319846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1416319842}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 832ecc9b3706c6341a407d6380633c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1416319847
