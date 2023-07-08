@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 using UnityRO.Core.GameEntity;
 using UnityRO.Net;
 
-[RequireComponent(typeof(NetworkClient), typeof(ThreadManager))]
+[RequireComponent(typeof(NetworkClient))]
 public class UtilsManager : MonoBehaviour {
     
     [Header(":: Offline settings")] [SerializeField]
