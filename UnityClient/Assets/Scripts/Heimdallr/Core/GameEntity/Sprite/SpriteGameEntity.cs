@@ -385,7 +385,7 @@ namespace Heimdallr.Core.Game.Sprite {
             actionPacket.Send();
         }
 
-        public override void TalkToNpc(CoreSpriteGameEntity target) {
+        public override void TalkToNpc(CoreGameEntity target) {
             new CZ.CONTACTNPC {
                 NAID = (uint)target.GetEntityAID(),
                 Type = 1
