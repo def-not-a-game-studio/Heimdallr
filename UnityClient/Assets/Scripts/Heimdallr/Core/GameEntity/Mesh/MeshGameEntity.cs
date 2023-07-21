@@ -59,7 +59,7 @@ namespace Heimdallr.Core.Game {
         public override void RequestAction(CoreGameEntity target) {
             throw new NotImplementedException();
         }
-        public override void TalkToNpc(CoreSpriteGameEntity target) {
+        public override void TalkToNpc(CoreGameEntity target) {
             throw new NotImplementedException();
         }
         public override void SetAttackedSpeed(ushort actionRequestTargetSpeed) {
