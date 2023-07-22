@@ -81,7 +81,7 @@ namespace Heimdallr.Core.Game {
             throw new NotImplementedException();
         }
 
-        public override void UpdateStatus(GameEntityBaseStatus getBaseStatus) {
+        public override void UpdateStatus(GameEntityBaseStatus getBaseStatus, int[] posDir, bool forceNorthDirection) {
             throw new NotImplementedException();
         }
 

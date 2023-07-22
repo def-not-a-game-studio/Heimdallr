@@ -23,7 +23,6 @@ namespace Heimdallr.Core.Game.Sprite {
         private EffectRenderer EffectRenderer;
         private GameEntityMovementController MovementController;
 
-        private Vector4 _pendingMove;
         private SpawnData _spawnData;
 
         public override Direction Direction { get; set; }
@@ -105,13 +104,6 @@ namespace Heimdallr.Core.Game.Sprite {
                 // standing/idle entry
                 var npcDirection = (NpcDirection)_spawnData.posDir[2];
                 Direction = _spawnData.forceNorthDirection ? Direction.North : npcDirection.ToDirection();
-            } else if (_spawnData.posDir.Length == 5) {
-                //moving entry
-                var x1 = _spawnData.posDir[2];
-                var y1 = _spawnData.posDir[3];
-                var npcDirection = (NpcDirection)_spawnData.posDir[4];
-                Direction = npcDirection.ToDirection();
-                _pendingMove = new Vector4(x, y, x1, y1);
             }
 
             var body = DatabaseManager.GetJobById(_status.Job) as SpriteJob;
@@ -127,13 +119,24 @@ namespace Heimdallr.Core.Game.Sprite {
                 headViewer.Init(headSprite, ViewerType.Head, this);
                 headViewer.gameObject.layer = LayerMask.NameToLayer("Player");
             }
-
-            if (_pendingMove != Vector4.zero) {
-                StartMoving((int)_pendingMove.x, (int)_pendingMove.y, (int)_pendingMove.z, (int)_pendingMove.w);
-                _pendingMove = Vector4.zero;
+            
+            // handle moving entry after initializing sprite viewer
+            if (_spawnData.posDir.Length == 5) {
+                ProcessMovingEntry(_spawnData.posDir);
             }
 
             _spawnData = null;
+        }
+
+        private void ProcessMovingEntry(int[] posDir) {
+            var x = posDir[0];
+            var y = posDir[1];
+            var x1 = posDir[2];
+            var y1 = posDir[3];
+            var npcDirection = (NpcDirection)posDir[4];
+            Direction = npcDirection.ToDirection();
+            var move = new Vector4(x, y, x1, y1);
+            StartMoving((int)move.x, (int)move.y, (int)move.z, (int)move.w);
         }
 
         public override void Init(GameEntityBaseStatus gameEntityBaseStatus) {
@@ -164,8 +167,11 @@ namespace Heimdallr.Core.Game.Sprite {
             SpriteViewer.gameObject.SetActive(true);
         }
 
-        public override void UpdateStatus(GameEntityBaseStatus status) {
+        public override void UpdateStatus(GameEntityBaseStatus status, int[] posDir, bool forceNorthDirection) {
             _status = status;
+            if (posDir.Length == 5) {
+                ProcessMovingEntry(posDir);
+            }
             gameObject.SetActive(true);
         }
         #endregion
