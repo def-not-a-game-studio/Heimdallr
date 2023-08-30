@@ -8,15 +8,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityRO.Core.GameEntity;
 using UnityRO.Net;
-using UnityRO.Net.Editor;
 
 [RequireComponent(typeof(NetworkClient))]
 public class UtilsManager : MonoBehaviour {
     [Header(":: Offline settings")] [SerializeField]
     private bool UseMeshEntity = false;
-
-    [SerializeField] private bool UseReplay = false;
-    [SerializeField] private RecordedNetworkTraffic Replay;
 
     [SerializeField] private SpriteGameEntity SpritePlayerEntity;
     [SerializeField] private MeshGameEntity MeshPlayerEntity;
