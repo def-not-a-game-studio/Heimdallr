@@ -1,4 +1,3 @@
-using System;
 using Cinemachine;
 using Core.Input;
 using Core.Network;
@@ -9,12 +8,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityRO.Core.GameEntity;
 using UnityRO.Net;
+using UnityRO.Net.Editor;
 
 [RequireComponent(typeof(NetworkClient))]
 public class UtilsManager : MonoBehaviour {
-    
     [Header(":: Offline settings")] [SerializeField]
     private bool UseMeshEntity = false;
+
+    [SerializeField] private bool UseReplay = false;
+    [SerializeField] private RecordedNetworkTraffic Replay;
 
     [SerializeField] private SpriteGameEntity SpritePlayerEntity;
     [SerializeField] private MeshGameEntity MeshPlayerEntity;
@@ -22,17 +24,16 @@ public class UtilsManager : MonoBehaviour {
     private GameManager GameManager;
     private PlayerInputController InputController;
     private SessionManager SessionManager;
-    
+
     [SerializeField] private TextMeshProUGUI DebugInfo;
     [SerializeField] private TMP_InputField InputField;
     private float _deltaTime;
 
     [Header(":: Test Server Only")] [SerializeField]
     private CinemachineVirtualCamera CinemachineVirtualCamera;
-    
+
     // Whether to orchestrate the login journey
-    [SerializeField]
-    private bool OrchestrateConnect = true;
+    [SerializeField] private bool OrchestrateConnect = true;
 
     [SerializeField] private int CharServerIndex = 0;
     [SerializeField] private int CharIndex = 0;
@@ -71,10 +72,10 @@ public class UtilsManager : MonoBehaviour {
     private void Start() {
         GameManager.IsOffline = !OrchestrateConnect;
         CoreGameEntity entity = UseMeshEntity ? MeshPlayerEntity : SpritePlayerEntity;
-            
+
         CinemachineVirtualCamera.Follow = entity.transform;
         CinemachineVirtualCamera.LookAt = entity.transform;
-        
+
         if (OrchestrateConnect) {
             SpritePlayerEntity.gameObject.SetActive(false);
             MeshPlayerEntity.gameObject.SetActive(false);
@@ -99,7 +100,7 @@ public class UtilsManager : MonoBehaviour {
         _deltaTime += (Time.deltaTime - _deltaTime) * 0.1f;
         float fps = 1.0f / _deltaTime;
         DebugInfo.text = $"{Mathf.Ceil(fps)} FPS";
-        
+
         // var horizontal = Input.GetAxis("Horizontal");
         // var vertical = Input.GetAxis("Vertical");
         //
