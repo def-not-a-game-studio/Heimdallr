@@ -13,6 +13,8 @@ using UnityRO.Core.Sprite;
 using UnityRO.Net;
 
 namespace Heimdallr.Core.Game.Sprite {
+    using System;
+
     public class SpriteGameEntity : CoreSpriteGameEntity {
         private SessionManager SessionManager;
         private PathFinder PathFinder;
@@ -24,8 +26,11 @@ namespace Heimdallr.Core.Game.Sprite {
         private GameEntityMovementController MovementController;
 
         private SpawnData _spawnData;
+        private GameMap _currentMap;
 
         public override Direction Direction { get; set; }
+
+        public override GameMap CurrentMap => this._currentMap;
 
         public override int HeadDirection { get; }
 
@@ -45,6 +50,18 @@ namespace Heimdallr.Core.Game.Sprite {
             PathFinder = FindObjectOfType<PathFinder>();
             EntityManager = FindObjectOfType<EntityManager>();
             DatabaseManager = FindObjectOfType<CustomDatabaseManager>();
+
+            SessionManager.OnSessionMapChanged += this.OnMapChanged;
+        }
+
+        private void OnDestroy()
+        {
+            SessionManager.OnSessionMapChanged -= this.OnMapChanged;
+        }
+        
+        private void OnMapChanged(GameMap map)
+        {
+            this._currentMap = map;
         }
 
         private void Start() {

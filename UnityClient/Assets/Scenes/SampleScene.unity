@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311924, g: 0.38073963, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: c4b210d90e0522f4e94db7bd8e35e46d, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: bd97ae243bba52849876ec1ec8b3f665, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -696,20 +696,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UseMeshEntity: 0
-  UseReplay: 0
-  Replay: {fileID: 0}
   SpritePlayerEntity: {fileID: 2086908704}
   MeshPlayerEntity: {fileID: 2001523935}
   DebugInfo: {fileID: 1486632010}
   InputField: {fileID: 1926447791}
   CinemachineVirtualCamera: {fileID: 1546163645}
-  OrchestrateConnect: 1
+  OrchestrateConnect: 0
   CharServerIndex: 0
   CharIndex: 0
   Username: danilo
   Password: 123456
   ServerHost: 192.168.1.235
-  ForceMap: prontera
+  ForceMap: iz_dun00
   OfflineEntity:
     HairColor: 3
     ClothesColor: 0
@@ -760,7 +758,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <IsRecording>k__BackingField: 0
-  ReplayFile: {fileID: 11400000, guid: 518580fb3c021ea4883f698e538dfac6, type: 2}
+  ReplayPosition: 0
+  IsReplayStepping: 0
 --- !u!114 &1416319847
 MonoBehaviour:
   m_ObjectHideFlags: 0

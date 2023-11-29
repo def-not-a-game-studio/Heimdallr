@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Cinemachine;
 using Core.Input;
 using Core.Network;
@@ -65,7 +66,7 @@ public class UtilsManager : MonoBehaviour {
         }
     }
 
-    private void Start() {
+    private async void Start() {
         GameManager.IsOffline = !OrchestrateConnect;
         CoreGameEntity entity = UseMeshEntity ? MeshPlayerEntity : SpritePlayerEntity;
 
@@ -79,7 +80,8 @@ public class UtilsManager : MonoBehaviour {
             gameObject.AddComponent<BurstConnectionOrchestrator>()
                 .Init(CharServerIndex, CharIndex, Username, Password, ServerHost, ForceMap, entity);
         } else {
-            SceneManager.LoadSceneAsync(ForceMap, LoadSceneMode.Additive);
+            await this.LoadScene(ForceMap, LoadSceneMode.Additive);
+            var gameMap = FindObjectOfType<GameMap>();
             if (UseMeshEntity) {
                 SpritePlayerEntity.gameObject.SetActive(false);
                 MeshPlayerEntity.Init(OfflineEntity);
@@ -89,6 +91,7 @@ public class UtilsManager : MonoBehaviour {
                 SpritePlayerEntity.Init(OfflineEntity);
                 SpritePlayerEntity.transform.SetPositionAndRotation(new Vector3(126.5f, 0, 70.5f), Quaternion.identity);
             }
+            SessionManager.OnSessionMapChanged.Invoke(gameMap);
         }
     }
 
@@ -108,4 +111,22 @@ public class UtilsManager : MonoBehaviour {
         DebugInfo.text += $"\nTick: {GameManager.Tick}";
         DebugInfo.text += $"\nPing: {GameManager.Ping} ms";
     }
+    
+    #region Scene Extension
+    private Task<bool> LoadScene(string sceneName, LoadSceneMode mode) {
+        var t = new TaskCompletionSource<bool>();
+
+        SceneManager.LoadSceneAsync(sceneName, mode).completed += delegate { t.TrySetResult(true); };
+
+        return t.Task;
+    }
+
+    private Task<bool> UnloadScene(string sceneName) {
+        var t = new TaskCompletionSource<bool>();
+
+        SceneManager.UnloadSceneAsync(sceneName).completed += delegate { t.TrySetResult(true); };
+
+        return t.Task;
+    }
+    #endregion
 }
