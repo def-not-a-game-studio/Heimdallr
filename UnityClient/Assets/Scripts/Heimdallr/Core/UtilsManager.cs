@@ -89,7 +89,7 @@ public class UtilsManager : MonoBehaviour {
             } else {
                 MeshPlayerEntity.gameObject.SetActive(false);
                 SpritePlayerEntity.Init(OfflineEntity);
-                SpritePlayerEntity.transform.SetPositionAndRotation(new Vector3(126.5f, 0, 70.5f), Quaternion.identity);
+                SpritePlayerEntity.transform.SetPositionAndRotation(new Vector3(160, 0, 160), Quaternion.identity);
             }
             SessionManager.OnSessionMapChanged.Invoke(gameMap);
         }

@@ -172,6 +172,8 @@ namespace Heimdallr.Core.Game.Controllers {
             if (PathFinder == null) {
                 PathFinder = FindObjectOfType<PathFinder>();
             }
+            
+            if (PathFinder is null) return false;
 
             return PathFinder.FindPath(
                 tick,
