@@ -34,6 +34,10 @@ namespace Core.Network {
             NetworkClient.HookPacket<HC.NOTIFY_ZONESVR2>(HC.NOTIFY_ZONESVR2.HEADER, OnCharacterSelectionAccepted);
             NetworkClient.HookPacket<HC.ACCEPT_MAKECHAR>(HC.ACCEPT_MAKECHAR.HEADER, OnMakeCharAccepted);
             NetworkClient.HookPacket<ZC.ACCEPT_ENTER2>(ZC.ACCEPT_ENTER2.HEADER, OnMapServerLoginAccepted);
+            NetworkClient.HookPacket<HC.SECOND_PASSWD_LOGIN>(HC.SECOND_PASSWD_LOGIN.HEADER, (cmd, size, packet) =>
+            {
+                SelectCharacter(0);
+            });
 
             Connect();
         }
@@ -70,20 +74,20 @@ namespace Core.Network {
             AC.ACCEPT_LOGIN3 loginInfo,
             CharServerInfo charServerInfo
         ) {
-            //Debug.Log("Connecting to char server");
+            Debug.Log("Connecting to char server");
             NetworkClient.Connect(Host, charServerInfo.Port, NetworkClient.ServerType.Char);
             new CH.ENTER(loginInfo.AccountID, loginInfo.LoginID1, loginInfo.LoginID2, loginInfo.Sex).Send();
         }
 
         private void SelectCharacter(int index) {
-            //Debug.Log("Selecting character");
+            Debug.Log("Selecting character");
             new CH.SELECT_CHAR(index).Send();
         }
 
         #region Packet Hooks
 
         private void OnLoginResponse(ushort cmd, int size, AC.ACCEPT_LOGIN3 packet) {
-            //Debug.Log("Login response received");
+            Debug.Log("Login response received");
             NetworkClient.State.LoginInfo = packet;
             NetworkClient.State.CharServer = packet.Servers[CharServerIndex];
             NetworkClient.SetAccountId(packet.AccountID);
@@ -94,7 +98,7 @@ namespace Core.Network {
         }
 
         private void OnEnterResponse(ushort cmd, int size, HC.ACCEPT_ENTER pkt) {
-            //Debug.Log("Char server response received");
+            Debug.Log("Char server response received");
             NetworkClient.State.CurrentCharactersInfo = pkt;
 
             // if no character available, create one
@@ -110,7 +114,7 @@ namespace Core.Network {
         }
 
         private async void OnMapServerLoginAccepted(ushort cmd, int size, ZC.ACCEPT_ENTER2 pkt) {
-            //Debug.Log("Map server response received");
+            Debug.Log("Map server response received");
             NetworkClient.PausePacketHandling();
 
             var mapLoginInfo = new MapLoginInfo {
@@ -162,14 +166,14 @@ namespace Core.Network {
          * So we create a new one and as we're orchestrating, just connect with it.
          */
         private void OnMakeCharAccepted(ushort cmd, int size, HC.ACCEPT_MAKECHAR ACCEPT_MAKECHAR) {
-            //Debug.Log("Char created");
+            Debug.Log("Char created");
             NetworkClient.State.SelectedCharacter = ACCEPT_MAKECHAR.characterData;
 
             SelectCharacter(0);
         }
 
         private async void OnCharacterSelectionAccepted(ushort cmd, int size, HC.NOTIFY_ZONESVR2 currentMapInfo) {
-            //Debug.Log("Char selection accepted");
+            Debug.Log("Char selection accepted");
             CurrentMapInfo = currentMapInfo;
 
             NetworkClient.Connect(Host, currentMapInfo.Port, NetworkClient.ServerType.Zone);
@@ -180,11 +184,11 @@ namespace Core.Network {
         }
         
         private void OnCharListResponse(ushort cmd, int size, HC.NOTIFY_CHARLIST packet) {
-            //Debug.Log("Char list received");
+            Debug.Log("Char list received");
         }
         
         private void OnEnter2Response(ushort cmd, int size, HC.ACCEPT_ENTER2 packet) {
-            //Debug.Log($"Accept enter 2");
+            Debug.Log($"Accept enter 2");
         }
         #endregion
 
