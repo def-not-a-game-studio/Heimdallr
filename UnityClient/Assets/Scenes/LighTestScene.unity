@@ -1063,7 +1063,7 @@ MonoBehaviour:
     LerpTime: 0.2
     LerpThreshold: 0.1
   LerpTime: 0.2
-  Distance: 45
+  Distance: 65
   ZoomConstraint: {x: 30, y: 65}
   PitchConstraint: {x: 50, y: 55}
   m_Target: {fileID: 1580827462}
@@ -1321,6 +1321,7 @@ GameObject:
   - component: {fileID: 738814572}
   - component: {fileID: 738814574}
   - component: {fileID: 738814575}
+  - component: {fileID: 738814576}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1381,6 +1382,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fcd542303537496786350375c3dfa4f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &738814576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738814571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cc6acb3a29d425b9b760aaefa3ef69b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1160234425
@@ -1825,6 +1838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Anim: {fileID: 11400000, guid: 7200601242a02fc4c9f83ed2bf0ff657, type: 2}
+  EffectId: 0
   Loop: 1
   ManualAdvanceFrame: 0
   newFrame: 0
@@ -2524,6 +2538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Anim: {fileID: 0}
+  EffectId: 0
   Loop: 0
   ManualAdvanceFrame: 0
   newFrame: 0
