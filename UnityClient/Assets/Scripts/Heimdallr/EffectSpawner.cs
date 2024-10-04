@@ -25,7 +25,7 @@ namespace Heimdallr
 
         private async UniTaskVoid SpawnEffectAsync()
         {
-            var renderInfo = await _effectCache.GetRenderInfo((int)EffectId.EF_BLESSING);
+            var renderInfo = await _effectCache.GetRenderInfo((int)EffectId.EF_ANGELUS);
             foreach (var renderer in _strEffectRenderers)
             {
                 renderer.Initialize(renderInfo);

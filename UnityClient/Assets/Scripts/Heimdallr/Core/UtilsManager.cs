@@ -116,7 +116,11 @@ public class UtilsManager : MonoBehaviour {
     private Task<bool> LoadScene(string sceneName, LoadSceneMode mode) {
         var t = new TaskCompletionSource<bool>();
 
-        SceneManager.LoadSceneAsync(sceneName, mode).completed += delegate { t.TrySetResult(true); };
+        SceneManager.LoadSceneAsync(sceneName, mode).completed += delegate
+        {
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
+            t.TrySetResult(true);
+        };
 
         return t.Task;
     }
