@@ -28,11 +28,11 @@ namespace Heimdallr
         {
             foreach (var renderer in _strEffectRenderers)
             {
-                renderer.SetEffect(_effectCache.Effects[(int)EffectId.EF_ANGEL]);
+                renderer.SetEffect(_effectCache.Effects[(int)EffectId.EF_CONCENTRATION]);
                 renderer.SetEffect(_effectCache.Effects[(int)EffectId.EF_JOBLVUP]);
                 renderer.SetEffect(_effectCache.Effects[(int)EffectId.EF_MAGNIFICAT]);
                 renderer.SetEffect(_effectCache.Effects[(int)EffectId.EF_ANGELUS]);
-                renderer.SetEffect(_effectCache.Effects[(int)EffectId.EF_CONCENTRATION]);
+                renderer.SetEffect(_effectCache.Effects[(int)EffectId.EF_ANGEL]);
             }
         }
         
