@@ -87,8 +87,7 @@ namespace Heimdallr.Core.Game.Sprite {
                 EffectRenderer.transform.localPosition = new Vector3(0.5f, 0, 0.5f);
                 var resourceRequest = Resources.LoadAsync<Effect>("Database/Effects/WarpZone2");
                 resourceRequest.completed += (op) => {
-                    EffectRenderer.Effect = resourceRequest.asset as Effect;
-                    EffectRenderer.InitEffects();
+                    EffectRenderer.InitEffects(resourceRequest.asset as Effect);
                 };
                 _spawnData = null;
                 return;
@@ -248,11 +247,11 @@ namespace Heimdallr.Core.Game.Sprite {
             var emotionIndex = DatabaseManager.GetEmotionIndex((EmotionType)emotionType);
             var request = Resources.LoadAsync("Sprites/emotions");
             request.completed += (op) => {
-                var emotionViewer = new GameObject("emotion").AddComponent<SpriteEffectRenderer>();
-                emotionViewer.transform.SetParent(SpriteViewer.transform, false);
-                emotionViewer.transform.localPosition = new Vector3(0, 2, 0);
-                emotionViewer.Init(request.asset as SpriteData, ViewerType.Emotion, this);
-                emotionViewer.SetActionIndex(emotionIndex);
+                // var emotionViewer = new GameObject("emotion").AddComponent<SpriteEffectRenderer>();
+                // emotionViewer.transform.SetParent(SpriteViewer.transform, false);
+                // emotionViewer.transform.localPosition = new Vector3(0, 2, 0);
+                // emotionViewer.Init(request.asset as SpriteData, ViewerType.Emotion, this);
+                // emotionViewer.SetActionIndex(emotionIndex);
             };
         }
 

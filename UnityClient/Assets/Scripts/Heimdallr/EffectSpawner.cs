@@ -21,15 +21,18 @@ namespace Heimdallr
 
         public void SpawnEffect()
         {
-            SpawnEffectAsync().Forget();
+            SpawnEffectAsync();
         }
-
-        private async UniTaskVoid SpawnEffectAsync()
+        
+        private void SpawnEffectAsync()
         {
-            var effect = _effectCache.Effects[(int)EffectId.EF_ANGEL];
             foreach (var renderer in _strEffectRenderers)
             {
-                renderer.SetEffect(effect);
+                renderer.SetEffect(_effectCache.Effects[(int)EffectId.EF_ANGEL]);
+                renderer.SetEffect(_effectCache.Effects[(int)EffectId.EF_JOBLVUP]);
+                renderer.SetEffect(_effectCache.Effects[(int)EffectId.EF_MAGNIFICAT]);
+                renderer.SetEffect(_effectCache.Effects[(int)EffectId.EF_ANGELUS]);
+                renderer.SetEffect(_effectCache.Effects[(int)EffectId.EF_CONCENTRATION]);
             }
         }
         
