@@ -248,7 +248,7 @@ namespace Heimdallr.Core.Game.Sprite {
             var emotionIndex = DatabaseManager.GetEmotionIndex((EmotionType)emotionType);
             var request = Resources.LoadAsync("Sprites/emotions");
             request.completed += (op) => {
-                var emotionViewer = new GameObject("emotion").AddComponent<SpriteEffectViewer>();
+                var emotionViewer = new GameObject("emotion").AddComponent<SpriteEffectRenderer>();
                 emotionViewer.transform.SetParent(SpriteViewer.transform, false);
                 emotionViewer.transform.localPosition = new Vector3(0, 2, 0);
                 emotionViewer.Init(request.asset as SpriteData, ViewerType.Emotion, this);

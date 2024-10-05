@@ -11,12 +11,12 @@ namespace Heimdallr
     {
 
         private EffectCache _effectCache;
-        private StrEffectRenderer[] _strEffectRenderers;
+        private EffectRenderer[] _strEffectRenderers;
         
         private void Awake()
         {
             _effectCache = FindAnyObjectByType<EffectCache>();
-            _strEffectRenderers = FindObjectsByType<StrEffectRenderer>(FindObjectsInactive.Exclude, FindObjectsSortMode.InstanceID);
+            _strEffectRenderers = FindObjectsByType<EffectRenderer>(FindObjectsInactive.Exclude, FindObjectsSortMode.InstanceID);
         }
 
         public void SpawnEffect()
@@ -26,10 +26,10 @@ namespace Heimdallr
 
         private async UniTaskVoid SpawnEffectAsync()
         {
-            var renderInfo = await _effectCache.GetRenderInfo((int)EffectId.EF_ANGELUS);
+            var effect = _effectCache.Effects[(int)EffectId.EF_ANGEL];
             foreach (var renderer in _strEffectRenderers)
             {
-                renderer.Initialize(renderInfo);
+                renderer.SetEffect(effect);
             }
         }
         
