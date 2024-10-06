@@ -2,6 +2,8 @@ using System.Threading.Tasks;
 using Cinemachine;
 using Core.Input;
 using Core.Network;
+using Core.Scene;
+using Cysharp.Threading.Tasks;
 using Heimdallr.Core.Game;
 using Heimdallr.Core.Game.Sprite;
 using TMPro;
@@ -58,8 +60,19 @@ public class UtilsManager : MonoBehaviour {
         SessionManager = FindObjectOfType<SessionManager>();
     }
 
-    public void OnEnterPressed(string o) {
+    public async void OnEnterPressed(string o) {
         var text = InputField.text;
+
+        if (GameManager.IsOffline)
+        {
+            var command = text.Split(' ');
+            if (command[0] == "@warp" && command.Length == 2)
+            {
+                await GameSceneManager.LoadScene(command[1], LoadSceneMode.Additive);
+            }
+            return;
+        }
+        
         if (text.Length > 0) {
             new CZ.REQUEST_CHAT(SessionManager.CurrentSession.Entity.GetEntityName(), text).Send();
             InputField.text = "";
@@ -72,7 +85,7 @@ public class UtilsManager : MonoBehaviour {
 
         CinemachineVirtualCamera.Follow = entity.transform;
         CinemachineVirtualCamera.LookAt = entity.transform;
-
+        
         if (OrchestrateConnect) {
             SpritePlayerEntity.gameObject.SetActive(false);
             MeshPlayerEntity.gameObject.SetActive(false);
@@ -80,7 +93,7 @@ public class UtilsManager : MonoBehaviour {
             gameObject.AddComponent<BurstConnectionOrchestrator>()
                 .Init(CharServerIndex, CharIndex, Username, Password, ServerHost, ForceMap, entity);
         } else {
-            await this.LoadScene(ForceMap, LoadSceneMode.Additive);
+            await GameSceneManager.LoadScene(ForceMap, LoadSceneMode.Additive);
             var gameMap = FindObjectOfType<GameMap>();
             if (UseMeshEntity) {
                 SpritePlayerEntity.gameObject.SetActive(false);
@@ -111,26 +124,4 @@ public class UtilsManager : MonoBehaviour {
         DebugInfo.text += $"\nTick: {GameManager.Tick}";
         DebugInfo.text += $"\nPing: {GameManager.Ping} ms";
     }
-    
-    #region Scene Extension
-    private Task<bool> LoadScene(string sceneName, LoadSceneMode mode) {
-        var t = new TaskCompletionSource<bool>();
-
-        SceneManager.LoadSceneAsync(sceneName, mode).completed += delegate
-        {
-            SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
-            t.TrySetResult(true);
-        };
-
-        return t.Task;
-    }
-
-    private Task<bool> UnloadScene(string sceneName) {
-        var t = new TaskCompletionSource<bool>();
-
-        SceneManager.UnloadSceneAsync(sceneName).completed += delegate { t.TrySetResult(true); };
-
-        return t.Task;
-    }
-    #endregion
 }
