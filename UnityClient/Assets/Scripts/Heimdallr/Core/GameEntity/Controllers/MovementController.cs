@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityRO.Core;
 using UnityRO.Core.GameEntity;
 using UnityRO.Core.Sprite;
+using UnityRO.Net;
 
 namespace Heimdallr.Core.Game.Controllers {
     public class GameEntityMovementController : ManagedMonoBehaviour {
