@@ -169,6 +169,7 @@ namespace Heimdallr.Core.Game.Sprite
 
             _state = state;
             SpriteViewer.ChangeMotion(request);
+            MovementController.DelayMovement(request.startTime);
         }
 
         public override void LookTo(Vector3 position)

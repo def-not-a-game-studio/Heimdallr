@@ -6,7 +6,7 @@ using UnityRO.Core.Sprite;
 using UnityRO.Net;
 
 namespace Heimdallr.Core.Game.Controllers {
-    public class GameEntityMovementController : ManagedMonoBehaviour {
+    public partial class GameEntityMovementController : ManagedMonoBehaviour {
         private LayerMask GroundMask;
         private PathFinder PathFinder;
         private NetworkClient NetworkClient;
@@ -16,7 +16,6 @@ namespace Heimdallr.Core.Game.Controllers {
 
         [SerializeField] private CoreGameEntity Entity;
         [SerializeField] private float RotateSpeed = 600f;
-        
 
         #endregion
 
@@ -40,95 +39,19 @@ namespace Heimdallr.Core.Game.Controllers {
             GameManager = GetComponent<GameManager>();
         }
 
-        private void Start() {
-            if (Entity.HasAuthority()) {
-                NetworkClient.HookPacket<ZC.NOTIFY_PLAYERMOVE>(ZC.NOTIFY_PLAYERMOVE.HEADER, OnPlayerMovement); //Our movement
-            } else {
-                NetworkClient.HookPacket<ZC.NOTIFY_MOVE>(ZC.NOTIFY_MOVE.HEADER, OnEntityMovement);
-            }
-            NetworkClient.HookPacket<ZC.STOPMOVE>(ZC.STOPMOVE.HEADER, OnEntityStop);
-            NetworkClient.HookPacket<ZC.NPCACK_MAPMOVE>(ZC.NPCACK_MAPMOVE.HEADER, OnEntityMoved);
-
+        private void Start()
+        {
+            HookPackets();
             pathInfo ??= new CPathInfo();
         }
 
-        private void OnDestroy() {
-            if (Entity.HasAuthority()) {
-                NetworkClient.UnhookPacket<ZC.NOTIFY_PLAYERMOVE>(ZC.NOTIFY_PLAYERMOVE.HEADER, OnPlayerMovement); //Our movement
-            } else {
-                NetworkClient.UnhookPacket<ZC.NOTIFY_MOVE>(ZC.NOTIFY_MOVE.HEADER, OnEntityMovement);
-            }
-            NetworkClient.UnhookPacket<ZC.STOPMOVE>(ZC.STOPMOVE.HEADER, OnEntityStop);
+        private void OnDestroy()
+        {
+            UnhookPackets();
         }
 
         public override void ManagedUpdate() {
             ProcessState();
-        }
-
-        private void ProcessState() {
-            var serverTime = GameManager.Tick;
-
-            if (Entity.State == EntityState.Walk) {
-                var serverDirection = 0;
-                var nextCellPosition = Vector3.zero;
-                var nextCellTime = serverTime;
-
-                var previousServerDirection = 0;
-                var previousCellPosition = Vector3.zero;
-                var prevTime = 0L;
-
-                pathStartCellIndex = pathInfo.GetNextCellInfo(
-                    serverTime,
-                    ref nextCellTime,
-                    ref nextCellPosition,
-                    ref serverDirection,
-                    PathFinder.GetCellHeight
-                );
-
-                var pathPreviousCellIndex = pathInfo.GetPrevCellInfo(
-                    serverTime,
-                    ref prevTime,
-                    ref previousCellPosition,
-                    ref previousServerDirection,
-                    PathFinder.GetCellHeight
-                );
-
-                var passedTime = serverTime - prevTime;
-                var cellTime = nextCellTime - prevTime;
-
-                if (pathPreviousCellIndex == 0) {
-                    previousCellPosition = MoveStartPosition;
-                }
-
-                if (passedTime > cellTime) {
-                    passedTime = cellTime;
-                }
-
-                if (passedTime >= 0 && cellTime > 0) {
-                    var distance = nextCellPosition - previousCellPosition;
-                    var position = previousCellPosition + distance * passedTime / cellTime;
-                    CheckDirection(nextCellPosition, previousCellPosition);
-
-                    transform.position = position;
-                }
-
-                if (pathStartCellIndex == -1 && serverTime >= nextCellTime) {
-                    transform.position = nextCellPosition;
-
-                    StopMoving();
-                }
-            }
-
-            m_lastProcessStateTime = GameManager.Tick;
-            m_lastServerTime = serverTime;
-        }
-
-        private void CheckDirection(Vector3 position, Vector3 prevPos) {
-            var direction = PathFinder.GetDirectionForOffset(position, prevPos);
-            if (this.direction != direction) {
-                this.direction = direction;
-                Entity.ChangeDirection(direction);
-            }
         }
 
         public void SetEntity(CoreGameEntity entity) {
@@ -169,22 +92,6 @@ namespace Heimdallr.Core.Game.Controllers {
             }
         }
 
-        private bool FindPath(int startX, int startY, int endX, int endY, long tick) {
-            if (PathFinder == null) {
-                PathFinder = FindObjectOfType<PathFinder>();
-            }
-            
-            if (PathFinder is null) return false;
-
-            return PathFinder.FindPath(
-                tick,
-                startX, startY,
-                endX, endY,
-                Entity.Status.MoveSpeed,
-                pathInfo
-            );
-        }
-
         /// <summary>
         /// Stops moving the character.
         /// Clear the path finder nodes and set state back to Wait
@@ -194,29 +101,10 @@ namespace Heimdallr.Core.Game.Controllers {
             Entity.ChangeMotion(new MotionRequest { Motion = SpriteMotion.Idle });
         }
 
-        private void OnEntityMovement(ushort cmd, int size, ZC.NOTIFY_MOVE packet) {
-            if (packet.AID != Entity.Status.AID) return;
-            StartMoving(packet.StartPosition[0], packet.StartPosition[1], packet.EndPosition[0], packet.EndPosition[1], GameManager.Tick);
-        }
-
-        private void OnPlayerMovement(ushort cmd, int size, ZC.NOTIFY_PLAYERMOVE packet) {
-            StartMoving(packet.StartPosition[0], packet.StartPosition[1], packet.EndPosition[0], packet.EndPosition[1], GameManager.Tick);
-        }
-        
-        private void OnEntityStop(ushort cmd, int size, ZC.STOPMOVE packet) {
-            if (packet.AID != Entity.Status.AID || packet.AID != Entity.Status.GID) return;
-            StartMoving((int)transform.position.x, (int)transform.position.z, packet.PosX, packet.PosY, GameManager.Tick);
-        }
-        
-        private void OnEntityMoved(ushort cmd, int size, ZC.NPCACK_MAPMOVE packet) {
-            StopMoving();
-
-            PathFinder ??= FindObjectOfType<PathFinder>();
-            
-            var position = new Vector3(packet.PosX, PathFinder.GetCellHeight(packet.PosX, packet.PosY), packet.PosY);
-            transform.position = position;
-            
-            new CZ.NOTIFY_ACTORINIT().Send();
+        public void DelayMovement(long delay)
+        {
+            var serverTime = GameManager.Tick;
+            pathInfo.GetNextCellInfo()
         }
     }
 }
