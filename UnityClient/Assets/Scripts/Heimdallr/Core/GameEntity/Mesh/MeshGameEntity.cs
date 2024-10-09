@@ -69,6 +69,11 @@ namespace Heimdallr.Core.Game {
             _state = state;
         }
 
+        public override void DelayMovement(long delay)
+        {
+            MovementController.DelayMovement(delay);
+        }
+
         public override void SetAttackSpeed(ushort actionRequestSourceSpeed) {
             Status.AttackSpeed = actionRequestSourceSpeed;
         }

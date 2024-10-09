@@ -8,7 +8,6 @@ namespace Heimdallr.Core.Game.Controllers
     {
         private void ProcessState() {
             var serverTime = GameManager.Tick;
-
             if (Entity.State == EntityState.Walk) {
                 var serverDirection = 0;
                 var nextCellPosition = Vector3.zero;
@@ -26,7 +25,7 @@ namespace Heimdallr.Core.Game.Controllers
                     PathFinder.GetCellHeight
                 );
 
-                var pathPreviousCellIndex = pathInfo.GetPrevCellInfo(
+                pathPreviousCellIndex = pathInfo.GetPrevCellInfo(
                     serverTime,
                     ref prevTime,
                     ref previousCellPosition,

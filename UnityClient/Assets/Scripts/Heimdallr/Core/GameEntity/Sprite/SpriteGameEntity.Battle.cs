@@ -20,28 +20,30 @@ namespace Heimdallr.Core.Game.Sprite
             if (isSource) ProcessAttacker(actionRequest);
             else ProcessAttacked(actionRequest, delay);
         }
-
+        
         private void ProcessAttacked(EntityActionRequest actionRequest, long delay)
         {
             if (actionRequest.damage > 0 &&
                 actionRequest.action is not (ActionRequestType.ATTACK_MULTIPLE_NOMOTION or ActionRequestType.ATTACK_NOMOTION))
             {
                 var previousState = _state;
+                
                 ChangeMotion(
                     new MotionRequest
                     {
                         Motion = SpriteMotion.Hit,
-                        forced = true
+                        forced = true,
                     }
                 );
-                if (previousState == EntityState.Walk)
+                
+                if (previousState == EntityState.Walk && hitCount <= 1)
                 {
                     ChangeMotion(
                         new MotionRequest
                         {
                             Motion = SpriteMotion.Walk,
                             forced = false,
-                            startTime = GameManager.Tick + (delay * 24)
+                            startTime = GameManager.Tick + delay
                         }
                     );
                     MovementController.DelayMovement(delay);

@@ -1,12 +1,15 @@
-﻿using Core.Path;
+﻿using System.Linq;
+using Core.Path;
 using UnityEngine;
 using UnityRO.Core;
 using UnityRO.Core.GameEntity;
 using UnityRO.Core.Sprite;
 using UnityRO.Net;
 
-namespace Heimdallr.Core.Game.Controllers {
-    public partial class GameEntityMovementController : ManagedMonoBehaviour {
+namespace Heimdallr.Core.Game.Controllers
+{
+    public partial class GameEntityMovementController : ManagedMonoBehaviour
+    {
         private LayerMask GroundMask;
         private PathFinder PathFinder;
         private NetworkClient NetworkClient;
@@ -22,7 +25,10 @@ namespace Heimdallr.Core.Game.Controllers {
         #region PathFinding
 
         private CPathInfo pathInfo;
+
         private int pathStartCellIndex;
+        private int pathPreviousCellIndex;
+
         private Direction direction;
         private long m_lastProcessStateTime;
         private long m_lastServerTime;
@@ -31,7 +37,8 @@ namespace Heimdallr.Core.Game.Controllers {
 
         #endregion
 
-        private void Awake() {
+        private void Awake()
+        {
             GroundMask = LayerMask.GetMask("Ground");
             PathFinder = FindObjectOfType<PathFinder>();
             NetworkClient = FindObjectOfType<NetworkClient>();
@@ -50,11 +57,13 @@ namespace Heimdallr.Core.Game.Controllers {
             UnhookPackets();
         }
 
-        public override void ManagedUpdate() {
+        public override void ManagedUpdate()
+        {
             ProcessState();
         }
 
-        public void SetEntity(CoreGameEntity entity) {
+        public void SetEntity(CoreGameEntity entity)
+        {
             Entity = entity;
         }
 
@@ -63,10 +72,15 @@ namespace Heimdallr.Core.Game.Controllers {
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
-        public void RequestMovement(int x, int y) {
-            if (GameManager.IsOffline) {
-                StartMoving(Mathf.FloorToInt(transform.position.x), Mathf.FloorToInt(transform.position.z), x, y, GameManager.Tick);
-            } else {
+        public void RequestMovement(int x, int y)
+        {
+            if (GameManager.IsOffline)
+            {
+                StartMoving(Mathf.FloorToInt(transform.position.x), Mathf.FloorToInt(transform.position.z), x, y,
+                    GameManager.Tick);
+            }
+            else
+            {
                 new CZ.REQUEST_MOVE2(x, y, 0).Send();
             }
         }
@@ -79,14 +93,17 @@ namespace Heimdallr.Core.Game.Controllers {
         /// <param name="startY"></param>
         /// <param name="endX"></param>
         /// <param name="endY"></param>
-        public void StartMoving(int startX, int startY, int endX, int endY, long tick) {
+        public void StartMoving(int startX, int startY, int endX, int endY, long tick)
+        {
             //Debug.Log($"Moving\n Start:{startX},{startY}\nDest:{endX},{endY}");
 
             pathInfo ??= new CPathInfo();
             var hasValidPath = FindPath(startX, startY, endX, endY, tick);
 
-            if (hasValidPath) {
-                MoveStartPosition = new Vector3(startX, PathFinder.GetCellHeight(startX, startY), startY);
+            if (hasValidPath)
+            {
+                // MoveStartPosition = new Vector3(startX, PathFinder.GetCellHeight(startX, startY), startY);
+                MoveStartPosition = transform.position;
                 pathStartCellIndex = 0;
                 Entity.ChangeMotion(new MotionRequest { Motion = SpriteMotion.Walk });
             }
@@ -96,14 +113,23 @@ namespace Heimdallr.Core.Game.Controllers {
         /// Stops moving the character.
         /// Clear the path finder nodes and set state back to Wait
         /// </summary>
-        public void StopMoving() {
+        public void StopMoving()
+        {
             m_isNeverAnimation = true;
             Entity.ChangeMotion(new MotionRequest { Motion = SpriteMotion.Idle });
         }
 
         public void DelayMovement(long delay)
         {
-            pathInfo.FixPathTime(pathInfo.GetLastCellTime() + delay);
+            float xPos = 0f, yPos = 0f;
+            int dir = 0;
+            var index = pathInfo.GetPos(GameManager.Tick, ref xPos, ref yPos, ref dir);
+            var remainingCells = pathInfo.PathData.Skip(index + 1).Select(it =>
+            {
+                it.Time += delay;
+                return it;
+            }).ToArray();
+            pathInfo.SetNewPathInfo(remainingCells, remainingCells.Length);
         }
     }
 }

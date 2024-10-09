@@ -75,8 +75,9 @@ namespace Core.Input
                 {
                     Motion = SpriteMotion.Walk,
                     forced = false,
-                    startTime = GameManager.Tick + (333L * 24L)
+                    startTime = GameManager.Tick + 333L
                 });
+                Entity.DelayMovement(333L);
             }
 
             if (EventSystem.current.IsPointerOverGameObject() || !PlayerActions.SelectConfirm.WasPerformedThisFrame()) return;

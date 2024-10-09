@@ -10,6 +10,17 @@ namespace Heimdallr.Core.Game.Sprite
 {
     public partial class SpriteGameEntity
     {
+        private MotionRequest CurrentMotionRequest;
+
+        private void CheckMotionQueue()
+        {
+            if (CurrentMotionRequest.startTime <= 0 || GameManager.Tick <= CurrentMotionRequest.startTime)
+                return;
+            Debug.Log($"[{GameManager.Tick}] Applying motion queue {CurrentMotionRequest.Motion} {CurrentMotionRequest.startTime}");
+            CurrentMotionRequest.startTime = -1;
+            ChangeMotion(CurrentMotionRequest);
+        }
+        
         public override float GetActionDelay(EntityActionRequest actionRequest)
         {
             switch (actionRequest.action)
@@ -141,8 +152,17 @@ namespace Heimdallr.Core.Game.Sprite
             }
         }
 
+        private int hitCount = 0;
         public override void ChangeMotion(MotionRequest request)
         {
+            if (request.startTime > GameManager.Tick)
+            {
+                CurrentMotionRequest = request;
+                return;
+            }
+
+            CurrentMotionRequest = default;
+            
             var state = request.Motion switch
             {
                 SpriteMotion.Idle => EntityState.Idle,
@@ -167,8 +187,19 @@ namespace Heimdallr.Core.Game.Sprite
                 return;
             }
 
+            if (state == EntityState.Hit)
+            {
+                hitCount++;
+            }
+
+            if (state is not (EntityState.Hit and EntityState.Walk))
+            {
+                hitCount = 0;
+            }
+
             _state = state;
-            Debug.Log($"### state {state}");
+            if ((EntityType)GetEntityType() == EntityType.PC)
+                Debug.Log($"[{GameManager.Tick}] State {state}");
             SpriteViewer.ChangeMotion(request);
         }
 
@@ -208,6 +239,11 @@ namespace Heimdallr.Core.Game.Sprite
                 NAID = (uint)target.GetEntityAID(),
                 Type = 1
             }.Send();
+        }
+
+        public override void DelayMovement(long delay)
+        {
+            MovementController.DelayMovement(delay);
         }
     }
 }
