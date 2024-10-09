@@ -102,6 +102,7 @@ namespace Heimdallr.Core.Game.Controllers
 
             if (hasValidPath)
             {
+                Debug.Log($"[{GameManager.Tick}] ({startX},0,{startY}) -> {transform.position}");
                 // MoveStartPosition = new Vector3(startX, PathFinder.GetCellHeight(startX, startY), startY);
                 MoveStartPosition = transform.position;
                 pathStartCellIndex = 0;

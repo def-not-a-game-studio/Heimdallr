@@ -151,14 +151,17 @@ namespace Heimdallr.Core.Game.Sprite
                     break;
             }
         }
-
-        private int hitCount = 0;
+        
         public override void ChangeMotion(MotionRequest request)
         {
             if (request.startTime > GameManager.Tick)
             {
                 CurrentMotionRequest = request;
                 return;
+            }
+            else if (CurrentMotionRequest.Motion == SpriteMotion.Walk)
+            {
+                MovementController.StopMoving();
             }
 
             CurrentMotionRequest = default;
@@ -187,19 +190,9 @@ namespace Heimdallr.Core.Game.Sprite
                 return;
             }
 
-            if (state == EntityState.Hit)
-            {
-                hitCount++;
-            }
-
-            if (state is not (EntityState.Hit and EntityState.Walk))
-            {
-                hitCount = 0;
-            }
-
             _state = state;
             if ((EntityType)GetEntityType() == EntityType.PC)
-                Debug.Log($"[{GameManager.Tick}] State {state}");
+                Debug.Log($"[{GameManager.Tick}] State {state} -> {transform.position}");
             SpriteViewer.ChangeMotion(request);
         }
 

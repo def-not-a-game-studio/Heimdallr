@@ -36,7 +36,7 @@ namespace Heimdallr.Core.Game.Sprite
                     }
                 );
                 
-                if (previousState == EntityState.Walk && hitCount <= 1)
+                if (previousState == EntityState.Walk)
                 {
                     ChangeMotion(
                         new MotionRequest
