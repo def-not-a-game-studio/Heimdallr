@@ -103,8 +103,7 @@ namespace Heimdallr.Core.Game.Controllers {
 
         public void DelayMovement(long delay)
         {
-            var serverTime = GameManager.Tick;
-            pathInfo.GetNextCellInfo()
+            pathInfo.FixPathTime(pathInfo.GetLastCellTime() + delay);
         }
     }
 }

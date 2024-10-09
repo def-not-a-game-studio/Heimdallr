@@ -67,7 +67,16 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""name"": ""Shift"",
                     ""type"": ""Button"",
                     ""id"": ""33060e95-e47e-43bc-94ad-fd75e0ec8eb7"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Simulate Hit"",
+                    ""type"": ""Button"",
+                    ""id"": ""01f13e49-9a84-42f5-94a9-5508c35f37fa"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -324,6 +333,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Shift"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""03e63cab-912c-42ed-afe8-a4e5fd5effce"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Simulate Hit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""805183ca-a93d-4c0e-a0a3-c6c210b7f7ce"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Simulate Hit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -916,6 +947,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_SelectConfirm = m_Player.FindAction("Select/Confirm", throwIfNotFound: true);
         m_Player_RightClick = m_Player.FindAction("RightClick", throwIfNotFound: true);
         m_Player_Shift = m_Player.FindAction("Shift", throwIfNotFound: true);
+        m_Player_SimulateHit = m_Player.FindAction("Simulate Hit", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1000,6 +1032,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SelectConfirm;
     private readonly InputAction m_Player_RightClick;
     private readonly InputAction m_Player_Shift;
+    private readonly InputAction m_Player_SimulateHit;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1009,6 +1042,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @SelectConfirm => m_Wrapper.m_Player_SelectConfirm;
         public InputAction @RightClick => m_Wrapper.m_Player_RightClick;
         public InputAction @Shift => m_Wrapper.m_Player_Shift;
+        public InputAction @SimulateHit => m_Wrapper.m_Player_SimulateHit;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1033,6 +1067,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Shift.started += instance.OnShift;
             @Shift.performed += instance.OnShift;
             @Shift.canceled += instance.OnShift;
+            @SimulateHit.started += instance.OnSimulateHit;
+            @SimulateHit.performed += instance.OnSimulateHit;
+            @SimulateHit.canceled += instance.OnSimulateHit;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1052,6 +1089,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Shift.started -= instance.OnShift;
             @Shift.performed -= instance.OnShift;
             @Shift.canceled -= instance.OnShift;
+            @SimulateHit.started -= instance.OnSimulateHit;
+            @SimulateHit.performed -= instance.OnSimulateHit;
+            @SimulateHit.canceled -= instance.OnSimulateHit;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1239,6 +1279,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnSelectConfirm(InputAction.CallbackContext context);
         void OnRightClick(InputAction.CallbackContext context);
         void OnShift(InputAction.CallbackContext context);
+        void OnSimulateHit(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
