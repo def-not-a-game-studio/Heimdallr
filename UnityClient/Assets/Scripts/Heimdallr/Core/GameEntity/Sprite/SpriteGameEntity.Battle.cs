@@ -27,26 +27,30 @@ namespace Heimdallr.Core.Game.Sprite
                 actionRequest.action is not (ActionRequestType.ATTACK_MULTIPLE_NOMOTION or ActionRequestType.ATTACK_NOMOTION))
             {
                 var previousState = _state;
-                
-                ChangeMotion(
-                    new MotionRequest
-                    {
-                        Motion = SpriteMotion.Hit,
-                        forced = true,
-                    }
-                );
+
+                if (previousState != EntityState.Hit)
+                {
+                    ChangeMotion(
+                        new MotionRequest
+                        {
+                            Motion = SpriteMotion.Hit,
+                            forced = true,
+                        }
+                    );
+                }
                 
                 if (previousState == EntityState.Walk)
                 {
+                    var delay2 = (long)SpriteViewer.GetAttackDelay();
                     ChangeMotion(
                         new MotionRequest
                         {
                             Motion = SpriteMotion.Walk,
                             forced = false,
-                            startTime = GameManager.Tick + delay
+                            startTime = GameManager.Tick + delay2
                         }
                     );
-                    MovementController.DelayMovement(delay);
+                    MovementController.DelayMovement(delay2);
                 }
             }
         }

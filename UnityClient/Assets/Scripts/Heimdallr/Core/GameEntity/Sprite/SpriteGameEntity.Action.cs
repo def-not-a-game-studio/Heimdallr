@@ -16,7 +16,7 @@ namespace Heimdallr.Core.Game.Sprite
         {
             if (CurrentMotionRequest.startTime <= 0 || GameManager.Tick <= CurrentMotionRequest.startTime)
                 return;
-            Debug.Log($"[{GameManager.Tick}] Applying motion queue {CurrentMotionRequest.Motion} {CurrentMotionRequest.startTime}");
+            // Debug.Log($"[{GameManager.Tick}] Applying motion queue {CurrentMotionRequest.Motion} {CurrentMotionRequest.startTime}");
             CurrentMotionRequest.startTime = -1;
             ChangeMotion(CurrentMotionRequest);
         }
@@ -159,11 +159,7 @@ namespace Heimdallr.Core.Game.Sprite
                 CurrentMotionRequest = request;
                 return;
             }
-            else if (CurrentMotionRequest.Motion == SpriteMotion.Walk)
-            {
-                MovementController.StopMoving();
-            }
-
+            
             CurrentMotionRequest = default;
             
             var state = request.Motion switch
@@ -191,8 +187,8 @@ namespace Heimdallr.Core.Game.Sprite
             }
 
             _state = state;
-            if ((EntityType)GetEntityType() == EntityType.PC)
-                Debug.Log($"[{GameManager.Tick}] State {state} -> {transform.position}");
+            // if ((EntityType)GetEntityType() == EntityType.PC)
+            //     Debug.Log($"[{GameManager.Tick}] State {state} -> {transform.position}");
             SpriteViewer.ChangeMotion(request);
         }
 

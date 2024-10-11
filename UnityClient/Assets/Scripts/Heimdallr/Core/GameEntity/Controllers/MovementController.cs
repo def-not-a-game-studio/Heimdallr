@@ -43,7 +43,7 @@ namespace Heimdallr.Core.Game.Controllers
             PathFinder = FindObjectOfType<PathFinder>();
             NetworkClient = FindObjectOfType<NetworkClient>();
             Entity = GetComponent<MeshGameEntity>();
-            GameManager = GetComponent<GameManager>();
+            GameManager = FindObjectOfType<GameManager>();
         }
 
         private void Start()
@@ -98,11 +98,12 @@ namespace Heimdallr.Core.Game.Controllers
             //Debug.Log($"Moving\n Start:{startX},{startY}\nDest:{endX},{endY}");
 
             pathInfo ??= new CPathInfo();
+            GameManager.SetServerTick(tick);
             var hasValidPath = FindPath(startX, startY, endX, endY, tick);
 
             if (hasValidPath)
             {
-                Debug.Log($"[{GameManager.Tick}] ({startX},0,{startY}) -> {transform.position}");
+                // Debug.Log($"[{GameManager.Tick}] ({startX},0,{startY}) -> {transform.position}");
                 // MoveStartPosition = new Vector3(startX, PathFinder.GetCellHeight(startX, startY), startY);
                 MoveStartPosition = transform.position;
                 pathStartCellIndex = 0;
