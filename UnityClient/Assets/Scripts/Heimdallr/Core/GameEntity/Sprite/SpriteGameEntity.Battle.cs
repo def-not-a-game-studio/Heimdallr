@@ -28,16 +28,13 @@ namespace Heimdallr.Core.Game.Sprite
             {
                 var previousState = _state;
 
-                if (previousState != EntityState.Hit)
-                {
-                    ChangeMotion(
-                        new MotionRequest
-                        {
-                            Motion = SpriteMotion.Hit,
-                            forced = true,
-                        }
-                    );
-                }
+                ChangeMotion(
+                    new MotionRequest
+                    {
+                        Motion = SpriteMotion.Hit,
+                        forced = true,
+                    }
+                );
                 
                 if (previousState == EntityState.Walk)
                 {
