@@ -156,6 +156,7 @@ namespace Heimdallr.Core.Game.Sprite
         {
             if (request.startTime > GameManager.Tick)
             {
+                // Debug.Log($"[{GameManager.Tick}] Delaying motion {request.Motion} {request.startTime}");
                 CurrentMotionRequest = request;
                 return;
             }
