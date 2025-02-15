@@ -79,7 +79,7 @@ namespace Heimdallr.Core.Game.Sprite
                 }
             }
 
-            if (MovementController == null) {
+            if (MovementController is null) {
                 MovementController = gameObject.GetOrAddComponent<GameEntityMovementController>();
             }
 

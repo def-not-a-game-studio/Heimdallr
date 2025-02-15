@@ -22,21 +22,6 @@ namespace Heimdallr.Core.Game.Controllers
 
         #endregion
 
-        #region PathFinding
-
-        private CPathInfo pathInfo;
-
-        private int pathStartCellIndex;
-        private int pathPreviousCellIndex;
-
-        private Direction direction;
-        private long m_lastProcessStateTime;
-        private long m_lastServerTime;
-        private bool m_isNeverAnimation;
-        private Vector3 MoveStartPosition;
-
-        #endregion
-
         private void Awake()
         {
             GroundMask = LayerMask.GetMask("Ground");

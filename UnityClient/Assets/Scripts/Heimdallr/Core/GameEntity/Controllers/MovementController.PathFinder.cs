@@ -6,6 +6,17 @@ namespace Heimdallr.Core.Game.Controllers
 {
     public partial class GameEntityMovementController
     {
+        private CPathInfo pathInfo;
+
+        private int pathStartCellIndex;
+        private int pathPreviousCellIndex;
+
+        private Direction direction;
+        private long m_lastProcessStateTime;
+        private long m_lastServerTime;
+        private bool m_isNeverAnimation;
+        private Vector3 MoveStartPosition;
+        
         private void ProcessState() {
             var serverTime = GameManager.Tick;
             if (Entity.State == EntityState.Walk) {
