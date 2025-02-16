@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,9 @@ using Core.Effects;
 using Core.Effects.EffectParts;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityRO.Core.Database;
+using UnityRO.Core.Database.Emotion;
+using Random = UnityEngine.Random;
 
 namespace Heimdallr
 {
@@ -15,9 +19,11 @@ namespace Heimdallr
 
         private EffectCache _effectCache;
         private List<EffectRenderer> _strEffectRenderers;
+        private DatabaseManager _databaseManager;
 
         private void Awake()
         {
+            _databaseManager = FindAnyObjectByType<DatabaseManager>();
             _effectCache = FindAnyObjectByType<EffectCache>();
             _strEffectRenderers =
                 FindObjectsByType<EffectRenderer>(FindObjectsInactive.Exclude, FindObjectsSortMode.InstanceID).ToList();
@@ -25,7 +31,16 @@ namespace Heimdallr
 
         public void SpawnEffect()
         {
+            _strEffectRenderers =
+                FindObjectsByType<EffectRenderer>(FindObjectsInactive.Exclude, FindObjectsSortMode.InstanceID).ToList();
             SpawnEffectAsync();
+        }
+
+        public void SpawnEmote()
+        {
+            _strEffectRenderers =
+                FindObjectsByType<EffectRenderer>(FindObjectsInactive.Exclude, FindObjectsSortMode.InstanceID).ToList();
+            SpawnEmoteAsync();
         }
 
         private async void SpawnEffectAsync()
@@ -78,8 +93,22 @@ namespace Heimdallr
             }
         }
 
-        private float count;
+        private async void SpawnEmoteAsync()
+        {
+            var emotions = Enum.GetValues(typeof(EmotionType)).Cast<EmotionType>().ToList();
+            while (_strEffectRenderers.Count > 0)
+            {
+                var randomIndex = Random.Range(0, _strEffectRenderers.Count);
+                var effectIndex = Random.Range(0, emotions.Count);
+                
+                var renderer = _strEffectRenderers[randomIndex];
+                await renderer.SetEmotion(_databaseManager.GetEmotionIndex(emotions[effectIndex]));
+                await UniTask.Delay(Random.Range(0, 200));
+                _strEffectRenderers.Remove(renderer);
+            }
+        }
 
+        private float count;
         private IEnumerator Start()
         {
             if (effect != null)
