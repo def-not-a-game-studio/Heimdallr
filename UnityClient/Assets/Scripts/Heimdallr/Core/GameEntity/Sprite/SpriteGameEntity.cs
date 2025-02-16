@@ -49,6 +49,7 @@ namespace Heimdallr.Core.Game.Sprite {
         public override void ManagedUpdate() {
             HandleSpawnData();
             CheckMotionQueue();
+            SpriteViewer.ManagedUpdate();
         }
 
         private IEnumerator HideAfterSeconds(float seconds) {
