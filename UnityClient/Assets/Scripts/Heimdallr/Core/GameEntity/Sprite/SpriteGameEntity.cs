@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Core.Effects;
 using Core.Path;
 using Heimdallr.Core.Game.Controllers;
@@ -51,7 +52,7 @@ namespace Heimdallr.Core.Game.Sprite {
             CheckMotionQueue();
             SpriteViewer.ManagedUpdate();
         }
-
+        
         private IEnumerator HideAfterSeconds(float seconds) {
             yield return SpriteViewer.FadeOutRenderer(0, seconds);
             SpriteViewer.Teardown();
