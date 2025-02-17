@@ -4,8 +4,10 @@ using UnityEngine;
 using UnityRO.Core.GameEntity;
 using UnityRO.Net;
 
-namespace Core.Network {
-    public class BurstConnectionOrchestrator : MonoBehaviour {
+namespace Core.Network
+{
+    public class BurstConnectionOrchestrator : MonoBehaviour
+    {
         private NetworkClient NetworkClient;
         private PathFinder PathFinder;
         private SessionManager SessionManager;
@@ -21,7 +23,8 @@ namespace Core.Network {
         private string ForceMap;
         private CoreGameEntity PlayerEntity;
 
-        private void Start() {
+        private void Start()
+        {
             NetworkClient = FindObjectOfType<NetworkClient>();
             PathFinder = FindObjectOfType<PathFinder>();
             SessionManager = FindObjectOfType<SessionManager>();
@@ -34,10 +37,10 @@ namespace Core.Network {
             NetworkClient.HookPacket<HC.NOTIFY_ZONESVR2>(HC.NOTIFY_ZONESVR2.HEADER, OnCharacterSelectionAccepted);
             NetworkClient.HookPacket<HC.ACCEPT_MAKECHAR>(HC.ACCEPT_MAKECHAR.HEADER, OnMakeCharAccepted);
             NetworkClient.HookPacket<ZC.ACCEPT_ENTER2>(ZC.ACCEPT_ENTER2.HEADER, OnMapServerLoginAccepted);
-            NetworkClient.HookPacket<HC.SECOND_PASSWD_LOGIN>(HC.SECOND_PASSWD_LOGIN.HEADER, (cmd, size, packet) =>
-            {
-                SelectCharacter(0);
-            });
+            // NetworkClient.HookPacket<HC.SECOND_PASSWD_LOGIN>(HC.SECOND_PASSWD_LOGIN.HEADER, (cmd, size, packet) =>
+            // {
+            //     SelectCharacter(0);
+            // });
 
             Connect();
         }
@@ -50,7 +53,8 @@ namespace Core.Network {
             string host,
             string forceMap,
             CoreGameEntity playerEntity
-        ) {
+        )
+        {
             CharServerIndex = charServerIndex;
             CharIndex = charIndex;
             Username = username;
@@ -60,33 +64,20 @@ namespace Core.Network {
             PlayerEntity = playerEntity;
         }
 
-        public void Connect() {
+        public void Connect()
+        {
             TryConnectAndLogin(Host, Username, Password);
         }
 
-        private void TryConnectAndLogin(string host, string username, string password) {
+        private void TryConnectAndLogin(string host, string username, string password)
+        {
             //Debug.Log("Logging in");
             NetworkClient.Connect(host, 6900, NetworkClient.ServerType.Login);
             new CA.LOGIN(username, password, 10, 10).Send();
         }
 
-        private void ConnectToCharServer(
-            AC.ACCEPT_LOGIN3 loginInfo,
-            CharServerInfo charServerInfo
-        ) {
-            Debug.Log("Connecting to char server");
-            NetworkClient.Connect(Host, charServerInfo.Port, NetworkClient.ServerType.Char);
-            new CH.ENTER(loginInfo.AccountID, loginInfo.LoginID1, loginInfo.LoginID2, loginInfo.Sex).Send();
-        }
-
-        private void SelectCharacter(int index) {
-            Debug.Log("Selecting character");
-            new CH.SELECT_CHAR(index).Send();
-        }
-
-        #region Packet Hooks
-
-        private void OnLoginResponse(ushort cmd, int size, AC.ACCEPT_LOGIN3 packet) {
+        private void OnLoginResponse(ushort cmd, int size, AC.ACCEPT_LOGIN3 packet)
+        {
             Debug.Log("Login response received");
             NetworkClient.State.LoginInfo = packet;
             NetworkClient.State.CharServer = packet.Servers[CharServerIndex];
@@ -97,27 +88,78 @@ namespace Core.Network {
             ConnectToCharServer(packet, NetworkClient.State.CharServer);
         }
 
-        private void OnEnterResponse(ushort cmd, int size, HC.ACCEPT_ENTER pkt) {
+        private void ConnectToCharServer(
+            AC.ACCEPT_LOGIN3 loginInfo,
+            CharServerInfo charServerInfo
+        )
+        {
+            Debug.Log("Connecting to char server");
+            NetworkClient.Connect(Host, charServerInfo.Port, NetworkClient.ServerType.Char);
+            new CH.ENTER(loginInfo.AccountID, loginInfo.LoginID1, loginInfo.LoginID2, loginInfo.Sex).Send();
+        }
+        
+        private void OnEnter2Response(ushort cmd, int size, HC.ACCEPT_ENTER2 packet) {
+            Debug.Log($"Accept enter 2");
+        }
+
+        private void OnEnterResponse(ushort cmd, int size, HC.ACCEPT_ENTER pkt)
+        {
             Debug.Log("Char server response received");
             NetworkClient.State.CurrentCharactersInfo = pkt;
 
             // if no character available, create one
-            if (pkt.Chars.Count == 0) {
-                new CH.MAKE_CHAR2 {
+            if (pkt.Chars.Count == 0)
+            {
+                new CH.MAKE_CHAR2
+                {
                     Name = Convert.ToBase64String(Guid.NewGuid().ToByteArray())[..8],
                     CharNum = 0
                 }.Send();
-            } else {
+            }
+            else
+            {
                 NetworkClient.State.SelectedCharacter = pkt.Chars[CharIndex];
                 SelectCharacter(CharIndex);
             }
         }
 
-        private async void OnMapServerLoginAccepted(ushort cmd, int size, ZC.ACCEPT_ENTER2 pkt) {
+        private void SelectCharacter(int index)
+        {
+            Debug.Log("Selecting character");
+            new CH.SELECT_CHAR(index).Send();
+        }
+
+        /**
+         * The only situation we'll end up is when we don't have any character to begin with
+         * So we create a new one and as we're orchestrating, just connect with it.
+         */
+        private void OnMakeCharAccepted(ushort cmd, int size, HC.ACCEPT_MAKECHAR ACCEPT_MAKECHAR)
+        {
+            Debug.Log("Char created");
+            NetworkClient.State.SelectedCharacter = ACCEPT_MAKECHAR.characterData;
+
+            SelectCharacter(0);
+        }
+
+        private void OnCharacterSelectionAccepted(ushort cmd, int size, HC.NOTIFY_ZONESVR2 currentMapInfo)
+        {
+            Debug.Log("Char selection accepted");
+            CurrentMapInfo = currentMapInfo;
+
+            NetworkClient.Connect(Host, currentMapInfo.Port, NetworkClient.ServerType.Zone);
+
+            var loginInfo = NetworkClient.State.LoginInfo;
+            new CZ.ENTER2(loginInfo.AccountID, NetworkClient.State.SelectedCharacter.GID, loginInfo.LoginID1,
+                new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds(), loginInfo.Sex).Send();
+        }
+
+        private async void OnMapServerLoginAccepted(ushort cmd, int size, ZC.ACCEPT_ENTER2 pkt)
+        {
             Debug.Log("Map server response received");
             NetworkClient.PausePacketHandling();
 
-            var mapLoginInfo = new MapLoginInfo {
+            var mapLoginInfo = new MapLoginInfo
+            {
                 mapname = CurrentMapInfo.Mapname.Split('.')[0],
                 PosX = pkt.PosX,
                 PosY = pkt.PosY,
@@ -126,7 +168,8 @@ namespace Core.Network {
             NetworkClient.State.MapLoginInfo = mapLoginInfo;
             GameManager.SetServerTick(pkt.Tick);
 
-            PlayerEntity.Init(new GameEntityBaseStatus() {
+            PlayerEntity.Init(new GameEntityBaseStatus()
+            {
                 GID = NetworkClient.State.SelectedCharacter.GID,
                 HairStyle = NetworkClient.State.SelectedCharacter.Head,
                 IsMale = NetworkClient.State.SelectedCharacter.Sex == 1,
@@ -138,7 +181,7 @@ namespace Core.Network {
                 MoveSpeed = NetworkClient.State.SelectedCharacter.Speed,
                 EntityType = EntityType.PC,
                 Name = NetworkClient.State.SelectedCharacter.Name,
-                
+
                 Weapon = NetworkClient.State.SelectedCharacter.Weapon,
                 Shield = NetworkClient.State.SelectedCharacter.Shield
             });
@@ -156,43 +199,19 @@ namespace Core.Network {
             PlayerEntity.ChangeDirection(Direction.North);
             NetworkClient.ResumePacketHandling();
 
-            if (mapLoginInfo.mapname != ForceMap) {
+            if (mapLoginInfo.mapname != ForceMap)
+            {
                 //new CZ.REQUEST_CHAT($"@warp {ForceMap} 150 150").Send();
             }
         }
 
-        /**
-         * The only situation we'll end up is when we don't have any character to begin with 
-         * So we create a new one and as we're orchestrating, just connect with it.
-         */
-        private void OnMakeCharAccepted(ushort cmd, int size, HC.ACCEPT_MAKECHAR ACCEPT_MAKECHAR) {
-            Debug.Log("Char created");
-            NetworkClient.State.SelectedCharacter = ACCEPT_MAKECHAR.characterData;
-
-            SelectCharacter(0);
+        private void OnCharListResponse(ushort cmd, int size, HC.NOTIFY_CHARLIST packet)
+        {
+            //Debug.Log("Char list received");
         }
 
-        private async void OnCharacterSelectionAccepted(ushort cmd, int size, HC.NOTIFY_ZONESVR2 currentMapInfo) {
-            Debug.Log("Char selection accepted");
-            CurrentMapInfo = currentMapInfo;
-
-            NetworkClient.Connect(Host, currentMapInfo.Port, NetworkClient.ServerType.Zone);
-
-            var loginInfo = NetworkClient.State.LoginInfo;
-            new CZ.ENTER2(loginInfo.AccountID, NetworkClient.State.SelectedCharacter.GID, loginInfo.LoginID1,
-                new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds(), loginInfo.Sex).Send();
-        }
-        
-        private void OnCharListResponse(ushort cmd, int size, HC.NOTIFY_CHARLIST packet) {
-            Debug.Log("Char list received");
-        }
-        
-        private void OnEnter2Response(ushort cmd, int size, HC.ACCEPT_ENTER2 packet) {
-            Debug.Log($"Accept enter 2");
-        }
-        #endregion
-
-        public void SendCommand(string command) {
+        public void SendCommand(string command)
+        {
             new CZ.REQUEST_CHAT(SessionManager.CurrentSession.Entity.GetEntityName(), command).Send();
         }
     }
