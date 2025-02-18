@@ -15,7 +15,10 @@ namespace Heimdallr.Core.Game.Controllers
         private long m_lastProcessStateTime;
         private long m_lastServerTime;
         private bool m_isNeverAnimation;
+        
         private Vector3 MoveStartPosition;
+        private Vector3 MoveEndPosition;
+        private float Distance;
         
         private void ProcessState() {
             var serverTime = GameManager.Tick;
@@ -27,6 +30,7 @@ namespace Heimdallr.Core.Game.Controllers
                 var previousServerDirection = 0;
                 var previousCellPosition = Vector3.zero;
                 var prevTime = 0L;
+                var lastPosition = transform.position;
 
                 pathStartCellIndex = pathInfo.GetNextCellInfo(
                     serverTime,
@@ -63,6 +67,11 @@ namespace Heimdallr.Core.Game.Controllers
                     transform.position = position;
                 }
 
+                lastPosition.y = 0;
+                var tempPos = transform.position;
+                tempPos.y = 0;
+                Distance += Vector3.Distance(tempPos, lastPosition);
+
                 if (pathStartCellIndex == -1 && serverTime >= nextCellTime) {
                     transform.position = nextCellPosition;
 
@@ -96,6 +105,11 @@ namespace Heimdallr.Core.Game.Controllers
                 Entity.Status.MoveSpeed,
                 pathInfo
             );
+        }
+
+        public float GetDistance()
+        {
+            return Distance;
         }
     }
 }

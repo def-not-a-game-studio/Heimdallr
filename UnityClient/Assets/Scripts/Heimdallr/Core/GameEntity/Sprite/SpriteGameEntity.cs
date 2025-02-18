@@ -47,6 +47,11 @@ namespace Heimdallr.Core.Game.Sprite {
             _state = state;
         }
 
+        public override float GetDistance()
+        {
+            return MovementController.GetDistance();
+        }
+
         public override void ManagedUpdate() {
             HandleSpawnData();
             CheckMotionQueue();

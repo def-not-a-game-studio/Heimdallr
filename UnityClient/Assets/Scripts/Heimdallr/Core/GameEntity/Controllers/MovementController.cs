@@ -91,6 +91,8 @@ namespace Heimdallr.Core.Game.Controllers
                 // Debug.Log($"[{GameManager.Tick}] ({startX},0,{startY}) -> {transform.position}");
                 // MoveStartPosition = new Vector3(startX, PathFinder.GetCellHeight(startX, startY), startY);
                 MoveStartPosition = transform.position;
+                MoveEndPosition = new Vector3(endX, 0f, endY);
+                Distance = 0f;
                 pathStartCellIndex = 0;
                 Entity.ChangeMotion(new MotionRequest { Motion = SpriteMotion.Walk });
             }
@@ -104,6 +106,7 @@ namespace Heimdallr.Core.Game.Controllers
         {
             m_isNeverAnimation = true;
             Entity.ChangeMotion(new MotionRequest { Motion = SpriteMotion.Idle });
+            Distance = 0f;
         }
 
         public void DelayMovement(long delay)
