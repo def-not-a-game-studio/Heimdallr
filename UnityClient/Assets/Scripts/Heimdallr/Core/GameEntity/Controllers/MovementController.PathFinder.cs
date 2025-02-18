@@ -67,10 +67,7 @@ namespace Heimdallr.Core.Game.Controllers
                     transform.position = position;
                 }
 
-                lastPosition.y = 0;
-                var tempPos = transform.position;
-                tempPos.y = 0;
-                Distance += Vector3.Distance(tempPos, lastPosition);
+                AddDistance(lastPosition);
 
                 if (pathStartCellIndex == -1 && serverTime >= nextCellTime) {
                     transform.position = nextCellPosition;
@@ -82,7 +79,15 @@ namespace Heimdallr.Core.Game.Controllers
             m_lastProcessStateTime = GameManager.Tick;
             m_lastServerTime = serverTime;
         }
-        
+
+        private void AddDistance(Vector3 lastPosition)
+        {
+            var progress = transform.position - lastPosition;
+            progress.y = 0;
+            var deltaDistance = progress.magnitude;
+            Distance += deltaDistance / 0.25f;
+        }
+
         private void CheckDirection(Vector3 position, Vector3 prevPos) {
             var direction = PathFinder.GetDirectionForOffset(position, prevPos);
             if (this.direction != direction) {
