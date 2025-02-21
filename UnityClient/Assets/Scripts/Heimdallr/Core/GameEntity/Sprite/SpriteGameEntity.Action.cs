@@ -73,7 +73,7 @@ namespace Heimdallr.Core.Game.Sprite
                     }
 
                     EntityManager.UnlinkEntity((uint)Status.AID);
-                    StartCoroutine(HideAfterSeconds(2f));
+                    StartCoroutine(HideAfterSeconds(FADE_OUT_TIMEOUT));
                     break;
                 case VanishType.LOGGED_OUT:
                 case VanishType.TELEPORT:

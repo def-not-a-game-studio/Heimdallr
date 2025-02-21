@@ -14,6 +14,10 @@ namespace Heimdallr.Core.Game.Sprite
 {
     public partial class SpriteGameEntity
     {
+
+        private const float FADE_IN_TIMEOUT = 0.5f;
+        private const float FADE_OUT_TIMEOUT = 2f;
+        
         private void Awake()
         {
             SessionManager = FindObjectOfType<SessionManager>();
@@ -146,6 +150,7 @@ namespace Heimdallr.Core.Game.Sprite
                 ? body.Male
                 : body.Female;
             SpriteViewer.Init(bodySprite, ViewerType.Body, this);
+            SpriteViewer.transform.localPosition = new Vector3(0, 0.15f, 0);
 
             var head = DatabaseManager.GetHeadById(gameEntityBaseStatus.HairStyle);
             var headSprite = gameEntityBaseStatus.IsMale ? head.Male : head.Female;
@@ -164,7 +169,8 @@ namespace Heimdallr.Core.Game.Sprite
             };
             gameObject.SetActive(true);
             SpriteViewer.gameObject.SetActive(true);
-            StartCoroutine(SpriteViewer.FadeInRenderer(0, .5f));
+            SpriteViewer.transform.localPosition = new Vector3(0, 0.15f, 0);
+            StartCoroutine(SpriteViewer.FadeInRenderer(0, FADE_IN_TIMEOUT));
         }
 
         public override void UpdateStatus(GameEntityBaseStatus status, int[] posDir, bool forceNorthDirection)
