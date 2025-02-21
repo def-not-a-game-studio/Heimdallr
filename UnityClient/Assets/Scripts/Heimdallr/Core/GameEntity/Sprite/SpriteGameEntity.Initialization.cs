@@ -8,6 +8,7 @@ using UnityRO.Core.Database;
 using UnityRO.Core.GameEntity;
 using UnityRO.Core.Sprite;
 using UnityRO.Net;
+using Cysharp.Threading.Tasks;
 
 namespace Heimdallr.Core.Game.Sprite
 {
@@ -40,7 +41,7 @@ namespace Heimdallr.Core.Game.Sprite
             _state = EntityState.Idle;
         }
 
-        private void HandleSpawnData()
+        private async void HandleSpawnData()
         {
             if (_spawnPosDir == null) return;
 
@@ -58,8 +59,8 @@ namespace Heimdallr.Core.Game.Sprite
             if ((JobType)_status.Job == JobType.JT_WARPNPC)
             {
                 SpriteViewer.gameObject.SetActive(false);
-                var resourceRequest = Resources.LoadAsync<Effect>("Database/Effects/WarpZone2");
-                resourceRequest.completed += (op) => { EffectRenderer.InitEffects(resourceRequest.asset as Effect); };
+                var effect = await Resources.LoadAsync("Database/Effects/WarpZone2") as Effect;
+                EffectRenderer.InitEffects(effect);
                 _spawnPosDir = null;
                 return;
             }
