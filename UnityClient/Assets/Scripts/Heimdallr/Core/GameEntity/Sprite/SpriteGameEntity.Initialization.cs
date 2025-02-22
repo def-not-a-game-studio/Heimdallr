@@ -9,6 +9,7 @@ using UnityRO.Core.GameEntity;
 using UnityRO.Core.Sprite;
 using UnityRO.Net;
 using Cysharp.Threading.Tasks;
+using UnityEngine.UIElements;
 
 namespace Heimdallr.Core.Game.Sprite
 {
@@ -17,6 +18,8 @@ namespace Heimdallr.Core.Game.Sprite
 
         private const float FADE_IN_TIMEOUT = 0.5f;
         private const float FADE_OUT_TIMEOUT = 2f;
+
+        private GameObject _namePlateAsset;
         
         private void Awake()
         {
@@ -125,6 +128,7 @@ namespace Heimdallr.Core.Game.Sprite
             }
 
             _spawnPosDir = null;
+            InitUi();
         }
 
         private void ProcessMovingEntry(int[] posDir)
@@ -171,6 +175,23 @@ namespace Heimdallr.Core.Game.Sprite
             SpriteViewer.gameObject.SetActive(true);
             SpriteViewer.transform.localPosition = new Vector3(0, 0.15f, 0);
             StartCoroutine(SpriteViewer.FadeInRenderer(0, FADE_IN_TIMEOUT));
+        }
+
+        private async void InitUi()
+        {
+            var canvas = GameObject.FindWithTag("WorldUI");
+            var nameplatePrefab = await Resources.LoadAsync("UI/World/NamePlate") as GameObject;
+            _namePlateAsset = Instantiate(nameplatePrefab, canvas.transform);
+            _namePlateAsset.transform.position = transform.position;
+            _namePlateAsset.transform.localScale = Vector3.one / 100f;
+        }
+
+        private void TearDownUi()
+        {
+            if (_namePlateAsset == null) return;
+            
+            Destroy(_namePlateAsset.gameObject);
+            _namePlateAsset = null;
         }
 
         public override void UpdateStatus(GameEntityBaseStatus status, int[] posDir, bool forceNorthDirection)

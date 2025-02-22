@@ -80,6 +80,8 @@ namespace Heimdallr.Core.Game.Sprite
                     EntityManager.DestroyEntity((uint)Status.AID);
                     break;
             }
+
+            TearDownUi();
         }
 
         public override void ShowEmotion(byte emotionType)

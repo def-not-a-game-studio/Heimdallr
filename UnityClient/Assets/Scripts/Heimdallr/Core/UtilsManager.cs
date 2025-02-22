@@ -28,8 +28,8 @@ public class UtilsManager : MonoBehaviour {
     [SerializeField] private TMP_InputField InputField;
     private float _deltaTime;
 
-    [Header(":: Test Server Only")] [SerializeField]
-    private CinemachineVirtualCamera CinemachineVirtualCamera;
+    // [Header(":: Test Server Only")] [SerializeField]
+    // private CinemachineVirtualCamera CinemachineVirtualCamera;
 
     // Whether to orchestrate the login journey
     [SerializeField] private bool OrchestrateConnect = true;
@@ -83,8 +83,8 @@ public class UtilsManager : MonoBehaviour {
         GameManager.IsOffline = !OrchestrateConnect;
         CoreGameEntity entity = UseMeshEntity ? MeshPlayerEntity : SpritePlayerEntity;
 
-        CinemachineVirtualCamera.Follow = entity.transform;
-        CinemachineVirtualCamera.LookAt = entity.transform;
+        // CinemachineVirtualCamera.Follow = entity.transform;
+        // CinemachineVirtualCamera.LookAt = entity.transform;
         
         if (OrchestrateConnect) {
             SpritePlayerEntity.gameObject.SetActive(false);
