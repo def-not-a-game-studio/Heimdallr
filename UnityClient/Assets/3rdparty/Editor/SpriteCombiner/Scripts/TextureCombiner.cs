@@ -22,7 +22,9 @@ namespace SpriteCombiner
 
             Texture2D combinedTexture = new Texture2D(combinedWidth, combinedHeight, settings.textureFormat, false)
             {
+                #if UNITY_EDITOR
                 alphaIsTransparency = settings.alphaIsTransparency,
+                #endif
                 filterMode = settings.filterMode,
                 wrapMode = settings.wrapMode,
             };
@@ -100,7 +102,9 @@ namespace SpriteCombiner
 
             Texture2D rotatedTexture = new Texture2D(rotatedWidth, rotatedHeight, tex.format, false)
             {
+#if UNITY_EDITOR
                 alphaIsTransparency = tex.alphaIsTransparency,
+#endif
                 filterMode = tex.filterMode,
                 wrapMode = tex.wrapMode,
             };
@@ -147,7 +151,9 @@ namespace SpriteCombiner
 
             Texture2D scaledTex = new Texture2D(scaledWidth, scaledHeight, tex.format, false)
             {
+#if UNITY_EDITOR
                 alphaIsTransparency = tex.alphaIsTransparency,
+#endif
                 filterMode = tex.filterMode,
                 wrapMode = tex.wrapMode,
             };
