@@ -90,6 +90,11 @@ namespace Heimdallr.Core.Game.Sprite
             EffectRenderer.SetEmotion(emotionIndex).Forget();
         }
 
+        public override void ShowEffect(int effectId)
+        {
+            EffectRenderer.SetEffect(effectId);
+        }
+
         public override void ChangeLook(LookType lookType, short packetValue, short packetValue2)
         {
             switch (lookType)
