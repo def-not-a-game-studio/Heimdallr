@@ -9,10 +9,10 @@ using UnityRO.Core.GameEntity;
 using UnityRO.Core.Sprite;
 using UnityRO.Net;
 
-namespace Heimdallr.Core.Game.Sprite {
-
-    public partial class SpriteGameEntity : CoreSpriteGameEntity {
-        
+namespace Heimdallr.Core.Game.Sprite
+{
+    public partial class SpriteGameEntity : CoreSpriteGameEntity
+    {
         private SessionManager SessionManager;
         private PathFinder PathFinder;
         private EntityManager EntityManager;
@@ -27,15 +27,15 @@ namespace Heimdallr.Core.Game.Sprite {
 
         private SpawnPosDir _spawnPosDir;
         private GameMap _currentMap;
-        
+
         public override Direction Direction { get; set; }
-        
+
         public override GameMap CurrentMap => this._currentMap;
-        
+
         public override int HeadDirection { get; }
 
         public override GameEntityBaseStatus Status => _status;
-        
+
         public override EntityState State => _state;
 
         public override bool HasAuthority() =>
@@ -43,7 +43,8 @@ namespace Heimdallr.Core.Game.Sprite {
 
         public override int GetEntityGID() => _status.GID;
 
-        public override void SetState(EntityState state) {
+        public override void SetState(EntityState state)
+        {
             _state = state;
         }
 
@@ -52,25 +53,33 @@ namespace Heimdallr.Core.Game.Sprite {
             return MovementController.GetDistance();
         }
 
-        public override void ManagedUpdate() {
+        public override void ManagedUpdate()
+        {
             HandleSpawnData();
             CheckMotionQueue();
             SpriteViewer.ManagedUpdate();
+            if (_namePlateAsset != null)
+            {
+                _namePlateAsset.transform.position = transform.position;
+            }
         }
-        
-        private IEnumerator HideAfterSeconds(float seconds) {
+
+        private IEnumerator HideAfterSeconds(float seconds)
+        {
             yield return SpriteViewer.FadeOutRenderer(0, seconds);
             SpriteViewer.Teardown();
             EntityManager.RecycleEntity(this);
         }
 
-        private IEnumerator DestroyAfterSeconds(float seconds) {
+        private IEnumerator DestroyAfterSeconds(float seconds)
+        {
             yield return new WaitForSeconds(seconds);
             SpriteViewer.Teardown();
             EntityManager.RecycleEntity(this);
         }
 
-        private class SpawnPosDir {
+        private class SpawnPosDir
+        {
             public int[] posDir;
             public bool forceNorthDirection;
         }

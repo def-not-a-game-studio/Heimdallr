@@ -88,7 +88,7 @@ public class UtilsManager : MonoBehaviour {
         
         if (OrchestrateConnect) {
             SpritePlayerEntity.gameObject.SetActive(false);
-            MeshPlayerEntity.gameObject.SetActive(false);
+            // MeshPlayerEntity.gameObject.SetActive(false);
 
             gameObject.AddComponent<BurstConnectionOrchestrator>()
                 .Init(CharServerIndex, CharIndex, Username, Password, ServerHost, ForceMap, entity);

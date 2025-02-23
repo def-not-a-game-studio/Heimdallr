@@ -15,12 +15,11 @@ namespace Heimdallr.Core.Game.Sprite
 {
     public partial class SpriteGameEntity
     {
-
         private const float FADE_IN_TIMEOUT = 0.5f;
         private const float FADE_OUT_TIMEOUT = 2f;
 
         private GameObject _namePlateAsset;
-        
+
         private void Awake()
         {
             SessionManager = FindObjectOfType<SessionManager>();
@@ -28,12 +27,18 @@ namespace Heimdallr.Core.Game.Sprite
             EntityManager = FindObjectOfType<EntityManager>();
             DatabaseManager = FindObjectOfType<CustomDatabaseManager>();
 
-            SessionManager.OnSessionMapChanged += this.OnMapChanged;
+            if (HasAuthority())
+            {
+                SessionManager.OnSessionMapChanged += this.OnMapChanged;
+            }
         }
 
         private void OnDestroy()
         {
-            SessionManager.OnSessionMapChanged -= this.OnMapChanged;
+            if (HasAuthority())
+            {
+                SessionManager.OnSessionMapChanged -= this.OnMapChanged;
+            }
         }
 
         private void OnMapChanged(GameMap map)
@@ -161,6 +166,7 @@ namespace Heimdallr.Core.Game.Sprite
             SpriteViewer.FindChild(ViewerType.Head)?.Init(headSprite, ViewerType.Head, this);
 
             gameObject.SetActive(true);
+            InitUi();
         }
 
         public override void Spawn(GameEntityBaseStatus status, int[] posDir, bool forceNorthDirection)
@@ -184,12 +190,24 @@ namespace Heimdallr.Core.Game.Sprite
             _namePlateAsset = Instantiate(nameplatePrefab, canvas.transform);
             _namePlateAsset.transform.position = transform.position;
             _namePlateAsset.transform.localScale = Vector3.one / 100f;
+
+            if (HasAuthority())
+            {
+                var data = await Resources.LoadAsync<StatusWindowSourceScriptableObject>("UI/Overlay/Bindings/StatusWindowSource") as StatusWindowSourceScriptableObject;
+                data.Str = "10";
+                data.Agi = "11";
+                data.Int = "12";
+                
+                var root = FindAnyObjectByType<UIDocument>().rootVisualElement;
+                var statusWindow = root.Q<TemplateContainer>("StatusWindow").Q<VisualElement>("StatusWindowRoot");
+                statusWindow.dataSource = data;
+            }
         }
 
         private void TearDownUi()
         {
             if (_namePlateAsset == null) return;
-            
+
             Destroy(_namePlateAsset.gameObject);
             _namePlateAsset = null;
         }
