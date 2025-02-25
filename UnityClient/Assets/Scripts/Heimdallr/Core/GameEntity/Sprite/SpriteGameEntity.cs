@@ -18,6 +18,7 @@ namespace Heimdallr.Core.Game.Sprite
         private EntityManager EntityManager;
         private CustomDatabaseManager DatabaseManager;
         private GameEntityMovementController MovementController;
+        private NetworkClient NetworkClient;
 
         [SerializeField] private SpriteViewer SpriteViewer;
         [SerializeField] private EffectRenderer EffectRenderer;

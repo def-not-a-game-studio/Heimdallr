@@ -22,14 +22,20 @@ namespace Heimdallr.Core.Game.Sprite
 
         private void Awake()
         {
-            SessionManager = FindObjectOfType<SessionManager>();
-            PathFinder = FindObjectOfType<PathFinder>();
-            EntityManager = FindObjectOfType<EntityManager>();
-            DatabaseManager = FindObjectOfType<CustomDatabaseManager>();
+            SessionManager = FindAnyObjectByType<SessionManager>();
+            PathFinder = FindAnyObjectByType<PathFinder>();
+            EntityManager = FindAnyObjectByType<EntityManager>();
+            DatabaseManager = FindAnyObjectByType<CustomDatabaseManager>();
+            NetworkClient = FindAnyObjectByType<NetworkClient>(); 
 
             if (HasAuthority())
             {
                 SessionManager.OnSessionMapChanged += this.OnMapChanged;
+                
+                NetworkClient.HookPacket<ZC.LONGPAR_CHANGE>(ZC.LONGPAR_CHANGE.HEADER, OnLongParChange);
+                NetworkClient.HookPacket<ZC.LONGPAR_CHANGE2>(ZC.LONGPAR_CHANGE2.HEADER, OnLongParChange2);
+                NetworkClient.HookPacket<ZC.PAR_CHANGE>(ZC.PAR_CHANGE.HEADER, OnParChange);
+                NetworkClient.HookPacket<ZC.STATUS>(ZC.STATUS.HEADER, OnStatus);
             }
         }
 
@@ -38,6 +44,11 @@ namespace Heimdallr.Core.Game.Sprite
             if (HasAuthority())
             {
                 SessionManager.OnSessionMapChanged -= this.OnMapChanged;
+                
+                NetworkClient.UnhookPacket<ZC.LONGPAR_CHANGE>(ZC.LONGPAR_CHANGE.HEADER, OnLongParChange);
+                NetworkClient.UnhookPacket<ZC.LONGPAR_CHANGE2>(ZC.LONGPAR_CHANGE2.HEADER, OnLongParChange2);
+                NetworkClient.UnhookPacket<ZC.PAR_CHANGE>(ZC.PAR_CHANGE.HEADER, OnParChange);
+                NetworkClient.UnhookPacket<ZC.STATUS>(ZC.STATUS.HEADER, OnStatus);
             }
         }
 
@@ -181,27 +192,6 @@ namespace Heimdallr.Core.Game.Sprite
             SpriteViewer.gameObject.SetActive(true);
             SpriteViewer.transform.localPosition = new Vector3(0, 0.15f, 0);
             StartCoroutine(SpriteViewer.FadeInRenderer(0, FADE_IN_TIMEOUT));
-        }
-
-        private async void InitUi()
-        {
-            var canvas = GameObject.FindWithTag("WorldUI");
-            var nameplatePrefab = await Resources.LoadAsync("UI/World/NamePlate") as GameObject;
-            _namePlateAsset = Instantiate(nameplatePrefab, canvas.transform);
-            _namePlateAsset.transform.position = transform.position;
-            _namePlateAsset.transform.localScale = Vector3.one / 100f;
-
-            if (HasAuthority())
-            {
-                var data = await Resources.LoadAsync<StatusWindowSourceScriptableObject>("UI/Overlay/Bindings/StatusWindowSource") as StatusWindowSourceScriptableObject;
-                data.Str = "10";
-                data.Agi = "11";
-                data.Int = "12";
-                
-                var root = FindAnyObjectByType<UIDocument>().rootVisualElement;
-                var statusWindow = root.Q<TemplateContainer>("StatusWindow").Q<VisualElement>("StatusWindowRoot");
-                statusWindow.dataSource = data;
-            }
         }
 
         private void TearDownUi()
