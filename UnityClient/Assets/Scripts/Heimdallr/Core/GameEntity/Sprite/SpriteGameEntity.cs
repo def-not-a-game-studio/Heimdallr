@@ -40,7 +40,7 @@ namespace Heimdallr.Core.Game.Sprite
         public override EntityState State => _state;
 
         public override bool HasAuthority() =>
-            GameManager.IsOffline || GetEntityGID() == SessionManager.CurrentSession.Entity?.GetEntityGID();
+            GameManager.IsOffline || GetEntityGID() == SessionManager.CurrentSession?.Entity?.GetEntityGID();
 
         public override int GetEntityGID() => _status.GID;
 

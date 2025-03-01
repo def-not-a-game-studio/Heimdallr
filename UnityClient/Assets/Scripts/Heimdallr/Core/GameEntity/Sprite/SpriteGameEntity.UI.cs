@@ -44,7 +44,15 @@ namespace Heimdallr.Core.Game.Sprite
             _statusSO.Flee = $"{_status.Flee} - {_status.Flee2}";
             _statusSO.Critical = $"{_status.Crit}";
             _statusSO.Aspd = $"{_status.Aspd} - {_status.Aspd2}";
-            _statusSO.StatusPoints = _status.StatusPoints;
+            _statusSO.StatusPoints = $"{_status.StatusPoints}";
+
+            _statusSO.Patk = $"{_status.Patk}";
+            _statusSO.Res = $"{_status.Res}";
+            _statusSO.Smatk = $"{_status.Smatk}";
+            _statusSO.Mres = $"{_status.Mres}";
+            _statusSO.Hplus = $"{_status.Hplus}";
+            _statusSO.Crate = $"{_status.Crate}";
+            _statusSO.TraitPoints = $"{_status.TraitPoints}";
         }
     }
 }
