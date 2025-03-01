@@ -181,9 +181,10 @@ namespace Core.Network
                 MoveSpeed = NetworkClient.State.SelectedCharacter.Speed,
                 EntityType = EntityType.PC,
                 Name = NetworkClient.State.SelectedCharacter.Name,
-
                 Weapon = NetworkClient.State.SelectedCharacter.Weapon,
-                Shield = NetworkClient.State.SelectedCharacter.Shield
+                Shield = NetworkClient.State.SelectedCharacter.Shield,
+                BaseLevel = NetworkClient.State.SelectedCharacter.Level,
+                JobLevel = NetworkClient.State.SelectedCharacter.JobLevel,
             });
 
             SessionManager

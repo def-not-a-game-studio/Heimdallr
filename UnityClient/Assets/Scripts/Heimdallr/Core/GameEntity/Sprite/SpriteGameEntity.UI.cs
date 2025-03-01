@@ -29,6 +29,9 @@ namespace Heimdallr.Core.Game.Sprite
         
         private void UpdateStatusUI()
         {
+            _statusSO.Name = _status.Name;
+            _statusSO.JobName = $"{_status.Job}";
+            
             _statusSO.Str = $"{_status.Str} + {_status.NeedStr}";
             _statusSO.Agi = $"{_status.Agi} + {_status.NeedAgi}";
             _statusSO.Vit = $"{_status.Vit} + {_status.NeedVit}";
@@ -43,7 +46,7 @@ namespace Heimdallr.Core.Game.Sprite
             _statusSO.Hit = $"{_status.Hit}";
             _statusSO.Flee = $"{_status.Flee} - {_status.Flee2}";
             _statusSO.Critical = $"{_status.Crit}";
-            _statusSO.Aspd = $"{_status.Aspd} - {_status.Aspd2}";
+            _statusSO.Aspd = $"{(2000 - _status.Aspd) / 10}";
             _statusSO.StatusPoints = $"{_status.StatusPoints}";
 
             _statusSO.Patk = $"{_status.Patk}";
@@ -53,6 +56,25 @@ namespace Heimdallr.Core.Game.Sprite
             _statusSO.Hplus = $"{_status.Hplus}";
             _statusSO.Crate = $"{_status.Crate}";
             _statusSO.TraitPoints = $"{_status.TraitPoints}";
+
+            _statusSO.Weight = $"{_status.Weight} / {_status.MaxWeight}";
+
+            _statusSO.Hp = _status.HP;
+            _statusSO.MaxHp = _status.MaxHP;
+            _statusSO.Sp = _status.SP;
+            _statusSO.MaxSp = _status.MaxSP;
+            _statusSO.Money = _status.Money;
+
+            _statusSO.BaseExp = _status.BaseExp;
+            _statusSO.NextBaseExp = _status.NextBaseExp;
+            _statusSO.JobExp = _status.JobExp;
+            _statusSO.NextJobExp = _status.NextJobExp;
+
+            _statusSO.BaseLevel = (short)_status.BaseLevel;
+            _statusSO.JobLevel = (short)_status.JobLevel;
+
+            _statusSO.CurrentHpPercent = $"{(int)((float)_statusSO.Hp / _status.MaxHP * 100)}%";
+            _statusSO.CurrentSpPercent = $"{(int)((float)_statusSO.Sp / _status.MaxSP * 100)}%";
         }
     }
 }

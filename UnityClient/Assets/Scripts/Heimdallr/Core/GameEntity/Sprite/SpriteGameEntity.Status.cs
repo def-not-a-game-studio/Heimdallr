@@ -22,6 +22,16 @@ namespace Heimdallr.Core.Game.Sprite
             HandleEntityStatus(packet.varID, packet.value);
         }
 
+        private void OnStatusChange(ushort cmd, int size, ZC.STATUS_CHANGE packet)
+        {
+            Debug.Log($"STATUS_CHANGE {packet.status} {packet.value}");
+        }
+
+        private void OnCoupleStatus(ushort cmd, int size, ZC.COUPLESTATUS packet)
+        {
+            Debug.Log($"COUPLESTATUS: {packet.status} - {packet.value} + {packet.plusValue}");
+        }
+
         private void OnStatus(ushort cmd, int size, ZC.STATUS packet)
         {
             _status.StatusPoints = packet.stpoint;
@@ -158,6 +168,15 @@ namespace Heimdallr.Core.Game.Sprite
                     break;
                 case EntityStatus.SP_MAXAP:
                     _status.MaxAp = (short)value;
+                    break;
+                case EntityStatus.SP_JOBLEVEL:
+                    _status.JobLevel = (short)value;
+                    break;
+                case EntityStatus.SP_BASELEVEL:
+                    _status.BaseLevel = (short)value;
+                    break;
+                case EntityStatus.SP_STATUSPOINT:
+                    _status.StatusPoints = (short)value;
                     break;
                 default:
                     Debug.Log($"HandleEntityStatus unknown status {status}");

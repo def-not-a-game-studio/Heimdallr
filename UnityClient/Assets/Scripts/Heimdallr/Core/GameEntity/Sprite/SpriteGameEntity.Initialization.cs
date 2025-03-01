@@ -36,6 +36,8 @@ namespace Heimdallr.Core.Game.Sprite
                 NetworkClient.HookPacket<ZC.LONGPAR_CHANGE2>(ZC.LONGPAR_CHANGE2.HEADER, OnLongParChange2);
                 NetworkClient.HookPacket<ZC.PAR_CHANGE>(ZC.PAR_CHANGE.HEADER, OnParChange);
                 NetworkClient.HookPacket<ZC.STATUS>(ZC.STATUS.HEADER, OnStatus);
+                NetworkClient.HookPacket<ZC.COUPLESTATUS>(ZC.COUPLESTATUS.HEADER, OnCoupleStatus);
+                NetworkClient.HookPacket<ZC.STATUS_CHANGE>(ZC.STATUS_CHANGE.HEADER, OnStatusChange);
             }
         }
 
@@ -49,6 +51,8 @@ namespace Heimdallr.Core.Game.Sprite
                 NetworkClient.UnhookPacket<ZC.LONGPAR_CHANGE2>(ZC.LONGPAR_CHANGE2.HEADER, OnLongParChange2);
                 NetworkClient.UnhookPacket<ZC.PAR_CHANGE>(ZC.PAR_CHANGE.HEADER, OnParChange);
                 NetworkClient.UnhookPacket<ZC.STATUS>(ZC.STATUS.HEADER, OnStatus);
+                NetworkClient.UnhookPacket<ZC.COUPLESTATUS>(ZC.COUPLESTATUS.HEADER, OnCoupleStatus);
+                NetworkClient.UnhookPacket<ZC.STATUS_CHANGE>(ZC.STATUS_CHANGE.HEADER, OnStatusChange);
             }
         }
 
