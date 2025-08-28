@@ -100,7 +100,7 @@ public class UtilsManager : MonoBehaviour {
                 MeshPlayerEntity.Init(OfflineEntity);
                 MeshPlayerEntity.transform.SetPositionAndRotation(new Vector3(157.5f, 0, 210.5f), Quaternion.identity);
             } else {
-                MeshPlayerEntity.gameObject.SetActive(false);
+                // MeshPlayerEntity.gameObject.SetActive(false);
                 SpritePlayerEntity.Init(OfflineEntity);
                 SpritePlayerEntity.transform.SetPositionAndRotation(new Vector3(160, 0, 160), Quaternion.identity);
             }
