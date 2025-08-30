@@ -22,6 +22,7 @@ namespace Heimdallr.Core.Game.Controllers
         
         private void ProcessState() {
             var serverTime = GameManager.Tick;
+            
             if (Entity.State == EntityState.Walk) {
                 var serverDirection = 0;
                 var nextCellPosition = Vector3.zero;
@@ -61,9 +62,11 @@ namespace Heimdallr.Core.Game.Controllers
 
                 if (passedTime >= 0 && cellTime > 0) {
                     var distance = nextCellPosition - previousCellPosition;
-                    var position = previousCellPosition + distance * passedTime / cellTime;
+                    // The key calculation - this should be frame-rate independent
+                    var interpolationRatio = (float)passedTime / (float)cellTime;
+                    var position = Vector3.Lerp(previousCellPosition, nextCellPosition, interpolationRatio);
+                    
                     CheckDirection(nextCellPosition, previousCellPosition);
-
                     transform.position = position;
                 }
 
@@ -71,7 +74,6 @@ namespace Heimdallr.Core.Game.Controllers
 
                 if (pathStartCellIndex == -1 && serverTime >= nextCellTime) {
                     transform.position = nextCellPosition;
-
                     StopMoving();
                 }
             }

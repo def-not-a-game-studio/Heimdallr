@@ -122,6 +122,7 @@ public class UtilsManager : MonoBehaviour {
         // DebugInfo.text += $"\nDirection: {new Vector3Int((int)x, 0, (int)y)}";
 
         DebugInfo.text += $"\nTick: {GameManager.Tick}";
+        DebugInfo.text += $"\nServer Tick: {GameManager.ServerTick}";
         DebugInfo.text += $"\nPing: {GameManager.Ping} ms";
     }
 }
